@@ -775,13 +775,51 @@ namespace Bloxstrap
                 Directory.CreateDirectory(Paths.TempUpdates);
 
                 App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
-                
+
                 if (!File.Exists(downloadLocation))
                 {
-                    var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+                    // 更新包几十 MB，国内直连基本下不动。先走镜像，全挂了再回退直连
+                    var sources = new List<string>(App.GithubMirrors) { "" };
+                    bool downloaded = false;
 
-                    await using var fileStream = new FileStream(downloadLocation, FileMode.OpenOrCreate, FileAccess.Write);
-                    await response.Content.CopyToAsync(fileStream);
+                    foreach (string prefix in sources)
+                    {
+                        string source = String.IsNullOrEmpty(prefix) ? "direct" : prefix;
+
+                        try
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Trying {source}");
+
+                            using var response = await App.HttpClient.GetAsync(prefix + asset.BrowserDownloadUrl);
+                            response.EnsureSuccessStatusCode();
+
+                            // 先写 .part，确认大小对了再改名。
+                            // 镜像有时候会返回 200 的错误页，直接当 exe 存下来会启动失败
+                            string tempLocation = downloadLocation + ".part";
+
+                            await using (var fileStream = new FileStream(tempLocation, FileMode.Create, FileAccess.Write))
+                                await response.Content.CopyToAsync(fileStream);
+
+                            long size = new FileInfo(tempLocation).Length;
+
+                            if (size < 10 * 1024 * 1024)
+                                throw new InvalidHTTPResponseException($"Downloaded file is only {size} bytes, likely an error page");
+
+                            File.Move(tempLocation, downloadLocation, true);
+
+                            downloaded = true;
+                            App.Logger.WriteLine(LOG_IDENT, $"Downloaded {size} bytes via {source}");
+                            break;
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"{source} failed, trying next");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
+                    }
+
+                    if (!downloaded)
+                        throw new InvalidHTTPResponseException("Failed to download the update from any source");
                 }
 #endif
 

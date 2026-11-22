@@ -34,6 +34,18 @@ namespace Bloxstrap
         public const string ProjectHelpLink = "https://github.com/hckerelauk-git/Luckstrap#readme";
         public const string ProjectSupportLink = "https://github.com/hckerelauk-git/Luckstrap/issues/new";
 
+        /// <summary>
+        /// GitHub 国内直连基本是几 KB/s，检查更新和下载更新包都先过镜像。
+        /// 这些就是 Edge 上「GitHub 下载加速」那类扩展背后用的站，用法是在原地址前面拼前缀。
+        /// 按顺序试，全挂了再回退直连。
+        /// </summary>
+        public static readonly string[] GithubMirrors = new[]
+        {
+            "https://gh-proxy.com/",
+            "https://ghfast.top/",
+            "https://ghproxy.net/"
+        };
+
         // 数据目录名，跟原版 Bloxstrap 隔离开，避免互相覆盖配置
         public const string ProjectDataFolder = "Luckstrap";
 
@@ -92,20 +104,6 @@ namespace Bloxstrap
 
         private static bool _showingExceptionDialog = false;
 
-        private static string? _webUrl = null;
-        public static string WebUrl
-        {
-            get {
-                if (_webUrl != null)
-                    return _webUrl;
-
-                string url = ConstructBloxstrapWebUrl();
-                if (Settings.Loaded) // only cache if settings are done loading
-                    _webUrl = url;
-                return url;
-            }
-        }
-        
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
@@ -178,48 +176,76 @@ namespace Bloxstrap
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
         }
 
-        public static string ConstructBloxstrapWebUrl()
-        {
-            // dont let user switch web environment if debug mode is not on
-            if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
-                return "bloxstraplabs.com";
-
-            string? sub = Settings.Prop.WebEnvironment.GetDescription();
-            return $"web-{sub}.bloxstraplabs.com";
-        }
-
-        public static bool CanSendLogs()
-        {
-            // non developer mode always uses production
-            if (!Settings.Prop.DeveloperMode || Settings.Prop.WebEnvironment == WebEnvironment.Production)
-                return IsProductionBuild;
-
-            return true;
-        }
-
         public static async Task<GithubRelease?> GetLatestRelease()
         {
             const string LOG_IDENT = "App::GetLatestRelease";
 
-            try
-            {
-                // 查自己的仓库，不查上游
-                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{UpdateRepository}/releases/latest");
+            // api.github.com 那些镜像站不代理，只能打 releases/latest，
+            // 让它跳到 /releases/tag/vX.Y.Z，再从页面里把 tag 抠出来。
+            // 镜像按顺序试，最后才直连 —— 国内直连这一步基本会超时
+            var sources = new List<string>(GithubMirrors) { "" };
 
-                if (releaseInfo is null || releaseInfo.Assets is null)
+            foreach (string prefix in sources)
+            {
+                string source = String.IsNullOrEmpty(prefix) ? "direct" : prefix;
+                string url = $"{prefix}https://github.com/{UpdateRepository}/releases/latest";
+
+                try
                 {
-                    Logger.WriteLine(LOG_IDENT, "Encountered invalid data");
-                    return null;
+                    using var response = await HttpClient.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Logger.WriteLine(LOG_IDENT, $"{source} returned {(int)response.StatusCode}, trying next");
+                        continue;
+                    }
+
+                    string html = await response.Content.ReadAsStringAsync();
+                    string? tag = ExtractLatestReleaseTag(html);
+
+                    if (tag is null)
+                    {
+                        // 仓库还没有任何 release 时就是这个情况，页面里没有 tag 链接
+                        Logger.WriteLine(LOG_IDENT, $"{source} page has no release tag, trying next");
+                        continue;
+                    }
+
+                    Logger.WriteLine(LOG_IDENT, $"Latest release is {tag} (via {source})");
+
+                    return new GithubRelease
+                    {
+                        TagName = tag,
+                        Name = $"Luckstrap {tag}",
+                        Body = String.Empty,
+                        CreatedAt = String.Empty,
+                        Assets = new List<GithubReleaseAsset>
+                        {
+                            new()
+                            {
+                                Name = "Luckstrap.exe",
+                                BrowserDownloadUrl = $"https://github.com/{UpdateRepository}/releases/download/{tag}/Luckstrap.exe"
+                            }
+                        }
+                    };
                 }
-
-                return releaseInfo;
+                catch (Exception ex)
+                {
+                    Logger.WriteLine(LOG_IDENT, $"{source} failed, trying next");
+                    Logger.WriteException(LOG_IDENT, ex);
+                }
             }
-            catch (Exception ex)
-            {
-                Logger.WriteException(LOG_IDENT, ex);
-            }
 
+            Logger.WriteLine(LOG_IDENT, "No release source reachable");
             return null;
+        }
+
+        /// <summary>
+        /// 从 release 页面 HTML 里抠最新 tag。GitHub 的 tag 链接格式很固定，第一个就是最新的
+        /// </summary>
+        private static string? ExtractLatestReleaseTag(string html)
+        {
+            Match match = Regex.Match(html, @"/releases/tag/(v?\d[\w.\-]*)");
+            return match.Success ? match.Groups[1].Value : null;
         }
 
         // 上游的统计服务架在 bloxstraplabs.com 上，我们没自己的收集端。
