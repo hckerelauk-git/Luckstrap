@@ -20,15 +20,19 @@ namespace Bloxstrap
         public const string ProjectName = "Luckstrap";
 #endif
         public const string ProjectOwner = "Luckstrap";
-        // wiki、帮助文档、issue 链接仍然指向上游，那边的内容还能用
-        public const string ProjectRepository = "bloxstraplabs/bloxstrap";
 
-        // 自更新必须查自己的仓库。指向上游的话，上游一发版就会把 Luckstrap 覆盖成原版 Bloxstrap
-        public const string UpdateRepository = "hckerelauk-git/Luckstrap";
+        // 我们自己的仓库
+        public const string ProjectRepository = "hckerelauk-git/Luckstrap";
+
+        // 上游仓库。排错用的 wiki 还在那边，内容对 Luckstrap 同样适用，所以帮助链接继续指过去
+        public const string UpstreamRepository = "bloxstraplabs/bloxstrap";
+
+        // 自更新查的仓库，跟 ProjectRepository 是同一个。单独起个名字是为了让调用点读起来知道用途
+        public const string UpdateRepository = ProjectRepository;
 
         public const string ProjectDownloadLink = "https://github.com/hckerelauk-git/Luckstrap/releases";
-        public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
-        public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
+        public const string ProjectHelpLink = "https://github.com/hckerelauk-git/Luckstrap#readme";
+        public const string ProjectSupportLink = "https://github.com/hckerelauk-git/Luckstrap/issues/new";
 
         // 数据目录名，跟原版 Bloxstrap 隔离开，避免互相覆盖配置
         public const string ProjectDataFolder = "Luckstrap";

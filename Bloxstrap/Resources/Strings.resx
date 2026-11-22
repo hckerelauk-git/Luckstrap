@@ -403,7 +403,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Luckstrap, helping make it what it is.</value>
+    <value>Luckstrap is built on top of Bloxstrap. These are the people who wrote that foundation - the UI, the bootstrapping flow and the FastFlags system are originally theirs.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature Ideas</value>

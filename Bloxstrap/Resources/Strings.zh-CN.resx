@@ -407,7 +407,7 @@
     <value>代码贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>这是那些曾经为 Luckstrap 贡献了许多帮助的贡献者们；没有他们，发展到如今绝无可能。</value>
+    <value>Luckstrap 是在 Bloxstrap 的基础上改出来的。上面这些人是那个底子的作者，界面、启动流程、FastFlags 这些原始代码都是他们写的。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>特色功能贡献者</value>
