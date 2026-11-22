@@ -41,9 +41,11 @@ namespace Bloxstrap
         /// </summary>
         public static readonly string[] GithubMirrors = new[]
         {
-            "https://gh-proxy.com/",
             "https://ghproxy.net/",
-            "https://ghfast.top/"
+            "https://ghfast.top/",
+            // gh-proxy 现在对页面地址返回它自己的落地页，里面没有 release 信息，
+            // 二进制也一律 403，排最后当兜底
+            "https://gh-proxy.com/"
         };
 
         /// <summary>
@@ -54,8 +56,8 @@ namespace Bloxstrap
         public static readonly string[] GithubDownloadMirrors = new[]
         {
             "https://ghproxy.net/",
-            "https://gh-proxy.com/",
-            "https://ghfast.top/"
+            "https://ghfast.top/",
+            "https://gh-proxy.com/"
         };
 
         // 数据目录名，跟原版 Bloxstrap 隔离开，避免互相覆盖配置
@@ -217,8 +219,16 @@ namespace Bloxstrap
                         continue;
                     }
 
-                    string html = await response.Content.ReadAsStringAsync(sourceTimeout.Token);
-                    string? tag = ExtractLatestReleaseTag(html);
+                    // 先看最终落在哪个地址。releases/latest 正常会 302 到 /releases/tag/vX.Y.Z，
+                    // 镜像代理也是这个行为。比抠页面内容靠谱：release 页面是前端渲染的，
+                    // 而且 gh-proxy 现在对页面地址直接返回它自己的落地页，里面根本没有 tag
+                    string? tag = ExtractTagFromUri(response.RequestMessage?.RequestUri);
+
+                    if (tag is null)
+                    {
+                        string html = await response.Content.ReadAsStringAsync(sourceTimeout.Token);
+                        tag = ExtractLatestReleaseTag(html);
+                    }
 
                     if (tag is null)
                     {
@@ -262,6 +272,19 @@ namespace Bloxstrap
         private static string? ExtractLatestReleaseTag(string html)
         {
             Match match = Regex.Match(html, @"/releases/tag/(v?\d[\w.\-]*)");
+            return match.Success ? match.Groups[1].Value : null;
+        }
+
+        /// <summary>
+        /// 从跳转后的最终地址里取 tag。releases/latest 会 302 到 releases/tag/vX.Y.Z，
+        /// 所以地址本身就带着版本号，不用管页面长什么样
+        /// </summary>
+        private static string? ExtractTagFromUri(Uri? uri)
+        {
+            if (uri is null)
+                return null;
+
+            Match match = Regex.Match(uri.AbsoluteUri, @"/releases/tag/(v?\d[\w.\-]*)");
             return match.Success ? match.Groups[1].Value : null;
         }
 
