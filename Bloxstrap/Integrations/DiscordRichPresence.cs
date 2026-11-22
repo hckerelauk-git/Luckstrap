@@ -7,11 +7,9 @@ namespace Bloxstrap.Integrations
     public class DiscordRichPresence : IDisposable
     {
         // Discord 状态栏里显示的应用名和图标，是由 Discord 后台注册的那个 Application 决定的，
-        // 代码里改不了。想让状态显示 Luckstrap，得去 discord.com/developers/applications
-        // 建一个叫 Luckstrap 的应用、在 Rich Presence -> Art Assets 里传图标，
-        // 然后把下面这串换成新应用的 Application ID。
-        // 现在这个是 Bloxstrap 的，所以状态栏会显示 Bloxstrap。
-        public const string DiscordApplicationId = "1005469189907173486";
+        // 代码里改不了。下面这串是 discord.com/developers/applications 里我们自己建的 Luckstrap 应用，
+        // 名字和图标都在那个后台改，改完要等 Discord 客户端缓存刷新才看得到。
+        public const string DiscordApplicationId = "1573974229865595020";
 
         private readonly DiscordRpcClient _rpcClient = new(DiscordApplicationId);
         private readonly ActivityWatcher _activityWatcher;
