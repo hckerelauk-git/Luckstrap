@@ -42,10 +42,21 @@
             {
                 long id = long.Parse(strId);
 
+                // 历史里可能有已经被删掉或者封掉的游戏，First() 会直接抛，
+                // 一条坏的就把整个历史窗口带崩，所以这里跳过
+                var data = gameDetailResponse.Data.FirstOrDefault(x => x.Id == id);
+                var thumbnail = universeThumbnailResponse.Data.FirstOrDefault(x => x.TargetId == id);
+
+                if (data is null || thumbnail is null)
+                {
+                    App.Logger.WriteLine("UniverseDetails::FetchBulk", $"Universe {id} is missing from the API response, skipping");
+                    continue;
+                }
+
                 _cache.Add(new UniverseDetails
                 {
-                    Data = gameDetailResponse.Data.Where(x => x.Id == id).First(),
-                    Thumbnail = universeThumbnailResponse.Data.Where(x => x.TargetId == id).First(),
+                    Data = data,
+                    Thumbnail = thumbnail,
                 });
             }
         }

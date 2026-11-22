@@ -57,6 +57,8 @@
         {
             if (!String.IsNullOrEmpty(logFile))
                 LogLocation = logFile;
+
+            History = ServerHistoryStore.Load();
         }
 
         public async void Start()
@@ -280,6 +282,9 @@
 
                     Data.TimeLeft = DateTime.Now;
                     History.Insert(0, Data);
+
+                    // 落到磁盘，不然进程一退历史就没了
+                    ServerHistoryStore.Save(History);
 
                     InGame = false;
                     Data = new();
