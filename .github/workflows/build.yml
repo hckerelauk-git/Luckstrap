@@ -1,23 +1,73 @@
 name: Build
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: windows-latest
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
+
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '6.0.x'
+
+      # 版本号只在 csproj 里维护一份，这里读出来给 release 用
+      - name: Read version
+        id: ver
+        shell: pwsh
+        run: |
+          [xml]$proj = Get-Content Bloxstrap/Bloxstrap.csproj
+          $v = ($proj.Project.PropertyGroup | Where-Object { $_.Version } | Select-Object -First 1).Version
+          Write-Host "version = $v"
+          "version=$v" >> $env:GITHUB_OUTPUT
+
       - run: dotnet restore Bloxstrap.sln
-      - run: dotnet publish Bloxstrap/Bloxstrap.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -o publish
+
+      - name: Publish
+        run: >
+          dotnet publish Bloxstrap/Bloxstrap.csproj
+          -c Release -r win-x64 --self-contained true
+          -p:CommitHash=${{ github.sha }}
+          -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
+          -p:DebugType=None -p:DebugSymbols=false
+          -o publish
+
       - uses: actions/upload-artifact@v4
         with:
           name: Luckstrap-win-x64
           path: publish/*
           if-no-files-found: error
+
+      # 客户端检查更新打的是 releases/latest，所以仓库里必须真的有 release
+      - name: Release
+        if: github.ref == 'refs/heads/main'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $repo = "${{ github.repository }}"
+          $tag = "v${{ steps.ver.outputs.version }}"
+          $exe = (Resolve-Path publish/Luckstrap.exe).Path
+
+          $null = gh release view $tag --repo $repo 2>&1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "Release $tag already exists, replacing the exe"
+            gh release upload $tag $exe --clobber --repo $repo
+          } else {
+            Write-Host "Creating release $tag"
+            gh release create $tag $exe `
+              --repo $repo `
+              --title "Luckstrap $tag" `
+              --notes "自动构建 ${{ github.sha }}" `
+              --latest
+          }
