@@ -57,6 +57,8 @@
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
                     <ui:NavigationItem Content="快速启动" PageType="{x:Type pages:QuickLaunchPage}" Icon="Play24" Tag="quicklaunch" />
                     <ui:NavigationItem Content="收藏游戏" PageType="{x:Type pages:FavoritesPage}" Icon="Star24" Tag="favorites" />
+                    <ui:NavigationItem Content="游戏快捷方式" PageType="{x:Type pages:GameShortcutPage}" Icon="Link24" Tag="gameshortcut" />
+                    <ui:NavigationItem Content="地区选择器" PageType="{x:Type pages:RegionSelectorPage}" Icon="Globe24" Tag="region" />
                     <ui:NavigationItem Content="账号切换" PageType="{x:Type pages:AccountsPage}" Icon="PersonAccounts24" Tag="accounts" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
