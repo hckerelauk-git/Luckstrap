@@ -42,8 +42,20 @@ namespace Bloxstrap
         public static readonly string[] GithubMirrors = new[]
         {
             "https://gh-proxy.com/",
-            "https://ghfast.top/",
-            "https://ghproxy.net/"
+            "https://ghproxy.net/",
+            "https://ghfast.top/"
+        };
+
+        /// <summary>
+        /// 下载 exe 用的是 /releases/download/ 路径，跟检查更新打的 release 页面不是一回事。
+        /// gh-proxy 对 /releases/download/ 直接返回 403（拿别的仓库试过也一样，不是我们仓库的问题），
+        /// 所以二进制单独排一遍顺序，把确认能代理大文件的放前面。
+        /// </summary>
+        public static readonly string[] GithubDownloadMirrors = new[]
+        {
+            "https://ghproxy.net/",
+            "https://gh-proxy.com/",
+            "https://ghfast.top/"
         };
 
         // 数据目录名，跟原版 Bloxstrap 隔离开，避免互相覆盖配置
@@ -192,7 +204,12 @@ namespace Bloxstrap
 
                 try
                 {
-                    using var response = await HttpClient.GetAsync(url);
+                    // 每个源只等 12 秒。这里读的是一张几十 KB 的网页，
+                    // 正常镜像一秒内就回；超过 12 秒基本可以判定这个源挂了，
+                    // 没必要为了它把 HttpClient 那 30 秒耗光，四个源排下来就是两分钟
+                    using var sourceTimeout = new CancellationTokenSource(TimeSpan.FromSeconds(12));
+
+                    using var response = await HttpClient.GetAsync(url, sourceTimeout.Token);
 
                     if (!response.IsSuccessStatusCode)
                     {
@@ -200,7 +217,7 @@ namespace Bloxstrap
                         continue;
                     }
 
-                    string html = await response.Content.ReadAsStringAsync();
+                    string html = await response.Content.ReadAsStringAsync(sourceTimeout.Token);
                     string? tag = ExtractLatestReleaseTag(html);
 
                     if (tag is null)

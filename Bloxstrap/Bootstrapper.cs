@@ -779,7 +779,7 @@ namespace Bloxstrap
                 if (!File.Exists(downloadLocation))
                 {
                     // 更新包几十 MB，国内直连基本下不动。先走镜像，全挂了再回退直连
-                    var sources = new List<string>(App.GithubMirrors) { "" };
+                    var sources = new List<string>(App.GithubDownloadMirrors) { "" };
                     bool downloaded = false;
 
                     foreach (string prefix in sources)
@@ -790,7 +790,17 @@ namespace Bloxstrap
                         {
                             App.Logger.WriteLine(LOG_IDENT, $"Trying {source}");
 
-                            using var response = await App.HttpClient.GetAsync(prefix + asset.BrowserDownloadUrl);
+                            // 只给建连和首字节 15 秒。死掉的镜像以前要干等 HttpClient 那 30 秒，
+                            // 三个源排下来就是一分半，用户看到的就是「检查更新卡住」。
+                            // 用 ResponseHeadersRead 把计时限定在响应头之前，真开始传数据之后不再计时，
+                            // 慢速镜像也能把 70MB 传完
+                            using var connectTimeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+
+                            using var response = await App.HttpClient.GetAsync(
+                                prefix + asset.BrowserDownloadUrl,
+                                HttpCompletionOption.ResponseHeadersRead,
+                                connectTimeout.Token);
+
                             response.EnsureSuccessStatusCode();
 
                             // 先写 .part，确认大小对了再改名。
