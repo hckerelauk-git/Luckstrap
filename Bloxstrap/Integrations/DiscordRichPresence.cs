@@ -15,6 +15,9 @@ namespace Bloxstrap.Integrations
         private readonly ActivityWatcher _activityWatcher;
         private readonly Queue<Message> _messageQueue = new();
 
+        // 网页版 Discord 的桥，只有设置里开了才存在
+        private readonly ArRpcBridge? _arRpc;
+
         private DiscordRPC.RichPresence? _currentPresence;
         private DiscordRPC.RichPresence? _originalPresence;
 
@@ -56,6 +59,12 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, $"Lost connection to Discord RPC - {e.Reason} ({e.Code})");
 
             _rpcClient.Initialize();
+
+            // 网页版 Discord 没有本地 IPC 管道，桌面版那套推送碰不到它。
+            // 开了这个开关就在 1337 上起一个 arRPC 兼容的桥，浏览器装插件就能显示状态。
+            // 实验性：能不能显示取决于浏览器那边装没装插件，装错了就是没反应
+            if (App.Settings.Prop.UseArRpcBridge)
+                _arRpc = new ArRpcBridge();
         }
 
         public void ProcessRPCMessage(Message message, bool implicitUpdate = true)
@@ -473,13 +482,19 @@ namespace Bloxstrap.Integrations
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Presence is empty, clearing");
                 _rpcClient.ClearPresence();
+                _arRpc?.Clear();
                 return;
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Updating presence");
 
             if (_visible)
+            {
                 _rpcClient.SetPresence(_currentPresence);
+
+                // 桌面版和网页版各推各的，一边失败不影响另一边
+                _arRpc?.Publish(_currentPresence);
+            }
         }
 
         public void Dispose()
@@ -487,6 +502,7 @@ namespace Bloxstrap.Integrations
             App.Logger.WriteLine("DiscordRichPresence::Dispose", "Cleaning up Discord RPC and Presence");
             _rpcClient.ClearPresence();
             _rpcClient.Dispose();
+            _arRpc?.Dispose();
             GC.SuppressFinalize(this);
         }
     }

@@ -119,6 +119,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.ShowAccountOnRichPresence = value;
         }
 
+        // 网页版 Discord 的状态桥，实验性
+        public bool WebDiscordActivityEnabled
+        {
+            get => App.Settings.Prop.UseArRpcBridge;
+            set => App.Settings.Prop.UseArRpcBridge = value;
+        }
+
         public bool DisableAppPatchEnabled
         {
             get => App.Settings.Prop.UseDisableAppPatch;

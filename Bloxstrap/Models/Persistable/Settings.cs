@@ -30,6 +30,13 @@ namespace Bloxstrap.Models.Persistable
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;
         public bool ShowAccountOnRichPresence { get; set; } = false;
+
+        /// <summary>
+        /// 网页版 Discord 的状态桥（实验性）。开了会在 127.0.0.1:1337 起一个 arRPC 兼容的
+        /// WebSocket，浏览器那边装了 arRPC 客户端插件才能看到状态。默认关，因为要额外装插件，
+        /// 而且端口可能被 arRPC 本体占掉
+        /// </summary>
+        public bool UseArRpcBridge { get; set; } = false;
         public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
