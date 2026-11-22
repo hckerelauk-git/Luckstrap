@@ -11,10 +11,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class QuickLaunchPage
     {
-        private static readonly Regex GamesUrlRegex = new(@"games/(\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-        private static readonly Regex PlaceIdRegex = new(@"placeId=(\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-        private static readonly Regex DigitsRegex = new(@"^\d+$", RegexOptions.Compiled);
-
         private string _placeId = "";
         private string _jobId = "";
 
@@ -28,7 +24,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (ResultBox is null)
                 return;
 
-            _placeId = ExtractPlaceId(PlaceIdBox.Text);
+            _placeId = Utilities.ExtractPlaceId(PlaceIdBox.Text);
             _jobId = (JobIdBox.Text ?? "").Trim();
 
             // 私服链接里带 jobId 的情况，把 ?privateServerLinkCode= 后面那串也认出来
@@ -50,27 +46,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             ResultBox.Text = link;
             LaunchButton.IsEnabled = true;
-        }
-
-        private static string ExtractPlaceId(string? input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return "";
-
-            input = input.Trim();
-
-            if (DigitsRegex.IsMatch(input))
-                return input;
-
-            Match m = GamesUrlRegex.Match(input);
-            if (m.Success)
-                return m.Groups[1].Value;
-
-            m = PlaceIdRegex.Match(input);
-            if (m.Success)
-                return m.Groups[1].Value;
-
-            return "";
         }
 
         private string BuildLink()

@@ -58,8 +58,21 @@ namespace Bloxstrap.UI
         {
             if (_activityWatcher is null)
                 return;
-            
-            string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
+
+            // 这是 async void，是事件处理器，异常没地方接。
+            // 以前查位置失败会直接把整个程序弹窗退掉，进游戏就崩，所以整段包起来
+            string? serverLocation;
+
+            try
+            {
+                serverLocation = await _activityWatcher.Data.QueryServerLocation();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("NotifyIconWrapper::OnGameJoin", "Failed to query server location");
+                App.Logger.WriteException("NotifyIconWrapper::OnGameJoin", ex);
+                return;
+            }
 
             if (string.IsNullOrEmpty(serverLocation))
                 return;

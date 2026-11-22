@@ -5,6 +5,35 @@ namespace Bloxstrap
 {
     static class Utilities
     {
+        private static readonly Regex GamesUrlRegex = new(@"games/(\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex PlaceIdRegex = new(@"placeId=(\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex DigitsRegex = new(@"^\d+$", RegexOptions.Compiled);
+
+        /// <summary>
+        /// 从 Place ID、游戏链接、roblox:// 链接里抠出 placeId。
+        /// 快速启动页和收藏夹都用这个，别各写一份
+        /// </summary>
+        public static string ExtractPlaceId(string? input)
+        {
+            if (String.IsNullOrWhiteSpace(input))
+                return String.Empty;
+
+            input = input.Trim();
+
+            if (DigitsRegex.IsMatch(input))
+                return input;
+
+            Match match = GamesUrlRegex.Match(input);
+            if (match.Success)
+                return match.Groups[1].Value;
+
+            match = PlaceIdRegex.Match(input);
+            if (match.Success)
+                return match.Groups[1].Value;
+
+            return String.Empty;
+        }
+
         public static void ShellExecute(string website)
         {
             try
@@ -150,7 +179,7 @@ namespace Bloxstrap
 
         public static void KillBackgroundUpdater()
         {
-            using EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent");
+            using EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Luckstrap-BackgroundUpdaterKillEvent");
             handle.Set();
         }
     }

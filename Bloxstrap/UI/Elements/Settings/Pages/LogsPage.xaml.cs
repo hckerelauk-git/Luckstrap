@@ -141,7 +141,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             var dlg = new Microsoft.Win32.SaveFileDialog
             {
                 Filter = "日志文件 (*.log)|*.log|文本文件 (*.txt)|*.txt",
-                FileName = "bloxstrap-log.txt"
+                FileName = "luckstrap-log.txt"
             };
 
             if (dlg.ShowDialog() == true)

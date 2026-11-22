@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Security.Authentication;
 using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Shell;
@@ -19,8 +20,13 @@ namespace Bloxstrap
         public const string ProjectName = "Luckstrap";
 #endif
         public const string ProjectOwner = "Luckstrap";
+        // wiki、帮助文档、issue 链接仍然指向上游，那边的内容还能用
         public const string ProjectRepository = "bloxstraplabs/bloxstrap";
-        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
+
+        // 自更新必须查自己的仓库。指向上游的话，上游一发版就会把 Luckstrap 覆盖成原版 Bloxstrap
+        public const string UpdateRepository = "hckerelauk-git/Luckstrap";
+
+        public const string ProjectDownloadLink = "https://github.com/hckerelauk-git/Luckstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
 
@@ -63,9 +69,22 @@ namespace Bloxstrap
 
         public static readonly HttpClient HttpClient = new(
             new HttpClientLoggingHandler(
-                new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }
+                new HttpClientHandler
+                {
+                    AutomaticDecompression = DecompressionMethods.All,
+
+                    // 用系统默认协议版本时，客户端可能去试 TLS 1.3 或者 HTTP/2，
+                    // 碰上中间设备不支持就是「Received an unexpected EOF or 0 bytes from the transport stream」。
+                    // 这里把协议钉死在 TLS 1.2/1.3，请求走 HTTP/1.1，握手就不会再协商出奇怪的结果
+                    SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13
+                }
             )
-        );
+        )
+        {
+            Timeout = TimeSpan.FromSeconds(30),
+            DefaultRequestVersion = HttpVersion.Version11,
+            DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower
+        };
 
         private static bool _showingExceptionDialog = false;
 
@@ -106,6 +125,18 @@ namespace Bloxstrap
             e.Handled = true;
 
             Logger.WriteLine("App::GlobalExceptionHandler", "An exception occurred");
+
+            // 网络类的异常不该把整个程序退掉。以前 ipinfo.io 连不上都会弹框退出，
+            // 表现就是「一进游戏就报 SSL 错误」。这类问题记日志，让程序继续跑
+            if (e.Exception is HttpRequestException
+                or TaskCanceledException
+                or OperationCanceledException
+                or System.Net.Sockets.SocketException)
+            {
+                Logger.WriteLine("App::GlobalExceptionHandler", "Network failure, logging and continuing");
+                Logger.WriteException("App::GlobalExceptionHandler", e.Exception);
+                return;
+            }
 
             FinalizeExceptionHandling(e.Exception);
         }
@@ -168,7 +199,8 @@ namespace Bloxstrap
 
             try
             {
-                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
+                // 查自己的仓库，不查上游
+                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{UpdateRepository}/releases/latest");
 
                 if (releaseInfo is null || releaseInfo.Assets is null)
                 {
@@ -186,37 +218,17 @@ namespace Bloxstrap
             return null;
         }
 
-        public static async void SendStat(string key, string value)
+        // 上游的统计服务架在 bloxstraplabs.com 上，我们没自己的收集端。
+        // 与其把用户数据往别人的服务器送，不如干脆不发，只写本地日志。
+        // 方法签名保持原样，调用点不用动。
+        public static void SendStat(string key, string value)
         {
-            if (!Settings.Prop.EnableAnalytics)
-                return;
-
-            try
-            {
-                await HttpClient.GetAsync($"https://{WebUrl}/metrics/post?key={key}&value={value}");
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteException("App::SendStat", ex);
-            }
+            Logger.WriteLine("App::SendStat", $"{key}={value} (analytics disabled, not sent)");
         }
 
-        public static async void SendLog()
+        public static void SendLog()
         {
-            if (!Settings.Prop.EnableAnalytics || !CanSendLogs())
-                return;
-
-            try
-            {
-                await HttpClient.PostAsync(
-                    $"https://{WebUrl}/metrics/post-exception", 
-                    new StringContent(Logger.AsDocument)
-                );
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteException("App::SendLog", ex);
-            }
+            Logger.WriteLine("App::SendLog", "analytics disabled, log not sent");
         }
 
         public static void AssertWindowsOSVersion()

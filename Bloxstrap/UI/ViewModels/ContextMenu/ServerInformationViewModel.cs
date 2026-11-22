@@ -29,7 +29,18 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public async void QueryServerLocation()
         {
-            string? location = await _activityWatcher.Data.QueryServerLocation();
+            // async void，异常会打到 UI 线程把程序干掉，必须自己接住
+            string? location = null;
+
+            try
+            {
+                location = await _activityWatcher.Data.QueryServerLocation();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("ServerInformationViewModel::QueryServerLocation", "Location query failed");
+                App.Logger.WriteException("ServerInformationViewModel::QueryServerLocation", ex);
+            }
 
             if (String.IsNullOrEmpty(location))
                 ServerLocation = Strings.Common_NotAvailable;

@@ -108,7 +108,7 @@ namespace Bloxstrap.Utility
                 if (!File.Exists(FilePath))
                     return;
 
-                string backup = FilePath + ".bloxstrappro-bak";
+                string backup = FilePath + ".luckstrap-bak";
 
                 if (!File.Exists(backup))
                     File.Copy(FilePath, backup);

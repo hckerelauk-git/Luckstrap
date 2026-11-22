@@ -72,7 +72,7 @@ namespace Bloxstrap
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
 
-        public string MutexName { get; set; } = "Bloxstrap-Bootstrapper";
+        public string MutexName { get; set; } = "Luckstrap-Bootstrapper";
         public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
@@ -252,7 +252,7 @@ namespace Bloxstrap
             {
                 if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
                 {
-                    bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
+                    bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Luckstrap-BackgroundUpdater");
                     if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
                         backgroundUpdaterMutexOpen = false; // we want to actually update lol
 
@@ -484,7 +484,7 @@ namespace Bloxstrap
                 return;
             }
 
-            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-MultiInstanceWatcherInitialisationFinished");
+            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Luckstrap-MultiInstanceWatcherInitialisationFinished");
             Process.Start(Paths.Process, "-multiinstancewatcher");
 
             bool initSuccess = initEventHandle.WaitOne(TimeSpan.FromSeconds(2));
@@ -728,7 +728,7 @@ namespace Bloxstrap
             // i don't like this, but there isn't much better way of doing it /shrug
             if (Process.GetProcessesByName(App.ProjectName).Length > 1)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"More than one Bloxstrap instance running, aborting update check");
+                App.Logger.WriteLine(LOG_IDENT, $"More than one Luckstrap instance running, aborting update check");
                 return false;
             }
 
@@ -762,7 +762,7 @@ namespace Bloxstrap
             try
             {
 #if DEBUG_UPDATER
-                string downloadLocation = Path.Combine(Paths.TempUpdates, "Bloxstrap.exe");
+                string downloadLocation = Path.Combine(Paths.TempUpdates, "Luckstrap.exe");
 
                 Directory.CreateDirectory(Paths.TempUpdates);
 
@@ -1157,7 +1157,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::StartBackgroundUpdater";
 
-            if (Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater"))
+            if (Utilities.DoesMutexExist("Luckstrap-BackgroundUpdater"))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Background updater already running");
                 return;

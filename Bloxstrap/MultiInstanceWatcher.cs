@@ -9,7 +9,7 @@
             try
             {
                 // prevent any possible race conditions by checking for bloxstrap processes too
-                int count = Process.GetProcesses().Count(x => x.ProcessName is "RobloxPlayerBeta" or "Bloxstrap");
+                int count = Process.GetProcesses().Count(x => x.ProcessName is "RobloxPlayerBeta" or "Luckstrap");
                 count -= 1; // ignore the current process
                 return count;
             }
@@ -23,7 +23,7 @@
 
         private static void FireInitialisedEvent()
         {
-            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-MultiInstanceWatcherInitialisationFinished");
+            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Luckstrap-MultiInstanceWatcherInitialisationFinished");
             initEventHandle.Set();
         }
 

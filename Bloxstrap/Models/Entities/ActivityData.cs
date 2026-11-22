@@ -101,8 +101,14 @@ namespace Bloxstrap.Models.Entities
         {
             const string LOG_IDENT = "ActivityData::QueryServerLocation";
 
+            // 这里以前是直接 throw。但调用方全是 async void 的事件处理器（进游戏提示、服务器信息窗口），
+            // 抛出去会冒到 UI 线程的全局异常处理器，弹个框然后把整个程序退掉。
+            // 地址拿不到就是查不了位置，返回 null 让调用方显示「不可用」就行。
             if (!MachineAddressValid)
-                throw new InvalidOperationException($"Machine address is invalid ({MachineAddress})");
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Skipping location query, machine address is invalid ({MachineAddress})");
+                return null;
+            }
 
             await serverQuerySemaphore.WaitAsync();
 
@@ -125,22 +131,19 @@ namespace Bloxstrap.Models.Entities
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
                 GlobalCache.ServerLocation[MachineAddress] = location;
-                serverQuerySemaphore.Release();
             }
             catch (Exception ex)
             {
+                // ipinfo.io 在部分地区连不上，每次进游戏都弹警告框太吵，只记日志。
+                // 顺便把失败结果也缓存起来，别每次进游戏都重试一遍
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                GlobalCache.ServerLocation[MachineAddress] = location;
+                GlobalCache.ServerLocation[MachineAddress] = null;
+            }
+            finally
+            {
                 serverQuerySemaphore.Release();
-
-                Frontend.ShowConnectivityDialog(
-                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
-                    Strings.ActivityWatcher_LocationQueryFailed,
-                    MessageBoxImage.Warning,
-                    ex
-                );
             }
 
             return location;

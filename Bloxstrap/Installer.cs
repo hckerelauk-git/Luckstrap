@@ -528,16 +528,19 @@ namespace Bloxstrap
                     }
 
                     string oldDesktopPath = Path.Combine(Paths.Desktop, "Play Roblox.lnk");
-                    string oldStartPath = Path.Combine(Paths.WindowsStartMenu, "Bloxstrap");
 
-                    if (File.Exists(oldDesktopPath))
-                        File.Move(oldDesktopPath, DesktopShortcut, true);
-
-                    if (Directory.Exists(oldStartPath))
+                    // 原版 Bloxstrap 和之前几版测试版都把开始菜单项放在 Programs\<名字>\ 子目录里，
+                    // 我们的是直接丢在 Programs\ 下，所以这些旧目录要单独清掉，不然开始菜单会留一堆僵尸项
+                    foreach (string legacyName in new[] { "Bloxstrap", "Bloxstrap Pro" })
                     {
+                        string legacyPath = Path.Combine(Paths.WindowsStartMenu, legacyName);
+
+                        if (!Directory.Exists(legacyPath))
+                            continue;
+
                         try
                         {
-                            Directory.Delete(oldStartPath, true);
+                            Directory.Delete(legacyPath, true);
                         }
                         catch (Exception ex)
                         {
@@ -546,6 +549,9 @@ namespace Bloxstrap
 
                         Shortcut.Create(Paths.Application, "", StartMenuShortcut);
                     }
+
+                    if (File.Exists(oldDesktopPath))
+                        File.Move(oldDesktopPath, DesktopShortcut, true);
 
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
 
@@ -615,7 +621,7 @@ namespace Bloxstrap
             {
 #pragma warning disable CS0162 // Unreachable code detected
                 if (OpenReleaseNotes)
-                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Bloxstrap-v{currentVer}");
+                    Utilities.ShellExecute($"{App.ProjectDownloadLink}");
 #pragma warning restore CS0162 // Unreachable code detected
             }
             else

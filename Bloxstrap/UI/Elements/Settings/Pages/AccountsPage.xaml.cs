@@ -155,7 +155,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             var confirm = MessageBox.Show(
                 $"切换到「{item.Title}」？\n\n" +
                 "会把 Roblox 现在的登录态换成这个账号，下次打开游戏就是它。\n" +
-                "第一次切换时，原来那份登录态会备份到 RobloxCookies.dat.bloxstrappro-bak。",
+                "第一次切换时，原来那份登录态会备份到 RobloxCookies.dat.luckstrap-bak。",
                 "切换账号",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);

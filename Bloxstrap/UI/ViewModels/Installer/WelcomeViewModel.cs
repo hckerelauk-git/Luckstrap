@@ -5,8 +5,8 @@
         // formatting is done here instead of in xaml, it's just a bit easier
         public string MainText => String.Format(
             Strings.Installer_Welcome_MainText,
-            "[github.com/bloxstraplabs/bloxstrap](https://github.com/bloxstraplabs/bloxstrap)",
-            "[bloxstraplabs.com](https://bloxstraplabs.com)"
+            "[github.com/hckerelauk-git/Luckstrap](https://github.com/hckerelauk-git/Luckstrap)",
+            "[github.com/hckerelauk-git/Luckstrap/releases](https://github.com/hckerelauk-git/Luckstrap/releases)"
         );
 
         public string VersionNotice { get; private set; } = "";
