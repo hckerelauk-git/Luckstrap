@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Bloxstrap/Luckstrap.ico" width="128">
+    <img src="Images/Luckstrap.png" width="128">
 </p>
 
 <h1 align="center">Luckstrap</h1>
