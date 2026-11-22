@@ -90,8 +90,8 @@ dotnet publish Bloxstrap/Bloxstrap.csproj -c Release -r win-x64 --self-contained
 
 界面库用的是 [WPF UI](https://github.com/lepoco/wpfui)。
 
-这个项目是从 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 改出来的，启动流程、FastFlags 管理、模组系统这些底子都是他们写的，按 GPL 协议继续开源。
+这个项目是从 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 改出来的，启动流程、FastFlags 管理、模组系统这些底子都是他们写的，按 MIT 协议继续开源。
 
 ## 许可
 
-GPL-3.0，见 [LICENSE](LICENSE)。
+MIT，见 [LICENSE](LICENSE)。上游 Bloxstrap 也是 MIT，改的时候没有换协议。
