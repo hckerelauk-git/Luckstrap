@@ -3327,6 +3327,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to While this is on, Play buttons in the browser go through Luckstrap, so your FastFlags and mods apply. Turn it off to hand them back to Roblox..
+        /// </summary>
+        public static string Menu_Integrations_BrowserLaunch_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BrowserLaunch.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Handle browser launch links.
+        /// </summary>
+        public static string Menu_Integrations_BrowserLaunch_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.BrowserLaunch.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application Location.
         /// </summary>
         public static string Menu_Integrations_Custom_AppLocation {

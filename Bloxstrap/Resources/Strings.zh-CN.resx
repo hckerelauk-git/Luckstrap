@@ -688,6 +688,12 @@
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>允许外部方式加入游戏</value>
   </data>
+  <data name="Menu.Integrations.BrowserLaunch.Description" xml:space="preserve">
+    <value>开着的时候，网页上点 Play 先走 Luckstrap，FastFlags 和模组才会生效。关掉就交回官方启动器，这些东西不生效。</value>
+  </data>
+  <data name="Menu.Integrations.BrowserLaunch.Title" xml:space="preserve">
+    <value>接管浏览器启动链接</value>
+  </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
     <value>启用此选项将会在您的 Discord 个人资料上显示您当前正在使用的 Roblox 帐户。</value>
   </data>
@@ -1144,16 +1150,16 @@ Luckstrap 的安装路径是：
     <value>由于您配置的 Fast Flags 无法被加载；因此它们已被重置为默认值。</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>游戏历史</value>
+    <value>最近玩过</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>重新加入</value>
+    <value>再进这个服</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
     <value>由于加载游戏信息时发生错误；您当前的游戏状态将不会在您的 Discord 活动状态 上显示。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>仅记录您当前 Roblox 会话的游戏历史记录；关于游戏的具体信息将会在您离开游戏或传送至其他游戏时出现在此处。并非所有服务器都可以重新加入。</value>
+    <value>进过的服务器会记在这里，重启也在，最多 50 条。点「再进这个服」会回到同一台服务器，前提是它还没关。</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>可能由于您加入游戏的频次太频繁了；因此无法获取到您当前所处服务器的具体地点。</value>

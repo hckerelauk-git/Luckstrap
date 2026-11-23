@@ -53,12 +53,20 @@
 
         public bool IsDisposed = false;
 
+        /// <summary>
+        /// 当前这个实例。设置页要清空历史的时候得把内存里那份也清掉，
+        /// 否则下一次退游戏又把旧记录写回磁盘
+        /// </summary>
+        public static ActivityWatcher? Current { get; private set; }
+
         public ActivityWatcher(string? logFile = null)
         {
             if (!String.IsNullOrEmpty(logFile))
                 LogLocation = logFile;
 
             History = ServerHistoryStore.Load();
+
+            Current = this;
         }
 
         public async void Start()
@@ -383,7 +391,22 @@
 
         public void Dispose()
         {
+            if (IsDisposed)
+                return;
+
             IsDisposed = true;
+
+            // 用户直接关游戏窗口的时候，Time to disconnect 那条不一定来得及打，
+            // 这局就漏记了。退出前补一条，顺手落盘
+            if (InGame && Data.PlaceId != 0)
+            {
+                Data.TimeLeft = DateTime.Now;
+                History.Insert(0, Data);
+            }
+
+            if (History.Any())
+                ServerHistoryStore.Save(History);
+
             GC.SuppressFinalize(this);
         }
     }

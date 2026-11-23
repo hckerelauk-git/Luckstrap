@@ -10,9 +10,9 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="地区选择器" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="区服选择" FontSize="20" FontWeight="Medium" />
         <TextBlock Margin="0,4,0,16"
-                   Text="列出某个游戏当前的公开服务器，标出每台在哪个机房，挑个离你近的进。"
+                   Text="填游戏，选一个想进的地区，点一下直接进那个地区的服。不想按地区挑就点「看全部服务器」，自己从列表里选。"
                    FontSize="14"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
@@ -22,6 +22,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <ui:TextBox x:Name="PlaceIdBox"
@@ -29,17 +30,23 @@
 
             <ComboBox x:Name="RegionBox"
                       Grid.Column="1"
-                      Width="190"
+                      Width="210"
                       Margin="8,0,0,0"
                       Padding="10,6"
-                      ToolTip="只看某个地区的服务器"
-                      SelectionChanged="OnRegionChanged" />
+                      ToolTip="想进哪个地区的服务器" />
 
-            <ui:Button x:Name="QueryButton"
+            <ui:Button x:Name="JoinButton"
                        Grid.Column="2"
-                       Content="查询服务器"
-                       Icon="ArrowSync24"
+                       Content="进这个地区的服"
+                       Icon="Play24"
                        Appearance="Primary"
+                       Margin="8,0,0,0"
+                       Click="OnJoinRegion" />
+
+            <ui:Button x:Name="ListButton"
+                       Grid.Column="3"
+                       Content="看全部服务器"
+                       Icon="ArrowSync24"
                        Margin="8,0,0,0"
                        Click="OnQuery" />
         </Grid>
@@ -57,7 +64,7 @@
                    TextWrapping="Wrap"
                    TextAlignment="Center"
                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                   Text="填个 Place ID 然后点「查询服务器」。" />
+                   Text="正在加载地区列表…" />
 
         <ItemsControl x:Name="ServerList" Margin="0,14,0,0">
             <ItemsControl.ItemTemplate>
@@ -111,6 +118,6 @@
                    FontSize="13"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   Text="服务器列表来自 Roblox 官方接口，地区是逐个发加入请求换出来的数据中心编号再对照 RoValra 的机房表，所以要等一会儿，一次查 100 台。查不到地区的会显示「未知」，不影响加入。没登录 Roblox 的话地区全是未知 —— 这个功能需要读本机登录态才能拿到数据中心编号。" />
+                   Text="服务器列表来自 Roblox 官方接口，一次拉 100 台。地区不在列表里，要逐个发加入请求换数据中心编号，再对照 RoValra 的机房表，所以按地区找服要等一会儿。找到一台就停，不会把 100 台全查完。查不到地区的会显示「未知」，不影响加入。没登录 Roblox 的话查不出地区 —— 这个功能要读本机登录态。" />
     </StackPanel>
 </ui:UiPage>

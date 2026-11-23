@@ -93,6 +93,20 @@ namespace Bloxstrap.Integrations
         /// </summary>
         public async Task<List<RobloxServer>> GetServersAsync(long placeId, int sortOrder = 2)
         {
+            var servers = await FetchServerListAsync(placeId, sortOrder);
+
+            if (servers.Count > 0)
+                await ResolveRegionsAsync(servers);
+
+            return servers;
+        }
+
+        /// <summary>
+        /// 只拉服务器列表，不查地区。查地区是逐个发请求，很慢，
+        /// 只想「找一台某地区的服」的时候不该把 100 台全查一遍
+        /// </summary>
+        public async Task<List<RobloxServer>> FetchServerListAsync(long placeId, int sortOrder = 2)
+        {
             const string LOG_IDENT_SERVERS = $"{LOG_IDENT}::GetServers";
 
             var servers = new List<RobloxServer>();
@@ -130,12 +144,123 @@ namespace Bloxstrap.Integrations
             {
                 App.Logger.WriteLine(LOG_IDENT_SERVERS, "Failed to fetch server list");
                 App.Logger.WriteException(LOG_IDENT_SERVERS, ex);
-                return servers;
             }
 
-            await ResolveRegionsAsync(servers);
-
             return servers;
+        }
+
+        /// <summary>
+        /// 找一台指定地区的服务器。边查边判断，命中就停 —— 不像 GetServersAsync 那样
+        /// 要把整页查完才返回。region 用的是 GetDatacentersAsync 返回的那套字符串
+        /// </summary>
+        public async Task<RobloxServer?> FindServerInRegionAsync(
+            long placeId,
+            string region,
+            Action<int, int>? onProgress = null,
+            CancellationToken token = default)
+        {
+            const string LOG_IDENT_FIND = $"{LOG_IDENT}::FindServerInRegion";
+
+            var servers = await FetchServerListAsync(placeId);
+
+            if (servers.Count == 0)
+                return null;
+
+            var datacenters = await GetDatacentersAsync();
+
+            if (datacenters is null)
+                return null;
+
+            var (_, map) = datacenters.Value;
+
+            string? cookie = GetAuthCookie();
+
+            if (String.IsNullOrEmpty(cookie))
+            {
+                App.Logger.WriteLine(LOG_IDENT_FIND, "No .ROBLOSECURITY available, cannot resolve regions");
+                return null;
+            }
+
+            using var semaphore = new SemaphoreSlim(MaxConcurrentLookups);
+
+            var gate = new object();
+            RobloxServer? match = null;
+            int checkedCount = 0;
+
+            var tasks = servers.Select(async server =>
+            {
+                if (token.IsCancellationRequested)
+                    return;
+
+                // 已经找到一台了，剩下的不用再打请求
+                lock (gate)
+                {
+                    if (match is not null)
+                        return;
+                }
+
+                await semaphore.WaitAsync(token);
+
+                try
+                {
+                    lock (gate)
+                    {
+                        if (match is not null)
+                            return;
+                    }
+
+                    if (_lookupCache.TryGetValue(server.JobId, out var cached))
+                    {
+                        server.DataCenterId = cached.DataCenterId;
+                        server.Region = cached.Region;
+                    }
+                    else
+                    {
+                        int? dcId = await LookupDataCenterIdAsync(server.PlaceId, server.JobId, cookie);
+
+                        server.DataCenterId = dcId;
+                        server.Region = dcId is not null && map.TryGetValue(dcId.Value, out string? name)
+                            ? name
+                            : "未知";
+
+                        _lookupCache[server.JobId] = (server.DataCenterId, server.Region);
+
+                        // 一口气打满会被 Roblox 挡
+                        await Task.Delay(120, token);
+                    }
+
+                    int done;
+
+                    lock (gate)
+                    {
+                        done = ++checkedCount;
+
+                        if (server.Region == region && match is null)
+                        {
+                            match = server;
+                            App.Logger.WriteLine(LOG_IDENT_FIND, $"Found {server.JobId} in {region}");
+                        }
+                    }
+
+                    onProgress?.Invoke(done, servers.Count);
+                }
+                catch (OperationCanceledException)
+                {
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT_FIND, $"Lookup failed for {server.JobId}");
+                    App.Logger.WriteException(LOG_IDENT_FIND, ex);
+                }
+                finally
+                {
+                    semaphore.Release();
+                }
+            });
+
+            await Task.WhenAll(tasks);
+
+            return match;
         }
 
         /// <summary>

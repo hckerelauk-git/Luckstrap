@@ -51,14 +51,21 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
+            <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+            <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
                     <ui:NavigationItem Content="快速启动" PageType="{x:Type pages:QuickLaunchPage}" Icon="Play24" Tag="quicklaunch" />
                     <ui:NavigationItem Content="收藏游戏" PageType="{x:Type pages:FavoritesPage}" Icon="Star24" Tag="favorites" />
                     <ui:NavigationItem Content="游戏快捷方式" PageType="{x:Type pages:GameShortcutPage}" Icon="Link24" Tag="gameshortcut" />
-                    <ui:NavigationItem Content="地区选择器" PageType="{x:Type pages:RegionSelectorPage}" Icon="Globe24" Tag="region" />
+                    <ui:NavigationItem Content="区服选择" PageType="{x:Type pages:RegionSelectorPage}" Icon="Globe24" Tag="region" />
+                    <ui:NavigationItem Content="最近玩过" PageType="{x:Type pages:RecentPage}" Icon="History24" Tag="recent" />
                     <ui:NavigationItem Content="账号切换" PageType="{x:Type pages:AccountsPage}" Icon="PersonAccounts24" Tag="accounts" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
@@ -73,10 +80,34 @@
                     <ui:NavigationItem Content="" PageType="{x:Type pages:FastFlagEditorWarningPage}" Tag="fastflageditorwarning" Visibility="Collapsed" x:Name="EditorWarningNavItem" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
-                    <ui:NavigationItem Content="Luckstrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="shortcuts" />
+                    <ui:NavigationItem Content="Luckstrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="bloxstrap" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>
+
+            <!-- 当前登录的账号。点一下跳到账号切换页 -->
+            <Border x:Name="AccountCard" Grid.Row="1" Margin="0,8,0,0" Padding="10,8" CornerRadius="8"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    Cursor="Hand" MouseLeftButtonUp="AccountCard_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="34" Height="34" CornerRadius="17" ClipToBounds="True"
+                            Background="{DynamicResource ControlFillColorSecondaryBrush}">
+                        <Image x:Name="AccountAvatar" Stretch="UniformToFill" />
+                    </Border>
+
+                    <StackPanel Grid.Column="1" Margin="9,0,0,0" VerticalAlignment="Center">
+                        <TextBlock x:Name="AccountDisplayName" Text="未登录" FontSize="13" FontWeight="Medium" TextTrimming="CharacterEllipsis" />
+                        <TextBlock x:Name="AccountUserName" Text="点这里打开账号切换" FontSize="11" TextTrimming="CharacterEllipsis"
+                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+            </Grid>
 
             <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
                 <Grid.RowDefinitions>

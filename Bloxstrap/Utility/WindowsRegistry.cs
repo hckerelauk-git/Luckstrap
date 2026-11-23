@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Bloxstrap.AppData;
 
 namespace Bloxstrap.Utility
 {
@@ -32,12 +33,58 @@ namespace Bloxstrap.Utility
         /// <summary>
         /// Registers Roblox Player protocols for Bloxstrap
         /// </summary>
-        public static void RegisterPlayer() => RegisterPlayer(Paths.Application, "-player \"%1\"");
+        public static void RegisterPlayer()
+        {
+            // 设置里关掉了就不接管。这里统一拦一道，启动、安装、改设置三个调用点都不用各写一遍判断
+            if (!App.Settings.Prop.InterceptBrowserLaunches)
+            {
+                RestorePlayer();
+                return;
+            }
+
+            RegisterPlayer(Paths.Application, "-player \"%1\"");
+        }
 
         public static void RegisterPlayer(string handler, string handlerParam)
         {
             RegisterProtocol("roblox", "Roblox", handler, handlerParam);
             RegisterProtocol("roblox-player", "Roblox", handler, handlerParam);
+        }
+
+        /// <summary>
+        /// 把浏览器启动链接交回 Roblox 自己。找不到官方 launcher 就把协议键删掉，
+        /// 浏览器点 Play 会提示找不到应用 —— 这比继续走我们这边更符合「关掉」的意思
+        /// </summary>
+        public static void RestorePlayer()
+        {
+            string? launcher = null;
+
+            try
+            {
+                string? dir = Path.GetDirectoryName(new RobloxPlayerData().ExecutablePath);
+
+                if (!String.IsNullOrEmpty(dir))
+                {
+                    string candidate = Path.Combine(dir, "RobloxPlayerLauncher.exe");
+
+                    if (File.Exists(candidate))
+                        launcher = candidate;
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("WindowsRegistry::RestorePlayer", "Could not locate the Roblox launcher");
+                App.Logger.WriteException("WindowsRegistry::RestorePlayer", ex);
+            }
+
+            if (launcher is null)
+            {
+                Unregister("roblox");
+                Unregister("roblox-player");
+                return;
+            }
+
+            RegisterPlayer(launcher, "\"%1\"");
         }
 
         /// <summary>

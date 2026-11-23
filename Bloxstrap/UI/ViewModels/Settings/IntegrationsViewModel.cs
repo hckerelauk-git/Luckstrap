@@ -132,6 +132,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
+        /// <summary>
+        /// 浏览器启动链接的接管开关。改完立刻写注册表，不用等下次启动 ——
+        /// 用户关掉这个开关之后多半马上就要去浏览器里试，等他重启就白改了
+        /// </summary>
+        public bool BrowserLaunchInterceptEnabled
+        {
+            get => App.Settings.Prop.InterceptBrowserLaunches;
+            set
+            {
+                if (App.Settings.Prop.InterceptBrowserLaunches == value)
+                    return;
+
+                App.Settings.Prop.InterceptBrowserLaunches = value;
+
+                try
+                {
+                    // 这个方法的内部会按开关决定是接管还是还给 Roblox
+                    WindowsRegistry.RegisterPlayer();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("IntegrationsViewModel::BrowserLaunchIntercept", "Failed to update protocol registration");
+                    App.Logger.WriteException("IntegrationsViewModel::BrowserLaunchIntercept", ex);
+                }
+            }
+        }
+
         public bool MultiInstanceLaunchingEnabled
         {
             get => App.Settings.Prop.MultiInstanceLaunching;

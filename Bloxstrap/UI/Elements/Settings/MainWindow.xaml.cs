@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
+using Bloxstrap.UI.Elements.Settings.Pages;
 using Bloxstrap.UI.ViewModels.Settings;
 
 namespace Bloxstrap.UI.Elements.Settings
@@ -37,6 +40,79 @@ namespace Bloxstrap.UI.Elements.Settings
                 ShowAlreadyRunningSnackbar();
 
             LoadState();
+
+            // 左下角那块要读登录态再打网络请求，异步做，别卡窗口
+            Loaded += (_, _) => LoadCurrentAccount();
+        }
+
+        // ── 左下角账号 ────────────────────────────────────────────────
+
+        private void AccountCard_Click(object sender, MouseButtonEventArgs e)
+            => RootNavigation.Navigate(typeof(AccountsPage));
+
+        private async void LoadCurrentAccount()
+        {
+            const string LOG_IDENT = "MainWindow::LoadCurrentAccount";
+
+            try
+            {
+                string? blob = RobloxCookies.ReadBlob();
+                string? cookie = String.IsNullOrEmpty(blob) ? null : RobloxCookies.ReadAuthCookie(blob!);
+
+                if (String.IsNullOrEmpty(cookie))
+                {
+                    AccountDisplayName.Text = "未登录";
+                    AccountUserName.Text = "点这里打开账号切换";
+                    return;
+                }
+
+                AuthenticatedUser? user = await AccountManager.WhoAmI(cookie!);
+
+                if (user is null)
+                {
+                    AccountDisplayName.Text = "读不到登录态";
+                    AccountUserName.Text = "点这里打开账号切换";
+                    return;
+                }
+
+                AccountDisplayName.Text = String.IsNullOrWhiteSpace(user.DisplayName) ? user.Name : user.DisplayName;
+                AccountUserName.Text = "@" + user.Name;
+
+                UserDetails details = await UserDetails.Fetch(user.Id);
+                string? url = details.Thumbnail?.ImageUrl;
+
+                if (!String.IsNullOrEmpty(url))
+                    AccountAvatar.Source = await LoadAvatarAsync(url!);
+            }
+            catch (Exception ex)
+            {
+                // 没登录、没网、接口挂了都走这儿。左下角显示成「读不到账号」就行，不要弹窗
+                App.Logger.WriteLine(LOG_IDENT, "Failed to load current account");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                AccountDisplayName.Text = "读不到账号";
+                AccountUserName.Text = "点这里打开账号切换";
+            }
+        }
+
+        /// <summary>
+        /// 头像走 HttpClient 自己下，不用 BitmapImage 的 UriSource。
+        /// 后者用的是 WebRequest，代理和 TLS 那套设置跟 App.HttpClient 不一致，容易下不来
+        /// </summary>
+        private static async Task<BitmapImage?> LoadAvatarAsync(string url)
+        {
+            byte[] bytes = await App.HttpClient.GetByteArrayAsync(url);
+
+            using var stream = new MemoryStream(bytes);
+
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = stream;
+            image.EndInit();
+            image.Freeze();
+
+            return image;
         }
 
         public void LoadState()

@@ -68,6 +68,6 @@ jobs:
             gh release create $tag $exe `
               --repo $repo `
               --title "Luckstrap $tag" `
-              --notes "自动构建 ${{ github.sha }}" `
+              --notes-file RELEASE_NOTES.md `
               --latest
           }

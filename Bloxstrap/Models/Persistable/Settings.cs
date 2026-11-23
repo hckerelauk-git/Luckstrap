@@ -47,5 +47,11 @@ namespace Bloxstrap.Models.Persistable
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
+
+        /// <summary>
+        /// 浏览器里点 Play 时，是不是由 Luckstrap 接住那个 roblox-player 链接。
+        /// 关掉就把协议还给 Roblox 官方 launcher，代价是 FastFlags 和模组不会生效
+        /// </summary>
+        public bool InterceptBrowserLaunches { get; set; } = true;
     }
 }

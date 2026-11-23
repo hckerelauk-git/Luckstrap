@@ -77,6 +77,12 @@
         <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_BrowserLaunch_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_BrowserLaunch_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding BrowserLaunchInterceptEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_MultiInstanceLaunching_Title}" 
             Description="{x:Static resources:Strings.Menu_Integrations_MultiInstanceLaunching_Description}">
             <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
