@@ -17,12 +17,15 @@ namespace Bloxstrap.Integrations
     /// <summary>
     /// 读当前登录的是谁。
     ///
-    /// 优先读 Roblox 自己的 appStorage.json —— 它就在本地，登录之后 Roblox 会把
-    /// Username / UserId / DisplayName 写进去。这条路不需要网络，代理挂了、
-    /// users.roblox.com 被墙了也照样能显示，不会再出现「已经登录了但卡片写未登录」。
+    /// 先拿当前 cookie blob 去 Luckstrap 自己存的 Accounts.json 里对号 —— 这是
+    /// 唯一能反映「刚刚在设置里换过号」的来源，因为换号只改 RobloxCookies.dat，
+    /// appStorage.json 要等 Roblox 下次启动才会跟着更新。
     ///
-    /// 读不到再退到 Luckstrap 自己存的 Accounts.json（按 cookie blob 匹配），
-    /// 最后才是问接口。三层任何一层成功就够了。
+    /// 对不上再退到 Roblox 自己的 appStorage.json —— 它就在本地，登录之后 Roblox
+    /// 会把 Username / UserId / DisplayName 写进去，不需要网络，代理挂了、
+    /// users.roblox.com 被墙了也照样能显示。
+    ///
+    /// 两层都读不到才问接口。任何一层成功就够了。
     /// </summary>
     internal static class CurrentAccount
     {
@@ -100,7 +103,7 @@ namespace Bloxstrap.Integrations
         /// </summary>
         public static async Task<(AccountSnapshot? Account, bool FromNetwork)> ResolveAsync(string? cookieBlob)
         {
-            AccountSnapshot? local = ReadLocal() ?? ReadSaved(cookieBlob);
+            AccountSnapshot? local = ReadSaved(cookieBlob) ?? ReadLocal();
 
             if (String.IsNullOrEmpty(cookieBlob))
                 return (local, false);

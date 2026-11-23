@@ -60,6 +60,7 @@ namespace Bloxstrap.UI.Elements.Settings
         private string? _shownBlob;
         private long _avatarUserId;
         private bool _loadingAccount;
+        private bool _reloadPending;
 
         private void AccountCard_Click(object sender, MouseButtonEventArgs e)
             => RootNavigation.Navigate(typeof(AccountsPage));
@@ -92,8 +93,13 @@ namespace Bloxstrap.UI.Elements.Settings
         {
             const string LOG_IDENT = "MainWindow::LoadCurrentAccount";
 
+            // 正在读的时候又要重读，记一笔，等这一轮完事再补一次。
+            // 直接 return 会把「换完号刷新」这个请求吞掉，卡片就停在旧号上
             if (_loadingAccount)
+            {
+                _reloadPending = true;
                 return;
+            }
 
             _loadingAccount = true;
 
@@ -102,9 +108,9 @@ namespace Bloxstrap.UI.Elements.Settings
                 string? blob = SafeReadBlob();
                 _shownBlob = blob;
 
-                // 先拿本地那份顶着。appStorage.json 是 Roblox 自己写的，不用联网，
-                // 代理挂了也不会显示成「未登录」
-                AccountSnapshot? account = CurrentAccount.ReadLocal() ?? CurrentAccount.ReadSaved(blob);
+                // 先拿本地那份顶着。按当前 cookie 对号优先，换号之后 appStorage.json
+                // 还是旧的，只有 Accounts.json 能立刻反映过来
+                AccountSnapshot? account = CurrentAccount.ReadSaved(blob) ?? CurrentAccount.ReadLocal();
 
                 if (account is not null)
                     ShowAccount(account);
@@ -139,6 +145,12 @@ namespace Bloxstrap.UI.Elements.Settings
             finally
             {
                 _loadingAccount = false;
+
+                if (_reloadPending)
+                {
+                    _reloadPending = false;
+                    LoadCurrentAccount();
+                }
             }
         }
 
