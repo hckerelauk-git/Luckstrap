@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Text.Encodings.Web;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,7 +72,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     _items.Add(new ProfileListItem
                     {
                         Name = profile.Name,
-                        Subtitle = $"{profile.Flags.Count} 项 · {profile.SavedAt:MM-dd HH:mm}",
+                        Subtitle = String.Format(Strings.DlgF_ProfileMeta, profile.Flags.Count, profile.SavedAt),
                         FilePath = file,
                         Profile = profile
                     });
@@ -81,10 +81,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             catch (Exception ex)
             {
                 App.Logger.WriteLine("FastFlagProfiles::Reload", ex.ToString());
-                Warn("读不出来", ex.Message);
+                Warn(Strings.Dlg_037, ex.Message);
             }
 
-            ListHeader.Text = $"方案列表（{_items.Count}）";
+            ListHeader.Text = String.Format(Strings.DlgF_ProfileList, _items.Count);
 
             if (_items.Count == 0)
             {
@@ -129,7 +129,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 var profile = new FastFlagProfile
                 {
-                    Name = NextName("新方案"),
+                    Name = NextName(Strings.Dlg_038),
                     SavedAt = DateTime.Now
                 };
 
@@ -137,7 +137,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 WriteProfile(profile, path);
                 Reload(path);
 
-                Info("建好了", "右边填 Flag 名和值，填完点「保存修改」。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_039, Strings.Dlg_040, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -155,14 +155,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 if (flags.Count == 0)
                 {
-                    Warn("当前没有 FastFlags", "ClientAppSettings.json 是空的，先在前面的 FastFlags 页面配点东西再来存。");
+                    Warn(Strings.Dlg_041, Strings.Dlg_042);
                     return;
                 }
 
                 var profile = new FastFlagProfile
                 {
-                    Name = NextName($"当前配置 {DateTime.Now:MM-dd HH-mm}"),
-                    Note = "从当前 ClientAppSettings.json 存下来的",
+                    Name = NextName(String.Format(Strings.DlgF_ConfigName, DateTime.Now)),
+                    Note = Strings.Dlg_043,
                     SavedAt = DateTime.Now,
                     Flags = flags
                 };
@@ -171,7 +171,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 WriteProfile(profile, path);
                 Reload(path);
 
-                Info("存好了", $"把当前的 {flags.Count} 项存成了「{profile.Name}」。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_044, String.Format(Strings.DlgF_SnapshotSaved, flags.Count, profile.Name), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -183,7 +183,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (_selected is null)
             {
-                Warn("还没选方案", "先在左边点一个方案。");
+                Warn(Strings.Dlg_045, Strings.Dlg_046);
                 return;
             }
 
@@ -191,7 +191,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (name.Length == 0)
             {
-                Warn("名字不能空", "给方案起个名字再保存。");
+                Warn(Strings.Dlg_028, Strings.Dlg_047);
                 return;
             }
 
@@ -204,7 +204,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (clash is not null)
             {
-                Warn("名字撞了", $"已经有一个叫「{clash.Name}」的方案，换个名字。");
+                Warn(Strings.Dlg_048, String.Format(Strings.DlgF_NameTaken, clash.Name));
                 return;
             }
 
@@ -236,7 +236,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 Reload(newPath);
 
-                Info("已保存", $"「{name}」，{profile.Flags.Count} 项。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_049, String.Format(Strings.DlgF_SavedDetail, name, profile.Flags.Count), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -248,13 +248,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (_selected is null)
             {
-                Warn("还没选方案", "先在左边点一个方案。");
+                Warn(Strings.Dlg_045, Strings.Dlg_046);
                 return;
             }
 
             var confirm = MessageBox.Show(
-                $"要删掉「{_selected.Profile.Name}」吗？\n\n只删这份存档，不影响正在用的 ClientAppSettings.json。",
-                "删除方案",
+                String.Format(Strings.DlgF_ProfileDeleteConfirm, _selected.Profile.Name),
+                Strings.Dlg_050,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -266,7 +266,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 File.Delete(_selected.FilePath);
                 _selected = null;
                 Reload();
-                Info("删掉了", "方案已经从列表里移走。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_033, Strings.Dlg_051, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -278,7 +278,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (_selected is null)
             {
-                Warn("还没选方案", "先在左边点一个方案。");
+                Warn(Strings.Dlg_045, Strings.Dlg_046);
                 return;
             }
 
@@ -294,7 +294,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (selected.Count == 0)
             {
-                Warn("没选行", "在表格里点一下要删的那行（按住 Ctrl 可以多选）。");
+                Warn(Strings.Dlg_052, Strings.Dlg_053);
                 return;
             }
 
@@ -308,8 +308,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             var dialog = new OpenFileDialog
             {
-                Title = "选一份 FastFlags 配置",
-                Filter = "JSON 文件 (*.json)|*.json|所有文件 (*.*)|*.*"
+                Title = Strings.Dlg_054,
+                Filter = Strings.Dlg_055
             };
 
             if (dialog.ShowDialog() != true)
@@ -322,7 +322,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 if (profile is null || profile.Flags.Count == 0)
                 {
-                    Warn("没读到内容", "这个文件里找不到 FastFlags。要么是空的，要么不是 ClientAppSettings.json 那种格式。");
+                    Warn(Strings.Dlg_056, Strings.Dlg_057);
                     return;
                 }
 
@@ -333,7 +333,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 WriteProfile(profile, path);
                 Reload(path);
 
-                Info("导入成功", $"「{profile.Name}」，{profile.Flags.Count} 项。还没应用，确认没问题再点「应用这套配置」。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_058, String.Format(Strings.DlgF_Imported, profile.Name, profile.Flags.Count), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -345,7 +345,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (_selected is null)
             {
-                Warn("还没选方案", "先在左边点一个方案。");
+                Warn(Strings.Dlg_045, Strings.Dlg_046);
                 return;
             }
 
@@ -353,14 +353,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (flags.Count == 0)
             {
-                Warn("这套是空的", "空方案导出去没意义，先加点 Flag。");
+                Warn(Strings.Dlg_059, Strings.Dlg_060);
                 return;
             }
 
             var dialog = new SaveFileDialog
             {
-                Title = "导出 FastFlags",
-                Filter = "JSON 文件 (*.json)|*.json",
+                Title = Strings.Dlg_061,
+                Filter = Strings.Dlg_062,
                 FileName = SafeFileName(NameBox.Text.Trim()) + ".json"
             };
 
@@ -371,7 +371,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 // 导出成标准的 ClientAppSettings.json 格式，别人拿到可以直接丢进 Modifications 目录用
                 File.WriteAllText(dialog.FileName, JsonSerializer.Serialize(flags, WriteOptions));
-                Info("导出成功", $"{flags.Count} 项写到 {dialog.FileName}。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_063, String.Format(Strings.DlgF_Exported, flags.Count, dialog.FileName), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -385,7 +385,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (_selected is null)
             {
-                Warn("还没选方案", "先在左边点一个方案。");
+                Warn(Strings.Dlg_045, Strings.Dlg_046);
                 return;
             }
 
@@ -395,16 +395,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (flags.Count == 0)
             {
-                Warn("这套是空的", "空方案应用上去会把现有 FastFlags 全清掉，不给这么干。");
+                Warn(Strings.Dlg_059, Strings.Dlg_064);
                 return;
             }
 
             var confirm = MessageBox.Show(
-                $"要把「{name}」应用到这台电脑吗？\n\n" +
-                $"当前 {App.FastFlags.Prop.Count} 项 FastFlags 会被整套换成这套的 {flags.Count} 项。\n" +
-                "覆盖之后就回不去了，想留一手就先点「把当前配置存成方案」。\n\n" +
-                "改完要重启游戏才生效。",
-                "应用配置",
+                String.Format(Strings.DlgF_ApplyConfirm, name, App.FastFlags.Prop.Count, flags.Count, Strings.Dlg_065),
+                Strings.Dlg_066,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -418,7 +415,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 // 顺手把表格里改的东西落到方案文件上，不然下次点进来又变回旧的
                 PersistAfterApply(flags);
 
-                Info("应用完成", $"现在生效的是「{name}」，{flags.Count} 项。下次启动游戏就是这套。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_067, String.Format(Strings.DlgF_Applied, name, flags.Count), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -672,7 +669,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         // 跟当前定义不一样的说明用户改过了，升级时跳过
         private static readonly Dictionary<string, Dictionary<string, string>> LegacyBuiltinPresets = new()
         {
-            ["低配流畅"] = new()
+            [Strings.Dlg_068] = new()
             {
                 ["DFIntTaskSchedulerTargetFps"] = "60",
                 ["FIntRenderShadowIntensity"] = "0",
@@ -683,7 +680,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 ["DFIntDebugFRMQualityLevelOverride"] = "1",
                 ["FFlagDebugSkyGray"] = "True"
             },
-            ["竞技低延迟"] = new()
+            [Strings.Dlg_069] = new()
             {
                 ["DFIntTaskSchedulerTargetFps"] = "240",
                 ["FIntRenderShadowIntensity"] = "0",
@@ -700,8 +697,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             new FastFlagProfile
             {
-                Name = "低配流畅",
-                Note = "核显、老机器用。关阴影关后期，贴图降到低档。不动帧数上限 —— 要锁帧去 FastFlags 页面单独设。",
+                Name = Strings.Dlg_068,
+                Note = Strings.Dlg_070,
                 SavedAt = DateTime.Now,
                 Flags = new Dictionary<string, string>
                 {
@@ -715,8 +712,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             new FastFlagProfile
             {
-                Name = "均衡",
-                Note = "只锁帧数，画质全交给游戏自己调。不知道选哪个就先用这个。",
+                Name = Strings.Dlg_071,
+                Note = Strings.Dlg_072,
                 SavedAt = DateTime.Now,
                 Flags = new Dictionary<string, string>
                 {
@@ -726,8 +723,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             new FastFlagProfile
             {
-                Name = "高画质",
-                Note = "独显机器截图用。阴影满、贴图拉满、开 MSAA，帧数会掉。",
+                Name = Strings.Dlg_073,
+                Note = Strings.Dlg_074,
                 SavedAt = DateTime.Now,
                 Flags = new Dictionary<string, string>
                 {
@@ -742,8 +739,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             new FastFlagProfile
             {
-                Name = "竞技低延迟",
-                Note = "打架用。高帧、低画质、关阴影，右上角显示帧数方便看掉没掉。",
+                Name = Strings.Dlg_069,
+                Note = Strings.Dlg_075,
                 SavedAt = DateTime.Now,
                 Flags = new Dictionary<string, string>
                 {
@@ -775,7 +772,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private void Fail(string ident, Exception ex)
         {
             App.Logger.WriteLine(ident, ex.ToString());
-            Info("出错了", ex.Message, InfoBarSeverity.Error);
+            Info(Strings.Dlg_036, ex.Message, InfoBarSeverity.Error);
         }
     }
 }

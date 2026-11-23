@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.GameShortcutPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.GameShortcutPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,14 +10,14 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="游戏快捷方式" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Shortcut_Title}" FontSize="20" FontWeight="Medium" />
         <TextBlock Margin="0,4,0,16"
-                   Text="给某个游戏或者某个服务器做个快捷方式放桌面，双击直接进，不用先开启动器再点。"
+                   Text="{x:Static resources:Strings.Shortcut_Help}"
                    FontSize="14"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <TextBlock Text="游戏" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.Nav_Games}" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
 
             <ui:TextBox x:Name="PlaceIdBox"
-                        PlaceholderText="Place ID 或 https://www.roblox.com/games/123456789/xxx" />
+                        PlaceholderText="{x:Static resources:Strings.Common_PlaceIdPlaceholder}" />
 
             <ComboBox x:Name="PickBox"
                       Grid.Column="1"
@@ -33,7 +33,7 @@
                       Margin="8,0,0,0"
                       Padding="10,6"
                       DisplayMemberPath="DisplayText"
-                      ToolTip="从收藏或最近玩过里选，服务器 ID 和私服码会一起填上"
+                      ToolTip="{x:Static resources:Strings.Shortcut_PickHint}"
                       SelectionChanged="OnPickSelected" />
         </Grid>
 
@@ -44,36 +44,36 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0,0,8,0">
-                <TextBlock Text="服务器实例 ID（可选）" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
-                <ui:TextBox x:Name="JobIdBox" PlaceholderText="GUID / JobID，留空就是公开服" />
+                <TextBlock Text="{x:Static resources:Strings.Shortcut_JobId}" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+                <ui:TextBox x:Name="JobIdBox" PlaceholderText="{x:Static resources:Strings.Shortcut_JobIdHint}" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="8,0,0,0">
-                <TextBlock Text="私服访问码（可选）" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
-                <ui:TextBox x:Name="AccessCodeBox" PlaceholderText="privateServerLinkCode 后面那串" />
+                <TextBlock Text="{x:Static resources:Strings.Shortcut_AccessCode}" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+                <ui:TextBox x:Name="AccessCodeBox" PlaceholderText="{x:Static resources:Strings.Shortcut_AccessCodeHint}" />
             </StackPanel>
         </Grid>
 
-        <TextBlock Text="快捷方式放到哪" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.Shortcut_Where}" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
         <StackPanel Orientation="Horizontal">
-            <CheckBox x:Name="DesktopCheck" Content="桌面" IsChecked="True" VerticalAlignment="Center" />
-            <CheckBox x:Name="StartMenuCheck" Content="开始菜单" IsChecked="True" Margin="20,0,0,0" VerticalAlignment="Center" />
+            <CheckBox x:Name="DesktopCheck" Content="{x:Static resources:Strings.Shortcut_Desktop}" IsChecked="True" VerticalAlignment="Center" />
+            <CheckBox x:Name="StartMenuCheck" Content="{x:Static resources:Strings.Shortcut_StartMenu}" IsChecked="True" Margin="20,0,0,0" VerticalAlignment="Center" />
         </StackPanel>
 
-        <TextBlock Text="快捷方式名字（留空就用游戏名）" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
-        <ui:TextBox x:Name="NameBox" PlaceholderText="比如「起床战争 - 亚服」" />
+        <TextBlock Text="{x:Static resources:Strings.Shortcut_Name}" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
+        <ui:TextBox x:Name="NameBox" PlaceholderText="{x:Static resources:Strings.Shortcut_NameHint}" />
 
         <StackPanel Orientation="Horizontal" Margin="0,18,0,0">
             <ui:Button x:Name="CreateAndLaunchButton"
-                       Content="创建并启动"
+                       Content="{x:Static resources:Strings.Shortcut_CreateAndLaunch}"
                        Icon="Play24"
                        Appearance="Primary"
                        Click="OnCreateAndLaunch" />
-            <ui:Button Content="只创建"
+            <ui:Button Content="{x:Static resources:Strings.Shortcut_CreateOnly}"
                        Icon="Add24"
                        Margin="8,0,0,0"
                        Click="OnCreateOnly" />
-            <ui:Button Content="删掉这个游戏的快捷方式"
+            <ui:Button Content="{x:Static resources:Strings.Shortcut_Delete}"
                        Icon="Delete24"
                        Margin="8,0,0,0"
                        Click="OnDelete" />
@@ -87,11 +87,11 @@
 
         <Separator Margin="0,24,0,16" />
 
-        <TextBlock Text="说明" FontSize="16" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Note}" FontSize="16" FontWeight="Medium" />
         <TextBlock Margin="0,8,0,0"
                    FontSize="13"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   Text="快捷方式的目标是 Luckstrap 本身，参数里带 placeId，所以双击之后还是会走启动器那一套（FastFlags、模组、Discord 状态都生效）。填了服务器 ID 就进指定服务器，不填就是该游戏的公开服。" />
+                   Text="{x:Static resources:Strings.Shortcut_NoteBody}" />
     </StackPanel>
 </ui:UiPage>

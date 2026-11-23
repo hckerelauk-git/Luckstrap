@@ -1501,4 +1501,295 @@ Mặc định về {1}.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Không thể xem trước giao diện: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Chưa đăng nhập</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Đổi tài khoản</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Trò chơi</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Máy chủ</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Hồ sơ</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Công cụ</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Lưu tài khoản hiện tại</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Chuyển sang mục đã chọn</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Ghi đè bằng phiên hiện tại</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Xóa mục đã chọn</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Làm mới</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Hiện tại</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>Chưa có tài khoản nào</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Nhãn</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Đặt tên</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Lưu nhãn</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>Hồ sơ trống</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Lưu cấu hình hiện tại</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Xuất mục đã chọn</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Danh sách hồ sơ</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Xóa hồ sơ</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Tên hồ sơ</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Lưu thay đổi</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Ghi chú (tùy chọn)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Tên flag</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Thêm dòng</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Xóa dòng đã chọn</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Áp dụng hồ sơ này</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Trò chơi yêu thích</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Chọn từ gần đây</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID hoặc https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Chưa có mục yêu thích. Dán liên kết hoặc Place ID ở trên.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Chạy</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Lối tắt trò chơi</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>ID máy chủ (tùy chọn)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Để trống nếu muốn vào máy chủ công khai.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Mã máy chủ riêng (tùy chọn)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>Phần sau privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Đặt ở đâu</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Màn hình chính</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Menu Bắt đầu</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Tên lối tắt (trống = tên game)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>vd. BedWars - Châu Á</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Tạo và chạy</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Chỉ tạo</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Xóa lối tắt của game này</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Khởi chạy nhanh</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Phím tắt</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Trạng thái Discord trên trình duyệt (thử nghiệm)</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Nhật ký</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Tìm trong nhật ký: error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Mở thư mục</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Lưu thành</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Chẩn đoán mạng</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Bắt đầu kiểm tra</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Sao chép kết quả</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Không hiểu kết quả?</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Mã máy chủ riêng (tùy chọn)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>Phần sau ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Liên kết được tạo</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Tự động tạo</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Chạy game</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Sao chép liên kết</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Mở bằng trình duyệt</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Chơi gần đây</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Chưa có gì. Chơi một lần rồi thoát là có.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Vào lại máy chủ này</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Xóa lịch sử</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Khu vực máy chủ</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Chọn game</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Chọn game, Place ID tự điền</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID hoặc liên kết game</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Khu vực nào</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Vào máy chủ ở đó</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>Xem tất cả máy chủ</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Đang tải khu vực...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Tham gia</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Phiên bản cũ</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Quét lại</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Chọn tất cả mục xóa được</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>Đây là thông tin đăng nhập</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Yêu thích · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Gần đây · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (riêng · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Chưa kiểm tra</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Đang tra</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Không rõ</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Thông tin bản dựng</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Thời điểm dựng</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Dựng trên</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Nhánh</value>
+  </data>
 </root>

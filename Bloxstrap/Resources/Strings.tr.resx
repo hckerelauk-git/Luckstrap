@@ -1496,4 +1496,295 @@ Otomatiklen {1}'e alınılıyor.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Tema önizlemesi başarısız oldu: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Giriş yapılmadı</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Hesap değiştir</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Oyunlar</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Sunucular</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Hesaplar</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Profiller</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Araçlar</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Geçerli hesabı kaydet</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Seçilene geç</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Seçileni geçerliyle değiştir</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Seçileni sil</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Geçerli</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>Henüz kayıtlı hesap yok</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Etiket</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Bir ad ver</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Etiketi kaydet</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>Boş profil</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Geçerliyi profil yap</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Seçileni dışa aktar</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Profil listesi</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Profili sil</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Profil adı</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Değişiklikleri kaydet</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Not (isteğe bağlı)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Flag adı</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Değer</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Satır ekle</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Seçili satırı kaldır</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Bu profili uygula</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Favori oyunlar</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Son oynananlardan</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID veya https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Henüz favori yok. Yukarıya bir oyun bağlantısı veya Place ID yapıştır.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Başlat</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Oyun kısayolu</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>Sunucu ID (isteğe bağlı)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Genel sunucu için boş bırak.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Özel sunucu kodu (isteğe bağlı)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>privateServerLinkCode= sonrası</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Nereye</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Masaüstü</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Başlat menüsü</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Kısayol adı (boşsa oyun adı)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>ör. BedWars - Asya</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Oluştur ve başlat</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Sadece oluştur</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Bu oyunun kısayolunu sil</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Notlar</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Hızlı başlat</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Klavye kısayolları</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Tarayıcıda Discord durumu (deneysel)</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Günlükler</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Günlükte ara: error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Klasörü aç</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Farklı kaydet</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Ağ testi</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Testi başlat</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Sonuçları kopyala</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Sonuç anlaşılmıyor mu?</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Özel sunucu kodu (isteğe bağlı)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>?privateServerLinkCode= sonrası</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Oluşan bağlantı</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Otomatik oluşur</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Oyunu başlat</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Bağlantıyı kopyala</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Tarayıcıda aç</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Son oynananlar</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Henüz kayıt yok. Bir kez oynayıp çıkınca görünür.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Bu sunucuya dön</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Geçmişi temizle</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Sunucu bölgesi</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Oyun seç</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Oyun seç, Place ID dolar</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID veya oyun bağlantısı</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Hangi bölge</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Oradaki sunucuya gir</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>Tüm sunucuları gör</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Bölgeler yükleniyor...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Katıl</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Eski sürümler</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Yeniden tara</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Silinebilenleri seç</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>Bunlar giriş bilgileri</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Favori · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Son · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (özel · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Test edilmedi</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Aranıyor</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Bilinmiyor</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Derleme bilgisi</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Derleme zamanı</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Derlendiği makine</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Dal</value>
+  </data>
 </root>

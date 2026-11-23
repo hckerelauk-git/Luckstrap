@@ -68,8 +68,8 @@
 
         <!-- 实验性：靠浏览器插件接，能不能显示取决于那边装没装对 -->
         <controls:OptionControl 
-            Header="网页版 Discord 状态（实验性）" 
-            Description="在 127.0.0.1:1337 起一个 arRPC 兼容的桥，浏览器里的 Discord 也能显示在玩什么。前提是浏览器装了 Vencord / Equicord 的 WebRichPresence 插件并开着；网页版只显示文字和按钮，游戏封面是外链图片，那边渲染不出来。"
+            Header="{x:Static resources:Strings.Integrations_WebDiscord_Title}" 
+            Description="{x:Static resources:Strings.Integrations_WebDiscord_Desc}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding WebDiscordActivityEnabled, Mode=TwoWay}" />
         </controls:OptionControl>

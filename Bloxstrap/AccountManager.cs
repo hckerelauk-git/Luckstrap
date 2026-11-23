@@ -79,17 +79,16 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "AccountManager::WhoAmI";
 
-            // 单独开一个 HttpClient，不走 App.HttpClient，免得带着 cookie 的请求被日志处理器记进去
-            using var client = new HttpClient();
-            client.Timeout = TimeSpan.FromSeconds(15);
-            client.DefaultRequestHeaders.Add("User-Agent", "Roblox/WinInet");
-
+            // 用 App.HttpClient，别自己 new 一个：那个走的是系统代理 + 固定的 TLS 配置，
+            // 跟查游戏、查服务器用的是同一条链路。单独 new 出来的在部分网络下会握手失败。
+            // 日志处理器只记方法和 URL，不记请求头，cookie 不会落到日志里
             try
             {
                 using var request = new HttpRequestMessage(HttpMethod.Get, "https://users.roblox.com/v1/users/authenticated");
-                request.Headers.Add("Cookie", $".ROBLOSECURITY={authCookie}");
+                request.Headers.TryAddWithoutValidation("User-Agent", "Roblox/WinInet");
+                request.Headers.TryAddWithoutValidation("Cookie", $".ROBLOSECURITY={authCookie}");
 
-                using var response = await client.SendAsync(request);
+                using var response = await App.HttpClient.SendAsync(request);
 
                 if (!response.IsSuccessStatusCode)
                 {

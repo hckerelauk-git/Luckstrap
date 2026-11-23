@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.AccountsPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.AccountsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,24 +19,24 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock Text="账号切换" FontSize="20" FontWeight="Medium" />
+            <TextBlock Text="{x:Static resources:Strings.Nav_Accounts}" FontSize="20" FontWeight="Medium" />
             <TextBlock Margin="0,4,0,12"
                        TextWrapping="Wrap"
                        FontSize="14"
                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                       Text="先在游戏里正常登录一个账号，然后点「存入当前账号」。要换号就选中另一个点「切换」——下次打开游戏就是那个号了。同一时间只有一个账号登录，跟手动退出再登录一个效果，不涉及多开。" />
+                       Text="{x:Static resources:Strings.Accounts_Help}" />
         </StackPanel>
 
         <ui:InfoBar Grid.Row="1" Margin="0,0,0,10" IsOpen="True" IsClosable="False" Severity="Warning"
-                    Title="存的是登录凭据，自己心里有数"
-                    Message="每个账号存的是一份 Roblox 的登录凭据，用 Windows 自带的 DPAPI 加密，只能在这台电脑的这个 Windows 账户下解开。换电脑、换 Windows 用户都用不了。别把 Luckstrap 目录发给别人，也别把这台电脑借给不信任的人。" />
+                    Title="{x:Static resources:Strings.Accounts_NoticeTitle}"
+                    Message="{x:Static resources:Strings.Accounts_NoticeMessage}" />
 
         <WrapPanel Grid.Row="2" Margin="0,0,0,10">
-            <ui:Button Icon="PersonAdd24" Content="存入当前账号" Click="OnAddCurrent" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowSwap24" Content="切换到选中" Appearance="Primary" Click="OnSwitch" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowSync24" Content="用当前登录态覆盖选中" Click="OnOverwriteSelected" Margin="0,0,8,0" />
-            <ui:Button Icon="Delete24" Content="删除选中" Appearance="Danger" Click="OnDelete" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowClockwise24" Content="刷新" Click="OnRefresh" />
+            <ui:Button Icon="PersonAdd24" Content="{x:Static resources:Strings.Accounts_SaveCurrent}" Click="OnAddCurrent" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowSwap24" Content="{x:Static resources:Strings.Accounts_SwitchToSelected}" Appearance="Primary" Click="OnSwitch" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowSync24" Content="{x:Static resources:Strings.Accounts_OverwriteSelected}" Click="OnOverwriteSelected" Margin="0,0,8,0" />
+            <ui:Button Icon="Delete24" Content="{x:Static resources:Strings.Accounts_DeleteSelected}" Appearance="Danger" Click="OnDelete" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowClockwise24" Content="{x:Static resources:Strings.Common_Refresh}" Click="OnRefresh" />
         </WrapPanel>
 
         <Grid Grid.Row="3">
@@ -78,7 +78,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="当前" FontSize="11" Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
+                                            <TextBlock Text="{x:Static resources:Strings.Accounts_Current}" FontSize="11" Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
                                         </Border>
                                     </Grid>
                                 </Border>
@@ -89,13 +89,13 @@
 
             <Border Grid.Column="2" CornerRadius="6" BorderThickness="1" BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}">
                 <StackPanel Margin="10">
-                    <TextBlock x:Name="ListHeader" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="还没有存账号" />
-                    <TextBlock Margin="0,10,0,4" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="备注名" />
-                    <ui:TextBox x:Name="NameBox" PlaceholderText="给这个号起个名字" />
-                    <ui:Button Icon="Rename24" Content="保存备注名" Margin="0,8,0,0" HorizontalAlignment="Stretch" Click="OnRename" />
+                    <TextBlock x:Name="ListHeader" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Accounts_Empty}" />
+                    <TextBlock Margin="0,10,0,4" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Accounts_Alias}" />
+                    <ui:TextBox x:Name="NameBox" PlaceholderText="{x:Static resources:Strings.Accounts_AliasPlaceholder}" />
+                    <ui:Button Icon="Rename24" Content="{x:Static resources:Strings.Accounts_SaveAlias}" Margin="0,8,0,0" HorizontalAlignment="Stretch" Click="OnRename" />
                     <TextBlock Margin="0,12,0,0" FontSize="11" TextWrapping="Wrap"
                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                               Text="备注名只是给你自己看的，跟游戏里显示的名字无关。查不到名字的时候可以自己填。" />
+                               Text="{x:Static resources:Strings.Accounts_AliasHelp}" />
                 </StackPanel>
             </Border>
         </Grid>

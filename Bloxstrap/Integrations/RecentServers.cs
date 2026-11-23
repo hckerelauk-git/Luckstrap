@@ -1,4 +1,4 @@
-namespace Bloxstrap.Integrations
+﻿namespace Bloxstrap.Integrations
 {
     /// <summary>
     /// 给「快速启动 / 收藏 / 快捷方式」三个页面共用的最近玩过列表。
@@ -79,7 +79,7 @@ namespace Bloxstrap.Integrations
                 {
                     PlaceId = favorite.PlaceId,
                     Name = favorite.Name,
-                    DisplayText = $"收藏 · {favorite.Name}"
+                    DisplayText = String.Format(Strings.Pick_Favorite, favorite.Name)
                 });
             }
 
@@ -92,7 +92,7 @@ namespace Bloxstrap.Integrations
                 {
                     PlaceId = recent.PlaceId,
                     Name = recent.Name,
-                    DisplayText = $"最近 · {recent.DisplayText}",
+                    DisplayText = String.Format(Strings.Pick_Recent, recent.DisplayText),
                     JobId = recent.JobId,
                     AccessCode = recent.AccessCode
                 });
@@ -113,8 +113,8 @@ namespace Bloxstrap.Integrations
         public bool IsPrivate { get; set; }
 
         public string DisplayText => IsPrivate
-            ? $"{Name}（私服 · {LastPlayed:MM-dd HH:mm}）"
-            : $"{Name}（{LastPlayed:MM-dd HH:mm}）";
+            ? String.Format(Strings.Recent_PrivateEntry, Name, LastPlayed)
+            : String.Format(Strings.Recent_PublicEntry, Name, LastPlayed);
     }
 
     /// <summary>收藏和最近玩过合起来的候选列表，给区服选择页挑游戏用</summary>

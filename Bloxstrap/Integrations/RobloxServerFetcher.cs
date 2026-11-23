@@ -1,4 +1,4 @@
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Text;
 using System.Text.Json;
 using Bloxstrap.Models.APIs.RoValra;
@@ -97,10 +97,26 @@ namespace Bloxstrap.Integrations
             ["United States"] = "美国",
         };
 
+        // 中文表只在界面语言是中文时用。其他语言直接用 RoValra 给的英文名，
+        // 总比把中文城市名塞给日语用户强
+        private static bool UseChineseNames =>
+            CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.Equals("zh", StringComparison.OrdinalIgnoreCase);
+
         private static string BuildRegionName(string city, string country)
         {
             if (String.IsNullOrWhiteSpace(city) && String.IsNullOrWhiteSpace(country))
-                return "未知";
+                return Strings.Server_RegionUnknown;
+
+            if (!UseChineseNames)
+            {
+                if (String.IsNullOrWhiteSpace(country))
+                    return city;
+
+                if (String.IsNullOrWhiteSpace(city))
+                    return country;
+
+                return $"{city} · {country}";
+            }
 
             string cityText = CityNames.TryGetValue(city, out string? cityName) ? cityName : city;
             string countryText = CountryNames.TryGetValue(country, out string? countryName) ? countryName : country;
@@ -308,7 +324,7 @@ namespace Bloxstrap.Integrations
                         server.DataCenterId = dcId;
                         server.Region = dcId is not null && map.TryGetValue(dcId.Value, out string? name)
                             ? name
-                            : "未知";
+                            : Strings.Server_RegionUnknown;
 
                         _lookupCache[server.JobId] = (server.DataCenterId, server.Region);
 
@@ -362,7 +378,7 @@ namespace Bloxstrap.Integrations
             if (datacenters is null)
             {
                 foreach (var server in servers)
-                    server.Region = "未知";
+                    server.Region = Strings.Server_RegionUnknown;
 
                 return;
             }
@@ -376,7 +392,7 @@ namespace Bloxstrap.Integrations
                 // 没登录态就换不出数据中心，直接标未知，别让用户干等
                 App.Logger.WriteLine(LOG_IDENT_REGIONS, "No .ROBLOSECURITY available, regions will be unknown");
                 foreach (var server in servers)
-                    server.Region = "未知";
+                    server.Region = Strings.Server_RegionUnknown;
 
                 return;
             }
@@ -401,7 +417,7 @@ namespace Bloxstrap.Integrations
 
                     string region = dcId is not null && map.TryGetValue(dcId.Value, out string? name)
                         ? name
-                        : "未知";
+                        : Strings.Server_RegionUnknown;
 
                     server.DataCenterId = dcId;
                     server.Region = region;
@@ -415,7 +431,7 @@ namespace Bloxstrap.Integrations
                 {
                     App.Logger.WriteLine(LOG_IDENT_REGIONS, $"Lookup failed for {server.JobId}");
                     App.Logger.WriteException(LOG_IDENT_REGIONS, ex);
-                    server.Region = "未知";
+                    server.Region = Strings.Server_RegionUnknown;
                 }
                 finally
                 {

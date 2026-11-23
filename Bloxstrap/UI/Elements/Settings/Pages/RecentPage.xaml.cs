@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using Bloxstrap.Integrations;
@@ -99,9 +99,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             parts.Add(entry.ServerType switch
             {
-                ServerType.Private => "私服",
-                ServerType.Reserved => "预留服",
-                _ => "公开服"
+                ServerType.Private => Strings.Dlg_124,
+                ServerType.Reserved => Strings.Dlg_125,
+                _ => Strings.Dlg_126
             });
 
             if (!String.IsNullOrEmpty(entry.JobId))
@@ -114,8 +114,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 TimeSpan span = left - entry.TimeJoined;
 
                 parts.Add(span.TotalHours >= 1
-                    ? $"待了 {(int)span.TotalHours} 小时 {span.Minutes} 分"
-                    : $"待了 {Math.Max(1, (int)span.TotalMinutes)} 分钟");
+                    ? String.Format(Strings.DlgF_PlayedHours, (int)span.TotalHours, span.Minutes)
+                    : String.Format(Strings.DlgF_PlayedMinutes, Math.Max(1, (int)span.TotalMinutes)));
             }
 
             return String.Join(" · ", parts);
@@ -126,8 +126,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private void OnClear(object sender, RoutedEventArgs e)
         {
             var confirm = MessageBox.Show(
-                "清空之后这些记录就没了，想回上一个服得自己找。确定吗？",
-                "清空最近玩过",
+                Strings.Dlg_127,
+                Strings.Dlg_128,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 

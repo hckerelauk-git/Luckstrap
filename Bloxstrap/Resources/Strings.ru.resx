@@ -1497,4 +1497,358 @@ Luckstrap был установлен по адресу "{1}".</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Не удалось просмотреть тему: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Вход не выполнен</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Нажмите, чтобы сменить</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Игры</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Серверы</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Аккаунты</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Профили</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Инструменты</value>
+  </data>
+  <data name="Accounts_Help" xml:space="preserve">
+    <value>Войдите в игру как обычно и нажмите «Сохранить текущий аккаунт». Чтобы переключиться, выберите другой аккаунт и нажмите «Переключить» — со следующего запуска игра откроется под ним. Одновременно активен только один аккаунт, это то же самое, что выйти и войти вручную.</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Сохранить текущий</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Переключить на выбранный</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Перезаписать выбранный текущим</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Удалить выбранный</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Текущий</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>Сохранённых аккаунтов нет</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Название аккаунта</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Сохранить название</value>
+  </data>
+  <data name="Accounts_AliasHelp" xml:space="preserve">
+    <value>Название видите только вы, к имени в игре оно отношения не имеет. Впишите своё, если имя не удалось получить.</value>
+  </data>
+  <data name="FFProfiles_Help" xml:space="preserve">
+    <value>Сохраните весь набор FastFlags как профиль и возвращайтесь к нему одним нажатием при смене игры или компьютера. Слева готовые профили, справа параметры: измените и нажмите «Сохранить изменения». Файл ClientAppSettings.json перезапишется только после «Применить».</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>Новый профиль</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Сохранить текущие как профиль</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Экспорт выбранного</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Список профилей</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Удалить профиль</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Имя профиля</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Сохранить изменения</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Заметка (необязательно)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Имя флага</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Добавить строку</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Удалить выбранную строку</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Применить профиль</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Избранное</value>
+  </data>
+  <data name="Favorites_Help" xml:space="preserve">
+    <value>Сохраните здесь игры, в которые играете чаще всего: запуск в один клик, без поиска по сайту.</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Из недавних</value>
+  </data>
+  <data name="Favorites_RecentHint" xml:space="preserve">
+    <value>Серверы, где вы были недавно. При выборе подставятся в поле ниже.</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID или https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Пока пусто. Вставьте ссылку на игру или Place ID выше.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Ярлык игры</value>
+  </data>
+  <data name="Shortcut_Help" xml:space="preserve">
+    <value>Создайте на рабочем столе ярлык игры или конкретного сервера: двойной щелчок — и вы в игре.</value>
+  </data>
+  <data name="Shortcut_PickHint" xml:space="preserve">
+    <value>Выберите из избранного или недавних: ID сервера и код приватного сервера подставятся сами.</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>ID сервера (необязательно)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Пусто — публичный сервер.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Код приватного сервера (необязательно)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>Часть после privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Куда положить</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Рабочий стол</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Меню «Пуск»</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Имя ярлыка (пусто — имя игры)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>например, BedWars — Азия</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Создать и запустить</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Только создать</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Удалить ярлык этой игры</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Примечание</value>
+  </data>
+  <data name="Shortcut_NoteBody" xml:space="preserve">
+    <value>Ярлык запускает сам Luckstrap с аргументом placeId, поэтому двойной щелчок всё равно идёт через лаунчер: FastFlags, моды и статус Discord работают. С ID сервера вход будет на этот сервер, без него — на публичный.</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Быстрый запуск</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Горячие клавиши</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Статус Discord в браузере (экспериментально)</value>
+  </data>
+  <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
+    <value>Поднимает arRPC-совместимый мост на 127.0.0.1:1337, чтобы Discord в браузере показывал, во что вы играете. Нужен включённый плагин WebRichPresence в Vencord или Equicord. Веб-версия показывает только текст и кнопки: обложку игры она отрисовать не может.</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Логи</value>
+  </data>
+  <data name="Logs_Help" xml:space="preserve">
+    <value>Лаунчер пишет лог при каждом запуске. Если что-то сломалось, начните отсюда: выберите файл слева, читайте справа.</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Поиск по логу: error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Открыть папку</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Сохранить как</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Диагностика сети</value>
+  </data>
+  <data name="Network_Help" xml:space="preserve">
+    <value>По очереди проверяет домены Roblox, которые реально использует клиент. Если игра не запускается, начните с этого теста.</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Начать проверку</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Копировать результат</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Не понятно, что это значит?</value>
+  </data>
+  <data name="Network_Explain" xml:space="preserve">
+    <value>Если не проходит «Развёртывание клиента», игра не запустится: лаунчер берёт оттуда номер версии. Если всё падает по таймауту или с ошибкой SSL, путь от вашего ПК к Roblox блокируется — попробуйте прокси. Сбой «Расположение сервера» игре не мешает: там запрос к сторонней базе IP, а не к Roblox.</value>
+  </data>
+  <data name="QuickLaunch_Help" xml:space="preserve">
+    <value>Вставьте Place ID, ссылку на игру или ссылку roblox://, чтобы получить ссылку запуска или сразу войти в игру.</value>
+  </data>
+  <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
+    <value>Серверы, где вы были недавно. При выборе подставятся игра и код приватного сервера.</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Код приватного сервера (необязательно)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>Часть после ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Заполнится автоматически</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Запустить игру</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Копировать ссылку</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Открыть в браузере</value>
+  </data>
+  <data name="QuickLaunch_Note" xml:space="preserve">
+    <value>«Запустить игру» поднимает клиент по официальному протоколу Roblox — то же самое, что нажать Play на сайте. Без кода приватного сервера вы попадёте на публичный. Ссылку можно передать: открывший её попадёт на тот же сервер.</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Недавние</value>
+  </data>
+  <data name="Recent_Help" xml:space="preserve">
+    <value>Здесь собраны все серверы, где вы были: до 50 записей, сохраняются между запусками. Записи до установки Luckstrap вытаскиваются из логов самого Roblox, так что вернутся, пока логи на месте. «Зайти снова» вернёт на тот же сервер, если он ещё работает.</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Пока пусто. Зайдите в игру и выйдите — появится.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Зайти снова</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Очистить историю</value>
+  </data>
+  <data name="Recent_Privacy" xml:space="preserve">
+    <value>Записи берутся из лога игры и содержат только то, что нужно для переподключения: ни чата, ни истории действий. Коды доступа к приватным серверам тоже сохраняются, иначе не вернуться. Очистка удаляет только этот список, игру не трогает.</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Регион сервера</value>
+  </data>
+  <data name="Region_Help" xml:space="preserve">
+    <value>Введите игру, выберите регион и нажмите один раз — вы попадёте на сервер там. Если хотите выбрать вручную, нажмите «Все серверы».</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Выбрать игру</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Выберите игру — Place ID подставится</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID или ссылка на игру</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Какой регион</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Войти на сервер там</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>Все серверы</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Загрузка регионов…</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Region_Note" xml:space="preserve">
+    <value>Список серверов берётся из официального API Roblox, по 100 за раз. Региона в нём нет: каждому серверу отправляется запрос на вход, чтобы узнать ID дата-центра, и он сверяется с таблицей дата-центров RoValra. Поэтому поиск по региону занимает время. Он останавливается на первом совпадении, а не проверяет все 100. Серверы с неизвестным регионом помечаются «Неизвестно», войти в них можно. Для определения региона нужен локальный вход в Roblox.</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Старые версии</value>
+  </data>
+  <data name="Versions_Help" xml:space="preserve">
+    <value>Каждое обновление Roblox оставляет здесь пакет. За несколько месяцев набираются гигабайты. Используемая версия помечена и не удаляется.</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Пересканировать</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Выбрать все удаляемые</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>Это учётные данные</value>
+  </data>
+  <data name="Accounts_NoticeMessage" xml:space="preserve">
+    <value>Каждый сохранённый аккаунт — это учётные данные Roblox, зашифрованные Windows DPAPI. Расшифровать их можно только под этой учётной записью Windows на этом ПК. На другом ПК или под другим пользователем они не работают. Не передавайте папку Luckstrap другим и не давайте этот ПК незнакомым людям.</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Избранное · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Недавние · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (приватный · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Не проверено</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Неизвестно</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Сведения о сборке</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Время сборки</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Собрано на</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Коммит</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Ветка</value>
+  </data>
 </root>

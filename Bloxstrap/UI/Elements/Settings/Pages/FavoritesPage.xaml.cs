@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -59,7 +59,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(placeIdText))
             {
-                ShowStatus("认不出这个输入", "要 Place ID，或者带 /games/数字 的链接。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
                 return;
             }
 
@@ -67,13 +67,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (FavoriteStore.Contains(placeId))
             {
-                ShowStatus("已经收藏过了", $"PlaceId {placeId} 已经在列表里。", InfoBarSeverity.Informational);
+                ShowStatus(Strings.Dlg_078, String.Format(Strings.DlgF_AlreadyFavorite, placeId), InfoBarSeverity.Informational);
                 return;
             }
 
             _busy = true;
             AddButton.IsEnabled = false;
-            ShowStatus("正在获取游戏信息", "第一次添加要拉一次名字和图标，稍等。", InfoBarSeverity.Informational);
+            ShowStatus(Strings.Dlg_079, Strings.Dlg_080, InfoBarSeverity.Informational);
 
             try
             {
@@ -85,15 +85,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 InputBox.Text = "";
 
                 if (String.IsNullOrEmpty(game.Name))
-                    ShowStatus("加进去了，但没拿到游戏信息", "可能是网络问题或者这个 Place 不存在。启动不受影响。", InfoBarSeverity.Warning);
+                    ShowStatus(Strings.Dlg_081, Strings.Dlg_082, InfoBarSeverity.Warning);
                 else
-                    ShowStatus("已收藏", game.Name, InfoBarSeverity.Success);
+                    ShowStatus(Strings.Dlg_083, game.Name, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("FavoritesPage::OnAdd", "Failed to add favorite");
                 App.Logger.WriteException("FavoritesPage::OnAdd", ex);
-                ShowStatus("添加失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_084, ex.Message, InfoBarSeverity.Error);
             }
             finally
             {
@@ -121,13 +121,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 Process.Start(psi);
 
-                ShowStatus("已拉起客户端", game.Name, InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_085, game.Name, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("FavoritesPage::OnLaunch", "Failed to launch");
                 App.Logger.WriteException("FavoritesPage::OnLaunch", ex);
-                ShowStatus("启动失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_086, ex.Message, InfoBarSeverity.Error);
             }
         }
 
@@ -139,7 +139,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             FavoriteStore.Remove(game.PlaceId);
             Refresh();
 
-            ShowStatus("已移除", String.IsNullOrEmpty(game.Name) ? $"PlaceId {game.PlaceId}" : game.Name, InfoBarSeverity.Informational);
+            ShowStatus(Strings.Dlg_087, String.IsNullOrEmpty(game.Name) ? $"PlaceId {game.PlaceId}" : game.Name, InfoBarSeverity.Informational);
         }
 
         private void ShowStatus(string title, string message, InfoBarSeverity severity)

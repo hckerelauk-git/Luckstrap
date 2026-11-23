@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Bloxstrap.Models.Entities
@@ -19,14 +19,15 @@ namespace Bloxstrap.Models.Entities
 
         public int? DataCenterId { get; set; }
 
-        private string _region = "查询中";
+        private string _region = Strings.Server_RegionLoading;
+        private bool _regionReady;
         public string Region
         {
             get => _region;
-            set { _region = value; OnPropertyChanged(); OnPropertyChanged(nameof(RegionReady)); }
+            set { _region = value; _regionReady = true; OnPropertyChanged(); OnPropertyChanged(nameof(RegionReady)); }
         }
 
-        public bool RegionReady => _region != "查询中";
+        public bool RegionReady => _regionReady;
 
         public string PlayerCountText => $"{Playing}/{MaxPlayers}";
 

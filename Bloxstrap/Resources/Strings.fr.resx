@@ -1498,4 +1498,295 @@ Retour à la valeur par défaut {1}.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Impossible de prévisualiser le thème : {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Non connecté</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Changer de compte</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Jeux</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Serveurs</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Comptes</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Profils</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Enregistrer le compte</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Basculer vers la sélection</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Remplacer par la session actuelle</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Supprimer la sélection</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Actuel</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>Aucun compte enregistré</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Nommer ce compte</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>Profil vide</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Enregistrer la configuration</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Exporter la sélection</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Liste des profils</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Supprimer le profil</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Nom du profil</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Note (facultatif)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Nom du flag</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Ajouter une ligne</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Supprimer la ligne</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Appliquer ce profil</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Jeux favoris</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Choisir dans les récents</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID ou https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Aucun favori. Collez un lien de jeu ou un Place ID ci-dessus.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Lancer</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Raccourci de jeu</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>ID du serveur (facultatif)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Vide pour un serveur public.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Code de serveur privé (facultatif)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>La partie après privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Emplacement</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Bureau</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Menu Démarrer</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Nom du raccourci (vide = nom du jeu)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>ex. BedWars - Asie</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Créer et lancer</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Créer seulement</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Supprimer le raccourci de ce jeu</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Remarques</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Lancement rapide</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Raccourcis clavier</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Statut Discord dans le navigateur (expérimental)</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Journaux</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Rechercher : error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Ouvrir le dossier</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Enregistrer sous</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Diagnostic réseau</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Lancer le test</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Copier les résultats</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Résultat difficile à lire ?</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Code de serveur privé (facultatif)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>La partie après ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Lien généré</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Généré automatiquement</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Lancer le jeu</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Copier le lien</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Ouvrir dans le navigateur</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Joués récemment</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Rien pour l'instant. Jouez une fois et ça apparaîtra.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Rejoindre ce serveur</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Effacer l'historique</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Région du serveur</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Choisir un jeu</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Choisissez un jeu, le Place ID se remplit</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID ou lien du jeu</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Quelle région</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Rejoindre un serveur là-bas</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>Voir tous les serveurs</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Chargement des régions...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Rejoindre</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Anciennes versions</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Rescanner</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Tout sélectionner</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>Ce sont des identifiants</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Favori · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Récent · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (privé · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Non testé</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Inconnu</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Informations de build</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Compilé le</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Compilé sur</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Branche</value>
+  </data>
 </root>

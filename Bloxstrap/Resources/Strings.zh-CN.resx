@@ -416,7 +416,7 @@
     <value>特别鸣谢</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>Roblox 启动器的第三方替代品。游戏本体还是官方的，外面那一层换了，顺手加了换号、区服选择、最近玩过这些。</value>
+    <value>新一代 Roblox 启动器。</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord 服务器</value>
@@ -1527,5 +1527,984 @@ Luckstrap 的安装路径是：
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>无法预览主题：{0}</value>
+  </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>未登录</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>点这里换号</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>账号切换</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>配置方案</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Accounts_Help" xml:space="preserve">
+    <value>先在游戏里正常登录一个账号，然后点「存入当前账号」。要换号就选中另一个点「切换」——下次打开游戏就是那个号了。同一时间只有一个账号登录，跟手动退出再登录一个效果，不涉及多开。</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>存入当前账号</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>切换到选中</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>用当前登录态覆盖选中</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>删除选中</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>当前</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>还没有存账号</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>备注名</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>给这个号起个名字</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>保存备注名</value>
+  </data>
+  <data name="Accounts_AliasHelp" xml:space="preserve">
+    <value>备注名只是给你自己看的，跟游戏里显示的名字无关。查不到名字的时候可以自己填。</value>
+  </data>
+  <data name="FFProfiles_Help" xml:space="preserve">
+    <value>把整套 FastFlags 存成一份方案，换游戏或者换电脑的时候一键切回来。左边是已有的方案，右边改具体参数，改完点「保存修改」。点「应用」才会真的覆盖当前的 ClientAppSettings.json。</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>新建空白方案</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>把当前配置存成方案</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>导出选中</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>方案列表</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>删除方案</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>方案名字</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>保存修改</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>备注，随便写（可空）</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Flag 名</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>加一行</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>删掉选中行</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>应用这套配置</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>收藏游戏</value>
+  </data>
+  <data name="Favorites_Help" xml:space="preserve">
+    <value>把常玩的游戏存这里，之后点一下就能进，不用每次翻网页。</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>从最近玩过选</value>
+  </data>
+  <data name="Favorites_RecentHint" xml:space="preserve">
+    <value>最近进过的服务器，选中后自动填下面的输入框</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID 或 https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>还没有收藏。上面粘个游戏链接或者 Place ID 试试。</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>游戏快捷方式</value>
+  </data>
+  <data name="Shortcut_Help" xml:space="preserve">
+    <value>给某个游戏或者某个服务器做个快捷方式放桌面，双击直接进，不用先开启动器再点。</value>
+  </data>
+  <data name="Shortcut_PickHint" xml:space="preserve">
+    <value>从收藏或最近玩过里选，服务器 ID 和私服码会一起填上</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>服务器实例 ID（可选）</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID，留空就是公开服</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>私服访问码（可选）</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>privateServerLinkCode 后面那串</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>快捷方式放到哪</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>桌面</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>开始菜单</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>快捷方式名字（留空就用游戏名）</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>比如「起床战争 - 亚服」</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>创建并启动</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>只创建</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>删掉这个游戏的快捷方式</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>说明</value>
+  </data>
+  <data name="Shortcut_NoteBody" xml:space="preserve">
+    <value>快捷方式的目标是 Luckstrap 本身，参数里带 placeId，所以双击之后还是会走启动器那一套（FastFlags、模组、Discord 状态都生效）。填了服务器 ID 就进指定服务器，不填就是该游戏的公开服。</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>快速启动</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>键盘快捷键</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>网页版 Discord 状态（实验性）</value>
+  </data>
+  <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
+    <value>在 127.0.0.1:1337 起一个 arRPC 兼容的桥，浏览器里的 Discord 也能显示在玩什么。前提是浏览器装了 Vencord / Equicord 的 WebRichPresence 插件并开着；网页版只显示文字和按钮，游戏封面是外链图片，那边渲染不出来。</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="Logs_Help" xml:space="preserve">
+    <value>启动器每次运行都会留一份日志，出问题先看这里。左边选文件，右边看内容。</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>搜日志内容，比如 error、fail、timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>打开文件夹</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>网络诊断</value>
+  </data>
+  <data name="Network_Help" xml:space="preserve">
+    <value>逐个测一遍客户端实际会用到的 Roblox 域名。进不去游戏的时候先跑这个，看是哪个环节断了。</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>开始测试</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>复制结果</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>看不懂结果？</value>
+  </data>
+  <data name="Network_Explain" xml:space="preserve">
+    <value>「客户端部署」这一项挂了就一定进不去游戏，因为启动器要靠它拿版本号。全部超时或者报 SSL 错误，基本是本机到 Roblox 的链路被拦了，挂个代理再试。「服务器位置」那一项挂了不影响进游戏，它查的是第三方 IP 库，跟 Roblox 本身没关系。</value>
+  </data>
+  <data name="QuickLaunch_Help" xml:space="preserve">
+    <value>粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或者直接进游戏。</value>
+  </data>
+  <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
+    <value>最近进过的服务器，选中后自动填下面的游戏和私服代码</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>私服代码（可选）</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>私服链接里 ?privateServerLinkCode= 后面那串</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>生成的链接</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>填了上面的内容会自动生成</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>启动游戏</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>复制链接</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>用默认浏览器打开</value>
+  </data>
+  <data name="QuickLaunch_Note" xml:space="preserve">
+    <value>「启动游戏」会走 Roblox 官方协议拉起客户端，跟你在网页上点 Play 是一回事。私服代码不填就是进公开服务器。链接可以发给别人，对方点开也能进同一个服务器。</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>最近玩过</value>
+  </data>
+  <data name="Recent_Help" xml:space="preserve">
+    <value>进过的服务器都记在这里，最多留 50 条，重启也在。装 Luckstrap 之前的记录是从 Roblox 自己的日志里翻出来的，只要日志还在就能补上。点「再进这个服」会回到同一台服务器 —— 前提是它还没关。</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>还没有记录。进一次游戏，退出来就有了。</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>再进这个服</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>清空记录</value>
+  </data>
+  <data name="Recent_Privacy" xml:space="preserve">
+    <value>记录来自游戏日志，只存重连要用的东西，不存聊天记录也不存你在里面干了什么。私服的访问码会一起存下来，不然重连进不去。清空只删这份记录，不影响游戏本身。</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>区服选择</value>
+  </data>
+  <data name="Region_Help" xml:space="preserve">
+    <value>填游戏，选一个想进的地区，点一下直接进那个地区的服。不想按地区挑就点「看全部服务器」，自己从列表里选。</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>从收藏或最近玩过选</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>选一个游戏，下面的 Place ID 会自动填上</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID 或游戏链接</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>想进哪个地区的服务器</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>进这个地区的服</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>看全部服务器</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>正在加载地区列表…</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>加入</value>
+  </data>
+  <data name="Region_Note" xml:space="preserve">
+    <value>服务器列表来自 Roblox 官方接口，一次拉 100 台。地区不在列表里，要逐个发加入请求换数据中心编号，再对照 RoValra 的机房表，所以按地区找服要等一会儿。找到一台就停，不会把 100 台全查完。查不到地区的会显示「未知」，不影响加入。没登录 Roblox 的话查不出地区 —— 这个功能要读本机登录态。</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>旧版本清理</value>
+  </data>
+  <data name="Versions_Help" xml:space="preserve">
+    <value>Roblox 每更新一次会在这里留一份版本包，几个月能堆好几个 G。正在用的版本会标出来，删不掉。</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>重新扫描</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>全选可删的</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>存的是登录凭据，自己心里有数</value>
+  </data>
+  <data name="Accounts_NoticeMessage" xml:space="preserve">
+    <value>每个账号存的是一份 Roblox 的登录凭据，用 Windows 自带的 DPAPI 加密，只能在这台电脑的这个 Windows 账户下解开。换电脑、换 Windows 用户都用不了。别把 Luckstrap 目录发给别人，也别把这台电脑借给不信任的人。</value>
+  </data>
+  <data name="Dlg_001" xml:space="preserve">
+    <value>未登录</value>
+  </data>
+  <data name="Dlg_002" xml:space="preserve">
+    <value>点这里换号</value>
+  </data>
+  <data name="Dlg_003" xml:space="preserve">
+    <value>读不到账号</value>
+  </data>
+  <data name="Dlg_004" xml:space="preserve">
+    <value>存于 </value>
+  </data>
+  <data name="Dlg_005" xml:space="preserve">
+    <value>读不到登录态</value>
+  </data>
+  <data name="Dlg_006" xml:space="preserve">
+    <value>已经存过了</value>
+  </data>
+  <data name="Dlg_007" xml:space="preserve">
+    <value>当前登录的这个账号已经在列表里。</value>
+  </data>
+  <data name="Dlg_008" xml:space="preserve">
+    <value>正在问 Roblox 这是哪个号…</value>
+  </data>
+  <data name="Dlg_009" xml:space="preserve">
+    <value>存下了，但没查到是谁</value>
+  </data>
+  <data name="Dlg_010" xml:space="preserve">
+    <value>cookie 可能已经过期，或者网络不通。先按临时名字存着，右边可以改备注名。</value>
+  </data>
+  <data name="Dlg_011" xml:space="preserve">
+    <value>存下了</value>
+  </data>
+  <data name="Dlg_012" xml:space="preserve">
+    <value>先选一个</value>
+  </data>
+  <data name="Dlg_013" xml:space="preserve">
+    <value>在左边列表里点一下要切过去的账号。</value>
+  </data>
+  <data name="Dlg_014" xml:space="preserve">
+    <value>Roblox 还开着</value>
+  </data>
+  <data name="Dlg_015" xml:space="preserve">
+    <value>先把 Roblox 完全关掉（托盘里也退掉），再切换。开着的时候写进去会被它自己覆盖回去。</value>
+  </data>
+  <data name="Dlg_016" xml:space="preserve">
+    <value>第一次切换时，原来那份登录态会备份到 RobloxCookies.dat.luckstrap-bak。</value>
+  </data>
+  <data name="Dlg_017" xml:space="preserve">
+    <value>切换账号</value>
+  </data>
+  <data name="Dlg_018" xml:space="preserve">
+    <value>切换完成</value>
+  </data>
+  <data name="Dlg_019" xml:space="preserve">
+    <value>在左边列表里点一下要覆盖的账号。</value>
+  </data>
+  <data name="Dlg_020" xml:space="preserve">
+    <value>当前没有可用的登录态。先在游戏里登录一次。</value>
+  </data>
+  <data name="Dlg_021" xml:space="preserve">
+    <value>不用覆盖</value>
+  </data>
+  <data name="Dlg_022" xml:space="preserve">
+    <value>选中这个账号存的凭据跟当前登录的一模一样。</value>
+  </data>
+  <data name="Dlg_023" xml:space="preserve">
+    <value>覆盖之后这个存档就变成你现在登录的那个号了，原来那份就没了。</value>
+  </data>
+  <data name="Dlg_024" xml:space="preserve">
+    <value>覆盖存档</value>
+  </data>
+  <data name="Dlg_025" xml:space="preserve">
+    <value>正在更新…</value>
+  </data>
+  <data name="Dlg_026" xml:space="preserve">
+    <value>覆盖完成</value>
+  </data>
+  <data name="Dlg_027" xml:space="preserve">
+    <value>在左边列表里点一下要改名的账号。</value>
+  </data>
+  <data name="Dlg_028" xml:space="preserve">
+    <value>名字不能空</value>
+  </data>
+  <data name="Dlg_029" xml:space="preserve">
+    <value>填个名字再保存。</value>
+  </data>
+  <data name="Dlg_030" xml:space="preserve">
+    <value>改好了</value>
+  </data>
+  <data name="Dlg_031" xml:space="preserve">
+    <value>在左边列表里点一下要删的账号。</value>
+  </data>
+  <data name="Dlg_032" xml:space="preserve">
+    <value>删除存档</value>
+  </data>
+  <data name="Dlg_033" xml:space="preserve">
+    <value>删掉了</value>
+  </data>
+  <data name="Dlg_034" xml:space="preserve">
+    <value>存档已经从列表里移走。</value>
+  </data>
+  <data name="Dlg_035" xml:space="preserve">
+    <value>稍等</value>
+  </data>
+  <data name="Dlg_036" xml:space="preserve">
+    <value>出错了</value>
+  </data>
+  <data name="Dlg_037" xml:space="preserve">
+    <value>读不出来</value>
+  </data>
+  <data name="Dlg_038" xml:space="preserve">
+    <value>新方案</value>
+  </data>
+  <data name="Dlg_039" xml:space="preserve">
+    <value>建好了</value>
+  </data>
+  <data name="Dlg_040" xml:space="preserve">
+    <value>右边填 Flag 名和值，填完点「保存修改」。</value>
+  </data>
+  <data name="Dlg_041" xml:space="preserve">
+    <value>当前没有 FastFlags</value>
+  </data>
+  <data name="Dlg_042" xml:space="preserve">
+    <value>ClientAppSettings.json 是空的，先在前面的 FastFlags 页面配点东西再来存。</value>
+  </data>
+  <data name="Dlg_043" xml:space="preserve">
+    <value>从当前 ClientAppSettings.json 存下来的</value>
+  </data>
+  <data name="Dlg_044" xml:space="preserve">
+    <value>存好了</value>
+  </data>
+  <data name="Dlg_045" xml:space="preserve">
+    <value>还没选方案</value>
+  </data>
+  <data name="Dlg_046" xml:space="preserve">
+    <value>先在左边点一个方案。</value>
+  </data>
+  <data name="Dlg_047" xml:space="preserve">
+    <value>给方案起个名字再保存。</value>
+  </data>
+  <data name="Dlg_048" xml:space="preserve">
+    <value>名字撞了</value>
+  </data>
+  <data name="Dlg_049" xml:space="preserve">
+    <value>已保存</value>
+  </data>
+  <data name="Dlg_050" xml:space="preserve">
+    <value>删除方案</value>
+  </data>
+  <data name="Dlg_051" xml:space="preserve">
+    <value>方案已经从列表里移走。</value>
+  </data>
+  <data name="Dlg_052" xml:space="preserve">
+    <value>没选行</value>
+  </data>
+  <data name="Dlg_053" xml:space="preserve">
+    <value>在表格里点一下要删的那行（按住 Ctrl 可以多选）。</value>
+  </data>
+  <data name="Dlg_054" xml:space="preserve">
+    <value>选一份 FastFlags 配置</value>
+  </data>
+  <data name="Dlg_055" xml:space="preserve">
+    <value>JSON 文件 (*.json)|*.json|所有文件 (*.*)|*.*</value>
+  </data>
+  <data name="Dlg_056" xml:space="preserve">
+    <value>没读到内容</value>
+  </data>
+  <data name="Dlg_057" xml:space="preserve">
+    <value>这个文件里找不到 FastFlags。要么是空的，要么不是 ClientAppSettings.json 那种格式。</value>
+  </data>
+  <data name="Dlg_058" xml:space="preserve">
+    <value>导入成功</value>
+  </data>
+  <data name="Dlg_059" xml:space="preserve">
+    <value>这套是空的</value>
+  </data>
+  <data name="Dlg_060" xml:space="preserve">
+    <value>空方案导出去没意义，先加点 Flag。</value>
+  </data>
+  <data name="Dlg_061" xml:space="preserve">
+    <value>导出 FastFlags</value>
+  </data>
+  <data name="Dlg_062" xml:space="preserve">
+    <value>JSON 文件 (*.json)|*.json</value>
+  </data>
+  <data name="Dlg_063" xml:space="preserve">
+    <value>导出成功</value>
+  </data>
+  <data name="Dlg_064" xml:space="preserve">
+    <value>空方案应用上去会把现有 FastFlags 全清掉，不给这么干。</value>
+  </data>
+  <data name="Dlg_065" xml:space="preserve">
+    <value>改完要重启游戏才生效。</value>
+  </data>
+  <data name="Dlg_066" xml:space="preserve">
+    <value>应用配置</value>
+  </data>
+  <data name="Dlg_067" xml:space="preserve">
+    <value>应用完成</value>
+  </data>
+  <data name="Dlg_068" xml:space="preserve">
+    <value>低配流畅</value>
+  </data>
+  <data name="Dlg_069" xml:space="preserve">
+    <value>竞技低延迟</value>
+  </data>
+  <data name="Dlg_070" xml:space="preserve">
+    <value>核显、老机器用。关阴影关后期，贴图降到低档。不动帧数上限 —— 要锁帧去 FastFlags 页面单独设。</value>
+  </data>
+  <data name="Dlg_071" xml:space="preserve">
+    <value>均衡</value>
+  </data>
+  <data name="Dlg_072" xml:space="preserve">
+    <value>只锁帧数，画质全交给游戏自己调。不知道选哪个就先用这个。</value>
+  </data>
+  <data name="Dlg_073" xml:space="preserve">
+    <value>高画质</value>
+  </data>
+  <data name="Dlg_074" xml:space="preserve">
+    <value>独显机器截图用。阴影满、贴图拉满、开 MSAA，帧数会掉。</value>
+  </data>
+  <data name="Dlg_075" xml:space="preserve">
+    <value>打架用。高帧、低画质、关阴影，右上角显示帧数方便看掉没掉。</value>
+  </data>
+  <data name="Dlg_076" xml:space="preserve">
+    <value>认不出这个输入</value>
+  </data>
+  <data name="Dlg_077" xml:space="preserve">
+    <value>要 Place ID，或者带 /games/数字 的链接。</value>
+  </data>
+  <data name="Dlg_078" xml:space="preserve">
+    <value>已经收藏过了</value>
+  </data>
+  <data name="Dlg_079" xml:space="preserve">
+    <value>正在获取游戏信息</value>
+  </data>
+  <data name="Dlg_080" xml:space="preserve">
+    <value>第一次添加要拉一次名字和图标，稍等。</value>
+  </data>
+  <data name="Dlg_081" xml:space="preserve">
+    <value>加进去了，但没拿到游戏信息</value>
+  </data>
+  <data name="Dlg_082" xml:space="preserve">
+    <value>可能是网络问题或者这个 Place 不存在。启动不受影响。</value>
+  </data>
+  <data name="Dlg_083" xml:space="preserve">
+    <value>已收藏</value>
+  </data>
+  <data name="Dlg_084" xml:space="preserve">
+    <value>添加失败</value>
+  </data>
+  <data name="Dlg_085" xml:space="preserve">
+    <value>已拉起客户端</value>
+  </data>
+  <data name="Dlg_086" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="Dlg_087" xml:space="preserve">
+    <value>已移除</value>
+  </data>
+  <data name="Dlg_088" xml:space="preserve">
+    <value>手动输入</value>
+  </data>
+  <data name="Dlg_089" xml:space="preserve">
+    <value>没选位置</value>
+  </data>
+  <data name="Dlg_090" xml:space="preserve">
+    <value>桌面和开始菜单至少勾一个。</value>
+  </data>
+  <data name="Dlg_091" xml:space="preserve">
+    <value>创建失败</value>
+  </data>
+  <data name="Dlg_092" xml:space="preserve">
+    <value>快捷方式已创建</value>
+  </data>
+  <data name="Dlg_093" xml:space="preserve">
+    <value>已创建并启动</value>
+  </data>
+  <data name="Dlg_094" xml:space="preserve">
+    <value>快捷方式建好了，但启动失败</value>
+  </data>
+  <data name="Dlg_095" xml:space="preserve">
+    <value>先填游戏</value>
+  </data>
+  <data name="Dlg_096" xml:space="preserve">
+    <value>要删哪个游戏的快捷方式，得先知道是哪个游戏。</value>
+  </data>
+  <data name="Dlg_097" xml:space="preserve">
+    <value>没找到</value>
+  </data>
+  <data name="Dlg_098" xml:space="preserve">
+    <value>已删除</value>
+  </data>
+  <data name="Dlg_099" xml:space="preserve">
+    <value>日志目录还没生成，先启动一次客户端再说。</value>
+  </data>
+  <data name="Dlg_100" xml:space="preserve">
+    <value>这个目录里没有 .log 文件。</value>
+  </data>
+  <data name="Dlg_101" xml:space="preserve">
+    <value>读日志目录失败：</value>
+  </data>
+  <data name="Dlg_102" xml:space="preserve">
+    <value>读文件失败：</value>
+  </data>
+  <data name="Dlg_103" xml:space="preserve">
+    <value>打不开文件夹</value>
+  </data>
+  <data name="Dlg_104" xml:space="preserve">
+    <value>先选一个日志文件。</value>
+  </data>
+  <data name="Dlg_105" xml:space="preserve">
+    <value>没有内容</value>
+  </data>
+  <data name="Dlg_106" xml:space="preserve">
+    <value>日志文件 (*.log)|*.log|文本文件 (*.txt)|*.txt</value>
+  </data>
+  <data name="Dlg_107" xml:space="preserve">
+    <value>保存失败</value>
+  </data>
+  <data name="Dlg_108" xml:space="preserve">
+    <value>Roblox 官网</value>
+  </data>
+  <data name="Dlg_109" xml:space="preserve">
+    <value>客户端部署（主）</value>
+  </data>
+  <data name="Dlg_110" xml:space="preserve">
+    <value>客户端部署（备）</value>
+  </data>
+  <data name="Dlg_111" xml:space="preserve">
+    <value>游戏信息</value>
+  </data>
+  <data name="Dlg_112" xml:space="preserve">
+    <value>游戏图标</value>
+  </data>
+  <data name="Dlg_113" xml:space="preserve">
+    <value>PlaceId 转换</value>
+  </data>
+  <data name="Dlg_114" xml:space="preserve">
+    <value>用户信息</value>
+  </data>
+  <data name="Dlg_115" xml:space="preserve">
+    <value>服务器位置</value>
+  </data>
+  <data name="Dlg_116" xml:space="preserve">
+    <value>正在测试</value>
+  </data>
+  <data name="Dlg_117" xml:space="preserve">
+    <value>连接中</value>
+  </data>
+  <data name="Dlg_118" xml:space="preserve">
+    <value>全部通过</value>
+  </data>
+  <data name="Dlg_119" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="Dlg_120" xml:space="preserve">
+    <value>直接粘给别人看就行。</value>
+  </data>
+  <data name="Dlg_121" xml:space="preserve">
+    <value>复制失败</value>
+  </data>
+  <data name="Dlg_122" xml:space="preserve">
+    <value>正在启动，窗口可能要等几秒才出来。</value>
+  </data>
+  <data name="Dlg_123" xml:space="preserve">
+    <value>打不开</value>
+  </data>
+  <data name="Dlg_124" xml:space="preserve">
+    <value>私服</value>
+  </data>
+  <data name="Dlg_125" xml:space="preserve">
+    <value>预留服</value>
+  </data>
+  <data name="Dlg_126" xml:space="preserve">
+    <value>公开服</value>
+  </data>
+  <data name="Dlg_127" xml:space="preserve">
+    <value>清空之后这些记录就没了，想回上一个服得自己找。确定吗？</value>
+  </data>
+  <data name="Dlg_128" xml:space="preserve">
+    <value>清空最近玩过</value>
+  </data>
+  <data name="Dlg_129" xml:space="preserve">
+    <value>地区列表没拉到。点「看全部服务器」还能用，那边查到的地区一样能挑。</value>
+  </data>
+  <data name="Dlg_130" xml:space="preserve">
+    <value>地区列表没拉到</value>
+  </data>
+  <data name="Dlg_131" xml:space="preserve">
+    <value>机房对照表取不到，多半是网络问题。直接点「看全部服务器」手动挑。</value>
+  </data>
+  <data name="Dlg_132" xml:space="preserve">
+    <value>填 Place ID，选个地区，点「进这个地区的服」。</value>
+  </data>
+  <data name="Dlg_133" xml:space="preserve">
+    <value>地区列表没拉到。点「看全部服务器」还能用。</value>
+  </data>
+  <data name="Dlg_134" xml:space="preserve">
+    <value>先选个地区</value>
+  </data>
+  <data name="Dlg_135" xml:space="preserve">
+    <value>上面那个下拉框里挑一个。</value>
+  </data>
+  <data name="Dlg_136" xml:space="preserve">
+    <value>正在找</value>
+  </data>
+  <data name="Dlg_137" xml:space="preserve">
+    <value>正在查询</value>
+  </data>
+  <data name="Dlg_138" xml:space="preserve">
+    <value>先拉服务器列表，再逐个查地区，100 台大概要十几秒。</value>
+  </data>
+  <data name="Dlg_139" xml:space="preserve">
+    <value>没查到服务器</value>
+  </data>
+  <data name="Dlg_140" xml:space="preserve">
+    <value>这个 Place 可能没有公开服务器，或者接口暂时不可用。</value>
+  </data>
+  <data name="Dlg_141" xml:space="preserve">
+    <value>没查到服务器。</value>
+  </data>
+  <data name="Dlg_142" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Dlg_143" xml:space="preserve">
+    <value>地区全没拿到，可能是没登录或者接口挂了，服务器本身还能进。</value>
+  </data>
+  <data name="Dlg_144" xml:space="preserve">
+    <value>查询失败</value>
+  </data>
+  <data name="Dlg_145" xml:space="preserve">
+    <value>扫描中…</value>
+  </data>
+  <data name="Dlg_146" xml:space="preserve">
+    <value>正在使用（Player + Studio）</value>
+  </data>
+  <data name="Dlg_147" xml:space="preserve">
+    <value>正在使用（Player）</value>
+  </data>
+  <data name="Dlg_148" xml:space="preserve">
+    <value>正在使用（Studio）</value>
+  </data>
+  <data name="Dlg_149" xml:space="preserve">
+    <value>没有找到版本包</value>
+  </data>
+  <data name="Dlg_150" xml:space="preserve">
+    <value>没选东西</value>
+  </data>
+  <data name="Dlg_151" xml:space="preserve">
+    <value>先勾选要删的版本。正在使用的版本删不了。</value>
+  </data>
+  <data name="Dlg_152" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
+  <data name="Dlg_153" xml:space="preserve">
+    <value>正在删</value>
+  </data>
+  <data name="Dlg_154" xml:space="preserve">
+    <value>别关窗口，删完会刷新列表。</value>
+  </data>
+  <data name="Dlg_155" xml:space="preserve">
+    <value>删完了</value>
+  </data>
+  <data name="Dlg_156" xml:space="preserve">
+    <value>删了一部分</value>
+  </data>
+  <data name="DlgF_SavedNoLogin" xml:space="preserve">
+    <value>已存 {0} 个 · 读不到当前登录态</value>
+  </data>
+  <data name="DlgF_SavedCount" xml:space="preserve">
+    <value>已存 {0} 个</value>
+  </data>
+  <data name="DlgF_CookieMissing" xml:space="preserve">
+    <value>没找到 {0}。先在游戏里正常登录一次，再回来点这个。</value>
+  </data>
+  <data name="DlgF_AccountN" xml:space="preserve">
+    <value>账号 {0}</value>
+  </data>
+  <data name="DlgF_Switched" xml:space="preserve">
+    <value>现在登录态是「{0}」。打开游戏看一眼，如果显示未登录，说明这个存档的凭据过期了——重新登录一次，再点「用当前登录态覆盖选中」。</value>
+  </data>
+  <data name="DlgF_Overwritten" xml:space="preserve">
+    <value>「{0}」现在对应的是你刚才登录的那个号。</value>
+  </data>
+  <data name="DlgF_Renamed" xml:space="preserve">
+    <value>备注名现在是「{0}」。</value>
+  </data>
+  <data name="DlgF_ProfileMeta" xml:space="preserve">
+    <value>{0} 项 · {1:MM-dd HH:mm}</value>
+  </data>
+  <data name="DlgF_ProfileList" xml:space="preserve">
+    <value>方案列表（{0}）</value>
+  </data>
+  <data name="DlgF_ConfigName" xml:space="preserve">
+    <value>当前配置 {0:MM-dd HH-mm}</value>
+  </data>
+  <data name="DlgF_SnapshotSaved" xml:space="preserve">
+    <value>把当前的 {0} 项存成了「{1}」。</value>
+  </data>
+  <data name="DlgF_NameTaken" xml:space="preserve">
+    <value>已经有一个叫「{0}」的方案，换个名字。</value>
+  </data>
+  <data name="DlgF_SavedDetail" xml:space="preserve">
+    <value>「{0}」，{1} 项。</value>
+  </data>
+  <data name="DlgF_Imported" xml:space="preserve">
+    <value>「{0}」，{1} 项。还没应用，确认没问题再点「应用这套配置」。</value>
+  </data>
+  <data name="DlgF_Exported" xml:space="preserve">
+    <value>{0} 项写到 {1}。</value>
+  </data>
+  <data name="DlgF_Applied" xml:space="preserve">
+    <value>现在生效的是「{0}」，{1} 项。下次启动游戏就是这套。</value>
+  </data>
+  <data name="DlgF_AlreadyFavorite" xml:space="preserve">
+    <value>PlaceId {0} 已经在列表里。</value>
+  </data>
+  <data name="DlgF_ShortcutMissing" xml:space="preserve">
+    <value>桌面和开始菜单里都没有 {0}.lnk</value>
+  </data>
+  <data name="DlgF_ShortcutDeleted" xml:space="preserve">
+    <value>删掉了 {0} 个 {1}.lnk</value>
+  </data>
+  <data name="DlgF_NoSearchHit" xml:space="preserve">
+    <value>没找到包含「{0}」的行。</value>
+  </data>
+  <data name="DlgF_TestingCount" xml:space="preserve">
+    <value>一共 {0} 项，一项一项来。</value>
+  </data>
+  <data name="DlgF_Timeout" xml:space="preserve">
+    <value>超时（&gt;{0} ms 没有响应）</value>
+  </data>
+  <data name="DlgF_AllPassed" xml:space="preserve">
+    <value>{0} 项都通了，网络没问题。</value>
+  </data>
+  <data name="DlgF_SomeFailed" xml:space="preserve">
+    <value>{0} 项失败</value>
+  </data>
+  <data name="DlgF_FailedDetail" xml:space="preserve">
+    <value>通了 {0} 项，挂了 {1} 项。看下面标 ✗ 的。</value>
+  </data>
+  <data name="DlgF_ReportTitle" xml:space="preserve">
+    <value>Luckstrap 网络诊断 {0:yyyy-MM-dd HH:mm:ss}</value>
+  </data>
+  <data name="DlgF_PlayedHours" xml:space="preserve">
+    <value>待了 {0} 小时 {1} 分</value>
+  </data>
+  <data name="DlgF_PlayedMinutes" xml:space="preserve">
+    <value>待了 {0} 分钟</value>
+  </data>
+  <data name="DlgF_RegionSearching" xml:space="preserve">
+    <value>{0} · 先拉服务器列表，再逐个查地区，找到一台就进。</value>
+  </data>
+  <data name="DlgF_RegionProgress" xml:space="preserve">
+    <value>{0} · 已查 {1}/{2} 台</value>
+  </data>
+  <data name="DlgF_RegionEmpty" xml:space="preserve">
+    <value>这个游戏现在没有 {0} 的公开服务器。换个地区，或者点「看全部服务器」自己挑一台。</value>
+  </data>
+  <data name="DlgF_RegionNoServer" xml:space="preserve">
+    <value>{0} 没有可进的服务器。</value>
+  </data>
+  <data name="DlgF_ServerCount" xml:space="preserve">
+    <value>查到 {0} 台服务器</value>
+  </data>
+  <data name="DlgF_RegionKnown" xml:space="preserve">
+    <value>{0} 台拿到了地区，挑一台进。</value>
+  </data>
+  <data name="DlgF_LastModified" xml:space="preserve">
+    <value>最后修改 {0:yyyy-MM-dd HH:mm}</value>
+  </data>
+  <data name="DlgF_VersionSummary" xml:space="preserve">
+    <value>共 {0} 个版本，占用 {1}，其中可删 {2}</value>
+  </data>
+  <data name="DlgF_DeletedSummary" xml:space="preserve">
+    <value>清掉 {0} 个版本，腾出 {1}。</value>
+  </data>
+  <data name="DlgF_DeletePartial" xml:space="preserve">
+    <value>{0} 个成功，{1} 个失败（可能被占用）。详情看日志。</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>收藏 · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>最近 · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0}（私服 · {1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0}（{1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>未测试</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>查询中</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>构建信息</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>构建时间</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>构建机器</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>分支</value>
+  </data>
+  <data name="Account_Tooltip" xml:space="preserve">
+    <value>{0} (@{1})
+点一下打开账号切换</value>
+  </data>
+  <data name="DlgF_SwitchConfirm" xml:space="preserve">
+    <value>切换到「{0}」？
+
+会把 Roblox 现在的登录态换成这个账号，下次打开游戏就是它。
+{1}</value>
+  </data>
+  <data name="DlgF_OverwriteConfirm" xml:space="preserve">
+    <value>用当前登录的凭据覆盖「{0}」吗？
+
+{1}</value>
+  </data>
+  <data name="DlgF_DeleteConfirm" xml:space="preserve">
+    <value>从列表里删掉「{0}」吗？
+
+只删这份存档，不会让你退出登录，也不影响现在游戏里的账号。</value>
+  </data>
+  <data name="DlgF_ProfileDeleteConfirm" xml:space="preserve">
+    <value>要删掉「{0}」吗？
+
+只删这份存档，不影响正在用的 ClientAppSettings.json。</value>
+  </data>
+  <data name="DlgF_ApplyConfirm" xml:space="preserve">
+    <value>要把「{0}」应用到这台电脑吗？
+
+当前 {1} 项 FastFlags 会被整套换成这套的 {2} 项。
+覆盖之后就回不去了，想留一手就先点「把当前配置存成方案」。
+
+{3}</value>
+  </data>
+  <data name="Log_FileTooLarge" xml:space="preserve">
+    <value>（文件太大，只显示最后 4MB）</value>
+  </data>
+  <data name="DlgF_DeleteVersionsConfirm" xml:space="preserve">
+    <value>要删掉这 {0} 个版本包吗？能腾出 {1}。
+
+{2}
+
+删了之后如果游戏要用这个版本，客户端会重新下载。</value>
   </data>
 </root>

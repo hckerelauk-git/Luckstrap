@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.FastFlagProfilesPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.FastFlagProfilesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -18,20 +18,20 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock Text="配置方案" FontSize="20" FontWeight="Medium" />
+            <TextBlock Text="{x:Static resources:Strings.Nav_Profiles}" FontSize="20" FontWeight="Medium" />
             <TextBlock Margin="0,4,0,12"
                        TextWrapping="Wrap"
                        FontSize="14"
                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                       Text="把整套 FastFlags 存成一份方案，换游戏或者换电脑的时候一键切回来。左边是已有的方案，右边改具体参数，改完点「保存修改」。点「应用」才会真的覆盖当前的 ClientAppSettings.json。" />
+                       Text="{x:Static resources:Strings.FFProfiles_Help}" />
         </StackPanel>
 
         <WrapPanel Grid.Row="1" Margin="0,0,0,10">
-            <ui:Button Icon="DocumentAdd24" Content="新建空白方案" Click="OnCreateBlank" Margin="0,0,8,0" />
-            <ui:Button Icon="Save24" Content="把当前配置存成方案" Click="OnSnapshotCurrent" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowDownload24" Content="导入" Click="OnImport" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowUpload24" Content="导出选中" Click="OnExport" Margin="0,0,8,0" />
-            <ui:Button Icon="ArrowSync24" Content="刷新" Click="OnRefresh" />
+            <ui:Button Icon="DocumentAdd24" Content="{x:Static resources:Strings.FFProfiles_New}" Click="OnCreateBlank" Margin="0,0,8,0" />
+            <ui:Button Icon="Save24" Content="{x:Static resources:Strings.FFProfiles_SaveCurrent}" Click="OnSnapshotCurrent" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowDownload24" Content="{x:Static resources:Strings.Common_Import}" Click="OnImport" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowUpload24" Content="{x:Static resources:Strings.FFProfiles_Export}" Click="OnExport" Margin="0,0,8,0" />
+            <ui:Button Icon="ArrowSync24" Content="{x:Static resources:Strings.Common_Refresh}" Click="OnRefresh" />
         </WrapPanel>
 
         <Grid Grid.Row="2">
@@ -50,7 +50,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" x:Name="ListHeader" Margin="10,8,10,4" FontSize="12"
-                               Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="方案列表" />
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.FFProfiles_List}" />
 
                     <ListBox Grid.Row="1" x:Name="ProfileList"
                              Background="Transparent" BorderThickness="0"
@@ -68,7 +68,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <ui:Button Grid.Row="2" Icon="Delete24" Content="删除方案" Appearance="Danger"
+                    <ui:Button Grid.Row="2" Icon="Delete24" Content="{x:Static resources:Strings.FFProfiles_Delete}" Appearance="Danger"
                                Margin="8" HorizontalAlignment="Stretch" Click="OnDeleteProfile" />
                 </Grid>
             </Border>
@@ -87,11 +87,11 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <ui:TextBox Grid.Column="0" x:Name="NameBox" Margin="0,0,8,0" PlaceholderText="方案名字" />
-                        <ui:Button Grid.Column="1" Icon="Save24" Content="保存修改" Appearance="Primary" Click="OnSaveProfile" />
+                        <ui:TextBox Grid.Column="0" x:Name="NameBox" Margin="0,0,8,0" PlaceholderText="{x:Static resources:Strings.FFProfiles_Name}" />
+                        <ui:Button Grid.Column="1" Icon="Save24" Content="{x:Static resources:Strings.FFProfiles_SaveChanges}" Appearance="Primary" Click="OnSaveProfile" />
                     </Grid>
 
-                    <ui:TextBox Grid.Row="1" x:Name="NoteBox" Margin="0,8,0,10" PlaceholderText="备注，随便写（可空）" />
+                    <ui:TextBox Grid.Row="1" x:Name="NoteBox" Margin="0,8,0,10" PlaceholderText="{x:Static resources:Strings.FFProfiles_Note}" />
 
                     <DataGrid Grid.Row="2" x:Name="FlagGrid"
                               HeadersVisibility="Column" GridLinesVisibility="Horizontal"
@@ -144,17 +144,17 @@
                         </DataGrid.CellStyle>
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Flag 名" Binding="{Binding Name}" Width="2*" />
-                            <DataGridTextColumn Header="值" Binding="{Binding Value}" Width="*" />
+                            <DataGridTextColumn Header="{x:Static resources:Strings.FFProfiles_FlagName}" Binding="{Binding Name}" Width="2*" />
+                            <DataGridTextColumn Header="{x:Static resources:Strings.FFProfiles_Value}" Binding="{Binding Value}" Width="*" />
                         </DataGrid.Columns>
                     </DataGrid>
 
                     <Grid Grid.Row="3" Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <ui:Button Icon="Add24" Content="加一行" Click="OnAddRow" Margin="0,0,8,0" />
-                            <ui:Button Icon="Delete24" Content="删掉选中行" Click="OnDeleteRows" />
+                            <ui:Button Icon="Add24" Content="{x:Static resources:Strings.FFProfiles_AddRow}" Click="OnAddRow" Margin="0,0,8,0" />
+                            <ui:Button Icon="Delete24" Content="{x:Static resources:Strings.FFProfiles_RemoveRow}" Click="OnDeleteRows" />
                         </StackPanel>
-                        <ui:Button Icon="Play24" Content="应用这套配置" Appearance="Primary"
+                        <ui:Button Icon="Play24" Content="{x:Static resources:Strings.FFProfiles_Apply}" Appearance="Primary"
                                    HorizontalAlignment="Right" Click="OnApply" />
                     </Grid>
                 </Grid>

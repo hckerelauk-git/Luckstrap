@@ -412,7 +412,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Special Thanks</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>An alternative launcher for Roblox. The game itself is still the official one - this replaces the layer around it.</value>
+    <value>A next-generation launcher for Roblox.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord server</value>
@@ -1504,5 +1504,984 @@ Defaulting to {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Failed to preview theme: {0}</value>
+  </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Not signed in</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Click to switch</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Servers</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Profiles</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Accounts_Help" xml:space="preserve">
+    <value>Sign in to the game as usual, then click Save current account. To switch, pick another account and click Switch; the next launch uses that one. Only one account is signed in at a time, the same as logging out and back in by hand.</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Save current account</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Switch to selected</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Overwrite selected with current</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Delete selected</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>No saved accounts yet</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Name this account</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Save label</value>
+  </data>
+  <data name="Accounts_AliasHelp" xml:space="preserve">
+    <value>The label is only for you and has nothing to do with the name shown in game. Fill it in yourself when the name cannot be fetched.</value>
+  </data>
+  <data name="FFProfiles_Help" xml:space="preserve">
+    <value>Save the whole FastFlags set as a profile and switch back with one click when you change games or machines. Existing profiles are on the left, the parameters on the right; edit them and click Save changes. Nothing is applied until you click Apply.</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>New blank profile</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Save current as profile</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Export selected</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Profiles</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Delete profile</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Profile name</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Note (optional)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Flag name</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Add row</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Remove selected row</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Apply this profile</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Favorite games</value>
+  </data>
+  <data name="Favorites_Help" xml:space="preserve">
+    <value>Keep the games you play most here. One click launches them, no more digging through the website.</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Pick from recent</value>
+  </data>
+  <data name="Favorites_RecentHint" xml:space="preserve">
+    <value>Servers you joined recently. Picking one fills the box below.</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID or https://www.roblox.com/games/123456789/name</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>No favorites yet. Paste a game link or Place ID above.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Launch</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Game shortcut</value>
+  </data>
+  <data name="Shortcut_Help" xml:space="preserve">
+    <value>Put a shortcut to a game or a specific server on the desktop. Double-click and you are in, no launcher first.</value>
+  </data>
+  <data name="Shortcut_PickHint" xml:space="preserve">
+    <value>Pick from favorites or recent. The server ID and private code are filled in for you.</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>Server instance ID (optional)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Leave empty for a public server.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Private server code (optional)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>The part after privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Where to put it</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Start menu</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Shortcut name (game name if empty)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>e.g. BedWars - Asia</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Create and launch</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Create only</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Delete this game's shortcut</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Shortcut_NoteBody" xml:space="preserve">
+    <value>The shortcut points at Luckstrap itself with a placeId argument, so double-clicking still goes through the launcher: FastFlags, mods and Discord status all apply. With a server ID it joins that server; without one it joins the public server.</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Quick launch</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Keyboard shortcuts</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Discord status in browser (experimental)</value>
+  </data>
+  <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
+    <value>Runs an arRPC-compatible bridge on 127.0.0.1:1337 so Discord in the browser can show what you are playing. Requires the Vencord or Equicord WebRichPresence plugin, enabled. The web client only shows text and buttons; the game cover is a remote image it cannot render.</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Logs_Help" xml:space="preserve">
+    <value>The launcher writes a log on every run. When something breaks, start here: pick a file on the left, read it on the right.</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Search the log, e.g. error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Save as</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Network test</value>
+  </data>
+  <data name="Network_Help" xml:space="preserve">
+    <value>Tests each Roblox domain the client actually uses. When you cannot get into a game, run this first to see which step is broken.</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Start test</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Copy results</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Not sure what this means?</value>
+  </data>
+  <data name="Network_Explain" xml:space="preserve">
+    <value>If Client deployment fails, the game will not start at all: the launcher needs it to get the version number. If everything times out or reports SSL errors, the path from your machine to Roblox is being blocked; try a proxy. A failure on Server location does not stop you playing: that one queries a third-party IP database, not Roblox.</value>
+  </data>
+  <data name="QuickLaunch_Help" xml:space="preserve">
+    <value>Paste a Place ID, a game link or a roblox:// link to build a launch link, or jump straight into the game.</value>
+  </data>
+  <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
+    <value>Servers you joined recently. Picking one fills in the game and private code below.</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Private server code (optional)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>The part after ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Generated link</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Filled in automatically</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Launch game</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Copy link</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="QuickLaunch_Note" xml:space="preserve">
+    <value>Launch game uses the official Roblox protocol, the same as clicking Play on the website. Leave the private code empty for a public server. The link can be shared; whoever opens it lands on the same server.</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Recently played</value>
+  </data>
+  <data name="Recent_Help" xml:space="preserve">
+    <value>Every server you joined is listed here, up to 50, kept across restarts. Records from before you installed Luckstrap are pulled out of Roblox's own logs, so they come back as long as the logs are still there. Rejoin takes you to the same server, assuming it is still up.</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Nothing yet. Play once and it shows up.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Rejoin this server</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Clear history</value>
+  </data>
+  <data name="Recent_Privacy" xml:space="preserve">
+    <value>Records come from the game log and hold only what is needed to reconnect: no chat, no record of what you did in game. Private server access codes are kept too, otherwise rejoining would fail. Clearing removes only this list, not the game.</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Server region</value>
+  </data>
+  <data name="Region_Help" xml:space="preserve">
+    <value>Enter a game, pick a region, click once and you join a server there. If you would rather browse, click See all servers and pick from the list.</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Pick a game</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Pick a game and the Place ID fills in</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID or game link</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Which region</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Join a server there</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>See all servers</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Loading regions...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Region_Note" xml:space="preserve">
+    <value>The server list comes from the official Roblox API, 100 servers at a time. Regions are not in that list, so each server gets a join request to reveal its datacenter ID, matched against RoValra's datacenter table. That takes a moment. It stops at the first match instead of checking all 100. Servers with an unknown region are labelled Unknown and can still be joined. Region lookup needs your local Roblox login.</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Old versions</value>
+  </data>
+  <data name="Versions_Help" xml:space="preserve">
+    <value>Every Roblox update leaves a package here. A few months can add up to several GB. The version in use is marked and cannot be deleted.</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Rescan</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Select all deletable</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>These are login credentials</value>
+  </data>
+  <data name="Accounts_NoticeMessage" xml:space="preserve">
+    <value>Each saved account is a Roblox login credential, encrypted with Windows DPAPI and readable only under this Windows account on this PC. It will not work on another PC or another Windows user. Do not send the Luckstrap folder to anyone, and do not lend this PC to people you do not trust.</value>
+  </data>
+  <data name="Dlg_001" xml:space="preserve">
+    <value>Not signed in</value>
+  </data>
+  <data name="Dlg_002" xml:space="preserve">
+    <value>Click to switch</value>
+  </data>
+  <data name="Dlg_003" xml:space="preserve">
+    <value>Can't read account</value>
+  </data>
+  <data name="Dlg_004" xml:space="preserve">
+    <value>Saved </value>
+  </data>
+  <data name="Dlg_005" xml:space="preserve">
+    <value>No login found</value>
+  </data>
+  <data name="Dlg_006" xml:space="preserve">
+    <value>Already saved</value>
+  </data>
+  <data name="Dlg_007" xml:space="preserve">
+    <value>The account you are signed in with is already in the list.</value>
+  </data>
+  <data name="Dlg_008" xml:space="preserve">
+    <value>Asking Roblox which account this is...</value>
+  </data>
+  <data name="Dlg_009" xml:space="preserve">
+    <value>Saved, but the account could not be identified</value>
+  </data>
+  <data name="Dlg_010" xml:space="preserve">
+    <value>The cookie may have expired or the network is down. It is saved under a temporary name; you can rename it on the right.</value>
+  </data>
+  <data name="Dlg_011" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Dlg_012" xml:space="preserve">
+    <value>Pick one first</value>
+  </data>
+  <data name="Dlg_013" xml:space="preserve">
+    <value>Click the account you want to switch to in the list on the left.</value>
+  </data>
+  <data name="Dlg_014" xml:space="preserve">
+    <value>Roblox is still running</value>
+  </data>
+  <data name="Dlg_015" xml:space="preserve">
+    <value>Close Roblox completely first, including the tray icon, then switch. While it runs it will overwrite what we write.</value>
+  </data>
+  <data name="Dlg_016" xml:space="preserve">
+    <value>The first time you switch, the current login is backed up to RobloxCookies.dat.luckstrap-bak.</value>
+  </data>
+  <data name="Dlg_017" xml:space="preserve">
+    <value>Switch account</value>
+  </data>
+  <data name="Dlg_018" xml:space="preserve">
+    <value>Switched</value>
+  </data>
+  <data name="Dlg_019" xml:space="preserve">
+    <value>Click the account you want to overwrite in the list on the left.</value>
+  </data>
+  <data name="Dlg_020" xml:space="preserve">
+    <value>There is no usable login right now. Sign in to the game once first.</value>
+  </data>
+  <data name="Dlg_021" xml:space="preserve">
+    <value>Nothing to overwrite</value>
+  </data>
+  <data name="Dlg_022" xml:space="preserve">
+    <value>The credentials saved for this account are identical to the current login.</value>
+  </data>
+  <data name="Dlg_023" xml:space="preserve">
+    <value>After overwriting, this entry becomes the account you are signed in with now, and the old one is gone.</value>
+  </data>
+  <data name="Dlg_024" xml:space="preserve">
+    <value>Overwrite entry</value>
+  </data>
+  <data name="Dlg_025" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
+  <data name="Dlg_026" xml:space="preserve">
+    <value>Overwritten</value>
+  </data>
+  <data name="Dlg_027" xml:space="preserve">
+    <value>Click the account you want to rename in the list on the left.</value>
+  </data>
+  <data name="Dlg_028" xml:space="preserve">
+    <value>Name cannot be empty</value>
+  </data>
+  <data name="Dlg_029" xml:space="preserve">
+    <value>Enter a name before saving.</value>
+  </data>
+  <data name="Dlg_030" xml:space="preserve">
+    <value>Renamed</value>
+  </data>
+  <data name="Dlg_031" xml:space="preserve">
+    <value>Click the account you want to delete in the list on the left.</value>
+  </data>
+  <data name="Dlg_032" xml:space="preserve">
+    <value>Delete entry</value>
+  </data>
+  <data name="Dlg_033" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Dlg_034" xml:space="preserve">
+    <value>The entry has been removed from the list.</value>
+  </data>
+  <data name="Dlg_035" xml:space="preserve">
+    <value>One moment</value>
+  </data>
+  <data name="Dlg_036" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="Dlg_037" xml:space="preserve">
+    <value>Could not read</value>
+  </data>
+  <data name="Dlg_038" xml:space="preserve">
+    <value>New profile</value>
+  </data>
+  <data name="Dlg_039" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="Dlg_040" xml:space="preserve">
+    <value>Fill in flag names and values on the right, then click Save changes.</value>
+  </data>
+  <data name="Dlg_041" xml:space="preserve">
+    <value>No FastFlags right now</value>
+  </data>
+  <data name="Dlg_042" xml:space="preserve">
+    <value>ClientAppSettings.json is empty. Set something up on the FastFlags page first.</value>
+  </data>
+  <data name="Dlg_043" xml:space="preserve">
+    <value>Saved from the current ClientAppSettings.json</value>
+  </data>
+  <data name="Dlg_044" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Dlg_045" xml:space="preserve">
+    <value>No profile selected</value>
+  </data>
+  <data name="Dlg_046" xml:space="preserve">
+    <value>Click a profile on the left first.</value>
+  </data>
+  <data name="Dlg_047" xml:space="preserve">
+    <value>Give the profile a name before saving.</value>
+  </data>
+  <data name="Dlg_048" xml:space="preserve">
+    <value>Name already taken</value>
+  </data>
+  <data name="Dlg_049" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Dlg_050" xml:space="preserve">
+    <value>Delete profile</value>
+  </data>
+  <data name="Dlg_051" xml:space="preserve">
+    <value>The profile has been removed from the list.</value>
+  </data>
+  <data name="Dlg_052" xml:space="preserve">
+    <value>No row selected</value>
+  </data>
+  <data name="Dlg_053" xml:space="preserve">
+    <value>Click the row you want to remove in the table. Hold Ctrl to select several.</value>
+  </data>
+  <data name="Dlg_054" xml:space="preserve">
+    <value>Choose a FastFlags file</value>
+  </data>
+  <data name="Dlg_055" xml:space="preserve">
+    <value>JSON files (*.json)|*.json|All files (*.*)|*.*</value>
+  </data>
+  <data name="Dlg_056" xml:space="preserve">
+    <value>Nothing to read</value>
+  </data>
+  <data name="Dlg_057" xml:space="preserve">
+    <value>No FastFlags in this file. It is either empty or not in the ClientAppSettings.json format.</value>
+  </data>
+  <data name="Dlg_058" xml:space="preserve">
+    <value>Imported</value>
+  </data>
+  <data name="Dlg_059" xml:space="preserve">
+    <value>This profile is empty</value>
+  </data>
+  <data name="Dlg_060" xml:space="preserve">
+    <value>Exporting an empty profile is pointless. Add some flags first.</value>
+  </data>
+  <data name="Dlg_061" xml:space="preserve">
+    <value>Export FastFlags</value>
+  </data>
+  <data name="Dlg_062" xml:space="preserve">
+    <value>JSON files (*.json)|*.json</value>
+  </data>
+  <data name="Dlg_063" xml:space="preserve">
+    <value>Exported</value>
+  </data>
+  <data name="Dlg_064" xml:space="preserve">
+    <value>Applying an empty profile would wipe every current FastFlag, so it is blocked.</value>
+  </data>
+  <data name="Dlg_065" xml:space="preserve">
+    <value>Restart the game for this to take effect.</value>
+  </data>
+  <data name="Dlg_066" xml:space="preserve">
+    <value>Apply profile</value>
+  </data>
+  <data name="Dlg_067" xml:space="preserve">
+    <value>Applied</value>
+  </data>
+  <data name="Dlg_068" xml:space="preserve">
+    <value>Low-end smooth</value>
+  </data>
+  <data name="Dlg_069" xml:space="preserve">
+    <value>Competitive low latency</value>
+  </data>
+  <data name="Dlg_070" xml:space="preserve">
+    <value>For integrated graphics and older machines: shadows and post-processing off, textures low. The frame cap is left alone; set it on the FastFlags page.</value>
+  </data>
+  <data name="Dlg_071" xml:space="preserve">
+    <value>Balanced</value>
+  </data>
+  <data name="Dlg_072" xml:space="preserve">
+    <value>Only caps the frame rate and leaves graphics to the game. Start here if unsure.</value>
+  </data>
+  <data name="Dlg_073" xml:space="preserve">
+    <value>High quality</value>
+  </data>
+  <data name="Dlg_074" xml:space="preserve">
+    <value>For screenshots on a dedicated GPU: full shadows, full textures, MSAA on. Expect lower FPS.</value>
+  </data>
+  <data name="Dlg_075" xml:space="preserve">
+    <value>For fights: high FPS, low graphics, no shadows, FPS counter in the corner.</value>
+  </data>
+  <data name="Dlg_076" xml:space="preserve">
+    <value>Could not parse that</value>
+  </data>
+  <data name="Dlg_077" xml:space="preserve">
+    <value>Enter a Place ID or a link containing /games/&lt;number&gt;.</value>
+  </data>
+  <data name="Dlg_078" xml:space="preserve">
+    <value>Already a favorite</value>
+  </data>
+  <data name="Dlg_079" xml:space="preserve">
+    <value>Fetching game info</value>
+  </data>
+  <data name="Dlg_080" xml:space="preserve">
+    <value>The first add fetches the name and icon, one moment.</value>
+  </data>
+  <data name="Dlg_081" xml:space="preserve">
+    <value>Added, but game info could not be fetched</value>
+  </data>
+  <data name="Dlg_082" xml:space="preserve">
+    <value>A network problem or the place does not exist. Launching still works.</value>
+  </data>
+  <data name="Dlg_083" xml:space="preserve">
+    <value>Added to favorites</value>
+  </data>
+  <data name="Dlg_084" xml:space="preserve">
+    <value>Could not add</value>
+  </data>
+  <data name="Dlg_085" xml:space="preserve">
+    <value>Client started</value>
+  </data>
+  <data name="Dlg_086" xml:space="preserve">
+    <value>Could not launch</value>
+  </data>
+  <data name="Dlg_087" xml:space="preserve">
+    <value>Removed</value>
+  </data>
+  <data name="Dlg_088" xml:space="preserve">
+    <value>Enter manually</value>
+  </data>
+  <data name="Dlg_089" xml:space="preserve">
+    <value>No location selected</value>
+  </data>
+  <data name="Dlg_090" xml:space="preserve">
+    <value>Tick at least one of desktop and Start menu.</value>
+  </data>
+  <data name="Dlg_091" xml:space="preserve">
+    <value>Could not create</value>
+  </data>
+  <data name="Dlg_092" xml:space="preserve">
+    <value>Shortcut created</value>
+  </data>
+  <data name="Dlg_093" xml:space="preserve">
+    <value>Created and launched</value>
+  </data>
+  <data name="Dlg_094" xml:space="preserve">
+    <value>Shortcut created, but launching failed</value>
+  </data>
+  <data name="Dlg_095" xml:space="preserve">
+    <value>Enter a game first</value>
+  </data>
+  <data name="Dlg_096" xml:space="preserve">
+    <value>To delete a shortcut we need to know which game it belongs to.</value>
+  </data>
+  <data name="Dlg_097" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="Dlg_098" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Dlg_099" xml:space="preserve">
+    <value>The log folder does not exist yet. Start the client once.</value>
+  </data>
+  <data name="Dlg_100" xml:space="preserve">
+    <value>There are no .log files in this folder.</value>
+  </data>
+  <data name="Dlg_101" xml:space="preserve">
+    <value>Could not read the log folder: </value>
+  </data>
+  <data name="Dlg_102" xml:space="preserve">
+    <value>Could not read the file: </value>
+  </data>
+  <data name="Dlg_103" xml:space="preserve">
+    <value>Could not open the folder</value>
+  </data>
+  <data name="Dlg_104" xml:space="preserve">
+    <value>Select a log file first.</value>
+  </data>
+  <data name="Dlg_105" xml:space="preserve">
+    <value>No content</value>
+  </data>
+  <data name="Dlg_106" xml:space="preserve">
+    <value>Log files (*.log)|*.log|Text files (*.txt)|*.txt</value>
+  </data>
+  <data name="Dlg_107" xml:space="preserve">
+    <value>Could not save</value>
+  </data>
+  <data name="Dlg_108" xml:space="preserve">
+    <value>Roblox website</value>
+  </data>
+  <data name="Dlg_109" xml:space="preserve">
+    <value>Client deployment (primary)</value>
+  </data>
+  <data name="Dlg_110" xml:space="preserve">
+    <value>Client deployment (backup)</value>
+  </data>
+  <data name="Dlg_111" xml:space="preserve">
+    <value>Game info</value>
+  </data>
+  <data name="Dlg_112" xml:space="preserve">
+    <value>Game thumbnails</value>
+  </data>
+  <data name="Dlg_113" xml:space="preserve">
+    <value>Place ID lookup</value>
+  </data>
+  <data name="Dlg_114" xml:space="preserve">
+    <value>User info</value>
+  </data>
+  <data name="Dlg_115" xml:space="preserve">
+    <value>Server location</value>
+  </data>
+  <data name="Dlg_116" xml:space="preserve">
+    <value>Testing</value>
+  </data>
+  <data name="Dlg_117" xml:space="preserve">
+    <value>Connecting</value>
+  </data>
+  <data name="Dlg_118" xml:space="preserve">
+    <value>All passed</value>
+  </data>
+  <data name="Dlg_119" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="Dlg_120" xml:space="preserve">
+    <value>Paste it to whoever is helping you.</value>
+  </data>
+  <data name="Dlg_121" xml:space="preserve">
+    <value>Could not copy</value>
+  </data>
+  <data name="Dlg_122" xml:space="preserve">
+    <value>Starting; the window may take a few seconds to appear.</value>
+  </data>
+  <data name="Dlg_123" xml:space="preserve">
+    <value>Could not open</value>
+  </data>
+  <data name="Dlg_124" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Dlg_125" xml:space="preserve">
+    <value>Reserved</value>
+  </data>
+  <data name="Dlg_126" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Dlg_127" xml:space="preserve">
+    <value>Clearing removes these records; you would have to find the server yourself next time. Continue?</value>
+  </data>
+  <data name="Dlg_128" xml:space="preserve">
+    <value>Clear recently played</value>
+  </data>
+  <data name="Dlg_129" xml:space="preserve">
+    <value>The region list could not be loaded. See all servers still works, and it shows regions too.</value>
+  </data>
+  <data name="Dlg_130" xml:space="preserve">
+    <value>Region list unavailable</value>
+  </data>
+  <data name="Dlg_131" xml:space="preserve">
+    <value>The datacenter table could not be fetched, most likely a network problem. Use See all servers to pick manually.</value>
+  </data>
+  <data name="Dlg_132" xml:space="preserve">
+    <value>Enter a Place ID, choose a region, then click Join a server there.</value>
+  </data>
+  <data name="Dlg_133" xml:space="preserve">
+    <value>The region list could not be loaded. See all servers still works.</value>
+  </data>
+  <data name="Dlg_134" xml:space="preserve">
+    <value>Choose a region first</value>
+  </data>
+  <data name="Dlg_135" xml:space="preserve">
+    <value>Pick one from the dropdown above.</value>
+  </data>
+  <data name="Dlg_136" xml:space="preserve">
+    <value>Searching</value>
+  </data>
+  <data name="Dlg_137" xml:space="preserve">
+    <value>Looking up</value>
+  </data>
+  <data name="Dlg_138" xml:space="preserve">
+    <value>Fetching the server list first, then checking regions one by one; 100 servers take about ten seconds.</value>
+  </data>
+  <data name="Dlg_139" xml:space="preserve">
+    <value>No servers found</value>
+  </data>
+  <data name="Dlg_140" xml:space="preserve">
+    <value>This place may have no public servers, or the API is temporarily unavailable.</value>
+  </data>
+  <data name="Dlg_141" xml:space="preserve">
+    <value>No servers found.</value>
+  </data>
+  <data name="Dlg_142" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Dlg_143" xml:space="preserve">
+    <value>No regions came back, probably not signed in or the API is down. The servers can still be joined.</value>
+  </data>
+  <data name="Dlg_144" xml:space="preserve">
+    <value>Lookup failed</value>
+  </data>
+  <data name="Dlg_145" xml:space="preserve">
+    <value>Scanning...</value>
+  </data>
+  <data name="Dlg_146" xml:space="preserve">
+    <value>In use (Player + Studio)</value>
+  </data>
+  <data name="Dlg_147" xml:space="preserve">
+    <value>In use (Player)</value>
+  </data>
+  <data name="Dlg_148" xml:space="preserve">
+    <value>In use (Studio)</value>
+  </data>
+  <data name="Dlg_149" xml:space="preserve">
+    <value>No version packages found</value>
+  </data>
+  <data name="Dlg_150" xml:space="preserve">
+    <value>Nothing selected</value>
+  </data>
+  <data name="Dlg_151" xml:space="preserve">
+    <value>Tick the versions you want to delete. The one in use cannot be deleted.</value>
+  </data>
+  <data name="Dlg_152" xml:space="preserve">
+    <value>Confirm deletion</value>
+  </data>
+  <data name="Dlg_153" xml:space="preserve">
+    <value>Deleting</value>
+  </data>
+  <data name="Dlg_154" xml:space="preserve">
+    <value>Do not close the window; the list refreshes when it finishes.</value>
+  </data>
+  <data name="Dlg_155" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Dlg_156" xml:space="preserve">
+    <value>Partly done</value>
+  </data>
+  <data name="DlgF_SavedNoLogin" xml:space="preserve">
+    <value>{0} saved · no login detected</value>
+  </data>
+  <data name="DlgF_SavedCount" xml:space="preserve">
+    <value>{0} saved</value>
+  </data>
+  <data name="DlgF_CookieMissing" xml:space="preserve">
+    <value>{0} was not found. Sign in to the game once, then come back.</value>
+  </data>
+  <data name="DlgF_AccountN" xml:space="preserve">
+    <value>Account {0}</value>
+  </data>
+  <data name="DlgF_Switched" xml:space="preserve">
+    <value>The current login is now {0}. Open the game and check; if it shows as signed out, these credentials have expired. Sign in again and use Overwrite selected with current.</value>
+  </data>
+  <data name="DlgF_Overwritten" xml:space="preserve">
+    <value>{0} now points at the account you just signed in with.</value>
+  </data>
+  <data name="DlgF_Renamed" xml:space="preserve">
+    <value>The label is now {0}.</value>
+  </data>
+  <data name="DlgF_ProfileMeta" xml:space="preserve">
+    <value>{0} flags · {1:MM-dd HH:mm}</value>
+  </data>
+  <data name="DlgF_ProfileList" xml:space="preserve">
+    <value>Profiles ({0})</value>
+  </data>
+  <data name="DlgF_ConfigName" xml:space="preserve">
+    <value>Current config {0:MM-dd HH-mm}</value>
+  </data>
+  <data name="DlgF_SnapshotSaved" xml:space="preserve">
+    <value>Saved the current {0} flags as {1}.</value>
+  </data>
+  <data name="DlgF_NameTaken" xml:space="preserve">
+    <value>A profile named {0} already exists. Pick another name.</value>
+  </data>
+  <data name="DlgF_SavedDetail" xml:space="preserve">
+    <value>{0}, {1} flags.</value>
+  </data>
+  <data name="DlgF_Imported" xml:space="preserve">
+    <value>{0}, {1} flags. Not applied yet; click Apply this profile once you are happy with it.</value>
+  </data>
+  <data name="DlgF_Exported" xml:space="preserve">
+    <value>{0} flags written to {1}.</value>
+  </data>
+  <data name="DlgF_Applied" xml:space="preserve">
+    <value>{0} is active now, {1} flags. The next game launch uses it.</value>
+  </data>
+  <data name="DlgF_AlreadyFavorite" xml:space="preserve">
+    <value>PlaceId {0} is already in the list.</value>
+  </data>
+  <data name="DlgF_ShortcutMissing" xml:space="preserve">
+    <value>No {0}.lnk on the desktop or in the Start menu.</value>
+  </data>
+  <data name="DlgF_ShortcutDeleted" xml:space="preserve">
+    <value>Deleted {0} copies of {1}.lnk.</value>
+  </data>
+  <data name="DlgF_NoSearchHit" xml:space="preserve">
+    <value>No lines containing {0}.</value>
+  </data>
+  <data name="DlgF_TestingCount" xml:space="preserve">
+    <value>{0} checks, one at a time.</value>
+  </data>
+  <data name="DlgF_Timeout" xml:space="preserve">
+    <value>Timed out (no response after {0} ms)</value>
+  </data>
+  <data name="DlgF_AllPassed" xml:space="preserve">
+    <value>All {0} checks passed, the network is fine.</value>
+  </data>
+  <data name="DlgF_SomeFailed" xml:space="preserve">
+    <value>{0} failed</value>
+  </data>
+  <data name="DlgF_FailedDetail" xml:space="preserve">
+    <value>{0} passed, {1} failed. Check the rows marked ✗ below.</value>
+  </data>
+  <data name="DlgF_ReportTitle" xml:space="preserve">
+    <value>Luckstrap network test {0:yyyy-MM-dd HH:mm:ss}</value>
+  </data>
+  <data name="DlgF_PlayedHours" xml:space="preserve">
+    <value>{0} h {1} min</value>
+  </data>
+  <data name="DlgF_PlayedMinutes" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="DlgF_RegionSearching" xml:space="preserve">
+    <value>{0} · fetching the server list, then checking regions; joins the first match.</value>
+  </data>
+  <data name="DlgF_RegionProgress" xml:space="preserve">
+    <value>{0} · checked {1}/{2}</value>
+  </data>
+  <data name="DlgF_RegionEmpty" xml:space="preserve">
+    <value>There is no public {0} server for this game right now. Pick another region, or use See all servers.</value>
+  </data>
+  <data name="DlgF_RegionNoServer" xml:space="preserve">
+    <value>No joinable server in {0}.</value>
+  </data>
+  <data name="DlgF_ServerCount" xml:space="preserve">
+    <value>{0} servers found</value>
+  </data>
+  <data name="DlgF_RegionKnown" xml:space="preserve">
+    <value>{0} have a known region; pick one.</value>
+  </data>
+  <data name="DlgF_LastModified" xml:space="preserve">
+    <value>Modified {0:yyyy-MM-dd HH:mm}</value>
+  </data>
+  <data name="DlgF_VersionSummary" xml:space="preserve">
+    <value>{0} versions, {1} total, {2} deletable</value>
+  </data>
+  <data name="DlgF_DeletedSummary" xml:space="preserve">
+    <value>Removed {0} versions, freed {1}.</value>
+  </data>
+  <data name="DlgF_DeletePartial" xml:space="preserve">
+    <value>{0} succeeded, {1} failed (probably in use). See the log for details.</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Favorite · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Recent · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (private · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Not tested</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Looking up</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Build information</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Built at</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Built on</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="Account_Tooltip" xml:space="preserve">
+    <value>{0} (@{1})
+Click to switch accounts</value>
+  </data>
+  <data name="DlgF_SwitchConfirm" xml:space="preserve">
+    <value>Switch to {0}?
+
+This replaces the current Roblox login; the next launch uses this account.
+{1}</value>
+  </data>
+  <data name="DlgF_OverwriteConfirm" xml:space="preserve">
+    <value>Overwrite {0} with the current credentials?
+
+{1}</value>
+  </data>
+  <data name="DlgF_DeleteConfirm" xml:space="preserve">
+    <value>Remove {0} from the list?
+
+Only this saved entry is deleted. You stay signed in, and the account in the game is untouched.</value>
+  </data>
+  <data name="DlgF_ProfileDeleteConfirm" xml:space="preserve">
+    <value>Delete {0}?
+
+Only this saved profile is removed; the active ClientAppSettings.json is untouched.</value>
+  </data>
+  <data name="DlgF_ApplyConfirm" xml:space="preserve">
+    <value>Apply {0} to this PC?
+
+The current {1} FastFlags will be replaced by this profile's {2}.
+There is no undo; save the current set as a profile first if you want a way back.
+
+{3}</value>
+  </data>
+  <data name="Log_FileTooLarge" xml:space="preserve">
+    <value>(file is large; showing the last 4 MB only)</value>
+  </data>
+  <data name="DlgF_DeleteVersionsConfirm" xml:space="preserve">
+    <value>Delete these {0} version packages? That frees {1}.
+
+{2}
+
+If the game needs one of them later, the client downloads it again.</value>
   </data>
 </root>

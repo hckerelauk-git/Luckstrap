@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
+using Bloxstrap.Integrations;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using Bloxstrap.UI.ViewModels.Settings;
 
@@ -41,57 +42,167 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
 
-            // 左下角那块要读登录态再打网络请求，异步做，别卡窗口
+            // 右上角账号卡要读登录态再打网络请求，异步做，别卡窗口
             Loaded += (_, _) => LoadCurrentAccount();
+
+            // 换完号回到窗口要能立刻变过来，不然还显示上一个号
+            Activated += (_, _) =>
+            {
+                string? blob = SafeReadBlob();
+
+                if (blob != _shownBlob)
+                    LoadCurrentAccount();
+            };
         }
 
-        // ── 左下角账号 ────────────────────────────────────────────────
+        // ── 右上角账号卡 ──────────────────────────────────────────────
+
+        private string? _shownBlob;
+        private long _avatarUserId;
+        private bool _loadingAccount;
 
         private void AccountCard_Click(object sender, MouseButtonEventArgs e)
             => RootNavigation.Navigate(typeof(AccountsPage));
+
+        /// <summary>换完号让账号卡立刻重读，不用等窗口重新激活</summary>
+        public void RefreshAccount()
+        {
+            _shownBlob = null;
+            _avatarUserId = 0;
+
+            // 旧号的头像先清掉，不然换号之后还挂着上一个号的脸
+            AccountAvatarBrush.ImageSource = null;
+
+            LoadCurrentAccount();
+        }
+
+        private static string? SafeReadBlob()
+        {
+            try
+            {
+                return RobloxCookies.ReadBlob();
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         private async void LoadCurrentAccount()
         {
             const string LOG_IDENT = "MainWindow::LoadCurrentAccount";
 
+            if (_loadingAccount)
+                return;
+
+            _loadingAccount = true;
+
             try
             {
-                string? blob = RobloxCookies.ReadBlob();
-                string? cookie = String.IsNullOrEmpty(blob) ? null : RobloxCookies.ReadAuthCookie(blob!);
+                string? blob = SafeReadBlob();
+                _shownBlob = blob;
 
-                if (String.IsNullOrEmpty(cookie))
+                // 先拿本地那份顶着。appStorage.json 是 Roblox 自己写的，不用联网，
+                // 代理挂了也不会显示成「未登录」
+                AccountSnapshot? account = CurrentAccount.ReadLocal() ?? CurrentAccount.ReadSaved(blob);
+
+                if (account is not null)
+                    ShowAccount(account);
+
+                var (resolved, fromNetwork) = await CurrentAccount.ResolveAsync(blob);
+
+                if (resolved is not null && (fromNetwork || account is null))
                 {
-                    AccountDisplayName.Text = "未登录";
-                    AccountUserName.Text = "点这里打开账号切换";
-                    return;
+                    account = resolved;
+                    ShowAccount(account);
+                }
+                else if (account is null)
+                {
+                    // 登录态文件都没有，那就是真的没登录
+                    SetAccountText(Strings.Dlg_001, Strings.Dlg_002);
+                    AccountAvatarBrush.ImageSource = null;
                 }
 
-                AuthenticatedUser? user = await AccountManager.WhoAmI(cookie!);
-
-                if (user is null)
-                {
-                    AccountDisplayName.Text = "读不到登录态";
-                    AccountUserName.Text = "点这里打开账号切换";
+                if (account is null)
                     return;
-                }
 
-                AccountDisplayName.Text = String.IsNullOrWhiteSpace(user.DisplayName) ? user.Name : user.DisplayName;
-                AccountUserName.Text = "@" + user.Name;
-
-                UserDetails details = await UserDetails.Fetch(user.Id);
-                string? url = details.Thumbnail?.ImageUrl;
-
-                if (!String.IsNullOrEmpty(url))
-                    AccountAvatarBrush.ImageSource = await LoadAvatarAsync(url!);
+                await LoadAvatarAsync(account.UserId, account.Title);
             }
             catch (Exception ex)
             {
-                // 没登录、没网、接口挂了都走这儿。左下角显示成「读不到账号」就行，不要弹窗
+                // 走到这儿说明连本地文件都读挂了。卡片保持原样，不要弹窗
                 App.Logger.WriteLine(LOG_IDENT, "Failed to load current account");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                AccountDisplayName.Text = "读不到账号";
-                AccountUserName.Text = "点这里打开账号切换";
+                SetAccountText(Strings.Dlg_003, Strings.Dlg_002);
+            }
+            finally
+            {
+                _loadingAccount = false;
+            }
+        }
+
+        private void ShowAccount(AccountSnapshot account)
+        {
+            SetAccountText(account.Title, "@" + account.Name);
+            AccountCard.ToolTip = String.Format(Strings.Account_Tooltip, account.Title, account.Name);
+
+            // 头像还没下来的这段时间显示首字母，不要留一块空白。
+            // 已经有头像就别盖上去，圆形 PNG 的四个角是透明的，会露出来
+            if (AccountAvatarBrush.ImageSource is null)
+            {
+                AccountInitial.Text = String.IsNullOrWhiteSpace(account.Title)
+                    ? "?"
+                    : account.Title.Substring(0, 1).ToUpperInvariant();
+                AccountInitial.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SetAccountText(string title, string subtitle)
+        {
+            AccountDisplayName.Text = title;
+            AccountUserName.Text = subtitle;
+        }
+
+        /// <summary>
+        /// 头像单独一条路，失败不影响名字。取不到就画个首字母，
+        /// 至少不会是一块空白
+        /// </summary>
+        private async Task LoadAvatarAsync(long userId, string displayName)
+        {
+            if (userId == 0 || userId == _avatarUserId)
+                return;
+
+            try
+            {
+                string url = $"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={userId}&size=150x150&format=Png&isCircular=true";
+
+                var response = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>(url);
+
+                string? imageUrl = response?.Data?.FirstOrDefault()?.ImageUrl;
+
+                if (String.IsNullOrEmpty(imageUrl))
+                    return;
+
+                BitmapImage? image = await LoadAvatarAsync(imageUrl!);
+
+                if (image is null)
+                    return;
+
+                AccountAvatarBrush.ImageSource = image;
+                AccountInitial.Visibility = Visibility.Collapsed;
+                _avatarUserId = userId;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("MainWindow::LoadAvatar", $"头像下载失败，改用首字母：{ex.Message}");
+
+                // 没头像就画个圈里带首字母的，别留白
+                AccountAvatarBrush.ImageSource = null;
+                AccountInitial.Text = String.IsNullOrWhiteSpace(displayName)
+                    ? "?"
+                    : displayName.Substring(0, 1).ToUpperInvariant();
+                AccountInitial.Visibility = Visibility.Visible;
             }
         }
 
@@ -101,18 +212,27 @@ namespace Bloxstrap.UI.Elements.Settings
         /// </summary>
         private static async Task<BitmapImage?> LoadAvatarAsync(string url)
         {
-            byte[] bytes = await App.HttpClient.GetByteArrayAsync(url);
+            try
+            {
+                byte[] bytes = await App.HttpClient.GetByteArrayAsync(url);
 
-            using var stream = new MemoryStream(bytes);
+                using var stream = new MemoryStream(bytes);
 
-            var image = new BitmapImage();
-            image.BeginInit();
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.StreamSource = stream;
-            image.EndInit();
-            image.Freeze();
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = stream;
+                image.EndInit();
+                image.Freeze();
 
-            return image;
+                return image;
+            }
+            catch (Exception ex)
+            {
+                // 头像下不下来不是大事，外面会退回首字母
+                App.Logger.WriteLine("MainWindow::LoadAvatar", ex.Message);
+                return null;
+            }
         }
 
         public void LoadState()

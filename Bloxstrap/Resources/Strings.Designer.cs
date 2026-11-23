@@ -3956,5 +3956,2572 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Uninstaller.Uninstall", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not signed in.
+        /// </summary>
+        public static string Account_NotLoggedIn {
+            get {
+                return ResourceManager.GetString("Account_NotLoggedIn", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to switch.
+        /// </summary>
+        public static string Account_SwitchHint {
+            get {
+                return ResourceManager.GetString("Account_SwitchHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Label.
+        /// </summary>
+        public static string Accounts_Alias {
+            get {
+                return ResourceManager.GetString("Accounts_Alias", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The label is only for you and has nothing to do with the name shown in game. Fill it in yourself when the name cannot be.
+        /// </summary>
+        public static string Accounts_AliasHelp {
+            get {
+                return ResourceManager.GetString("Accounts_AliasHelp", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Name this account.
+        /// </summary>
+        public static string Accounts_AliasPlaceholder {
+            get {
+                return ResourceManager.GetString("Accounts_AliasPlaceholder", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Current.
+        /// </summary>
+        public static string Accounts_Current {
+            get {
+                return ResourceManager.GetString("Accounts_Current", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete selected.
+        /// </summary>
+        public static string Accounts_DeleteSelected {
+            get {
+                return ResourceManager.GetString("Accounts_DeleteSelected", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No saved accounts yet.
+        /// </summary>
+        public static string Accounts_Empty {
+            get {
+                return ResourceManager.GetString("Accounts_Empty", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in to the game as usual, then click Save current account. To switch, pick another account and click Switch; the nex.
+        /// </summary>
+        public static string Accounts_Help {
+            get {
+                return ResourceManager.GetString("Accounts_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Overwrite selected with current.
+        /// </summary>
+        public static string Accounts_OverwriteSelected {
+            get {
+                return ResourceManager.GetString("Accounts_OverwriteSelected", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save label.
+        /// </summary>
+        public static string Accounts_SaveAlias {
+            get {
+                return ResourceManager.GetString("Accounts_SaveAlias", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save current account.
+        /// </summary>
+        public static string Accounts_SaveCurrent {
+            get {
+                return ResourceManager.GetString("Accounts_SaveCurrent", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch to selected.
+        /// </summary>
+        public static string Accounts_SwitchToSelected {
+            get {
+                return ResourceManager.GetString("Accounts_SwitchToSelected", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Common_Add {
+            get {
+                return ResourceManager.GetString("Common_Add", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch.
+        /// </summary>
+        public static string Common_Launch {
+            get {
+                return ResourceManager.GetString("Common_Launch", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Common_Note {
+            get {
+                return ResourceManager.GetString("Common_Note", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick from recent.
+        /// </summary>
+        public static string Common_PickFromRecent {
+            get {
+                return ResourceManager.GetString("Common_PickFromRecent", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Place ID or https://www.roblox.com/games/123456789/name.
+        /// </summary>
+        public static string Common_PlaceIdPlaceholder {
+            get {
+                return ResourceManager.GetString("Common_PlaceIdPlaceholder", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string Common_Refresh {
+            get {
+                return ResourceManager.GetString("Common_Refresh", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Add row.
+        /// </summary>
+        public static string FFProfiles_AddRow {
+            get {
+                return ResourceManager.GetString("FFProfiles_AddRow", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply this profile.
+        /// </summary>
+        public static string FFProfiles_Apply {
+            get {
+                return ResourceManager.GetString("FFProfiles_Apply", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete profile.
+        /// </summary>
+        public static string FFProfiles_Delete {
+            get {
+                return ResourceManager.GetString("FFProfiles_Delete", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Export selected.
+        /// </summary>
+        public static string FFProfiles_Export {
+            get {
+                return ResourceManager.GetString("FFProfiles_Export", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag name.
+        /// </summary>
+        public static string FFProfiles_FlagName {
+            get {
+                return ResourceManager.GetString("FFProfiles_FlagName", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save the whole FastFlags set as a profile and switch back with one click when you change games or machines. Existing pro.
+        /// </summary>
+        public static string FFProfiles_Help {
+            get {
+                return ResourceManager.GetString("FFProfiles_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Profiles.
+        /// </summary>
+        public static string FFProfiles_List {
+            get {
+                return ResourceManager.GetString("FFProfiles_List", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile name.
+        /// </summary>
+        public static string FFProfiles_Name {
+            get {
+                return ResourceManager.GetString("FFProfiles_Name", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to New blank profile.
+        /// </summary>
+        public static string FFProfiles_New {
+            get {
+                return ResourceManager.GetString("FFProfiles_New", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Note (optional).
+        /// </summary>
+        public static string FFProfiles_Note {
+            get {
+                return ResourceManager.GetString("FFProfiles_Note", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove selected row.
+        /// </summary>
+        public static string FFProfiles_RemoveRow {
+            get {
+                return ResourceManager.GetString("FFProfiles_RemoveRow", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes.
+        /// </summary>
+        public static string FFProfiles_SaveChanges {
+            get {
+                return ResourceManager.GetString("FFProfiles_SaveChanges", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save current as profile.
+        /// </summary>
+        public static string FFProfiles_SaveCurrent {
+            get {
+                return ResourceManager.GetString("FFProfiles_SaveCurrent", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string FFProfiles_Value {
+            get {
+                return ResourceManager.GetString("FFProfiles_Value", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No favorites yet. Paste a game link or Place ID above..
+        /// </summary>
+        public static string Favorites_Empty {
+            get {
+                return ResourceManager.GetString("Favorites_Empty", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep the games you play most here. One click launches them, no more digging through the website..
+        /// </summary>
+        public static string Favorites_Help {
+            get {
+                return ResourceManager.GetString("Favorites_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Servers you joined recently. Picking one fills the box below..
+        /// </summary>
+        public static string Favorites_RecentHint {
+            get {
+                return ResourceManager.GetString("Favorites_RecentHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite games.
+        /// </summary>
+        public static string Favorites_Title {
+            get {
+                return ResourceManager.GetString("Favorites_Title", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick launch.
+        /// </summary>
+        public static string Hub_Games_QuickLaunch {
+            get {
+                return ResourceManager.GetString("Hub_Games_QuickLaunch", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard shortcuts.
+        /// </summary>
+        public static string Hub_Games_Shortcuts {
+            get {
+                return ResourceManager.GetString("Hub_Games_Shortcuts", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Logs.
+        /// </summary>
+        public static string Hub_Tools_Logs {
+            get {
+                return ResourceManager.GetString("Hub_Tools_Logs", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Network test.
+        /// </summary>
+        public static string Hub_Tools_Network {
+            get {
+                return ResourceManager.GetString("Hub_Tools_Network", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Old versions.
+        /// </summary>
+        public static string Hub_Tools_Versions {
+            get {
+                return ResourceManager.GetString("Hub_Tools_Versions", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Runs an arRPC-compatible bridge on 127.0.0.1:1337 so Discord in the browser can show what you are playing. Requires the .
+        /// </summary>
+        public static string Integrations_WebDiscord_Desc {
+            get {
+                return ResourceManager.GetString("Integrations_WebDiscord_Desc", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Discord status in browser (experimental).
+        /// </summary>
+        public static string Integrations_WebDiscord_Title {
+            get {
+                return ResourceManager.GetString("Integrations_WebDiscord_Title", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The launcher writes a log on every run. When something breaks, start here: pick a file on the left, read it on the right.
+        /// </summary>
+        public static string Logs_Help {
+            get {
+                return ResourceManager.GetString("Logs_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Open folder.
+        /// </summary>
+        public static string Logs_OpenFolder {
+            get {
+                return ResourceManager.GetString("Logs_OpenFolder", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Save as.
+        /// </summary>
+        public static string Logs_SaveAs {
+            get {
+                return ResourceManager.GetString("Logs_SaveAs", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Search the log, e.g. error, fail, timeout.
+        /// </summary>
+        public static string Logs_SearchHint {
+            get {
+                return ResourceManager.GetString("Logs_SearchHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Accounts.
+        /// </summary>
+        public static string Nav_Accounts {
+            get {
+                return ResourceManager.GetString("Nav_Accounts", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string Nav_Games {
+            get {
+                return ResourceManager.GetString("Nav_Games", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Profiles.
+        /// </summary>
+        public static string Nav_Profiles {
+            get {
+                return ResourceManager.GetString("Nav_Profiles", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Servers.
+        /// </summary>
+        public static string Nav_Servers {
+            get {
+                return ResourceManager.GetString("Nav_Servers", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string Nav_Tools {
+            get {
+                return ResourceManager.GetString("Nav_Tools", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy results.
+        /// </summary>
+        public static string Network_Copy {
+            get {
+                return ResourceManager.GetString("Network_Copy", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to If Client deployment fails, the game will not start at all: the launcher needs it to get the version number. If everythi.
+        /// </summary>
+        public static string Network_Explain {
+            get {
+                return ResourceManager.GetString("Network_Explain", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Not sure what this means?.
+        /// </summary>
+        public static string Network_ExplainTitle {
+            get {
+                return ResourceManager.GetString("Network_ExplainTitle", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Tests each Roblox domain the client actually uses. When you cannot get into a game, run this first to see which step is .
+        /// </summary>
+        public static string Network_Help {
+            get {
+                return ResourceManager.GetString("Network_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Start test.
+        /// </summary>
+        public static string Network_Start {
+            get {
+                return ResourceManager.GetString("Network_Start", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Private server code (optional).
+        /// </summary>
+        public static string QuickLaunch_AccessCode {
+            get {
+                return ResourceManager.GetString("QuickLaunch_AccessCode", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The part after ?privateServerLinkCode=.
+        /// </summary>
+        public static string QuickLaunch_AccessCodeHint {
+            get {
+                return ResourceManager.GetString("QuickLaunch_AccessCodeHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy link.
+        /// </summary>
+        public static string QuickLaunch_Copy {
+            get {
+                return ResourceManager.GetString("QuickLaunch_Copy", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Servers you joined recently. Picking one fills in the game and private code below..
+        /// </summary>
+        public static string QuickLaunch_FromRecentHint {
+            get {
+                return ResourceManager.GetString("QuickLaunch_FromRecentHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste a Place ID, a game link or a roblox:// link to build a launch link, or jump straight into the game..
+        /// </summary>
+        public static string QuickLaunch_Help {
+            get {
+                return ResourceManager.GetString("QuickLaunch_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch game.
+        /// </summary>
+        public static string QuickLaunch_Launch {
+            get {
+                return ResourceManager.GetString("QuickLaunch_Launch", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated link.
+        /// </summary>
+        public static string QuickLaunch_Link {
+            get {
+                return ResourceManager.GetString("QuickLaunch_Link", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Filled in automatically.
+        /// </summary>
+        public static string QuickLaunch_LinkHint {
+            get {
+                return ResourceManager.GetString("QuickLaunch_LinkHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch game uses the official Roblox protocol, the same as clicking Play on the website. Leave the private code empty fo.
+        /// </summary>
+        public static string QuickLaunch_Note {
+            get {
+                return ResourceManager.GetString("QuickLaunch_Note", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in browser.
+        /// </summary>
+        public static string QuickLaunch_OpenBrowser {
+            get {
+                return ResourceManager.GetString("QuickLaunch_OpenBrowser", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear history.
+        /// </summary>
+        public static string Recent_Clear {
+            get {
+                return ResourceManager.GetString("Recent_Clear", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing yet. Play once and it shows up..
+        /// </summary>
+        public static string Recent_Empty {
+            get {
+                return ResourceManager.GetString("Recent_Empty", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Every server you joined is listed here, up to 50, kept across restarts. Records from before you installed Luckstrap are .
+        /// </summary>
+        public static string Recent_Help {
+            get {
+                return ResourceManager.GetString("Recent_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Records come from the game log and hold only what is needed to reconnect: no chat, no record of what you did in game. Pr.
+        /// </summary>
+        public static string Recent_Privacy {
+            get {
+                return ResourceManager.GetString("Recent_Privacy", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin this server.
+        /// </summary>
+        public static string Recent_Rejoin {
+            get {
+                return ResourceManager.GetString("Recent_Rejoin", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Recently played.
+        /// </summary>
+        public static string Recent_Title {
+            get {
+                return ResourceManager.GetString("Recent_Title", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to See all servers.
+        /// </summary>
+        public static string Region_All {
+            get {
+                return ResourceManager.GetString("Region_All", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a game, pick a region, click once and you join a server there. If you would rather browse, click See all servers a.
+        /// </summary>
+        public static string Region_Help {
+            get {
+                return ResourceManager.GetString("Region_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Join a server there.
+        /// </summary>
+        public static string Region_Join {
+            get {
+                return ResourceManager.GetString("Region_Join", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Join.
+        /// </summary>
+        public static string Region_JoinBtn {
+            get {
+                return ResourceManager.GetString("Region_JoinBtn", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading regions....
+        /// </summary>
+        public static string Region_Loading {
+            get {
+                return ResourceManager.GetString("Region_Loading", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The server list comes from the official Roblox API, 100 servers at a time. Regions are not in that list, so each server .
+        /// </summary>
+        public static string Region_Note {
+            get {
+                return ResourceManager.GetString("Region_Note", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a game.
+        /// </summary>
+        public static string Region_PickGame {
+            get {
+                return ResourceManager.GetString("Region_PickGame", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a game and the Place ID fills in.
+        /// </summary>
+        public static string Region_PickHint {
+            get {
+                return ResourceManager.GetString("Region_PickHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Which region.
+        /// </summary>
+        public static string Region_PickRegion {
+            get {
+                return ResourceManager.GetString("Region_PickRegion", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Place ID or game link.
+        /// </summary>
+        public static string Region_Placeholder {
+            get {
+                return ResourceManager.GetString("Region_Placeholder", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Server region.
+        /// </summary>
+        public static string Region_Title {
+            get {
+                return ResourceManager.GetString("Region_Title", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Private server code (optional).
+        /// </summary>
+        public static string Shortcut_AccessCode {
+            get {
+                return ResourceManager.GetString("Shortcut_AccessCode", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The part after privateServerLinkCode=.
+        /// </summary>
+        public static string Shortcut_AccessCodeHint {
+            get {
+                return ResourceManager.GetString("Shortcut_AccessCodeHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Create and launch.
+        /// </summary>
+        public static string Shortcut_CreateAndLaunch {
+            get {
+                return ResourceManager.GetString("Shortcut_CreateAndLaunch", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Create only.
+        /// </summary>
+        public static string Shortcut_CreateOnly {
+            get {
+                return ResourceManager.GetString("Shortcut_CreateOnly", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete this game's shortcut.
+        /// </summary>
+        public static string Shortcut_Delete {
+            get {
+                return ResourceManager.GetString("Shortcut_Delete", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop.
+        /// </summary>
+        public static string Shortcut_Desktop {
+            get {
+                return ResourceManager.GetString("Shortcut_Desktop", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Put a shortcut to a game or a specific server on the desktop. Double-click and you are in, no launcher first..
+        /// </summary>
+        public static string Shortcut_Help {
+            get {
+                return ResourceManager.GetString("Shortcut_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Server instance ID (optional).
+        /// </summary>
+        public static string Shortcut_JobId {
+            get {
+                return ResourceManager.GetString("Shortcut_JobId", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to GUID / JobID. Leave empty for a public server..
+        /// </summary>
+        public static string Shortcut_JobIdHint {
+            get {
+                return ResourceManager.GetString("Shortcut_JobIdHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Shortcut name (game name if empty).
+        /// </summary>
+        public static string Shortcut_Name {
+            get {
+                return ResourceManager.GetString("Shortcut_Name", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to e.g. BedWars - Asia.
+        /// </summary>
+        public static string Shortcut_NameHint {
+            get {
+                return ResourceManager.GetString("Shortcut_NameHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The shortcut points at Luckstrap itself with a placeId argument, so double-clicking still goes through the launcher: Fas.
+        /// </summary>
+        public static string Shortcut_NoteBody {
+            get {
+                return ResourceManager.GetString("Shortcut_NoteBody", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick from favorites or recent. The server ID and private code are filled in for you..
+        /// </summary>
+        public static string Shortcut_PickHint {
+            get {
+                return ResourceManager.GetString("Shortcut_PickHint", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Start menu.
+        /// </summary>
+        public static string Shortcut_StartMenu {
+            get {
+                return ResourceManager.GetString("Shortcut_StartMenu", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Game shortcut.
+        /// </summary>
+        public static string Shortcut_Title {
+            get {
+                return ResourceManager.GetString("Shortcut_Title", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Where to put it.
+        /// </summary>
+        public static string Shortcut_Where {
+            get {
+                return ResourceManager.GetString("Shortcut_Where", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Every Roblox update leaves a package here. A few months can add up to several GB. The version in use is marked and canno.
+        /// </summary>
+        public static string Versions_Help {
+            get {
+                return ResourceManager.GetString("Versions_Help", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Rescan.
+        /// </summary>
+        public static string Versions_Rescan {
+            get {
+                return ResourceManager.GetString("Versions_Rescan", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all deletable.
+        /// </summary>
+        public static string Versions_SelectAll {
+            get {
+                return ResourceManager.GetString("Versions_SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each saved account is a Roblox login credential, encrypted with Windows DPAPI and readable only under this Windows accou.
+        /// </summary>
+        public static string Accounts_NoticeMessage {
+            get {
+                return ResourceManager.GetString("Accounts_NoticeMessage", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to These are login credentials.
+        /// </summary>
+        public static string Accounts_NoticeTitle {
+            get {
+                return ResourceManager.GetString("Accounts_NoticeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not signed in.
+        /// </summary>
+        public static string Dlg_001 {
+            get {
+                return ResourceManager.GetString("Dlg_001", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to switch.
+        /// </summary>
+        public static string Dlg_002 {
+            get {
+                return ResourceManager.GetString("Dlg_002", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Can't read account.
+        /// </summary>
+        public static string Dlg_003 {
+            get {
+                return ResourceManager.GetString("Dlg_003", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved .
+        /// </summary>
+        public static string Dlg_004 {
+            get {
+                return ResourceManager.GetString("Dlg_004", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No login found.
+        /// </summary>
+        public static string Dlg_005 {
+            get {
+                return ResourceManager.GetString("Dlg_005", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Already saved.
+        /// </summary>
+        public static string Dlg_006 {
+            get {
+                return ResourceManager.GetString("Dlg_006", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The account you are signed in with is already in the list..
+        /// </summary>
+        public static string Dlg_007 {
+            get {
+                return ResourceManager.GetString("Dlg_007", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Asking Roblox which account this is....
+        /// </summary>
+        public static string Dlg_008 {
+            get {
+                return ResourceManager.GetString("Dlg_008", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved, but the account could not be identified.
+        /// </summary>
+        public static string Dlg_009 {
+            get {
+                return ResourceManager.GetString("Dlg_009", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The cookie may have expired or the network is down. It is saved under a temporary name; you can rename it on the right..
+        /// </summary>
+        public static string Dlg_010 {
+            get {
+                return ResourceManager.GetString("Dlg_010", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        public static string Dlg_011 {
+            get {
+                return ResourceManager.GetString("Dlg_011", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick one first.
+        /// </summary>
+        public static string Dlg_012 {
+            get {
+                return ResourceManager.GetString("Dlg_012", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the account you want to switch to in the list on the left..
+        /// </summary>
+        public static string Dlg_013 {
+            get {
+                return ResourceManager.GetString("Dlg_013", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox is still running.
+        /// </summary>
+        public static string Dlg_014 {
+            get {
+                return ResourceManager.GetString("Dlg_014", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Close Roblox completely first, including the tray icon, then switch. While it runs it will overwrite what we write..
+        /// </summary>
+        public static string Dlg_015 {
+            get {
+                return ResourceManager.GetString("Dlg_015", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The first time you switch, the current login is backed up to RobloxCookies.dat.luckstrap-bak..
+        /// </summary>
+        public static string Dlg_016 {
+            get {
+                return ResourceManager.GetString("Dlg_016", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch account.
+        /// </summary>
+        public static string Dlg_017 {
+            get {
+                return ResourceManager.GetString("Dlg_017", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Switched.
+        /// </summary>
+        public static string Dlg_018 {
+            get {
+                return ResourceManager.GetString("Dlg_018", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the account you want to overwrite in the list on the left..
+        /// </summary>
+        public static string Dlg_019 {
+            get {
+                return ResourceManager.GetString("Dlg_019", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no usable login right now. Sign in to the game once first..
+        /// </summary>
+        public static string Dlg_020 {
+            get {
+                return ResourceManager.GetString("Dlg_020", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing to overwrite.
+        /// </summary>
+        public static string Dlg_021 {
+            get {
+                return ResourceManager.GetString("Dlg_021", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The credentials saved for this account are identical to the current login..
+        /// </summary>
+        public static string Dlg_022 {
+            get {
+                return ResourceManager.GetString("Dlg_022", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to After overwriting, this entry becomes the account you are signed in with now, and the old one is gone..
+        /// </summary>
+        public static string Dlg_023 {
+            get {
+                return ResourceManager.GetString("Dlg_023", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Overwrite entry.
+        /// </summary>
+        public static string Dlg_024 {
+            get {
+                return ResourceManager.GetString("Dlg_024", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating....
+        /// </summary>
+        public static string Dlg_025 {
+            get {
+                return ResourceManager.GetString("Dlg_025", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Overwritten.
+        /// </summary>
+        public static string Dlg_026 {
+            get {
+                return ResourceManager.GetString("Dlg_026", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the account you want to rename in the list on the left..
+        /// </summary>
+        public static string Dlg_027 {
+            get {
+                return ResourceManager.GetString("Dlg_027", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be empty.
+        /// </summary>
+        public static string Dlg_028 {
+            get {
+                return ResourceManager.GetString("Dlg_028", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a name before saving..
+        /// </summary>
+        public static string Dlg_029 {
+            get {
+                return ResourceManager.GetString("Dlg_029", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Renamed.
+        /// </summary>
+        public static string Dlg_030 {
+            get {
+                return ResourceManager.GetString("Dlg_030", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the account you want to delete in the list on the left..
+        /// </summary>
+        public static string Dlg_031 {
+            get {
+                return ResourceManager.GetString("Dlg_031", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete entry.
+        /// </summary>
+        public static string Dlg_032 {
+            get {
+                return ResourceManager.GetString("Dlg_032", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Dlg_033 {
+            get {
+                return ResourceManager.GetString("Dlg_033", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The entry has been removed from the list..
+        /// </summary>
+        public static string Dlg_034 {
+            get {
+                return ResourceManager.GetString("Dlg_034", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to One moment.
+        /// </summary>
+        public static string Dlg_035 {
+            get {
+                return ResourceManager.GetString("Dlg_035", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        /// </summary>
+        public static string Dlg_036 {
+            get {
+                return ResourceManager.GetString("Dlg_036", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not read.
+        /// </summary>
+        public static string Dlg_037 {
+            get {
+                return ResourceManager.GetString("Dlg_037", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to New profile.
+        /// </summary>
+        public static string Dlg_038 {
+            get {
+                return ResourceManager.GetString("Dlg_038", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Created.
+        /// </summary>
+        public static string Dlg_039 {
+            get {
+                return ResourceManager.GetString("Dlg_039", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Fill in flag names and values on the right, then click Save changes..
+        /// </summary>
+        public static string Dlg_040 {
+            get {
+                return ResourceManager.GetString("Dlg_040", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No FastFlags right now.
+        /// </summary>
+        public static string Dlg_041 {
+            get {
+                return ResourceManager.GetString("Dlg_041", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to ClientAppSettings.json is empty. Set something up on the FastFlags page first..
+        /// </summary>
+        public static string Dlg_042 {
+            get {
+                return ResourceManager.GetString("Dlg_042", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved from the current ClientAppSettings.json.
+        /// </summary>
+        public static string Dlg_043 {
+            get {
+                return ResourceManager.GetString("Dlg_043", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        public static string Dlg_044 {
+            get {
+                return ResourceManager.GetString("Dlg_044", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No profile selected.
+        /// </summary>
+        public static string Dlg_045 {
+            get {
+                return ResourceManager.GetString("Dlg_045", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click a profile on the left first..
+        /// </summary>
+        public static string Dlg_046 {
+            get {
+                return ResourceManager.GetString("Dlg_046", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Give the profile a name before saving..
+        /// </summary>
+        public static string Dlg_047 {
+            get {
+                return ResourceManager.GetString("Dlg_047", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Name already taken.
+        /// </summary>
+        public static string Dlg_048 {
+            get {
+                return ResourceManager.GetString("Dlg_048", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        public static string Dlg_049 {
+            get {
+                return ResourceManager.GetString("Dlg_049", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete profile.
+        /// </summary>
+        public static string Dlg_050 {
+            get {
+                return ResourceManager.GetString("Dlg_050", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The profile has been removed from the list..
+        /// </summary>
+        public static string Dlg_051 {
+            get {
+                return ResourceManager.GetString("Dlg_051", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No row selected.
+        /// </summary>
+        public static string Dlg_052 {
+            get {
+                return ResourceManager.GetString("Dlg_052", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the row you want to remove in the table. Hold Ctrl to select several..
+        /// </summary>
+        public static string Dlg_053 {
+            get {
+                return ResourceManager.GetString("Dlg_053", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a FastFlags file.
+        /// </summary>
+        public static string Dlg_054 {
+            get {
+                return ResourceManager.GetString("Dlg_054", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to JSON files (*.json)|*.json|All files (*.*)|*.*.
+        /// </summary>
+        public static string Dlg_055 {
+            get {
+                return ResourceManager.GetString("Dlg_055", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing to read.
+        /// </summary>
+        public static string Dlg_056 {
+            get {
+                return ResourceManager.GetString("Dlg_056", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No FastFlags in this file. It is either empty or not in the ClientAppSettings.json format..
+        /// </summary>
+        public static string Dlg_057 {
+            get {
+                return ResourceManager.GetString("Dlg_057", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Imported.
+        /// </summary>
+        public static string Dlg_058 {
+            get {
+                return ResourceManager.GetString("Dlg_058", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to This profile is empty.
+        /// </summary>
+        public static string Dlg_059 {
+            get {
+                return ResourceManager.GetString("Dlg_059", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Exporting an empty profile is pointless. Add some flags first..
+        /// </summary>
+        public static string Dlg_060 {
+            get {
+                return ResourceManager.GetString("Dlg_060", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Export FastFlags.
+        /// </summary>
+        public static string Dlg_061 {
+            get {
+                return ResourceManager.GetString("Dlg_061", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to JSON files (*.json)|*.json.
+        /// </summary>
+        public static string Dlg_062 {
+            get {
+                return ResourceManager.GetString("Dlg_062", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported.
+        /// </summary>
+        public static string Dlg_063 {
+            get {
+                return ResourceManager.GetString("Dlg_063", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Applying an empty profile would wipe every current FastFlag, so it is blocked..
+        /// </summary>
+        public static string Dlg_064 {
+            get {
+                return ResourceManager.GetString("Dlg_064", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart the game for this to take effect..
+        /// </summary>
+        public static string Dlg_065 {
+            get {
+                return ResourceManager.GetString("Dlg_065", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply profile.
+        /// </summary>
+        public static string Dlg_066 {
+            get {
+                return ResourceManager.GetString("Dlg_066", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Applied.
+        /// </summary>
+        public static string Dlg_067 {
+            get {
+                return ResourceManager.GetString("Dlg_067", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Low-end smooth.
+        /// </summary>
+        public static string Dlg_068 {
+            get {
+                return ResourceManager.GetString("Dlg_068", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Competitive low latency.
+        /// </summary>
+        public static string Dlg_069 {
+            get {
+                return ResourceManager.GetString("Dlg_069", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to For integrated graphics and older machines: shadows and post-processing off, textures low. The frame cap is left alone; .
+        /// </summary>
+        public static string Dlg_070 {
+            get {
+                return ResourceManager.GetString("Dlg_070", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Balanced.
+        /// </summary>
+        public static string Dlg_071 {
+            get {
+                return ResourceManager.GetString("Dlg_071", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Only caps the frame rate and leaves graphics to the game. Start here if unsure..
+        /// </summary>
+        public static string Dlg_072 {
+            get {
+                return ResourceManager.GetString("Dlg_072", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to High quality.
+        /// </summary>
+        public static string Dlg_073 {
+            get {
+                return ResourceManager.GetString("Dlg_073", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to For screenshots on a dedicated GPU: full shadows, full textures, MSAA on. Expect lower FPS..
+        /// </summary>
+        public static string Dlg_074 {
+            get {
+                return ResourceManager.GetString("Dlg_074", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to For fights: high FPS, low graphics, no shadows, FPS counter in the corner..
+        /// </summary>
+        public static string Dlg_075 {
+            get {
+                return ResourceManager.GetString("Dlg_075", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not parse that.
+        /// </summary>
+        public static string Dlg_076 {
+            get {
+                return ResourceManager.GetString("Dlg_076", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a Place ID or a link containing /games/<number>..
+        /// </summary>
+        public static string Dlg_077 {
+            get {
+                return ResourceManager.GetString("Dlg_077", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Already a favorite.
+        /// </summary>
+        public static string Dlg_078 {
+            get {
+                return ResourceManager.GetString("Dlg_078", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Fetching game info.
+        /// </summary>
+        public static string Dlg_079 {
+            get {
+                return ResourceManager.GetString("Dlg_079", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The first add fetches the name and icon, one moment..
+        /// </summary>
+        public static string Dlg_080 {
+            get {
+                return ResourceManager.GetString("Dlg_080", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Added, but game info could not be fetched.
+        /// </summary>
+        public static string Dlg_081 {
+            get {
+                return ResourceManager.GetString("Dlg_081", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to A network problem or the place does not exist. Launching still works..
+        /// </summary>
+        public static string Dlg_082 {
+            get {
+                return ResourceManager.GetString("Dlg_082", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Added to favorites.
+        /// </summary>
+        public static string Dlg_083 {
+            get {
+                return ResourceManager.GetString("Dlg_083", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not add.
+        /// </summary>
+        public static string Dlg_084 {
+            get {
+                return ResourceManager.GetString("Dlg_084", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Client started.
+        /// </summary>
+        public static string Dlg_085 {
+            get {
+                return ResourceManager.GetString("Dlg_085", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not launch.
+        /// </summary>
+        public static string Dlg_086 {
+            get {
+                return ResourceManager.GetString("Dlg_086", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed.
+        /// </summary>
+        public static string Dlg_087 {
+            get {
+                return ResourceManager.GetString("Dlg_087", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter manually.
+        /// </summary>
+        public static string Dlg_088 {
+            get {
+                return ResourceManager.GetString("Dlg_088", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No location selected.
+        /// </summary>
+        public static string Dlg_089 {
+            get {
+                return ResourceManager.GetString("Dlg_089", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Tick at least one of desktop and Start menu..
+        /// </summary>
+        public static string Dlg_090 {
+            get {
+                return ResourceManager.GetString("Dlg_090", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not create.
+        /// </summary>
+        public static string Dlg_091 {
+            get {
+                return ResourceManager.GetString("Dlg_091", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Shortcut created.
+        /// </summary>
+        public static string Dlg_092 {
+            get {
+                return ResourceManager.GetString("Dlg_092", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Created and launched.
+        /// </summary>
+        public static string Dlg_093 {
+            get {
+                return ResourceManager.GetString("Dlg_093", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Shortcut created, but launching failed.
+        /// </summary>
+        public static string Dlg_094 {
+            get {
+                return ResourceManager.GetString("Dlg_094", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a game first.
+        /// </summary>
+        public static string Dlg_095 {
+            get {
+                return ResourceManager.GetString("Dlg_095", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to To delete a shortcut we need to know which game it belongs to..
+        /// </summary>
+        public static string Dlg_096 {
+            get {
+                return ResourceManager.GetString("Dlg_096", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found.
+        /// </summary>
+        public static string Dlg_097 {
+            get {
+                return ResourceManager.GetString("Dlg_097", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Dlg_098 {
+            get {
+                return ResourceManager.GetString("Dlg_098", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The log folder does not exist yet. Start the client once..
+        /// </summary>
+        public static string Dlg_099 {
+            get {
+                return ResourceManager.GetString("Dlg_099", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no .log files in this folder..
+        /// </summary>
+        public static string Dlg_100 {
+            get {
+                return ResourceManager.GetString("Dlg_100", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not read the log folder: .
+        /// </summary>
+        public static string Dlg_101 {
+            get {
+                return ResourceManager.GetString("Dlg_101", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not read the file: .
+        /// </summary>
+        public static string Dlg_102 {
+            get {
+                return ResourceManager.GetString("Dlg_102", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not open the folder.
+        /// </summary>
+        public static string Dlg_103 {
+            get {
+                return ResourceManager.GetString("Dlg_103", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a log file first..
+        /// </summary>
+        public static string Dlg_104 {
+            get {
+                return ResourceManager.GetString("Dlg_104", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No content.
+        /// </summary>
+        public static string Dlg_105 {
+            get {
+                return ResourceManager.GetString("Dlg_105", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Log files (*.log)|*.log|Text files (*.txt)|*.txt.
+        /// </summary>
+        public static string Dlg_106 {
+            get {
+                return ResourceManager.GetString("Dlg_106", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not save.
+        /// </summary>
+        public static string Dlg_107 {
+            get {
+                return ResourceManager.GetString("Dlg_107", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox website.
+        /// </summary>
+        public static string Dlg_108 {
+            get {
+                return ResourceManager.GetString("Dlg_108", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Client deployment (primary).
+        /// </summary>
+        public static string Dlg_109 {
+            get {
+                return ResourceManager.GetString("Dlg_109", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Client deployment (backup).
+        /// </summary>
+        public static string Dlg_110 {
+            get {
+                return ResourceManager.GetString("Dlg_110", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Game info.
+        /// </summary>
+        public static string Dlg_111 {
+            get {
+                return ResourceManager.GetString("Dlg_111", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Game thumbnails.
+        /// </summary>
+        public static string Dlg_112 {
+            get {
+                return ResourceManager.GetString("Dlg_112", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Place ID lookup.
+        /// </summary>
+        public static string Dlg_113 {
+            get {
+                return ResourceManager.GetString("Dlg_113", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to User info.
+        /// </summary>
+        public static string Dlg_114 {
+            get {
+                return ResourceManager.GetString("Dlg_114", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Server location.
+        /// </summary>
+        public static string Dlg_115 {
+            get {
+                return ResourceManager.GetString("Dlg_115", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Testing.
+        /// </summary>
+        public static string Dlg_116 {
+            get {
+                return ResourceManager.GetString("Dlg_116", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting.
+        /// </summary>
+        public static string Dlg_117 {
+            get {
+                return ResourceManager.GetString("Dlg_117", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to All passed.
+        /// </summary>
+        public static string Dlg_118 {
+            get {
+                return ResourceManager.GetString("Dlg_118", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied.
+        /// </summary>
+        public static string Dlg_119 {
+            get {
+                return ResourceManager.GetString("Dlg_119", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste it to whoever is helping you..
+        /// </summary>
+        public static string Dlg_120 {
+            get {
+                return ResourceManager.GetString("Dlg_120", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not copy.
+        /// </summary>
+        public static string Dlg_121 {
+            get {
+                return ResourceManager.GetString("Dlg_121", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting; the window may take a few seconds to appear..
+        /// </summary>
+        public static string Dlg_122 {
+            get {
+                return ResourceManager.GetString("Dlg_122", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not open.
+        /// </summary>
+        public static string Dlg_123 {
+            get {
+                return ResourceManager.GetString("Dlg_123", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        public static string Dlg_124 {
+            get {
+                return ResourceManager.GetString("Dlg_124", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Reserved.
+        /// </summary>
+        public static string Dlg_125 {
+            get {
+                return ResourceManager.GetString("Dlg_125", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string Dlg_126 {
+            get {
+                return ResourceManager.GetString("Dlg_126", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Clearing removes these records; you would have to find the server yourself next time. Continue?.
+        /// </summary>
+        public static string Dlg_127 {
+            get {
+                return ResourceManager.GetString("Dlg_127", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear recently played.
+        /// </summary>
+        public static string Dlg_128 {
+            get {
+                return ResourceManager.GetString("Dlg_128", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The region list could not be loaded. See all servers still works, and it shows regions too..
+        /// </summary>
+        public static string Dlg_129 {
+            get {
+                return ResourceManager.GetString("Dlg_129", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Region list unavailable.
+        /// </summary>
+        public static string Dlg_130 {
+            get {
+                return ResourceManager.GetString("Dlg_130", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The datacenter table could not be fetched, most likely a network problem. Use See all servers to pick manually..
+        /// </summary>
+        public static string Dlg_131 {
+            get {
+                return ResourceManager.GetString("Dlg_131", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a Place ID, choose a region, then click Join a server there..
+        /// </summary>
+        public static string Dlg_132 {
+            get {
+                return ResourceManager.GetString("Dlg_132", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The region list could not be loaded. See all servers still works..
+        /// </summary>
+        public static string Dlg_133 {
+            get {
+                return ResourceManager.GetString("Dlg_133", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a region first.
+        /// </summary>
+        public static string Dlg_134 {
+            get {
+                return ResourceManager.GetString("Dlg_134", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick one from the dropdown above..
+        /// </summary>
+        public static string Dlg_135 {
+            get {
+                return ResourceManager.GetString("Dlg_135", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching.
+        /// </summary>
+        public static string Dlg_136 {
+            get {
+                return ResourceManager.GetString("Dlg_136", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Looking up.
+        /// </summary>
+        public static string Dlg_137 {
+            get {
+                return ResourceManager.GetString("Dlg_137", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Fetching the server list first, then checking regions one by one; 100 servers take about ten seconds..
+        /// </summary>
+        public static string Dlg_138 {
+            get {
+                return ResourceManager.GetString("Dlg_138", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No servers found.
+        /// </summary>
+        public static string Dlg_139 {
+            get {
+                return ResourceManager.GetString("Dlg_139", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to This place may have no public servers, or the API is temporarily unavailable..
+        /// </summary>
+        public static string Dlg_140 {
+            get {
+                return ResourceManager.GetString("Dlg_140", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No servers found..
+        /// </summary>
+        public static string Dlg_141 {
+            get {
+                return ResourceManager.GetString("Dlg_141", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string Dlg_142 {
+            get {
+                return ResourceManager.GetString("Dlg_142", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No regions came back, probably not signed in or the API is down. The servers can still be joined..
+        /// </summary>
+        public static string Dlg_143 {
+            get {
+                return ResourceManager.GetString("Dlg_143", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Lookup failed.
+        /// </summary>
+        public static string Dlg_144 {
+            get {
+                return ResourceManager.GetString("Dlg_144", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning....
+        /// </summary>
+        public static string Dlg_145 {
+            get {
+                return ResourceManager.GetString("Dlg_145", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to In use (Player + Studio).
+        /// </summary>
+        public static string Dlg_146 {
+            get {
+                return ResourceManager.GetString("Dlg_146", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to In use (Player).
+        /// </summary>
+        public static string Dlg_147 {
+            get {
+                return ResourceManager.GetString("Dlg_147", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to In use (Studio).
+        /// </summary>
+        public static string Dlg_148 {
+            get {
+                return ResourceManager.GetString("Dlg_148", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No version packages found.
+        /// </summary>
+        public static string Dlg_149 {
+            get {
+                return ResourceManager.GetString("Dlg_149", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing selected.
+        /// </summary>
+        public static string Dlg_150 {
+            get {
+                return ResourceManager.GetString("Dlg_150", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Tick the versions you want to delete. The one in use cannot be deleted..
+        /// </summary>
+        public static string Dlg_151 {
+            get {
+                return ResourceManager.GetString("Dlg_151", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm deletion.
+        /// </summary>
+        public static string Dlg_152 {
+            get {
+                return ResourceManager.GetString("Dlg_152", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleting.
+        /// </summary>
+        public static string Dlg_153 {
+            get {
+                return ResourceManager.GetString("Dlg_153", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not close the window; the list refreshes when it finishes..
+        /// </summary>
+        public static string Dlg_154 {
+            get {
+                return ResourceManager.GetString("Dlg_154", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        public static string Dlg_155 {
+            get {
+                return ResourceManager.GetString("Dlg_155", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Partly done.
+        /// </summary>
+        public static string Dlg_156 {
+            get {
+                return ResourceManager.GetString("Dlg_156", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} saved · no login detected.
+        /// </summary>
+        public static string DlgF_SavedNoLogin {
+            get {
+                return ResourceManager.GetString("DlgF_SavedNoLogin", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} saved.
+        /// </summary>
+        public static string DlgF_SavedCount {
+            get {
+                return ResourceManager.GetString("DlgF_SavedCount", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} was not found. Sign in to the game once, then come back..
+        /// </summary>
+        public static string DlgF_CookieMissing {
+            get {
+                return ResourceManager.GetString("DlgF_CookieMissing", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Account {0}.
+        /// </summary>
+        public static string DlgF_AccountN {
+            get {
+                return ResourceManager.GetString("DlgF_AccountN", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The current login is now {0}. Open the game and check; if it shows as signed out, these credentials have expired. Sign i.
+        /// </summary>
+        public static string DlgF_Switched {
+            get {
+                return ResourceManager.GetString("DlgF_Switched", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} now points at the account you just signed in with..
+        /// </summary>
+        public static string DlgF_Overwritten {
+            get {
+                return ResourceManager.GetString("DlgF_Overwritten", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to The label is now {0}..
+        /// </summary>
+        public static string DlgF_Renamed {
+            get {
+                return ResourceManager.GetString("DlgF_Renamed", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} flags · {1:MM-dd HH:mm}.
+        /// </summary>
+        public static string DlgF_ProfileMeta {
+            get {
+                return ResourceManager.GetString("DlgF_ProfileMeta", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Profiles ({0}).
+        /// </summary>
+        public static string DlgF_ProfileList {
+            get {
+                return ResourceManager.GetString("DlgF_ProfileList", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Current config {0:MM-dd HH-mm}.
+        /// </summary>
+        public static string DlgF_ConfigName {
+            get {
+                return ResourceManager.GetString("DlgF_ConfigName", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved the current {0} flags as {1}..
+        /// </summary>
+        public static string DlgF_SnapshotSaved {
+            get {
+                return ResourceManager.GetString("DlgF_SnapshotSaved", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to A profile named {0} already exists. Pick another name..
+        /// </summary>
+        public static string DlgF_NameTaken {
+            get {
+                return ResourceManager.GetString("DlgF_NameTaken", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}, {1} flags..
+        /// </summary>
+        public static string DlgF_SavedDetail {
+            get {
+                return ResourceManager.GetString("DlgF_SavedDetail", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}, {1} flags. Not applied yet; click Apply this profile once you are happy with it..
+        /// </summary>
+        public static string DlgF_Imported {
+            get {
+                return ResourceManager.GetString("DlgF_Imported", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} flags written to {1}..
+        /// </summary>
+        public static string DlgF_Exported {
+            get {
+                return ResourceManager.GetString("DlgF_Exported", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is active now, {1} flags. The next game launch uses it..
+        /// </summary>
+        public static string DlgF_Applied {
+            get {
+                return ResourceManager.GetString("DlgF_Applied", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to PlaceId {0} is already in the list..
+        /// </summary>
+        public static string DlgF_AlreadyFavorite {
+            get {
+                return ResourceManager.GetString("DlgF_AlreadyFavorite", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No {0}.lnk on the desktop or in the Start menu..
+        /// </summary>
+        public static string DlgF_ShortcutMissing {
+            get {
+                return ResourceManager.GetString("DlgF_ShortcutMissing", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted {0} copies of {1}.lnk..
+        /// </summary>
+        public static string DlgF_ShortcutDeleted {
+            get {
+                return ResourceManager.GetString("DlgF_ShortcutDeleted", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No lines containing {0}..
+        /// </summary>
+        public static string DlgF_NoSearchHit {
+            get {
+                return ResourceManager.GetString("DlgF_NoSearchHit", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} checks, one at a time..
+        /// </summary>
+        public static string DlgF_TestingCount {
+            get {
+                return ResourceManager.GetString("DlgF_TestingCount", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Timed out (no response after {0} ms).
+        /// </summary>
+        public static string DlgF_Timeout {
+            get {
+                return ResourceManager.GetString("DlgF_Timeout", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to All {0} checks passed, the network is fine..
+        /// </summary>
+        public static string DlgF_AllPassed {
+            get {
+                return ResourceManager.GetString("DlgF_AllPassed", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} failed.
+        /// </summary>
+        public static string DlgF_SomeFailed {
+            get {
+                return ResourceManager.GetString("DlgF_SomeFailed", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} passed, {1} failed. Check the rows marked ✗ below..
+        /// </summary>
+        public static string DlgF_FailedDetail {
+            get {
+                return ResourceManager.GetString("DlgF_FailedDetail", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Luckstrap network test {0:yyyy-MM-dd HH:mm:ss}.
+        /// </summary>
+        public static string DlgF_ReportTitle {
+            get {
+                return ResourceManager.GetString("DlgF_ReportTitle", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} h {1} min.
+        /// </summary>
+        public static string DlgF_PlayedHours {
+            get {
+                return ResourceManager.GetString("DlgF_PlayedHours", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} min.
+        /// </summary>
+        public static string DlgF_PlayedMinutes {
+            get {
+                return ResourceManager.GetString("DlgF_PlayedMinutes", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} · fetching the server list, then checking regions; joins the first match..
+        /// </summary>
+        public static string DlgF_RegionSearching {
+            get {
+                return ResourceManager.GetString("DlgF_RegionSearching", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} · checked {1}/{2}.
+        /// </summary>
+        public static string DlgF_RegionProgress {
+            get {
+                return ResourceManager.GetString("DlgF_RegionProgress", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no public {0} server for this game right now. Pick another region, or use See all servers..
+        /// </summary>
+        public static string DlgF_RegionEmpty {
+            get {
+                return ResourceManager.GetString("DlgF_RegionEmpty", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to No joinable server in {0}..
+        /// </summary>
+        public static string DlgF_RegionNoServer {
+            get {
+                return ResourceManager.GetString("DlgF_RegionNoServer", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} servers found.
+        /// </summary>
+        public static string DlgF_ServerCount {
+            get {
+                return ResourceManager.GetString("DlgF_ServerCount", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} have a known region; pick one..
+        /// </summary>
+        public static string DlgF_RegionKnown {
+            get {
+                return ResourceManager.GetString("DlgF_RegionKnown", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified {0:yyyy-MM-dd HH:mm}.
+        /// </summary>
+        public static string DlgF_LastModified {
+            get {
+                return ResourceManager.GetString("DlgF_LastModified", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} versions, {1} total, {2} deletable.
+        /// </summary>
+        public static string DlgF_VersionSummary {
+            get {
+                return ResourceManager.GetString("DlgF_VersionSummary", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed {0} versions, freed {1}..
+        /// </summary>
+        public static string DlgF_DeletedSummary {
+            get {
+                return ResourceManager.GetString("DlgF_DeletedSummary", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} succeeded, {1} failed (probably in use). See the log for details..
+        /// </summary>
+        public static string DlgF_DeletePartial {
+            get {
+                return ResourceManager.GetString("DlgF_DeletePartial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite · {0}.
+        /// </summary>
+        public static string Pick_Favorite {
+            get {
+                return ResourceManager.GetString("Pick_Favorite", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Recent · {0}.
+        /// </summary>
+        public static string Pick_Recent {
+            get {
+                return ResourceManager.GetString("Pick_Recent", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} (private · {1:MM-dd HH:mm}).
+        /// </summary>
+        public static string Recent_PrivateEntry {
+            get {
+                return ResourceManager.GetString("Recent_PrivateEntry", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1:MM-dd HH:mm}).
+        /// </summary>
+        public static string Recent_PublicEntry {
+            get {
+                return ResourceManager.GetString("Recent_PublicEntry", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Not tested.
+        /// </summary>
+        public static string Probe_NotTested {
+            get {
+                return ResourceManager.GetString("Probe_NotTested", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Looking up.
+        /// </summary>
+        public static string Server_RegionLoading {
+            get {
+                return ResourceManager.GetString("Server_RegionLoading", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string Server_RegionUnknown {
+            get {
+                return ResourceManager.GetString("Server_RegionUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build information.
+        /// </summary>
+        public static string About_BuildInfo {
+            get {
+                return ResourceManager.GetString("About_BuildInfo", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Built at.
+        /// </summary>
+        public static string About_BuildTime {
+            get {
+                return ResourceManager.GetString("About_BuildTime", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Built on.
+        /// </summary>
+        public static string About_BuildMachine {
+            get {
+                return ResourceManager.GetString("About_BuildMachine", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Commit.
+        /// </summary>
+        public static string About_BuildCommit {
+            get {
+                return ResourceManager.GetString("About_BuildCommit", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch.
+        /// </summary>
+        public static string About_BuildBranch {
+            get {
+                return ResourceManager.GetString("About_BuildBranch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} (@{1}) Click to switch accounts.
+        /// </summary>
+        public static string Account_Tooltip {
+            get {
+                return ResourceManager.GetString("Account_Tooltip", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch to {0}?  This replaces the current Roblox login; the next launch uses thi.
+        /// </summary>
+        public static string DlgF_SwitchConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_SwitchConfirm", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Overwrite {0} with the current credentials?  {1}.
+        /// </summary>
+        public static string DlgF_OverwriteConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_OverwriteConfirm", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove {0} from the list?  Only this saved entry is deleted. You stay signed in,.
+        /// </summary>
+        public static string DlgF_DeleteConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_DeleteConfirm", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete {0}?  Only this saved profile is removed; the active ClientAppSettings.js.
+        /// </summary>
+        public static string DlgF_ProfileDeleteConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_ProfileDeleteConfirm", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply {0} to this PC?  The current {1} FastFlags will be replaced by this profil.
+        /// </summary>
+        public static string DlgF_ApplyConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_ApplyConfirm", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to (file is large; showing the last 4 MB only).
+        /// </summary>
+        public static string Log_FileTooLarge {
+            get {
+                return ResourceManager.GetString("Log_FileTooLarge", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete these {0} version packages? That frees {1}.  {2}  If the game needs one o.
+        /// </summary>
+        public static string DlgF_DeleteVersionsConfirm {
+            get {
+                return ResourceManager.GetString("DlgF_DeleteVersionsConfirm", resourceCulture);
+            }
+        }
     }
 }

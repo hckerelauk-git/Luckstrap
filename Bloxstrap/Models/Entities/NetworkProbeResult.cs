@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -13,7 +13,7 @@ namespace Bloxstrap.Models.Entities
 
         public string Url { get; set; } = String.Empty;
 
-        private string _status = "未测试";
+        private string _status = Strings.Probe_NotTested;
         public string Status
         {
             get => _status;

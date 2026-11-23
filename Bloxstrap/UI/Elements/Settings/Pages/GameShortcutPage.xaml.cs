@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
@@ -34,7 +34,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             var items = new List<GamePickItem>
             {
-                new() { PlaceId = 0, Name = "手动输入", DisplayText = "手动输入" }
+                new() { PlaceId = 0, Name = Strings.Dlg_088, DisplayText = Strings.Dlg_088 }
             };
 
             items.AddRange(await RecentServers.LoadPicksAsync());
@@ -128,13 +128,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(placeId))
             {
-                ShowStatus("认不出这个输入", "要 Place ID，或者带 /games/数字 的链接。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
                 return false;
             }
 
             if (DesktopCheck.IsChecked != true && StartMenuCheck.IsChecked != true)
             {
-                ShowStatus("没选位置", "桌面和开始菜单至少勾一个。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_089, Strings.Dlg_090, InfoBarSeverity.Warning);
                 return false;
             }
 
@@ -162,7 +162,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 App.Logger.WriteLine("GameShortcutPage::TryCreateShortcuts", "Failed to create shortcut");
                 App.Logger.WriteException("GameShortcutPage::TryCreateShortcuts", ex);
 
-                ShowStatus("创建失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_091, ex.Message, InfoBarSeverity.Error);
                 return false;
             }
         }
@@ -172,7 +172,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (!TryCreateShortcuts(out string link, out string name))
                 return;
 
-            ShowStatus("快捷方式已创建", $"{name}.lnk\n{link}", InfoBarSeverity.Success);
+            ShowStatus(Strings.Dlg_092, $"{name}.lnk\n{link}", InfoBarSeverity.Success);
         }
 
         private void OnCreateAndLaunch(object sender, RoutedEventArgs e)
@@ -190,14 +190,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     UseShellExecute = true
                 });
 
-                ShowStatus("已创建并启动", $"{name}.lnk", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_093, $"{name}.lnk", InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("GameShortcutPage::OnCreateAndLaunch", "Failed to launch");
                 App.Logger.WriteException("GameShortcutPage::OnCreateAndLaunch", ex);
 
-                ShowStatus("快捷方式建好了，但启动失败", ex.Message, InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_094, ex.Message, InfoBarSeverity.Warning);
             }
         }
 
@@ -207,7 +207,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(placeId))
             {
-                ShowStatus("先填游戏", "要删哪个游戏的快捷方式，得先知道是哪个游戏。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_095, Strings.Dlg_096, InfoBarSeverity.Warning);
                 return;
             }
 
@@ -231,9 +231,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
 
             if (deleted == 0)
-                ShowStatus("没找到", $"桌面和开始菜单里都没有 {name}.lnk", InfoBarSeverity.Informational);
+                ShowStatus(Strings.Dlg_097, String.Format(Strings.DlgF_ShortcutMissing, name), InfoBarSeverity.Informational);
             else
-                ShowStatus("已删除", $"删掉了 {deleted} 个 {name}.lnk", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_098, String.Format(Strings.DlgF_ShortcutDeleted, deleted, name), InfoBarSeverity.Success);
         }
 
         private void ShowStatus(string title, string message, InfoBarSeverity severity)

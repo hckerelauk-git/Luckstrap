@@ -1499,4 +1499,295 @@ Beralih ke {1}.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Gagal meninjau tema: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>Belum masuk</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>Ganti akun</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>Akun</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>Alat</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>Simpan akun ini</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>Beralih ke yang dipilih</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>Timpa dengan sesi ini</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>Hapus yang dipilih</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>Muat ulang</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>Saat ini</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>Belum ada akun tersimpan</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>Beri nama</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>Simpan label</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>Profil kosong</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>Simpan sebagai profil</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>Ekspor yang dipilih</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>Daftar profil</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>Hapus profil</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>Nama profil</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>Simpan perubahan</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>Catatan (opsional)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Nama flag</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>Nilai</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>Tambah baris</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>Hapus baris terpilih</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>Terapkan profil ini</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Game favorit</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>Pilih dari terakhir</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID atau https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>Tambah</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Belum ada favorit. Tempel tautan atau Place ID di atas.</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>Jalankan</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>Pintasan game</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>ID server (opsional)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID. Kosongkan untuk server publik.</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>Kode server privat (opsional)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>Bagian setelah privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>Simpan di</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>Menu Mulai</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>Nama pintasan (kosong = nama game)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>mis. BedWars - Asia</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>Buat dan jalankan</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>Hanya buat</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Hapus pintasan game ini</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Catatan</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>Peluncuran cepat</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>Pintasan papan tombol</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>Status Discord di browser (eksperimental)</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>Cari di log: error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>Buka folder</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>Simpan sebagai</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>Tes jaringan</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>Mulai tes</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>Salin hasil</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>Tidak paham hasilnya?</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>Kode server privat (opsional)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>Bagian setelah ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>Tautan dibuat</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>Terisi otomatis</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>Jalankan game</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>Salin tautan</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>Buka di browser</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Baru dimainkan</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>Belum ada. Main sekali lalu keluar.</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>Masuk lagi</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>Hapus riwayat</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>Wilayah server</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>Pilih game</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>Pilih game, Place ID terisi</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID atau tautan game</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>Wilayah mana</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>Masuk server di sana</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>Lihat semua server</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>Memuat wilayah...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>Gabung</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>Versi lama</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>Pindai ulang</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>Pilih semua yang bisa dihapus</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>Ini kredensial login</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>Favorit · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>Terakhir · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (privat · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>Belum diuji</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>Mencari</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>Tidak diketahui</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>Info build</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>Waktu build</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>Dibuat di</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>Cabang</value>
+  </data>
 </root>

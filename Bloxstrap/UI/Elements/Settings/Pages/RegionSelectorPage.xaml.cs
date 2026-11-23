@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using Bloxstrap.Integrations;
@@ -68,23 +68,23 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 if (datacenters is null)
                 {
-                    HintText.Text = "地区列表没拉到。点「看全部服务器」还能用，那边查到的地区一样能挑。";
-                    ShowStatus("地区列表没拉到", "机房对照表取不到，多半是网络问题。直接点「看全部服务器」手动挑。", InfoBarSeverity.Warning);
+                    HintText.Text = Strings.Dlg_129;
+                    ShowStatus(Strings.Dlg_130, Strings.Dlg_131, InfoBarSeverity.Warning);
                     return;
                 }
 
                 RegionBox.ItemsSource = datacenters.Value.Regions;
                 RegionBox.SelectedIndex = 0;
 
-                HintText.Text = "填 Place ID，选个地区，点「进这个地区的服」。";
+                HintText.Text = Strings.Dlg_132;
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("RegionSelectorPage::LoadRegions", "Failed to load regions");
                 App.Logger.WriteException("RegionSelectorPage::LoadRegions", ex);
 
-                HintText.Text = "地区列表没拉到。点「看全部服务器」还能用。";
-                ShowStatus("地区列表没拉到", ex.Message, InfoBarSeverity.Warning);
+                HintText.Text = Strings.Dlg_133;
+                ShowStatus(Strings.Dlg_130, ex.Message, InfoBarSeverity.Warning);
             }
         }
 
@@ -99,13 +99,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(placeIdText))
             {
-                ShowStatus("认不出这个输入", "要 Place ID，或者带 /games/数字 的链接。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
                 return;
             }
 
             if (RegionBox.SelectedItem is not string region || String.IsNullOrWhiteSpace(region))
             {
-                ShowStatus("先选个地区", "上面那个下拉框里挑一个。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_134, Strings.Dlg_135, InfoBarSeverity.Warning);
                 return;
             }
 
@@ -116,36 +116,36 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             try
             {
-                ShowStatus("正在找", $"{region} · 先拉服务器列表，再逐个查地区，找到一台就进。", InfoBarSeverity.Informational);
+                ShowStatus(Strings.Dlg_136, String.Format(Strings.DlgF_RegionSearching, region), InfoBarSeverity.Informational);
 
                 RobloxServer? server = await _fetcher.FindServerInRegionAsync(placeId, region, (done, total) =>
                 {
                     // 回调在后台线程，改控件要切回 UI
                     Dispatcher.BeginInvoke(new Action(() =>
-                        StatusBar.Message = $"{region} · 已查 {done}/{total} 台"));
+                        StatusBar.Message = String.Format(Strings.DlgF_RegionProgress, region, done, total)));
                 });
 
                 if (server is null)
                 {
                     ShowStatus(
-                        "没找到",
-                        $"这个游戏现在没有 {region} 的公开服务器。换个地区，或者点「看全部服务器」自己挑一台。",
+                        Strings.Dlg_097,
+                        String.Format(Strings.DlgF_RegionEmpty, region),
                         InfoBarSeverity.Warning);
 
-                    HintText.Text = $"{region} 没有可进的服务器。";
+                    HintText.Text = String.Format(Strings.DlgF_RegionNoServer, region);
                     HintText.Visibility = Visibility.Visible;
                     return;
                 }
 
                 Launch(server);
 
-                ShowStatus("已拉起客户端", $"{server.Region} · {server.PlayerCountText}", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_085, $"{server.Region} · {server.PlayerCountText}", InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("RegionSelectorPage::OnJoinRegion", "Find failed");
                 App.Logger.WriteException("RegionSelectorPage::OnJoinRegion", ex);
-                ShowStatus("出错了", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_036, ex.Message, InfoBarSeverity.Error);
             }
             finally
             {
@@ -164,7 +164,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(placeIdText))
             {
-                ShowStatus("认不出这个输入", "要 Place ID，或者带 /games/数字 的链接。", InfoBarSeverity.Warning);
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
                 return;
             }
 
@@ -174,7 +174,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             ServerList.ItemsSource = null;
             HintText.Visibility = Visibility.Collapsed;
 
-            ShowStatus("正在查询", "先拉服务器列表，再逐个查地区，100 台大概要十几秒。", InfoBarSeverity.Informational);
+            ShowStatus(Strings.Dlg_137, Strings.Dlg_138, InfoBarSeverity.Informational);
 
             try
             {
@@ -182,26 +182,26 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 if (_servers.Count == 0)
                 {
-                    ShowStatus("没查到服务器", "这个 Place 可能没有公开服务器，或者接口暂时不可用。", InfoBarSeverity.Warning);
-                    HintText.Text = "没查到服务器。";
+                    ShowStatus(Strings.Dlg_139, Strings.Dlg_140, InfoBarSeverity.Warning);
+                    HintText.Text = Strings.Dlg_141;
                     HintText.Visibility = Visibility.Visible;
                     return;
                 }
 
                 ServerList.ItemsSource = _servers;
 
-                int known = _servers.Count(x => x.RegionReady && x.Region != "未知");
+                int known = _servers.Count(x => x.RegionReady && x.Region != Strings.Server_RegionUnknown);
 
                 ShowStatus(
-                    $"查到 {_servers.Count} 台服务器",
-                    known > 0 ? $"{known} 台拿到了地区，挑一台进。" : "地区全没拿到，可能是没登录或者接口挂了，服务器本身还能进。",
+                    String.Format(Strings.DlgF_ServerCount, _servers.Count),
+                    known > 0 ? String.Format(Strings.DlgF_RegionKnown, known) : Strings.Dlg_143,
                     known > 0 ? InfoBarSeverity.Success : InfoBarSeverity.Warning);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("RegionSelectorPage::OnQuery", "Query failed");
                 App.Logger.WriteException("RegionSelectorPage::OnQuery", ex);
-                ShowStatus("查询失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_144, ex.Message, InfoBarSeverity.Error);
             }
             finally
             {
@@ -217,13 +217,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             try
             {
                 Launch(server);
-                ShowStatus("已拉起客户端", $"{server.Region} · {server.PlayerCountText}", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_085, $"{server.Region} · {server.PlayerCountText}", InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("RegionSelectorPage::OnJoin", "Launch failed");
                 App.Logger.WriteException("RegionSelectorPage::OnJoin", ex);
-                ShowStatus("启动失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_086, ex.Message, InfoBarSeverity.Error);
             }
         }
 

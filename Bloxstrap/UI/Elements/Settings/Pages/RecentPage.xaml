@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.RecentPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.RecentPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,9 +10,9 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="最近玩过" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Recent_Title}" FontSize="20" FontWeight="Medium" />
         <TextBlock Margin="0,4,0,16"
-                   Text="进过的服务器都记在这里，最多留 50 条，重启也在。装 Luckstrap 之前的记录是从 Roblox 自己的日志里翻出来的，只要日志还在就能补上。点「再进这个服」会回到同一台服务器 —— 前提是它还没关。"
+                   Text="{x:Static resources:Strings.Recent_Help}"
                    FontSize="14"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
@@ -27,7 +27,7 @@
                    TextWrapping="Wrap"
                    Visibility="Collapsed"
                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                   Text="还没有记录。进一次游戏，退出来就有了。" />
+                   Text="{x:Static resources:Strings.Recent_Empty}" />
 
         <ItemsControl x:Name="HistoryList">
             <ItemsControl.ItemTemplate>
@@ -58,7 +58,7 @@
                             </StackPanel>
 
                             <ui:Button Grid.Column="2"
-                                       Content="再进这个服"
+                                       Content="{x:Static resources:Strings.Recent_Rejoin}"
                                        Icon="Play16"
                                        Appearance="Primary"
                                        Padding="12,3"
@@ -72,17 +72,17 @@
         </ItemsControl>
 
         <WrapPanel Margin="0,12,0,0">
-            <ui:Button Icon="ArrowClockwise24" Content="刷新" Click="OnRefresh" Margin="0,0,8,0" />
-            <ui:Button Icon="Delete24" Content="清空记录" Appearance="Danger" Click="OnClear" />
+            <ui:Button Icon="ArrowClockwise24" Content="{x:Static resources:Strings.Common_Refresh}" Click="OnRefresh" Margin="0,0,8,0" />
+            <ui:Button Icon="Delete24" Content="{x:Static resources:Strings.Recent_Clear}" Appearance="Danger" Click="OnClear" />
         </WrapPanel>
 
         <Separator Margin="0,20,0,14" />
 
-        <TextBlock Text="说明" FontSize="16" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Note}" FontSize="16" FontWeight="Medium" />
         <TextBlock Margin="0,8,0,0"
                    FontSize="13"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   Text="记录来自游戏日志，只存重连要用的东西，不存聊天记录也不存你在里面干了什么。私服的访问码会一起存下来，不然重连进不去。清空只删这份记录，不影响游戏本身。" />
+                   Text="{x:Static resources:Strings.Recent_Privacy}" />
     </StackPanel>
 </ui:UiPage>

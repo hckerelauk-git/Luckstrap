@@ -1501,4 +1501,358 @@ Luckstrap 安裝在 "{1}"。</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>無法預覽主題: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>未登入</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>點這裡換號</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>遊戲</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>伺服器</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>帳號切換</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>設定檔</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Accounts_Help" xml:space="preserve">
+    <value>先在遊戲裡正常登入一個帳號，然後點「存入目前帳號」。要換號就選中另一個點「切換」，下次打開遊戲就是那個號了。同一時間只有一個帳號登入，跟手動登出再登入一樣，不涉及多開。</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>存入目前帳號</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>切換到選中</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>用目前登入狀態覆蓋選中</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>刪除選中</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>重新整理</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>目前</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>還沒有存帳號</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>備註名</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>給這個號取個名字</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>儲存備註名</value>
+  </data>
+  <data name="Accounts_AliasHelp" xml:space="preserve">
+    <value>備註名只是給你自己看的，跟遊戲裡顯示的名字無關。查不到名字的時候可以自己填。</value>
+  </data>
+  <data name="FFProfiles_Help" xml:space="preserve">
+    <value>把整套 FastFlags 存成一份設定檔，換遊戲或換電腦的時候一鍵切回來。左邊是已有的設定檔，右邊改具體參數，改完點「儲存修改」。點「套用」才會真的覆蓋目前的 ClientAppSettings.json。</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>新建空白設定檔</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>把目前設定存成設定檔</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>匯出選中</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>設定檔列表</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>刪除設定檔</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>設定檔名字</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>儲存修改</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>備註，隨便寫（可空）</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>Flag 名</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>加一行</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>刪掉選中行</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>套用這套設定</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>收藏遊戲</value>
+  </data>
+  <data name="Favorites_Help" xml:space="preserve">
+    <value>把常玩的遊戲存這裡，之後點一下就能進，不用每次翻網頁。</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>從最近玩過選</value>
+  </data>
+  <data name="Favorites_RecentHint" xml:space="preserve">
+    <value>最近進過的伺服器，選中後自動填下面的輸入框。</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID 或 https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>還沒有收藏。上面貼個遊戲連結或 Place ID 試試。</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>啟動</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>遊戲捷徑</value>
+  </data>
+  <data name="Shortcut_Help" xml:space="preserve">
+    <value>給某個遊戲或者某個伺服器做個捷徑放桌面，雙擊直接進，不用先開啟動器再點。</value>
+  </data>
+  <data name="Shortcut_PickHint" xml:space="preserve">
+    <value>從收藏或最近玩過裡選，伺服器 ID 和私服碼會一起填上。</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>伺服器實例 ID（可選）</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID，留空就是公開服。</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>私服訪問碼（可選）</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>privateServerLinkCode 後面那串</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>捷徑放到哪</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>桌面</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>開始選單</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>捷徑名字（留空就用遊戲名）</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>比如「起床戰爭 - 亞服」</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>建立並啟動</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>只建立</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>刪掉這個遊戲的捷徑</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>說明</value>
+  </data>
+  <data name="Shortcut_NoteBody" xml:space="preserve">
+    <value>捷徑的目標是 Luckstrap 本身，參數裡帶 placeId，所以雙擊之後還是會走啟動器那一套（FastFlags、模組、Discord 狀態都生效）。填了伺服器 ID 就進指定伺服器，不填就是該遊戲的公開服。</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>快速啟動</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>鍵盤快速鍵</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>網頁版 Discord 狀態（實驗性）</value>
+  </data>
+  <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
+    <value>在 127.0.0.1:1337 起一個 arRPC 相容的橋，瀏覽器裡的 Discord 也能顯示在玩什麼。前提是瀏覽器裝了 Vencord / Equicord 的 WebRichPresence 外掛並開著；網頁版只顯示文字和按鈕，遊戲封面是外鏈圖片，那邊渲染不出來。</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>日誌</value>
+  </data>
+  <data name="Logs_Help" xml:space="preserve">
+    <value>啟動器每次執行都會留一份日誌，出問題先看這裡。左邊選檔案，右邊看內容。</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>搜日誌內容，例如 error、fail、timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>打開資料夾</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>另存為</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>網路診斷</value>
+  </data>
+  <data name="Network_Help" xml:space="preserve">
+    <value>逐個測一遍客戶端實際會用到的 Roblox 網域。進不去遊戲的時候先跑這個，看是哪個環節斷了。</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>開始測試</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>複製結果</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>看不懂結果？</value>
+  </data>
+  <data name="Network_Explain" xml:space="preserve">
+    <value>「客戶端部署」這一項掛了就一定進不去遊戲，因為啟動器要靠它拿版本號。全部逾時或報 SSL 錯誤，基本是本機到 Roblox 的鏈路被攔了，掛個代理再試。「伺服器位置」這一項掛了不影響進遊戲，它查的是第三方 IP 庫，跟 Roblox 本身沒關係。</value>
+  </data>
+  <data name="QuickLaunch_Help" xml:space="preserve">
+    <value>貼上 Place ID、遊戲連結或 roblox:// 連結，產生啟動連結或者直接進遊戲。</value>
+  </data>
+  <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
+    <value>最近進過的伺服器，選中後自動填下面的遊戲和私服代碼。</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>私服代碼（可選）</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>私服連結裡 ?privateServerLinkCode= 後面那串</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>產生的連結</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>填了上面的內容會自動產生</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>啟動遊戲</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>複製連結</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>用預設瀏覽器打開</value>
+  </data>
+  <data name="QuickLaunch_Note" xml:space="preserve">
+    <value>「啟動遊戲」會走 Roblox 官方協定拉起客戶端，跟你在網頁上點 Play 是一回事。私服代碼不填就是進公開伺服器。連結可以發給別人，對方點開也能進同一個伺服器。</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>最近玩過</value>
+  </data>
+  <data name="Recent_Help" xml:space="preserve">
+    <value>進過的伺服器都記在這裡，最多留 50 條，重啟也在。裝 Luckstrap 之前的記錄是從 Roblox 自己的日誌裡翻出來的，只要日誌還在就能補上。點「再進這個服」會回到同一台伺服器，前提是它還沒關。</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>還沒有記錄。進一次遊戲，退出來就有了。</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>再進這個服</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>清空記錄</value>
+  </data>
+  <data name="Recent_Privacy" xml:space="preserve">
+    <value>記錄來自遊戲日誌，只存重連要用的東西，不存聊天記錄也不存你在裡面幹了什麼。私服的訪問碼會一起存下來，不然重連進不去。清空只刪這份記錄，不影響遊戲本身。</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>區服選擇</value>
+  </data>
+  <data name="Region_Help" xml:space="preserve">
+    <value>填遊戲，選一個想進的地區，點一下直接進那個地區的服。不想按地區挑就點「看全部伺服器」，自己從列表裡選。</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>從收藏或最近玩過選</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>選一個遊戲，下面的 Place ID 會自動填上</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID 或遊戲連結</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>想進哪個地區的伺服器</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>進這個地區的服</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>看全部伺服器</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>正在載入地區列表…</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>加入</value>
+  </data>
+  <data name="Region_Note" xml:space="preserve">
+    <value>伺服器列表來自 Roblox 官方介面，一次拉 100 台。地區不在列表裡，要逐個發加入請求換資料中心編號，再對照 RoValra 的機房表，所以按地區找服要等一會兒。找到一台就停，不會把 100 台全查完。查不到地區的會顯示「未知」，不影響加入。沒登入 Roblox 的話查不出地區，這個功能要讀本機登入態。</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>舊版本清理</value>
+  </data>
+  <data name="Versions_Help" xml:space="preserve">
+    <value>Roblox 每更新一次會在這裡留一份版本包，幾個月能堆好幾個 G。正在用的版本會標出來，刪不掉。</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>重新掃描</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>全選可刪的</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>存的是登入憑據，自己心裡有數</value>
+  </data>
+  <data name="Accounts_NoticeMessage" xml:space="preserve">
+    <value>每個帳號存的是一份 Roblox 的登入憑據，用 Windows 內建的 DPAPI 加密，只能在這台電腦的這個 Windows 帳戶下解開。換電腦、換 Windows 使用者都用不了。別把 Luckstrap 目錄發給別人，也別把這台電腦借給不信任的人。</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>收藏 · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>最近 · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0}（私服 · {1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0}（{1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>未測試</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>查詢中</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>建置資訊</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>建置時間</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>建置機器</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>分支</value>
+  </data>
 </root>

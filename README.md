@@ -4,7 +4,7 @@
 
 <h1 align="center">Luckstrap</h1>
 
-<p align="center">Roblox 启动器的第三方替代品。游戏本体还是官方的，只是把外面那一层换了。</p>
+<p align="center">新一代 Roblox 启动器。游戏本体还是官方的，外面那一层换成了更好用的。</p>
 
 ----
 

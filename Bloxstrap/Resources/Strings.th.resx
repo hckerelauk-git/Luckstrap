@@ -1493,4 +1493,295 @@ Luckstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>ไม่สามารถเเสดงตัวอย่างธีม: {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>ยังไม่ได้เข้าสู่ระบบ</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>สลับบัญชี</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>เกม</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>เซิร์ฟเวอร์</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>บัญชี</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>โปรไฟล์</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>เครื่องมือ</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>บันทึกบัญชีปัจจุบัน</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>สลับไปยังที่เลือก</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>เขียนทับด้วยเซสชันปัจจุบัน</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>ลบที่เลือก</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>รีเฟรช</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>ปัจจุบัน</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>ยังไม่มีบัญชีที่บันทึกไว้</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>ป้ายชื่อ</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>ตั้งชื่อ</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>บันทึกป้ายชื่อ</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>โปรไฟล์เปล่า</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>บันทึกเป็นการตั้งค่า</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>ส่งออกที่เลือก</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>รายการโปรไฟล์</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>ลบโปรไฟล์</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>ชื่อโปรไฟล์</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>บันทึกการแก้ไข</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>หมายเหตุ (ไม่บังคับ)</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>ชื่อแฟล็ก</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>ค่า</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>เพิ่มแถว</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>ลบแถวที่เลือก</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>ใช้โปรไฟล์นี้</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>เกมโปรด</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>เลือกจากล่าสุด</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID หรือ https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>ยังไม่มีรายการโปรด วางลิงก์เกมหรือ Place ID ด้านบน</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>ทางลัดเกม</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>ID เซิร์ฟเวอร์ (ไม่บังคับ)</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID เว้นว่างสำหรับเซิร์ฟเวอร์สาธารณะ</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>รหัสเซิร์ฟเวอร์ส่วนตัว (ไม่บังคับ)</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>ส่วนที่อยู่หลัง privateServerLinkCode=</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>วางไว้ที่ไหน</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>เดสก์ท็อป</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>เมนูเริ่ม</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>ชื่อทางลัด (ว่าง = ชื่อเกม)</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>เช่น BedWars - เอเชีย</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>สร้างและเปิด</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>สร้างอย่างเดียว</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>ลบทางลัดของเกมนี้</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>หมายเหตุ</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>เปิดด่วน</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>แป้นพิมพ์ลัด</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>สถานะ Discord บนเบราว์เซอร์ (ทดลอง)</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>ค้นหาในบันทึก เช่น error, fail, timeout</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>เปิดโฟลเดอร์</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>บันทึกเป็น</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>ทดสอบเครือข่าย</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>เริ่มทดสอบ</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>คัดลอกผล</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>อ่านผลไม่เข้าใจ?</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>รหัสเซิร์ฟเวอร์ส่วนตัว (ไม่บังคับ)</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>ส่วนหลัง ?privateServerLinkCode=</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>ลิงก์ที่สร้าง</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>สร้างอัตโนมัติ</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>เปิดเกม</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>คัดลอกลิงก์</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>เปิดในเบราว์เซอร์</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>เล่นล่าสุด</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>ยังไม่มี เข้าเกมหนึ่งครั้งแล้วออกก็จะมี</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>เข้าเซิร์ฟเวอร์นี้อีกครั้ง</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>ล้างประวัติ</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>ภูมิภาคเซิร์ฟเวอร์</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>เลือกเกม</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>เลือกเกม แล้ว Place ID จะถูกกรอก</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID หรือลิงก์เกม</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>ภูมิภาคใด</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>เข้าเซิร์ฟเวอร์ที่นั่น</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>ดูเซิร์ฟเวอร์ทั้งหมด</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>กำลังโหลดภูมิภาค...</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>เข้าร่วม</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>เวอร์ชันเก่า</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>สแกนใหม่</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>เลือกที่ลบได้ทั้งหมด</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>นี่คือข้อมูลเข้าสู่ระบบ</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>รายการโปรด · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>ล่าสุด · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0} (ส่วนตัว · {1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0} ({1:MM-dd HH:mm})</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>ยังไม่ทดสอบ</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>กำลังค้นหา</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>ไม่ทราบ</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>ข้อมูลบิลด์</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>เวลาบิลด์</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>บิลด์บน</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>คอมมิต</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>สาขา</value>
+  </data>
 </root>

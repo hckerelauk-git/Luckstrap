@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -97,12 +97,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 Process.Start(psi);
 
-                ShowStatus("已拉起客户端", "正在启动，窗口可能要等几秒才出来。", Wpf.Ui.Controls.InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_085, Strings.Dlg_122, Wpf.Ui.Controls.InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("QuickLaunchPage::OnLaunch", $"Failed: {ex}");
-                ShowStatus("启动失败", ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_086, ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
             }
         }
 
@@ -115,11 +115,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             try
             {
                 Clipboard.SetText(link);
-                ShowStatus("已复制", link, Wpf.Ui.Controls.InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_119, link, Wpf.Ui.Controls.InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
-                ShowStatus("复制失败", ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_121, ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
             }
         }
 
@@ -136,7 +136,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             catch (Exception ex)
             {
-                ShowStatus("打不开", ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_123, ex.Message, Wpf.Ui.Controls.InfoBarSeverity.Error);
             }
         }
 

@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -57,8 +57,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
 
             ListHeader.Text = currentBlob is null
-                ? $"已存 {_accounts.Count} 个 · 读不到当前登录态"
-                : $"已存 {_accounts.Count} 个";
+                ? String.Format(Strings.DlgF_SavedNoLogin, _accounts.Count)
+                : String.Format(Strings.DlgF_SavedCount, _accounts.Count);
 
             if (_items.Count > 0)
                 AccountList.SelectedItem = _items.FirstOrDefault(i => i.Account.CookieBlob == selectBlob) ?? _items[0];
@@ -74,7 +74,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (account.UserId > 0)
                 parts.Add("ID " + account.UserId);
 
-            parts.Add("存于 " + account.SavedAt.ToString("MM-dd HH:mm"));
+            parts.Add(Strings.Dlg_004 + account.SavedAt.ToString("MM-dd HH:mm"));
 
             return string.Join(" · ", parts);
         }
@@ -93,17 +93,17 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (blob is null)
             {
-                Warn("读不到登录态", $"没找到 {RobloxCookies.FilePath}。先在游戏里正常登录一次，再回来点这个。");
+                Warn(Strings.Dlg_005, String.Format(Strings.DlgF_CookieMissing, RobloxCookies.FilePath));
                 return;
             }
 
             if (_accounts.Any(a => a.CookieBlob == blob))
             {
-                Warn("已经存过了", "当前登录的这个账号已经在列表里。");
+                Warn(Strings.Dlg_006, Strings.Dlg_007);
                 return;
             }
 
-            Busy("正在问 Roblox 这是哪个号…");
+            Busy(Strings.Dlg_008);
 
             AuthenticatedUser? user = null;
             string? cookie = RobloxCookies.ReadAuthCookie(blob);
@@ -115,7 +115,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 CookieBlob = blob,
                 SavedAt = DateTime.Now,
-                Name = user?.Name ?? $"账号 {_accounts.Count + 1}",
+                Name = user?.Name ?? String.Format(Strings.DlgF_AccountN, _accounts.Count + 1),
                 UserId = user?.Id ?? 0,
                 DisplayName = user?.DisplayName ?? ""
             };
@@ -133,30 +133,28 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
 
             if (user is null)
-                Warn("存下了，但没查到是谁", "cookie 可能已经过期，或者网络不通。先按临时名字存着，右边可以改备注名。");
+                Warn(Strings.Dlg_009, Strings.Dlg_010);
             else
-                Info("存下了", $"「{account.DisplayName}」(@{account.Name})", InfoBarSeverity.Success);
+                Info(Strings.Dlg_011, $"「{account.DisplayName}」(@{account.Name})", InfoBarSeverity.Success);
         }
 
         private void OnSwitch(object sender, RoutedEventArgs e)
         {
             if (AccountList.SelectedItem is not AccountItem item)
             {
-                Warn("先选一个", "在左边列表里点一下要切过去的账号。");
+                Warn(Strings.Dlg_012, Strings.Dlg_013);
                 return;
             }
 
             if (AccountManager.IsRobloxRunning())
             {
-                Warn("Roblox 还开着", "先把 Roblox 完全关掉（托盘里也退掉），再切换。开着的时候写进去会被它自己覆盖回去。");
+                Warn(Strings.Dlg_014, Strings.Dlg_015);
                 return;
             }
 
             var confirm = MessageBox.Show(
-                $"切换到「{item.Title}」？\n\n" +
-                "会把 Roblox 现在的登录态换成这个账号，下次打开游戏就是它。\n" +
-                "第一次切换时，原来那份登录态会备份到 RobloxCookies.dat.luckstrap-bak。",
-                "切换账号",
+                String.Format(Strings.DlgF_SwitchConfirm, item.Title, Strings.Dlg_016),
+                Strings.Dlg_017,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
@@ -169,7 +167,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 RobloxCookies.WriteBlob(item.Account.CookieBlob);
                 Reload(item.Account.CookieBlob);
 
-                Info("切换完成", $"现在登录态是「{item.Title}」。打开游戏看一眼，如果显示未登录，说明这个存档的凭据过期了——重新登录一次，再点「用当前登录态覆盖选中」。", InfoBarSeverity.Success);
+                // 右上角那张卡跟着换
+                (Window.GetWindow(this) as Bloxstrap.UI.Elements.Settings.MainWindow)?.RefreshAccount();
+
+                Info(Strings.Dlg_018, String.Format(Strings.DlgF_Switched, item.Title), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -181,7 +182,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (AccountList.SelectedItem is not AccountItem item)
             {
-                Warn("先选一个", "在左边列表里点一下要覆盖的账号。");
+                Warn(Strings.Dlg_012, Strings.Dlg_019);
                 return;
             }
 
@@ -189,27 +190,26 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (blob is null)
             {
-                Warn("读不到登录态", "当前没有可用的登录态。先在游戏里登录一次。");
+                Warn(Strings.Dlg_005, Strings.Dlg_020);
                 return;
             }
 
             if (blob == item.Account.CookieBlob)
             {
-                Info("不用覆盖", "选中这个账号存的凭据跟当前登录的一模一样。", InfoBarSeverity.Informational);
+                Info(Strings.Dlg_021, Strings.Dlg_022, InfoBarSeverity.Informational);
                 return;
             }
 
             var confirm = MessageBox.Show(
-                $"用当前登录的凭据覆盖「{item.Title}」吗？\n\n" +
-                "覆盖之后这个存档就变成你现在登录的那个号了，原来那份就没了。",
-                "覆盖存档",
+                String.Format(Strings.DlgF_OverwriteConfirm, item.Title, Strings.Dlg_023),
+                Strings.Dlg_024,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
             if (confirm != MessageBoxResult.Yes)
                 return;
 
-            Busy("正在更新…");
+            Busy(Strings.Dlg_025);
 
             item.Account.CookieBlob = blob;
             item.Account.SavedAt = DateTime.Now;
@@ -233,7 +233,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 AccountManager.Save(_accounts);
                 Reload(blob);
-                Info("覆盖完成", $"「{item.Title}」现在对应的是你刚才登录的那个号。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_026, String.Format(Strings.DlgF_Overwritten, item.Title), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -245,7 +245,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (AccountList.SelectedItem is not AccountItem item)
             {
-                Warn("先选一个", "在左边列表里点一下要改名的账号。");
+                Warn(Strings.Dlg_012, Strings.Dlg_027);
                 return;
             }
 
@@ -253,7 +253,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (name.Length == 0)
             {
-                Warn("名字不能空", "填个名字再保存。");
+                Warn(Strings.Dlg_028, Strings.Dlg_029);
                 return;
             }
 
@@ -263,7 +263,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 AccountManager.Save(_accounts);
                 Reload(item.Account.CookieBlob);
-                Info("改好了", $"备注名现在是「{name}」。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_030, String.Format(Strings.DlgF_Renamed, name), InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -275,13 +275,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (AccountList.SelectedItem is not AccountItem item)
             {
-                Warn("先选一个", "在左边列表里点一下要删的账号。");
+                Warn(Strings.Dlg_012, Strings.Dlg_031);
                 return;
             }
 
             var confirm = MessageBox.Show(
-                $"从列表里删掉「{item.Title}」吗？\n\n只删这份存档，不会让你退出登录，也不影响现在游戏里的账号。",
-                "删除存档",
+                String.Format(Strings.DlgF_DeleteConfirm, item.Title),
+                Strings.Dlg_032,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -293,7 +293,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 _accounts.RemoveAll(a => a.CookieBlob == item.Account.CookieBlob);
                 AccountManager.Save(_accounts);
                 Reload();
-                Info("删掉了", "存档已经从列表里移走。", InfoBarSeverity.Success);
+                Info(Strings.Dlg_033, Strings.Dlg_034, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
@@ -305,7 +305,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         // ── 提示 ──────────────────────────────────────────────────────
 
-        private void Busy(string message) => Info("稍等", message, InfoBarSeverity.Informational);
+        private void Busy(string message) => Info(Strings.Dlg_035, message, InfoBarSeverity.Informational);
 
         private void Info(string title, string message, InfoBarSeverity severity)
         {
@@ -320,7 +320,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private void Fail(string ident, Exception ex)
         {
             App.Logger.WriteLine(ident, ex.ToString());
-            Info("出错了", ex.Message, InfoBarSeverity.Error);
+            Info(Strings.Dlg_036, ex.Message, InfoBarSeverity.Error);
         }
     }
 }

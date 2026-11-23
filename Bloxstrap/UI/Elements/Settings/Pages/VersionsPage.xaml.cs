@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -53,7 +53,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private async Task RefreshAsync()
         {
             _entries.Clear();
-            SummaryText.Text = "扫描中…";
+            SummaryText.Text = Strings.Dlg_145;
 
             string currentPlayer = App.RobloxState.Prop.Player.VersionGuid ?? "";
             string currentStudio = App.RobloxState.Prop.Studio.VersionGuid ?? "";
@@ -76,13 +76,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                         string subtitle;
                         if (isPlayer && isStudio)
-                            subtitle = "正在使用（Player + Studio）";
+                            subtitle = Strings.Dlg_146;
                         else if (isPlayer)
-                            subtitle = "正在使用（Player）";
+                            subtitle = Strings.Dlg_147;
                         else if (isStudio)
-                            subtitle = "正在使用（Studio）";
+                            subtitle = Strings.Dlg_148;
                         else
-                            subtitle = $"最后修改 {dir.LastWriteTime:yyyy-MM-dd HH:mm}";
+                            subtitle = String.Format(Strings.DlgF_LastModified, dir.LastWriteTime);
 
                         result.Add(new VersionEntry
                         {
@@ -140,8 +140,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             long total = _entries.Sum(e => e.SizeBytes);
 
             SummaryText.Text = _entries.Count == 0
-                ? "没有找到版本包"
-                : $"共 {_entries.Count} 个版本，占用 {FormatSize(total)}，其中可删 {FormatSize(deletable)}";
+                ? Strings.Dlg_149
+                : String.Format(Strings.DlgF_VersionSummary, _entries.Count, FormatSize(total), FormatSize(deletable));
         }
 
         private async void OnRefresh(object sender, RoutedEventArgs e) => await RefreshAsync();
@@ -159,8 +159,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (targets.Count == 0)
             {
-                StatusBar.Title = "没选东西";
-                StatusBar.Message = "先勾选要删的版本。正在使用的版本删不了。";
+                StatusBar.Title = Strings.Dlg_150;
+                StatusBar.Message = Strings.Dlg_151;
                 StatusBar.Severity = Wpf.Ui.Controls.InfoBarSeverity.Warning;
                 StatusBar.IsOpen = true;
                 return;
@@ -170,16 +170,16 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             string names = string.Join("\n", targets.Select(t => "· " + t.Name));
 
             var confirm = MessageBox.Show(
-                $"要删掉这 {targets.Count} 个版本包吗？能腾出 {FormatSize(totalBytes)}。\n\n{names}\n\n删了之后如果游戏要用这个版本，客户端会重新下载。",
-                "确认删除",
+                String.Format(Strings.DlgF_DeleteVersionsConfirm, targets.Count, FormatSize(totalBytes), names),
+                Strings.Dlg_152,
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
             if (confirm != MessageBoxResult.Yes)
                 return;
 
-            StatusBar.Title = "正在删";
-            StatusBar.Message = "别关窗口，删完会刷新列表。";
+            StatusBar.Title = Strings.Dlg_153;
+            StatusBar.Message = Strings.Dlg_154;
             StatusBar.Severity = Wpf.Ui.Controls.InfoBarSeverity.Informational;
             StatusBar.IsOpen = true;
 
@@ -204,10 +204,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             await RefreshAsync();
 
-            StatusBar.Title = failed == 0 ? "删完了" : "删了一部分";
+            StatusBar.Title = failed == 0 ? Strings.Dlg_155 : Strings.Dlg_156;
             StatusBar.Message = failed == 0
-                ? $"清掉 {ok} 个版本，腾出 {FormatSize(totalBytes)}。"
-                : $"{ok} 个成功，{failed} 个失败（可能被占用）。详情看日志。";
+                ? String.Format(Strings.DlgF_DeletedSummary, ok, FormatSize(totalBytes))
+                : String.Format(Strings.DlgF_DeletePartial, ok, failed);
             StatusBar.Severity = failed == 0
                 ? Wpf.Ui.Controls.InfoBarSeverity.Success
                 : Wpf.Ui.Controls.InfoBarSeverity.Warning;

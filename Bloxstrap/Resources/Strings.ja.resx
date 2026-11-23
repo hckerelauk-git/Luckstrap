@@ -1512,4 +1512,358 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>テーマのプレビューに失敗しました。 {0}</value>
   </data>
+  <data name="Account_NotLoggedIn" xml:space="preserve">
+    <value>未ログイン</value>
+  </data>
+  <data name="Account_SwitchHint" xml:space="preserve">
+    <value>クリックで切替</value>
+  </data>
+  <data name="Nav_Games" xml:space="preserve">
+    <value>ゲーム</value>
+  </data>
+  <data name="Nav_Servers" xml:space="preserve">
+    <value>サーバー</value>
+  </data>
+  <data name="Nav_Accounts" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="Nav_Profiles" xml:space="preserve">
+    <value>プロファイル</value>
+  </data>
+  <data name="Nav_Tools" xml:space="preserve">
+    <value>ツール</value>
+  </data>
+  <data name="Accounts_Help" xml:space="preserve">
+    <value>ゲーム内で普通にログインしてから「現在のアカウントを保存」を押します。切り替えるときは別のアカウントを選んで「切り替え」を押すと、次回の起動からそのアカウントになります。同時にログインできるのは1つだけで、手動でログアウトして入り直すのと同じです。</value>
+  </data>
+  <data name="Accounts_SaveCurrent" xml:space="preserve">
+    <value>現在のアカウントを保存</value>
+  </data>
+  <data name="Accounts_SwitchToSelected" xml:space="preserve">
+    <value>選択したものに切り替え</value>
+  </data>
+  <data name="Accounts_OverwriteSelected" xml:space="preserve">
+    <value>現在のログイン状態で上書き</value>
+  </data>
+  <data name="Accounts_DeleteSelected" xml:space="preserve">
+    <value>選択を削除</value>
+  </data>
+  <data name="Common_Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Accounts_Current" xml:space="preserve">
+    <value>使用中</value>
+  </data>
+  <data name="Accounts_Empty" xml:space="preserve">
+    <value>保存されたアカウントはありません</value>
+  </data>
+  <data name="Accounts_Alias" xml:space="preserve">
+    <value>メモ名</value>
+  </data>
+  <data name="Accounts_AliasPlaceholder" xml:space="preserve">
+    <value>このアカウントの名前</value>
+  </data>
+  <data name="Accounts_SaveAlias" xml:space="preserve">
+    <value>メモ名を保存</value>
+  </data>
+  <data name="Accounts_AliasHelp" xml:space="preserve">
+    <value>メモ名は自分用のもので、ゲーム内の名前とは関係ありません。名前を取得できないときは自分で入れてください。</value>
+  </data>
+  <data name="FFProfiles_Help" xml:space="preserve">
+    <value>FastFlags 一式をプロファイルとして保存し、ゲームやPCを変えたときにワンクリックで戻せます。左が既存のプロファイル、右がパラメータです。編集して「変更を保存」を押し、「適用」を押したときに初めて ClientAppSettings.json が上書きされます。</value>
+  </data>
+  <data name="FFProfiles_New" xml:space="preserve">
+    <value>空のプロファイル</value>
+  </data>
+  <data name="FFProfiles_SaveCurrent" xml:space="preserve">
+    <value>現在の設定を保存</value>
+  </data>
+  <data name="FFProfiles_Export" xml:space="preserve">
+    <value>選択をエクスポート</value>
+  </data>
+  <data name="FFProfiles_List" xml:space="preserve">
+    <value>プロファイル一覧</value>
+  </data>
+  <data name="FFProfiles_Delete" xml:space="preserve">
+    <value>プロファイルを削除</value>
+  </data>
+  <data name="FFProfiles_Name" xml:space="preserve">
+    <value>プロファイル名</value>
+  </data>
+  <data name="FFProfiles_SaveChanges" xml:space="preserve">
+    <value>変更を保存</value>
+  </data>
+  <data name="FFProfiles_Note" xml:space="preserve">
+    <value>メモ（任意）</value>
+  </data>
+  <data name="FFProfiles_FlagName" xml:space="preserve">
+    <value>フラグ名</value>
+  </data>
+  <data name="FFProfiles_Value" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="FFProfiles_AddRow" xml:space="preserve">
+    <value>行を追加</value>
+  </data>
+  <data name="FFProfiles_RemoveRow" xml:space="preserve">
+    <value>選択行を削除</value>
+  </data>
+  <data name="FFProfiles_Apply" xml:space="preserve">
+    <value>この設定を適用</value>
+  </data>
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>お気に入り</value>
+  </data>
+  <data name="Favorites_Help" xml:space="preserve">
+    <value>よく遊ぶゲームをここに保存しておけば、ワンクリックで入れます。毎回サイトを探す必要はありません。</value>
+  </data>
+  <data name="Common_PickFromRecent" xml:space="preserve">
+    <value>最近から選ぶ</value>
+  </data>
+  <data name="Favorites_RecentHint" xml:space="preserve">
+    <value>最近入ったサーバーです。選ぶと下の入力欄に入ります。</value>
+  </data>
+  <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
+    <value>Place ID または https://www.roblox.com/games/123456789/xxx</value>
+  </data>
+  <data name="Common_Add" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>まだお気に入りがありません。上にゲームのリンクか Place ID を貼ってください。</value>
+  </data>
+  <data name="Common_Launch" xml:space="preserve">
+    <value>起動</value>
+  </data>
+  <data name="Shortcut_Title" xml:space="preserve">
+    <value>ゲームのショートカット</value>
+  </data>
+  <data name="Shortcut_Help" xml:space="preserve">
+    <value>ゲームや特定のサーバーへのショートカットをデスクトップに作れます。ダブルクリックで直接入れます。</value>
+  </data>
+  <data name="Shortcut_PickHint" xml:space="preserve">
+    <value>お気に入りか最近から選ぶと、サーバーIDとプライベートコードも入ります。</value>
+  </data>
+  <data name="Shortcut_JobId" xml:space="preserve">
+    <value>サーバーID（任意）</value>
+  </data>
+  <data name="Shortcut_JobIdHint" xml:space="preserve">
+    <value>GUID / JobID。空欄なら公開サーバー。</value>
+  </data>
+  <data name="Shortcut_AccessCode" xml:space="preserve">
+    <value>プライベートサーバーコード（任意）</value>
+  </data>
+  <data name="Shortcut_AccessCodeHint" xml:space="preserve">
+    <value>privateServerLinkCode の後ろの部分</value>
+  </data>
+  <data name="Shortcut_Where" xml:space="preserve">
+    <value>作成先</value>
+  </data>
+  <data name="Shortcut_Desktop" xml:space="preserve">
+    <value>デスクトップ</value>
+  </data>
+  <data name="Shortcut_StartMenu" xml:space="preserve">
+    <value>スタートメニュー</value>
+  </data>
+  <data name="Shortcut_Name" xml:space="preserve">
+    <value>ショートカット名（空欄ならゲーム名）</value>
+  </data>
+  <data name="Shortcut_NameHint" xml:space="preserve">
+    <value>例：BedWars - アジア</value>
+  </data>
+  <data name="Shortcut_CreateAndLaunch" xml:space="preserve">
+    <value>作成して起動</value>
+  </data>
+  <data name="Shortcut_CreateOnly" xml:space="preserve">
+    <value>作成のみ</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>このゲームのショートカットを削除</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Shortcut_NoteBody" xml:space="preserve">
+    <value>ショートカットの対象は Luckstrap 本体で、引数に placeId を渡します。そのためダブルクリックでもランチャー経由になり、FastFlags・MOD・Discord の状態が有効です。サーバーIDを入れるとそのサーバーへ、入れなければ公開サーバーへ入ります。</value>
+  </data>
+  <data name="Hub_Games_QuickLaunch" xml:space="preserve">
+    <value>クイック起動</value>
+  </data>
+  <data name="Hub_Games_Shortcuts" xml:space="preserve">
+    <value>キーボードショートカット</value>
+  </data>
+  <data name="Integrations_WebDiscord_Title" xml:space="preserve">
+    <value>ブラウザ版 Discord の状態（実験的）</value>
+  </data>
+  <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
+    <value>127.0.0.1:1337 で arRPC 互換のブリッジを立て、ブラウザ版 Discord にもプレイ中のゲームを表示します。Vencord / Equicord の WebRichPresence プラグインが必要です。Web 版はテキストとボタンのみで、ゲームのカバー画像は外部画像のため表示できません。</value>
+  </data>
+  <data name="Hub_Tools_Logs" xml:space="preserve">
+    <value>ログ</value>
+  </data>
+  <data name="Logs_Help" xml:space="preserve">
+    <value>ランチャーは起動のたびにログを残します。不具合のときはまずここを見てください。左でファイルを選び、右で内容を表示します。</value>
+  </data>
+  <data name="Logs_SearchHint" xml:space="preserve">
+    <value>ログ内を検索（error、fail、timeout など）</value>
+  </data>
+  <data name="Logs_OpenFolder" xml:space="preserve">
+    <value>フォルダーを開く</value>
+  </data>
+  <data name="Logs_SaveAs" xml:space="preserve">
+    <value>名前を付けて保存</value>
+  </data>
+  <data name="Hub_Tools_Network" xml:space="preserve">
+    <value>ネットワーク診断</value>
+  </data>
+  <data name="Network_Help" xml:space="preserve">
+    <value>クライアントが実際に使う Roblox のドメインを順に確認します。ゲームに入れないときはまずこれを実行してください。</value>
+  </data>
+  <data name="Network_Start" xml:space="preserve">
+    <value>テスト開始</value>
+  </data>
+  <data name="Network_Copy" xml:space="preserve">
+    <value>結果をコピー</value>
+  </data>
+  <data name="Network_ExplainTitle" xml:space="preserve">
+    <value>結果の見方が分からない？</value>
+  </data>
+  <data name="Network_Explain" xml:space="preserve">
+    <value>「クライアント展開」が失敗するとゲームに入れません。バージョン番号の取得に必要だからです。すべてタイムアウトしたり SSL エラーが出る場合は、PC から Roblox への経路が遮断されています。プロキシを試してください。「サーバーの場所」の失敗はゲームに影響しません。これはサードパーティの IP データベースを引くだけで、Roblox とは関係ありません。</value>
+  </data>
+  <data name="QuickLaunch_Help" xml:space="preserve">
+    <value>Place ID、ゲームのリンク、roblox:// リンクを貼ると、起動リンクの生成や直接の起動ができます。</value>
+  </data>
+  <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
+    <value>最近入ったサーバーです。選ぶと下のゲームとプライベートコードが入ります。</value>
+  </data>
+  <data name="QuickLaunch_AccessCode" xml:space="preserve">
+    <value>プライベートサーバーコード（任意）</value>
+  </data>
+  <data name="QuickLaunch_AccessCodeHint" xml:space="preserve">
+    <value>リンクの ?privateServerLinkCode= の後ろ</value>
+  </data>
+  <data name="QuickLaunch_Link" xml:space="preserve">
+    <value>生成されたリンク</value>
+  </data>
+  <data name="QuickLaunch_LinkHint" xml:space="preserve">
+    <value>上の内容から自動で生成されます</value>
+  </data>
+  <data name="QuickLaunch_Launch" xml:space="preserve">
+    <value>ゲームを起動</value>
+  </data>
+  <data name="QuickLaunch_Copy" xml:space="preserve">
+    <value>リンクをコピー</value>
+  </data>
+  <data name="QuickLaunch_OpenBrowser" xml:space="preserve">
+    <value>ブラウザで開く</value>
+  </data>
+  <data name="QuickLaunch_Note" xml:space="preserve">
+    <value>「ゲームを起動」は Roblox 公式プロトコルでクライアントを立ち上げるので、サイトで Play を押すのと同じです。プライベートコードを空にすれば公開サーバーに入ります。リンクを渡せば、開いた人も同じサーバーに入れます。</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>最近プレイ</value>
+  </data>
+  <data name="Recent_Help" xml:space="preserve">
+    <value>入ったサーバーをここに記録します（最大50件、再起動しても残ります）。Luckstrap を入れる前の記録は Roblox 自身のログから拾うので、ログが残っていれば復元できます。「再参加」で同じサーバーに戻れます（まだ開いている場合）。</value>
+  </data>
+  <data name="Recent_Empty" xml:space="preserve">
+    <value>まだ記録がありません。一度ゲームに入って抜ければ出ます。</value>
+  </data>
+  <data name="Recent_Rejoin" xml:space="preserve">
+    <value>このサーバーに再参加</value>
+  </data>
+  <data name="Recent_Clear" xml:space="preserve">
+    <value>履歴を消去</value>
+  </data>
+  <data name="Recent_Privacy" xml:space="preserve">
+    <value>記録はゲームのログから作られ、再接続に必要な情報だけを持ちます。チャットやプレイ内容は保存しません。プライベートサーバーのコードは再参加に必要なので一緒に保存します。消去してもゲーム本体には影響しません。</value>
+  </data>
+  <data name="Region_Title" xml:space="preserve">
+    <value>サーバー地域</value>
+  </data>
+  <data name="Region_Help" xml:space="preserve">
+    <value>ゲームを入れて地域を選び、1回押せばその地域のサーバーに入れます。地域で選びたくない場合は「全サーバーを見る」から一覧で選べます。</value>
+  </data>
+  <data name="Region_PickGame" xml:space="preserve">
+    <value>ゲームを選ぶ</value>
+  </data>
+  <data name="Region_PickHint" xml:space="preserve">
+    <value>ゲームを選ぶと Place ID が入ります</value>
+  </data>
+  <data name="Region_Placeholder" xml:space="preserve">
+    <value>Place ID またはゲームのリンク</value>
+  </data>
+  <data name="Region_PickRegion" xml:space="preserve">
+    <value>どの地域のサーバーか</value>
+  </data>
+  <data name="Region_Join" xml:space="preserve">
+    <value>この地域のサーバーに入る</value>
+  </data>
+  <data name="Region_All" xml:space="preserve">
+    <value>全サーバーを見る</value>
+  </data>
+  <data name="Region_Loading" xml:space="preserve">
+    <value>地域を読み込み中…</value>
+  </data>
+  <data name="Region_JoinBtn" xml:space="preserve">
+    <value>参加</value>
+  </data>
+  <data name="Region_Note" xml:space="preserve">
+    <value>サーバー一覧は Roblox 公式 API から100件ずつ取得します。地域は一覧に含まれないため、各サーバーに参加リクエストを送ってデータセンターIDを取得し、RoValra のデータセンター表と照合します。そのため少し時間がかかります。最初の一致で止まり、100件すべては調べません。地域不明のサーバーは「不明」と表示されますが参加できます。地域の判定にはローカルの Roblox ログインが必要です。</value>
+  </data>
+  <data name="Hub_Tools_Versions" xml:space="preserve">
+    <value>旧バージョン</value>
+  </data>
+  <data name="Versions_Help" xml:space="preserve">
+    <value>Roblox の更新ごとにパッケージが残ります。数か月で数 GB になることもあります。使用中のバージョンには印が付き、削除できません。</value>
+  </data>
+  <data name="Versions_Rescan" xml:space="preserve">
+    <value>再スキャン</value>
+  </data>
+  <data name="Versions_SelectAll" xml:space="preserve">
+    <value>削除可能なものを全選択</value>
+  </data>
+  <data name="Accounts_NoticeTitle" xml:space="preserve">
+    <value>保存されるのはログイン情報です</value>
+  </data>
+  <data name="Accounts_NoticeMessage" xml:space="preserve">
+    <value>各アカウントに保存されるのは Roblox のログイン情報で、Windows の DPAPI で暗号化され、この PC のこの Windows ユーザーでしか復号できません。別の PC や別の Windows ユーザーでは使えません。Luckstrap フォルダーを他人に送ったり、信頼できない人にこの PC を貸したりしないでください。</value>
+  </data>
+  <data name="Pick_Favorite" xml:space="preserve">
+    <value>お気に入り · {0}</value>
+  </data>
+  <data name="Pick_Recent" xml:space="preserve">
+    <value>最近 · {0}</value>
+  </data>
+  <data name="Recent_PrivateEntry" xml:space="preserve">
+    <value>{0}（プライベート · {1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Recent_PublicEntry" xml:space="preserve">
+    <value>{0}（{1:MM-dd HH:mm}）</value>
+  </data>
+  <data name="Probe_NotTested" xml:space="preserve">
+    <value>未テスト</value>
+  </data>
+  <data name="Server_RegionLoading" xml:space="preserve">
+    <value>照会中</value>
+  </data>
+  <data name="Server_RegionUnknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="About_BuildInfo" xml:space="preserve">
+    <value>ビルド情報</value>
+  </data>
+  <data name="About_BuildTime" xml:space="preserve">
+    <value>ビルド日時</value>
+  </data>
+  <data name="About_BuildMachine" xml:space="preserve">
+    <value>ビルド環境</value>
+  </data>
+  <data name="About_BuildCommit" xml:space="preserve">
+    <value>コミット</value>
+  </data>
+  <data name="About_BuildBranch" xml:space="preserve">
+    <value>ブランチ</value>
+  </data>
 </root>

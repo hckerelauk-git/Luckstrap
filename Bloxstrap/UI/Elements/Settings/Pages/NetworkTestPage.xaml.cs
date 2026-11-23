@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using Bloxstrap.Models.Entities;
@@ -14,14 +14,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         // 这几条都是客户端实际会打到的接口。顺序按「进游戏」的流程排
         private static readonly (string Name, string Url)[] Targets = new[]
         {
-            ("Roblox 官网", "https://www.roblox.com/"),
-            ("客户端部署（主）", "https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer"),
-            ("客户端部署（备）", "https://clientsettings.roblox.com/v2/client-version/WindowsPlayer"),
-            ("游戏信息", "https://games.roblox.com/v1/games?universeIds=1"),
-            ("游戏图标", "https://thumbnails.roblox.com/v1/games/icons?universeIds=1&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false"),
-            ("PlaceId 转换", "https://apis.roblox.com/universes/v1/places/1818/universe"),
-            ("用户信息", "https://users.roblox.com/v1/users/1"),
-            ("服务器位置", "https://ipinfo.io/1.1.1.1/json")
+            (Strings.Dlg_108, "https://www.roblox.com/"),
+            (Strings.Dlg_109, "https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer"),
+            (Strings.Dlg_110, "https://clientsettings.roblox.com/v2/client-version/WindowsPlayer"),
+            (Strings.Dlg_111, "https://games.roblox.com/v1/games?universeIds=1"),
+            (Strings.Dlg_112, "https://thumbnails.roblox.com/v1/games/icons?universeIds=1&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false"),
+            (Strings.Dlg_113, "https://apis.roblox.com/universes/v1/places/1818/universe"),
+            (Strings.Dlg_114, "https://users.roblox.com/v1/users/1"),
+            (Strings.Dlg_115, "https://ipinfo.io/1.1.1.1/json")
         };
 
         private bool _running = false;
@@ -55,12 +55,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             var results = (List<NetworkProbeResult>)ResultList.ItemsSource;
             int passed = 0;
 
-            ShowStatus("正在测试", $"一共 {results.Count} 项，一项一项来。", InfoBarSeverity.Informational);
+            ShowStatus(Strings.Dlg_116, String.Format(Strings.DlgF_TestingCount, results.Count), InfoBarSeverity.Informational);
 
             foreach (var result in results)
             {
                 result.Status = "…";
-                result.Detail = "连接中";
+                result.Detail = Strings.Dlg_117;
 
                 var sw = Stopwatch.StartNew();
 
@@ -85,7 +85,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     sw.Stop();
                     result.Ok = false;
                     result.Status = "✗";
-                    result.Detail = $"超时（>{sw.ElapsedMilliseconds} ms 没有响应）";
+                    result.Detail = String.Format(Strings.DlgF_Timeout, sw.ElapsedMilliseconds);
                 }
                 catch (Exception ex)
                 {
@@ -112,9 +112,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             int failed = results.Count - passed;
 
             if (failed == 0)
-                ShowStatus("全部通过", $"{passed} 项都通了，网络没问题。", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_118, String.Format(Strings.DlgF_AllPassed, passed), InfoBarSeverity.Success);
             else
-                ShowStatus($"{failed} 项失败", $"通了 {passed} 项，挂了 {failed} 项。看下面标 ✗ 的。", InfoBarSeverity.Warning);
+                ShowStatus(String.Format(Strings.DlgF_SomeFailed, failed), String.Format(Strings.DlgF_FailedDetail, passed, failed), InfoBarSeverity.Warning);
         }
 
         private void OnCopy(object sender, RoutedEventArgs e)
@@ -123,7 +123,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
 
             var sb = new StringBuilder();
-            sb.AppendLine($"Luckstrap 网络诊断 {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            sb.AppendLine(String.Format(Strings.DlgF_ReportTitle, DateTime.Now));
             sb.AppendLine();
 
             foreach (var r in results)
@@ -132,11 +132,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             try
             {
                 Clipboard.SetText(sb.ToString());
-                ShowStatus("已复制", "直接粘给别人看就行。", InfoBarSeverity.Success);
+                ShowStatus(Strings.Dlg_119, Strings.Dlg_120, InfoBarSeverity.Success);
             }
             catch (Exception ex)
             {
-                ShowStatus("复制失败", ex.Message, InfoBarSeverity.Error);
+                ShowStatus(Strings.Dlg_121, ex.Message, InfoBarSeverity.Error);
             }
         }
 

@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.ToolsHubPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.ToolsHubPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -37,13 +37,13 @@
             </Style>
         </TabControl.Resources>
 
-        <TabItem Header="网络诊断">
+        <TabItem Header="{x:Static resources:Strings.Hub_Tools_Network}">
             <Frame Source="/UI/Elements/Settings/Pages/NetworkTestPage.xaml" NavigationUIVisibility="Hidden" Background="Transparent" />
         </TabItem>
-        <TabItem Header="旧版本清理">
+        <TabItem Header="{x:Static resources:Strings.Hub_Tools_Versions}">
             <Frame Source="/UI/Elements/Settings/Pages/VersionsPage.xaml" NavigationUIVisibility="Hidden" Background="Transparent" />
         </TabItem>
-        <TabItem Header="日志">
+        <TabItem Header="{x:Static resources:Strings.Hub_Tools_Logs}">
             <Frame Source="/UI/Elements/Settings/Pages/LogsPage.xaml" NavigationUIVisibility="Hidden" Background="Transparent" />
         </TabItem>
     </TabControl>

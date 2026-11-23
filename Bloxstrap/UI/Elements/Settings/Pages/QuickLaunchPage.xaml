@@ -1,4 +1,4 @@
-<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.QuickLaunchPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.QuickLaunchPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,48 +10,48 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="快速启动" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Hub_Games_QuickLaunch}" FontSize="20" FontWeight="Medium" />
         <TextBlock Margin="0,4,0,16"
-                   Text="粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或者直接进游戏。"
+                   Text="{x:Static resources:Strings.QuickLaunch_Help}"
                    FontSize="14"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <TextBlock Text="从最近玩过选" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.Common_PickFromRecent}" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
         <ComboBox x:Name="RecentBox"
                   Margin="0,0,0,14"
                   DisplayMemberPath="DisplayText"
                   SelectionChanged="OnRecentSelected"
-                  ToolTip="最近进过的服务器，选中后自动填下面的游戏和私服代码" />
+                  ToolTip="{x:Static resources:Strings.QuickLaunch_FromRecentHint}" />
 
-        <TextBlock Text="游戏" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.Nav_Games}" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
         <ui:TextBox x:Name="PlaceIdBox"
-                    PlaceholderText="Place ID 或 https://www.roblox.com/games/123456789/xxx"
+                    PlaceholderText="{x:Static resources:Strings.Common_PlaceIdPlaceholder}"
                     TextChanged="OnInputChanged" />
 
-        <TextBlock Text="私服代码（可选）" FontSize="14" FontWeight="Medium" Margin="0,14,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.QuickLaunch_AccessCode}" FontSize="14" FontWeight="Medium" Margin="0,14,0,6" />
         <ui:TextBox x:Name="JobIdBox"
-                    PlaceholderText="私服链接里 ?privateServerLinkCode= 后面那串"
+                    PlaceholderText="{x:Static resources:Strings.QuickLaunch_AccessCodeHint}"
                     TextChanged="OnInputChanged" />
 
-        <TextBlock Text="生成的链接" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
+        <TextBlock Text="{x:Static resources:Strings.QuickLaunch_Link}" FontSize="14" FontWeight="Medium" Margin="0,16,0,6" />
         <ui:TextBox x:Name="ResultBox"
                     IsReadOnly="True"
-                    PlaceholderText="填了上面的内容会自动生成"
+                    PlaceholderText="{x:Static resources:Strings.QuickLaunch_LinkHint}"
                     TextWrapping="Wrap" />
 
         <StackPanel Orientation="Horizontal" Margin="0,14,0,0">
             <ui:Button x:Name="LaunchButton"
-                       Content="启动游戏"
+                       Content="{x:Static resources:Strings.QuickLaunch_Launch}"
                        Appearance="Primary"
                        Icon="Play24"
                        Click="OnLaunch"
                        IsEnabled="False" />
-            <ui:Button Content="复制链接"
+            <ui:Button Content="{x:Static resources:Strings.QuickLaunch_Copy}"
                        Icon="Copy24"
                        Margin="8,0,0,0"
                        Click="OnCopy" />
-            <ui:Button Content="用默认浏览器打开"
+            <ui:Button Content="{x:Static resources:Strings.QuickLaunch_OpenBrowser}"
                        Icon="Globe24"
                        Margin="8,0,0,0"
                        Click="OnOpenWeb" />
@@ -65,11 +65,11 @@
 
         <Separator Margin="0,24,0,16" />
 
-        <TextBlock Text="说明" FontSize="16" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Note}" FontSize="16" FontWeight="Medium" />
         <TextBlock Margin="0,8,0,0"
                    FontSize="13"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   Text="「启动游戏」会走 Roblox 官方协议拉起客户端，跟你在网页上点 Play 是一回事。私服代码不填就是进公开服务器。链接可以发给别人，对方点开也能进同一个服务器。" />
+                   Text="{x:Static resources:Strings.QuickLaunch_Note}" />
     </StackPanel>
 </ui:UiPage>

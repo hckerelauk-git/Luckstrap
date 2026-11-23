@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -32,7 +32,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 if (!Directory.Exists(Paths.Logs))
                 {
-                    ContentBox.Text = "日志目录还没生成，先启动一次客户端再说。";
+                    ContentBox.Text = Strings.Dlg_099;
                     return;
                 }
 
@@ -46,11 +46,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 }
 
                 if (_files.Count == 0)
-                    ContentBox.Text = "这个目录里没有 .log 文件。";
+                    ContentBox.Text = Strings.Dlg_100;
             }
             catch (Exception ex)
             {
-                ContentBox.Text = "读日志目录失败：" + ex.Message;
+                ContentBox.Text = Strings.Dlg_101 + ex.Message;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     using var fs = new FileStream(f.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     fs.Seek(-maxBytes, SeekOrigin.End);
                     using var sr = new StreamReader(fs, Encoding.UTF8);
-                    _currentContent = "（文件太大，只显示最后 4MB）\r\n\r\n" + sr.ReadToEnd();
+                    _currentContent = Strings.Log_FileTooLarge + "\r\n\r\n" + sr.ReadToEnd();
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             catch (Exception ex)
             {
-                ContentBox.Text = "读文件失败：" + ex.Message;
+                ContentBox.Text = Strings.Dlg_102 + ex.Message;
             }
         }
 
@@ -113,7 +113,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 .ToArray();
 
             ContentBox.Text = hits.Length == 0
-                ? $"没找到包含「{keyword}」的行。"
+                ? String.Format(Strings.DlgF_NoSearchHit, keyword)
                 : string.Join("\r\n", hits);
         }
 
@@ -126,7 +126,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "打不开文件夹");
+                MessageBox.Show(ex.Message, Strings.Dlg_103);
             }
         }
 
@@ -134,13 +134,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (string.IsNullOrEmpty(_currentContent))
             {
-                MessageBox.Show("先选一个日志文件。", "没有内容");
+                MessageBox.Show(Strings.Dlg_104, Strings.Dlg_105);
                 return;
             }
 
             var dlg = new Microsoft.Win32.SaveFileDialog
             {
-                Filter = "日志文件 (*.log)|*.log|文本文件 (*.txt)|*.txt",
+                Filter = Strings.Dlg_106,
                 FileName = "luckstrap-log.txt"
             };
 
@@ -152,7 +152,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "保存失败");
+                    MessageBox.Show(ex.Message, Strings.Dlg_107);
                 }
             }
         }
