@@ -73,7 +73,20 @@ namespace Bloxstrap
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
 
-        public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
+        // 3.1 这种两位版本号不该显示成 3.1.0，Build 为 0 就不带第三位
+        public static string Version = GetVersionString();
+
+        private static string GetVersionString()
+        {
+            System.Version? version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            if (version is null)
+                return "0.0";
+
+            return version.Build > 0
+                ? $"{version.Major}.{version.Minor}.{version.Build}"
+                : $"{version.Major}.{version.Minor}";
+        }
 
         public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
