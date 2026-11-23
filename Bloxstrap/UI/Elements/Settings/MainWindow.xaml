@@ -39,13 +39,13 @@
             Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
             Appearance="Success" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
-        <Grid Grid.Row="0">
-            <ui:TitleBar Padding="8" x:Name="RootTitleBar" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Luckstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Padding="8" x:Name="RootTitleBar" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Luckstrap.ico">
 
-            <!-- 当前登录的账号，贴在标题栏右边。点一下跳到账号切换页。
-                 放标题栏而不是内容区，是为了不再占一行、把每个页面往下压 -->
+            <!-- 当前登录的账号，塞在标题栏 Header 里，自动排在窗口按钮左边。
+                 不用手写右边距，按钮数量变了也不会盖住 -->
+            <ui:TitleBar.Header>
             <Border x:Name="AccountCard" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Margin="0,0,150,0" Padding="6,2" CornerRadius="6"
+                    Margin="0,0,6,0" Padding="6,2" CornerRadius="6"
                     Cursor="Hand" MouseLeftButtonUp="AccountCard_Click">
                 <Border.Style>
                     <Style TargetType="Border">
@@ -84,7 +84,8 @@
                                Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 </StackPanel>
             </Border>
-        </Grid>
+            </ui:TitleBar.Header>
+        </ui:TitleBar>
 
         <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0" Visibility="Visible">
             <Grid.RowDefinitions>
