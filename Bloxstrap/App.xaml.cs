@@ -42,21 +42,19 @@ namespace Bloxstrap
         public static readonly string[] GithubMirrors = new[]
         {
             "https://ghproxy.net/",
-            "https://ghfast.top/",
-            // gh-proxy 现在对页面地址返回它自己的落地页，里面没有 release 信息，
-            // 二进制也一律 403，排最后当兜底
+            // gh-proxy 对 release 页面返回自己的落地页，里面没有 tag，
+            // 排最后，前面挂了才轮到它
             "https://gh-proxy.com/"
         };
 
         /// <summary>
         /// 下载 exe 用的是 /releases/download/ 路径，跟检查更新打的 release 页面不是一回事。
-        /// gh-proxy 对 /releases/download/ 直接返回 403（拿别的仓库试过也一样，不是我们仓库的问题），
-        /// 所以二进制单独排一遍顺序，把确认能代理大文件的放前面。
+        /// 二进制单独排一遍顺序，这两个都实测能代理大文件。
+        /// （ghfast.top 已经死了，留着只会让每次检查白等 15 秒超时）
         /// </summary>
         public static readonly string[] GithubDownloadMirrors = new[]
         {
             "https://ghproxy.net/",
-            "https://ghfast.top/",
             "https://gh-proxy.com/"
         };
 

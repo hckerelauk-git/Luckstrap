@@ -24,7 +24,35 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
 
-            Loaded += async (_, _) => await LoadRegionsAsync();
+            Loaded += async (_, _) =>
+            {
+                await LoadRegionsAsync();
+                await LoadGamePicksAsync();
+            };
+        }
+
+        private async Task LoadGamePicksAsync()
+        {
+            if (GameBox.Items.Count > 0)
+                return;
+
+            try
+            {
+                GameBox.ItemsSource = await RecentServers.LoadPicksAsync();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("RegionSelectorPage::LoadGamePicks", "Failed to load game picks");
+                App.Logger.WriteException("RegionSelectorPage::LoadGamePicks", ex);
+            }
+        }
+
+        private void OnGameSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (GameBox.SelectedItem is not GamePickItem game)
+                return;
+
+            PlaceIdBox.Text = game.PlaceId.ToString();
         }
 
         // ── 地区下拉 ──────────────────────────────────────────────────

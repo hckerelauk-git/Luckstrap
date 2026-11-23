@@ -27,6 +27,93 @@ namespace Bloxstrap.Integrations
         // 同时最多查这么多台，太多会被 Roblox 限流
         private const int MaxConcurrentLookups = 6;
 
+        // RoValra 只给英文城市名，这里翻成中文。没列到的城市直接显示英文，不会变成空白
+        private static readonly Dictionary<string, string> CityNames = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Amsterdam"] = "阿姆斯特丹",
+            ["Ashburn"] = "阿什本",
+            ["Athens"] = "雅典",
+            ["Atlanta"] = "亚特兰大",
+            ["Boardman"] = "博德曼",
+            ["Buenos Aires"] = "布宜诺斯艾利斯",
+            ["Cape Town"] = "开普敦",
+            ["Chicago"] = "芝加哥",
+            ["Columbus"] = "哥伦布",
+            ["Dallas"] = "达拉斯",
+            ["Doha"] = "多哈",
+            ["Dublin"] = "都柏林",
+            ["Frankfurt am Main"] = "法兰克福",
+            ["Istanbul"] = "伊斯坦布尔",
+            ["Jakarta"] = "雅加达",
+            ["Kuala Lumpur"] = "吉隆坡",
+            ["Lima"] = "利马",
+            ["London"] = "伦敦",
+            ["Los Angeles"] = "洛杉矶",
+            ["Miami"] = "迈阿密",
+            ["Milan"] = "米兰",
+            ["Mumbai"] = "孟买",
+            ["New York City"] = "纽约",
+            ["Osaka"] = "大阪",
+            ["Paris"] = "巴黎",
+            ["San Jose"] = "圣何塞",
+            ["Santiago"] = "圣地亚哥",
+            ["Santiago de Querétaro"] = "克雷塔罗",
+            ["Seattle"] = "西雅图",
+            ["Singapore"] = "新加坡",
+            ["Sydney"] = "悉尼",
+            ["São Paulo"] = "圣保罗",
+            ["Tel Aviv"] = "特拉维夫",
+            ["Tokyo"] = "东京",
+            ["Warsaw"] = "华沙",
+            ["Zürich"] = "苏黎世",
+        };
+
+        private static readonly Dictionary<string, string> CountryNames = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Argentina"] = "阿根廷",
+            ["Australia"] = "澳大利亚",
+            ["Brazil"] = "巴西",
+            ["Chile"] = "智利",
+            ["France"] = "法国",
+            ["Germany"] = "德国",
+            ["Greece"] = "希腊",
+            ["India"] = "印度",
+            ["Indonesia"] = "印尼",
+            ["Ireland"] = "爱尔兰",
+            ["Israel"] = "以色列",
+            ["Italy"] = "意大利",
+            ["Japan"] = "日本",
+            ["Malaysia"] = "马来西亚",
+            ["Mexico"] = "墨西哥",
+            ["Netherlands"] = "荷兰",
+            ["Peru"] = "秘鲁",
+            ["Poland"] = "波兰",
+            ["Qatar"] = "卡塔尔",
+            ["Singapore"] = "新加坡",
+            ["South Africa"] = "南非",
+            ["Switzerland"] = "瑞士",
+            ["Türkiye"] = "土耳其",
+            ["United Kingdom"] = "英国",
+            ["United States"] = "美国",
+        };
+
+        private static string BuildRegionName(string city, string country)
+        {
+            if (String.IsNullOrWhiteSpace(city) && String.IsNullOrWhiteSpace(country))
+                return "未知";
+
+            string cityText = CityNames.TryGetValue(city, out string? cityName) ? cityName : city;
+            string countryText = CountryNames.TryGetValue(country, out string? countryName) ? countryName : country;
+
+            if (String.IsNullOrWhiteSpace(countryText))
+                return cityText;
+
+            if (String.IsNullOrWhiteSpace(cityText))
+                return countryText;
+
+            return $"{cityText} · {countryText}";
+        }
+
         private static Dictionary<int, string>? _datacenterMap;
         private static List<string>? _regionList;
 
@@ -60,12 +147,12 @@ namespace Bloxstrap.Integrations
                     if (entry.Inactive)
                         continue;
 
-                    string city = entry.Location?.City ?? String.Empty;
-                    string country = entry.Location?.CountryName ?? String.Empty;
+                    // 接口里的国家名带过 \r\n（Chile 那条就是），不 Trim 的话下拉里会多一行空白，
+                    // 而且跟服务器那边的字符串对不上
+                    string city = entry.Location?.City?.Trim() ?? String.Empty;
+                    string country = entry.Location?.CountryName?.Trim() ?? String.Empty;
 
-                    string region = String.IsNullOrWhiteSpace(city) && String.IsNullOrWhiteSpace(country)
-                        ? "未知"
-                        : $"{city}, {country}".Trim().Trim(',', ' ');
+                    string region = BuildRegionName(city, country);
 
                     regions.Add(region);
 

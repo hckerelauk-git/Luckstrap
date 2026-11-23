@@ -17,6 +17,13 @@
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <TextBlock Text="从收藏或最近玩过选" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+        <ComboBox x:Name="GameBox"
+                  Margin="0,0,0,12"
+                  DisplayMemberPath="DisplayText"
+                  SelectionChanged="OnGameSelected"
+                  ToolTip="选一个游戏，下面的 Place ID 会自动填上" />
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

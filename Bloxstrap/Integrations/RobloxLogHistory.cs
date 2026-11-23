@@ -63,6 +63,7 @@ namespace Bloxstrap.Integrations
         {
             ActivityData? pending = null;
             DateTime lastTimestamp = file.LastWriteTime;
+            var sessions = new List<ActivityData>();
 
             try
             {
@@ -113,7 +114,7 @@ namespace Bloxstrap.Integrations
                     else if (line.Contains(DisconnectEntry))
                     {
                         pending.TimeLeft = timestamp;
-                        result.Add(pending);
+                        sessions.Add(pending);
                         pending = null;
                     }
                 }
@@ -122,14 +123,45 @@ namespace Bloxstrap.Integrations
                 if (pending is not null)
                 {
                     pending.TimeLeft = lastTimestamp;
-                    result.Add(pending);
+                    sessions.Add(pending);
                 }
+
+                result.AddRange(MergeTeleports(sessions));
             }
             catch (Exception ex)
             {
                 // 日志正被 Roblox 写着的时候读会抛，跳过这份就行
                 App.Logger.WriteLine(LOG_IDENT, $"Skipped {file.Name}: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// 游戏里传送（换服）会连着打出两三条 join，按单条记的话「最近玩过」里同一局游戏会出现好几次。
+        /// 同一个 universe、前后脚接上的，合成一条，保留最开始进的那台服务器
+        /// </summary>
+        private static List<ActivityData> MergeTeleports(List<ActivityData> sessions)
+        {
+            var merged = new List<ActivityData>();
+
+            foreach (var session in sessions.OrderBy(x => x.TimeJoined))
+            {
+                ActivityData? last = merged.Count > 0 ? merged[^1] : null;
+
+                bool sameSession = last is not null
+                    && last.UniverseId != 0
+                    && last.UniverseId == session.UniverseId
+                    && session.TimeJoined - (last.TimeLeft ?? last.TimeJoined) < TimeSpan.FromMinutes(2);
+
+                if (sameSession)
+                {
+                    last!.TimeLeft = session.TimeLeft ?? last.TimeLeft;
+                    continue;
+                }
+
+                merged.Add(session);
+            }
+
+            return merged;
         }
 
         private static DateTime ParseTimestamp(string line, DateTime fallback)

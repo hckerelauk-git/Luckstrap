@@ -18,6 +18,9 @@ namespace Bloxstrap.Integrations
         // 留太多会让历史窗口一次性拉几十个 universe 的详情，卡
         private const int MaxEntries = 50;
 
+        // 日志只需要补一次，进程内重复扫没有意义
+        private static bool _logImported;
+
         public static string FileLocation => Path.Combine(Paths.Base, "ServerHistory.json");
 
         private class Entry
@@ -77,15 +80,55 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteException(LOG_IDENT, ex);
             }
 
-            return history;
+            return MergeTeleports(history);
+        }
+
+        /// <summary>
+        /// 老版本把游戏里传送也算成一局，同一个 universe 连着记好几条。
+        /// 读的时候顺手合并，保证界面上一个游戏的一局只出现一次
+        /// </summary>
+        private static List<ActivityData> MergeTeleports(List<ActivityData> history)
+        {
+            if (history.Count < 2)
+                return history;
+
+            var ordered = history.OrderBy(x => x.TimeJoined).ToList();
+            var merged = new List<ActivityData>();
+
+            foreach (var entry in ordered)
+            {
+                ActivityData? last = merged.Count > 0 ? merged[^1] : null;
+
+                bool sameSession = last is not null
+                    && last.UniverseId != 0
+                    && last.UniverseId == entry.UniverseId
+                    && entry.TimeJoined - (last.TimeLeft ?? last.TimeJoined) < TimeSpan.FromMinutes(2);
+
+                if (sameSession)
+                {
+                    last!.TimeLeft = entry.TimeLeft ?? last.TimeLeft;
+                    continue;
+                }
+
+                merged.Add(entry);
+            }
+
+            merged.Reverse();
+            return merged;
         }
 
         /// <summary>
         /// 把 Roblox 日志里的记录并进来。跟已有的按 jobId + 进入时间去重，
-        /// 已经记过的不会重复；返回真正新增的条数
+        /// 已经记过的不会重复；返回真正新增的条数。
+        /// 每次打开页面都扫一遍日志太浪费，一个进程里只扫第一次
         /// </summary>
         public static int ImportFromRobloxLogs(DateTime since)
         {
+            if (_logImported)
+                return 0;
+
+            _logImported = true;
+
             var imported = RobloxLogHistory.Import(since);
 
             if (imported.Count == 0)

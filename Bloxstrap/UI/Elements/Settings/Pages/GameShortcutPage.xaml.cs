@@ -17,22 +17,35 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     {
         private const string ShortcutPrefix = "Luckstrap - ";
 
-        private List<FavoriteGame> _favorites = new();
+        // 只用来兜底命名：用户没填名字的时候，从收藏里找这个游戏的名字
+        private readonly List<FavoriteGame> _favorites = FavoriteStore.Load();
 
         public GameShortcutPage()
         {
             InitializeComponent();
-            LoadFavorites();
 
-            Loaded += async (_, _) =>
-            {
-                RecentBox.ItemsSource = await RecentServers.LoadAsync();
-            };
+            Loaded += async (_, _) => await LoadPicksAsync();
         }
 
-        private void OnRecentSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private async Task LoadPicksAsync()
         {
-            if (RecentBox.SelectedItem is not RecentGame game)
+            if (PickBox.Items.Count > 0)
+                return;
+
+            var items = new List<GamePickItem>
+            {
+                new() { PlaceId = 0, Name = "手动输入", DisplayText = "手动输入" }
+            };
+
+            items.AddRange(await RecentServers.LoadPicksAsync());
+
+            PickBox.ItemsSource = items;
+            PickBox.SelectedIndex = 0;
+        }
+
+        private void OnPickSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (PickBox.SelectedItem is not GamePickItem game || game.PlaceId == 0)
                 return;
 
             PlaceIdBox.Text = game.PlaceId.ToString();
@@ -40,31 +53,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             // 同一台服务器的 jobId 和私服码都填上，做出来的快捷方式才是「回那个服」而不是「进这个游戏」
             JobIdBox.Text = game.JobId;
             AccessCodeBox.Text = game.AccessCode;
-
-            if (String.IsNullOrWhiteSpace(NameBox.Text))
-                NameBox.Text = game.Name;
-        }
-
-        private void LoadFavorites()
-        {
-            _favorites = FavoriteStore.Load();
-
-            var items = new List<FavoriteGame>(_favorites);
-
-            // 第一项是「手动输入」，选中它就清空输入框让用户自己填
-            items.Insert(0, new FavoriteGame { PlaceId = 0, Name = "手动输入" });
-
-            FavoriteBox.ItemsSource = items;
-            FavoriteBox.DisplayMemberPath = "Name";
-            FavoriteBox.SelectedIndex = 0;
-        }
-
-        private void OnFavoriteSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            if (FavoriteBox.SelectedItem is not FavoriteGame game || game.PlaceId == 0)
-                return;
-
-            PlaceIdBox.Text = game.PlaceId.ToString();
 
             if (String.IsNullOrWhiteSpace(NameBox.Text))
                 NameBox.Text = game.Name;

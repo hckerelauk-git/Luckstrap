@@ -53,10 +53,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             EmptyText.Visibility = Visibility.Collapsed;
 
             // 封面和游戏名不在历史文件里，要补。补失败就算了，下面会用 PlaceId 兜底
+            await RobloxPlaceResolver.ResolveAsync(history);
+
             var missing = history
-                .Where(x => x.UniverseDetails is null && x.UniverseId != 0)
+                .Where(x => x.UniverseId != 0)
                 .Select(x => x.UniverseId)
                 .Distinct()
+                .Where(x => UniverseDetails.LoadFromCache(x) is null)
                 .ToList();
 
             if (missing.Count > 0)

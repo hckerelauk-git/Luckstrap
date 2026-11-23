@@ -22,28 +22,19 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <ui:TextBox x:Name="PlaceIdBox"
                         PlaceholderText="Place ID 或 https://www.roblox.com/games/123456789/xxx" />
 
-            <ComboBox x:Name="FavoriteBox"
+            <ComboBox x:Name="PickBox"
                       Grid.Column="1"
-                      Width="170"
-                      Margin="8,0,0,0"
-                      Padding="10,6"
-                      ToolTip="从收藏里选一个"
-                      SelectionChanged="OnFavoriteSelected" />
-
-            <ComboBox x:Name="RecentBox"
-                      Grid.Column="2"
-                      Width="200"
+                      Width="260"
                       Margin="8,0,0,0"
                       Padding="10,6"
                       DisplayMemberPath="DisplayText"
-                      ToolTip="从最近玩过里选一个，服务器 ID 和私服码会一起填上"
-                      SelectionChanged="OnRecentSelected" />
+                      ToolTip="从收藏或最近玩过里选，服务器 ID 和私服码会一起填上"
+                      SelectionChanged="OnPickSelected" />
         </Grid>
 
         <Grid Margin="0,14,0,0">

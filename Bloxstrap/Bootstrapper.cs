@@ -474,26 +474,6 @@ namespace Bloxstrap
             }
         }
 
-        private static void LaunchMultiInstanceWatcher()
-        {
-            const string LOG_IDENT = "Bootstrapper::LaunchMultiInstanceWatcher";
-
-            if (Utilities.DoesMutexExist("ROBLOX_singletonMutex"))
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Roblox singleton mutex already exists");
-                return;
-            }
-
-            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Luckstrap-MultiInstanceWatcherInitialisationFinished");
-            Process.Start(Paths.Process, "-multiinstancewatcher");
-
-            bool initSuccess = initEventHandle.WaitOne(TimeSpan.FromSeconds(2));
-            if (initSuccess)
-                App.Logger.WriteLine(LOG_IDENT, "Initialisation finished signalled, continuing.");
-            else
-                App.Logger.WriteLine(LOG_IDENT, "Did not receive the initialisation finished signal, continuing.");
-        }
-
         private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
@@ -502,10 +482,6 @@ namespace Bloxstrap
 
             if (_launchMode == LaunchMode.Player)
             {
-                // this needs to be done before roblox launches
-                if (App.Settings.Prop.MultiInstanceLaunching)
-                    LaunchMultiInstanceWatcher();
-
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {
                     var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
@@ -742,10 +718,13 @@ namespace Bloxstrap
 
             var versionComparison = Utilities.CompareVersions(App.Version, releaseInfo.TagName);
 
-            // check if we aren't using a deployed build, so we can update to one if a new version comes out
-            if (App.IsProductionBuild && versionComparison == VersionComparison.Equal || versionComparison == VersionComparison.GreaterThan)
+            // 只有远端比本机新才更新。以前这里写的是
+            //   if (IsProductionBuild && Equal || GreaterThan)
+            // && 比 || 优先，分支构建（ref 是 branch/main，IsProductionBuild 为 false）
+            // 在版本相等时会一路走到下载，每次启动都重下一遍 70MB，装完还是同一个版本
+            if (versionComparison != VersionComparison.LessThan)
             {
-                App.Logger.WriteLine(LOG_IDENT, "No updates found");
+                App.Logger.WriteLine(LOG_IDENT, $"No updates found ({App.Version} vs {releaseInfo.TagName})");
                 return false;
             }
 
@@ -770,7 +749,9 @@ namespace Bloxstrap
 #else
                 var asset = releaseInfo.Assets![0];
 
-                string downloadLocation = Path.Combine(Paths.TempUpdates, asset.Name);
+                // 文件名带上版本号。以前固定叫 Luckstrap.exe，一次下载失败留下的旧包
+                // 会被下一次更新直接拿去装，装完版本还是旧的
+                string downloadLocation = Path.Combine(Paths.TempUpdates, $"Luckstrap-{releaseInfo.TagName}.exe");
 
                 Directory.CreateDirectory(Paths.TempUpdates);
 
