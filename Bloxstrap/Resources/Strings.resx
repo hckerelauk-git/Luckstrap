@@ -412,7 +412,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Special Thanks</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>An alternative bootstrapper for Roblox with a bunch of extra features.</value>
+    <value>An alternative launcher for Roblox. The game itself is still the official one - this replaces the layer around it.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord server</value>

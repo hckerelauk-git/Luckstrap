@@ -416,7 +416,7 @@
     <value>特别鸣谢</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>一款专门为 Roblox 所设计且具有许多额外功能的第三方启动器。</value>
+    <value>Roblox 启动器的第三方替代品。游戏本体还是官方的，外面那一层换了，顺手加了换号、区服选择、最近玩过这些。</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord 服务器</value>

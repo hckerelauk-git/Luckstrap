@@ -53,7 +53,7 @@
         </WrapPanel>
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
-            <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+            <TextBlock Text="构建信息" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
 
             <Grid Column="0" Margin="0,8,0,0">
                 <Grid.RowDefinitions>
@@ -67,20 +67,20 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Timestamp" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="构建时间" />
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildTimestamp, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Machine" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="构建机器" />
                 <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.Machine, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Hash" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="提交" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
                 <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}">
                   <Hyperlink Foreground="{DynamicResource TextFillColorTertiaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding BuildCommitHashUrl, Mode=OneTime}">
                     <TextBlock Text="{Binding BuildMetadata.CommitHash, Mode=OneTime}" />
                   </Hyperlink>
                 </TextBlock>
 
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Ref" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="分支" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
                 <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.CommitRef, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
             </Grid>
         </StackPanel>
