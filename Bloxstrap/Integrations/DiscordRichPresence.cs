@@ -16,7 +16,7 @@ namespace Bloxstrap.Integrations
         private readonly Queue<Message> _messageQueue = new();
 
         // 网页版 Discord 的桥，只有设置里开了才存在
-        private readonly ArRpcBridge? _arRpc;
+        private ArRpcBridge? _arRpc;
 
         private DiscordRPC.RichPresence? _currentPresence;
         private DiscordRPC.RichPresence? _originalPresence;
@@ -59,12 +59,6 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, $"Lost connection to Discord RPC - {e.Reason} ({e.Code})");
 
             _rpcClient.Initialize();
-
-            // 网页版 Discord 没有本地 IPC 管道，桌面版那套推送碰不到它。
-            // 开了这个开关就在 1337 上起一个 arRPC 兼容的桥，浏览器装插件就能显示状态。
-            // 实验性：能不能显示取决于浏览器那边装没装插件，装错了就是没反应
-            if (App.Settings.Prop.UseArRpcBridge)
-                _arRpc = new ArRpcBridge();
         }
 
         public void ProcessRPCMessage(Message message, bool implicitUpdate = true)
@@ -477,7 +471,11 @@ namespace Bloxstrap.Integrations
         public void UpdatePresence()
         {
             const string LOG_IDENT = "DiscordRichPresence::UpdatePresence";
-            
+
+            // 以前桥是在构造函数里按开关决定建不建的，用户在设置里打开得重启才生效，
+            // 看起来就是「开了没反应」。现在每次推状态都对齐一次开关
+            SyncArRpcBridge();
+
             if (_currentPresence is null)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Presence is empty, clearing");
@@ -494,6 +492,33 @@ namespace Bloxstrap.Integrations
 
                 // 桌面版和网页版各推各的，一边失败不影响另一边
                 _arRpc?.Publish(_currentPresence);
+            }
+        }
+
+        /// <summary>
+        /// 网页版 Discord 没有本地 IPC 管道，桌面版那套推送碰不到它。
+        /// 开关打开就在 1337 上起一个 arRPC 兼容的桥，浏览器装插件才能显示状态。
+        /// 关掉就立刻释放端口，不然用户关了开关端口还占着，arRPC 本体反而起不来
+        /// </summary>
+        private void SyncArRpcBridge()
+        {
+            const string LOG_IDENT = "DiscordRichPresence::SyncArRpcBridge";
+
+            bool wanted = App.Settings.Prop.UseArRpcBridge;
+
+            if (wanted == (_arRpc is not null))
+                return;
+
+            if (wanted)
+            {
+                _arRpc = new ArRpcBridge();
+                App.Logger.WriteLine(LOG_IDENT, $"Web bridge enabled ({_arRpc.ClientCount} clients)");
+            }
+            else
+            {
+                _arRpc?.Dispose();
+                _arRpc = null;
+                App.Logger.WriteLine(LOG_IDENT, "Web bridge disabled");
             }
         }
 

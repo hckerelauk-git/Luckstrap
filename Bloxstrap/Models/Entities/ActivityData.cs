@@ -112,41 +112,132 @@ namespace Bloxstrap.Models.Entities
 
             await serverQuerySemaphore.WaitAsync();
 
-            if (GlobalCache.ServerLocation.TryGetValue(MachineAddress, out string? location))
-            {
-                serverQuerySemaphore.Release();
-                return location;
-            }
-
             try
             {
-                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
+                if (GlobalCache.ServerLocation.TryGetValue(MachineAddress, out string? cached))
+                    return cached;
 
-                if (string.IsNullOrEmpty(ipInfo.City))
-                    throw new InvalidHTTPResponseException("Reported city was blank");
+                string? location = await LookupServerLocationAsync(MachineAddress);
 
-                if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
+                if (location is null)
+                    App.Logger.WriteLine(LOG_IDENT, $"No provider could place {MachineAddress}");
                 else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+                    App.Logger.WriteLine(LOG_IDENT, $"Server location for {MachineAddress} is {location}");
 
                 GlobalCache.ServerLocation[MachineAddress] = location;
+
+                return location;
             }
             catch (Exception ex)
             {
-                // ipinfo.io 在部分地区连不上，每次进游戏都弹警告框太吵，只记日志。
-                // 顺便把失败结果也缓存起来，别每次进游戏都重试一遍
+                // 查不到只记日志，不要弹窗，也不要重试 —— 结果一起缓存，下次进同一个 IP 不再打请求
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
                 GlobalCache.ServerLocation[MachineAddress] = null;
+
+                return null;
             }
             finally
             {
                 serverQuerySemaphore.Release();
             }
+        }
 
-            return location;
+        /// <summary>
+        /// 机房位置。三家同时打，谁先给出结果用谁的：
+        ///   ipinfo.io  —— 最准，能认出 Roblox 在东京/新加坡的机房。国内直连经常不通
+        ///   ipwho.is   —— 走 Cloudflare，一般能通，结果跟 ipinfo 对得上
+        ///   ip-api.com —— HTTP 的，国内最稳。但它把 Roblox 整段 IP 算成美国俄勒冈，
+        ///                 所以放最后兜底，前面两家都挂了才用它
+        /// 同一个 IP 只查一次，结果（包括失败）都进 GlobalCache
+        /// </summary>
+        private static async Task<string?> LookupServerLocationAsync(string address)
+        {
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(8));
+
+            var providers = new Func<CancellationToken, Task<string?>>[]
+            {
+                token => QueryLocationAsync($"https://ipinfo.io/{address}/json", "city", "region", "country", token),
+                token => QueryLocationAsync($"https://ipwho.is/{address}", "city", "region", "country", token),
+                token => QueryLocationAsync($"http://ip-api.com/json/{address}?lang=zh-CN", "city", "regionName", "country", token)
+            };
+
+            var running = providers.Select(provider => provider(cts.Token)).ToList();
+
+            while (running.Count > 0)
+            {
+                Task<string?> finished = await Task.WhenAny(running);
+                running.Remove(finished);
+
+                string? location = null;
+
+                try
+                {
+                    location = await finished;
+                }
+                catch (Exception)
+                {
+                    // 单家失败不影响其他家，继续等下一家
+                }
+
+                if (!String.IsNullOrEmpty(location))
+                {
+                    // 拿到结果就把剩下的请求掐掉，顺手等它们收尾，
+                    // 不然 CTS 先 dispose 掉，还在跑的请求会摸到已释放的 token
+                    cts.Cancel();
+
+                    try
+                    {
+                        await Task.WhenAll(running);
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                    return location;
+                }
+            }
+
+            return null;
+        }
+
+        private static async Task<string?> QueryLocationAsync(string url, string cityKey, string regionKey, string countryKey, CancellationToken token)
+        {
+            using var response = await App.HttpClient.GetAsync(url, token);
+            response.EnsureSuccessStatusCode();
+
+            string json = await response.Content.ReadAsStringAsync(token);
+
+            using var document = JsonDocument.Parse(json);
+            JsonElement root = document.RootElement;
+
+            // ipwho.is 查不到时是 HTTP 200 + {"success": false}
+            if (root.TryGetProperty("success", out JsonElement success) && success.ValueKind == JsonValueKind.False)
+                return null;
+
+            string? city = ReadLocationField(root, cityKey);
+            string? region = ReadLocationField(root, regionKey);
+            string? country = ReadLocationField(root, countryKey);
+
+            if (String.IsNullOrEmpty(city))
+                return null;
+
+            // 城市名跟省/州重名时只留一个，不然会显示成「Tokyo, Tokyo, JP」
+            if (city == region || String.IsNullOrEmpty(region))
+                return String.IsNullOrEmpty(country) ? city : $"{city}, {country}";
+
+            return String.IsNullOrEmpty(country) ? $"{city}, {region}" : $"{city}, {region}, {country}";
+        }
+
+        private static string? ReadLocationField(JsonElement root, string key)
+        {
+            if (!root.TryGetProperty(key, out JsonElement value) || value.ValueKind != JsonValueKind.String)
+                return null;
+
+            string? text = value.GetString();
+
+            return String.IsNullOrWhiteSpace(text) ? null : text.Trim();
         }
 
         public override string ToString() => $"{PlaceId}/{JobId}";

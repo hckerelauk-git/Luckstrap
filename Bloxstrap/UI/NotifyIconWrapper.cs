@@ -35,7 +35,9 @@ namespace Bloxstrap.UI
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
 
-            if (_activityWatcher is not null && App.Settings.Prop.ShowServerDetails)
+            // 以前是「启动时 ShowServerDetails 为真才订阅」，用户在设置里打开得重启才生效，
+            // 看起来就像这个功能坏了。现在一律订阅，开关在进房那一下再判断
+            if (_activityWatcher is not null)
                 _activityWatcher.OnGameJoin += OnGameJoin;
 
             _menuContainer = new(_watcher);
@@ -59,6 +61,9 @@ namespace Bloxstrap.UI
             if (_activityWatcher is null)
                 return;
 
+            if (!App.Settings.Prop.ShowServerDetails)
+                return;
+
             // 这是 async void，是事件处理器，异常没地方接。
             // 以前查位置失败会直接把整个程序弹窗退掉，进游戏就崩，所以整段包起来
             string? serverLocation;
@@ -74,8 +79,11 @@ namespace Bloxstrap.UI
                 return;
             }
 
-            if (string.IsNullOrEmpty(serverLocation))
-                return;
+            // 查不到也提示一句。以前这里直接 return，用户看到的就是「进服务器什么反应都没有」，
+            // 分不清是功能没开还是查询失败
+            string location = String.IsNullOrEmpty(serverLocation)
+                ? Strings.Common_NotAvailable
+                : serverLocation;
 
             string title = _activityWatcher.Data.ServerType switch
             {
@@ -87,7 +95,7 @@ namespace Bloxstrap.UI
 
             ShowAlert(
                 title,
-                String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
+                String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, location),
                 10,
                 (_, _) => _menuContainer.ShowServerInformationWindow()
             );

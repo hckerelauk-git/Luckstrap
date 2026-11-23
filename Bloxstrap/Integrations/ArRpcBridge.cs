@@ -104,8 +104,9 @@ namespace Bloxstrap.Integrations
                 writer.WritePropertyName("activity");
                 writer.WriteStartObject();
 
-                // 不给 name：浏览器插件会用 application_id 去查应用名（activity.name ||= app.name），
-                // 这里填了反而会盖掉 Discord 后台那个名字
+                // 名字显式给一份。浏览器插件里那句是 activity.name ||= app.name，
+                // 给了就不会再去拿 app.name，少一处可能抛异常的地方
+                writer.WriteString("name", App.ProjectName);
                 writer.WriteString("application_id", DiscordRichPresence.DiscordApplicationId);
                 writer.WriteNumber("type", 0);
                 writer.WriteBoolean("instance", false);
@@ -125,7 +126,9 @@ namespace Bloxstrap.Integrations
                     writer.WriteEndObject();
                 }
 
-                WriteAssets(writer, presence.Assets);
+                // 不发 assets。游戏封面是 Roblox 的图片直链，浏览器插件会把它当成
+                // 「本应用已上传的资源键」去 Discord 查，查不到还每次更新都白打一轮请求，
+                // 失败的话整条消息都可能被吞掉。网页上就纯文字，图的事交给 Discord 后台的应用图标
                 WriteButtons(writer, presence.Buttons);
 
                 writer.WriteEndObject();
@@ -137,56 +140,6 @@ namespace Bloxstrap.Integrations
             }
 
             return Encoding.UTF8.GetString(stream.ToArray());
-        }
-
-        private static void WriteAssets(Utf8JsonWriter writer, DiscordRPC.Assets? assets)
-        {
-            if (assets is null)
-                return;
-
-            string? large = NormaliseAssetKey(assets.LargeImageKey);
-            string? small = NormaliseAssetKey(assets.SmallImageKey);
-
-            if (large is null && small is null)
-                return;
-
-            writer.WritePropertyName("assets");
-            writer.WriteStartObject();
-
-            if (large is not null)
-            {
-                writer.WriteString("large_image", large);
-
-                if (!String.IsNullOrEmpty(assets.LargeImageText))
-                    writer.WriteString("large_text", assets.LargeImageText);
-            }
-
-            if (small is not null)
-            {
-                writer.WriteString("small_image", small);
-
-                if (!String.IsNullOrEmpty(assets.SmallImageText))
-                    writer.WriteString("small_text", assets.SmallImageText);
-            }
-
-            writer.WriteEndObject();
-        }
-
-        /// <summary>
-        /// 桌面版认外部图片直链，网页版不认。浏览器那边拿到 large_image 会当成
-        /// 「已上传的资源键」去 Discord API 查（fetchAssetIds），传 URL 进去查不到东西，
-        /// 还会每次都白发一轮请求。所以这里把 http 开头的直接丢掉，网页上就是纯文字状态。
-        /// </summary>
-        private static string? NormaliseAssetKey(string? key)
-        {
-            if (String.IsNullOrEmpty(key))
-                return null;
-
-            if (key.StartsWith("http://", StringComparison.OrdinalIgnoreCase)
-                || key.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
-                return null;
-
-            return key;
         }
 
         private static void WriteButtons(Utf8JsonWriter writer, DiscordRPC.Button[]? buttons)
@@ -209,10 +162,31 @@ namespace Bloxstrap.Integrations
             writer.WriteStartArray();
 
             foreach (DiscordRPC.Button button in buttons)
-                writer.WriteStringValue(button.Url);
+                writer.WriteStringValue(ToBrowserUrl(button.Url));
 
             writer.WriteEndArray();
             writer.WriteEndObject();
+        }
+
+        /// <summary>
+        /// 桌面版 Discord 认 roblox:// 这种自定义协议，点一下直接把游戏拉起来。
+        /// 网页版不行 —— 按钮是浏览器里 window.open 出去的，浏览器不认这个协议，
+        /// 有的客户端干脆把非 http(s) 的链接整个丢掉，表现就是「Join server 不见了」。
+        /// 换成官网的启动地址，浏览器点开就是 Roblox 自己的「打开应用」跳转，效果一样
+        /// </summary>
+        private static string ToBrowserUrl(string? url)
+        {
+            if (String.IsNullOrEmpty(url))
+                return String.Empty;
+
+            if (url.StartsWith("roblox://experiences/start?", StringComparison.OrdinalIgnoreCase))
+                return "https://www.roblox.com/games/start?" + url["roblox://experiences/start?".Length..];
+
+            // 老格式 roblox://placeId=xxx&gameInstanceId=yyy
+            if (url.StartsWith("roblox://placeId=", StringComparison.OrdinalIgnoreCase))
+                return "https://www.roblox.com/games/start?" + url["roblox://".Length..];
+
+            return url;
         }
 
         // ---------- 连接管理 ----------

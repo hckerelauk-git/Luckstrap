@@ -37,7 +37,12 @@ namespace Bloxstrap.Models.Persistable
         /// 而且端口可能被 arRPC 本体占掉
         /// </summary>
         public bool UseArRpcBridge { get; set; } = false;
-        public bool ShowServerDetails { get; set; } = false;
+
+        /// <summary>
+        /// 进服务器时弹一条通知，告诉你连到哪个机房了。
+        /// 默认开：这个功能的全部意义就是自动告诉你，默认关掉的话没人会去翻设置
+        /// </summary>
+        public bool ShowServerDetails { get; set; } = true;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration

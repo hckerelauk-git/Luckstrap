@@ -735,7 +735,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Show game activity</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>When in-game, you'll be able to see where your server is located via [ipinfo.io]({0}).</value>
+    <value>When in-game, you'll get a notification telling you which datacenter your server is in. The lookup goes through [ipinfo.io]({0}) and a couple of fallback services, and shows "Not available" if none of them can place it.</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>Query server location</value>

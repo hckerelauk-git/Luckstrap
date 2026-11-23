@@ -744,8 +744,8 @@
     <value>显示游戏活动</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>当您加入游戏时，您将会收到当前服务器具体信息的通知；通知将不会在 “全屏独占” 时显示。
-（您可以通过 [ipinfo.io]({0}) 来获取您当前所处服务器的位置信息）</value>
+    <value>加入游戏时会弹一条通知，告诉你连到哪个机房了；全屏独占时不会显示。
+（位置信息来自 [ipinfo.io]({0}) 等 IP 归属地服务，都查不到时显示「暂不可用」）</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>允许接收服务器具体信息通知</value>

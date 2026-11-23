@@ -606,16 +606,23 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void SeedBuiltinPresets()
         {
-            // 目录已经存在就说明跑过了（或者用户自己清空了），不再塞
-            if (Directory.Exists(Paths.Profiles))
-                return;
+            // 目录已经存在就说明跑过了（或者用户自己清空了），不再塞新的，
+            // 但要把原封没动过的旧版内置预设换成现在这份
+            bool fresh = !Directory.Exists(Paths.Profiles);
 
             try
             {
                 Directory.CreateDirectory(Paths.Profiles);
 
-                foreach (var profile in BuiltinPresets())
-                    WriteProfile(profile, MakeFilePath(profile.Name));
+                if (fresh)
+                {
+                    foreach (var profile in BuiltinPresets())
+                        WriteProfile(profile, MakeFilePath(profile.Name));
+                }
+                else
+                {
+                    UpgradeBuiltinPresets();
+                }
             }
             catch (Exception ex)
             {
@@ -623,23 +630,86 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
         }
 
+        /// <summary>
+        /// 之前那版「低配流畅」带了 60 帧上限和两个 debug flag，装过的人
+        /// Profiles 目录里存的还是旧内容，光改上面的定义对他们不生效。
+        /// 这里只换「跟旧版一模一样」的文件，用户自己动过一个字的都不碰
+        /// </summary>
+        private static void UpgradeBuiltinPresets()
+        {
+            var current = BuiltinPresets().ToDictionary(profile => profile.Name, profile => profile);
+
+            foreach (string file in Directory.GetFiles(Paths.Profiles, "*.json"))
+            {
+                FastFlagProfile? existing = ReadProfile(file);
+
+                if (existing is null
+                    || !current.TryGetValue(existing.Name, out FastFlagProfile? updated)
+                    || !LegacyBuiltinPresets.TryGetValue(existing.Name, out var legacy)
+                    || !SameFlags(existing.Flags, legacy))
+                    continue;
+
+                WriteProfile(updated, file);
+                App.Logger.WriteLine("FastFlagProfiles::Upgrade", $"Updated builtin preset {existing.Name}");
+            }
+        }
+
+        private static bool SameFlags(Dictionary<string, string> left, Dictionary<string, string> right)
+        {
+            if (left.Count != right.Count)
+                return false;
+
+            foreach (var pair in right)
+            {
+                if (!left.TryGetValue(pair.Key, out string? value) || value != pair.Value)
+                    return false;
+            }
+
+            return true;
+        }
+
+        // 旧版内置预设的原样内容，只用来判断「这份文件用户有没有动过」。
+        // 跟当前定义不一样的说明用户改过了，升级时跳过
+        private static readonly Dictionary<string, Dictionary<string, string>> LegacyBuiltinPresets = new()
+        {
+            ["低配流畅"] = new()
+            {
+                ["DFIntTaskSchedulerTargetFps"] = "60",
+                ["FIntRenderShadowIntensity"] = "0",
+                ["FFlagDisablePostFx"] = "True",
+                ["DFFlagTextureQualityOverrideEnabled"] = "True",
+                ["DFIntTextureQualityOverride"] = "0",
+                ["FIntTerrainArraySliceSize"] = "4",
+                ["DFIntDebugFRMQualityLevelOverride"] = "1",
+                ["FFlagDebugSkyGray"] = "True"
+            },
+            ["竞技低延迟"] = new()
+            {
+                ["DFIntTaskSchedulerTargetFps"] = "240",
+                ["FIntRenderShadowIntensity"] = "0",
+                ["FFlagDisablePostFx"] = "True",
+                ["DFFlagTextureQualityOverrideEnabled"] = "True",
+                ["DFIntTextureQualityOverride"] = "1",
+                ["FIntTerrainArraySliceSize"] = "16",
+                ["DFIntDebugFRMQualityLevelOverride"] = "3",
+                ["FFlagDebugDisplayFPS"] = "True"
+            }
+        };
+
         private static List<FastFlagProfile> BuiltinPresets() => new()
         {
             new FastFlagProfile
             {
                 Name = "低配流畅",
-                Note = "核显、老机器用。关阴影关后期，贴图拉到最低，帧数优先。",
+                Note = "核显、老机器用。关阴影关后期，贴图降到低档。不动帧数上限 —— 要锁帧去 FastFlags 页面单独设。",
                 SavedAt = DateTime.Now,
                 Flags = new Dictionary<string, string>
                 {
-                    ["DFIntTaskSchedulerTargetFps"] = "60",
                     ["FIntRenderShadowIntensity"] = "0",
                     ["FFlagDisablePostFx"] = "True",
                     ["DFFlagTextureQualityOverrideEnabled"] = "True",
-                    ["DFIntTextureQualityOverride"] = "0",
-                    ["FIntTerrainArraySliceSize"] = "4",
-                    ["DFIntDebugFRMQualityLevelOverride"] = "1",
-                    ["FFlagDebugSkyGray"] = "True"
+                    ["DFIntTextureQualityOverride"] = "1",
+                    ["FIntTerrainArraySliceSize"] = "16"
                 }
             },
 
@@ -683,7 +753,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     ["DFFlagTextureQualityOverrideEnabled"] = "True",
                     ["DFIntTextureQualityOverride"] = "1",
                     ["FIntTerrainArraySliceSize"] = "16",
-                    ["DFIntDebugFRMQualityLevelOverride"] = "3",
                     ["FFlagDebugDisplayFPS"] = "True"
                 }
             }
