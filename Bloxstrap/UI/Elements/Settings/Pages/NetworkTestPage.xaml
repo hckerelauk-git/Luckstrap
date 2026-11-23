@@ -77,6 +77,6 @@
                    FontSize="13"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   Text="「客户端部署」这一项挂了就一定进不去游戏，因为启动器要靠它拿版本号。全部超时或者报 SSL 错误，基本是本机到 Roblox 的链路被拦了，挂个代理再试。只有「服务器位置」挂是正常的，那个走的是 ipinfo.io，不影响进游戏。" />
+                   Text="「客户端部署」这一项挂了就一定进不去游戏，因为启动器要靠它拿版本号。全部超时或者报 SSL 错误，基本是本机到 Roblox 的链路被拦了，挂个代理再试。「服务器位置」那一项挂了不影响进游戏，它查的是第三方 IP 库，跟 Roblox 本身没关系。" />
     </StackPanel>
 </ui:UiPage>
