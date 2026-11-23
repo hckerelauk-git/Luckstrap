@@ -80,6 +80,40 @@ namespace Bloxstrap.Integrations
             return history;
         }
 
+        /// <summary>
+        /// 把 Roblox 日志里的记录并进来。跟已有的按 jobId + 进入时间去重，
+        /// 已经记过的不会重复；返回真正新增的条数
+        /// </summary>
+        public static int ImportFromRobloxLogs(DateTime since)
+        {
+            var imported = RobloxLogHistory.Import(since);
+
+            if (imported.Count == 0)
+                return 0;
+
+            var existing = Load();
+            var seen = new HashSet<string>(existing.Select(x => $"{x.JobId}|{x.TimeJoined.Ticks}"));
+            int added = 0;
+
+            foreach (var entry in imported)
+            {
+                if (!seen.Add($"{entry.JobId}|{entry.TimeJoined.Ticks}"))
+                    continue;
+
+                existing.Add(entry);
+                added++;
+            }
+
+            if (added > 0)
+            {
+                existing.Sort((a, b) => b.TimeJoined.CompareTo(a.TimeJoined));
+                Save(existing);
+                App.Logger.WriteLine(LOG_IDENT, $"Imported {added} entries from Roblox logs");
+            }
+
+            return added;
+        }
+
         public static void Save(IEnumerable<ActivityData> history)
         {
             try

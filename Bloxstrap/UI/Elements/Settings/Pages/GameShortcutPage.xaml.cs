@@ -23,6 +23,26 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
             LoadFavorites();
+
+            Loaded += async (_, _) =>
+            {
+                RecentBox.ItemsSource = await RecentServers.LoadAsync();
+            };
+        }
+
+        private void OnRecentSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (RecentBox.SelectedItem is not RecentGame game)
+                return;
+
+            PlaceIdBox.Text = game.PlaceId.ToString();
+
+            // 同一台服务器的 jobId 和私服码都填上，做出来的快捷方式才是「回那个服」而不是「进这个游戏」
+            JobIdBox.Text = game.JobId;
+            AccessCodeBox.Text = game.AccessCode;
+
+            if (String.IsNullOrWhiteSpace(NameBox.Text))
+                NameBox.Text = game.Name;
         }
 
         private void LoadFavorites()

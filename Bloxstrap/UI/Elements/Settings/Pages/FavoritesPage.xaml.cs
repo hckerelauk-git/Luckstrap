@@ -19,6 +19,19 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
             Refresh();
+
+            Loaded += async (_, _) =>
+            {
+                RecentBox.ItemsSource = await RecentServers.LoadAsync();
+            };
+        }
+
+        private void OnRecentSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (RecentBox.SelectedItem is not RecentGame game)
+                return;
+
+            InputBox.Text = game.PlaceId.ToString();
         }
 
         private void Refresh()

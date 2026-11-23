@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using Bloxstrap.Integrations;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
@@ -17,6 +18,22 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         public QuickLaunchPage()
         {
             InitializeComponent();
+
+            Loaded += async (_, _) =>
+            {
+                RecentBox.ItemsSource = await RecentServers.LoadAsync();
+            };
+        }
+
+        private void OnRecentSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (RecentBox.SelectedItem is not RecentGame game)
+                return;
+
+            PlaceIdBox.Text = game.PlaceId.ToString();
+
+            if (!String.IsNullOrEmpty(game.AccessCode))
+                JobIdBox.Text = game.AccessCode;
         }
 
         private void OnInputChanged(object sender, TextChangedEventArgs e)

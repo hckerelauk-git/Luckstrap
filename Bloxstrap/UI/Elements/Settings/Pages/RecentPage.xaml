@@ -12,7 +12,7 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="最近玩过" FontSize="20" FontWeight="Medium" />
         <TextBlock Margin="0,4,0,16"
-                   Text="进过的服务器都记在这里，最多留 50 条，重启也在。点「再进这个服」会回到同一台服务器 —— 前提是它还没关。"
+                   Text="进过的服务器都记在这里，最多留 50 条，重启也在。装 Luckstrap 之前的记录是从 Roblox 自己的日志里翻出来的，只要日志还在就能补上。点「再进这个服」会回到同一台服务器 —— 前提是它还没关。"
                    FontSize="14"
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />

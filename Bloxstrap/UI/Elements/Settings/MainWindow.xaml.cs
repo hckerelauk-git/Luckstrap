@@ -82,7 +82,7 @@ namespace Bloxstrap.UI.Elements.Settings
                 string? url = details.Thumbnail?.ImageUrl;
 
                 if (!String.IsNullOrEmpty(url))
-                    AccountAvatar.Source = await LoadAvatarAsync(url!);
+                    AccountAvatarBrush.ImageSource = await LoadAvatarAsync(url!);
             }
             catch (Exception ex)
             {

@@ -17,6 +17,13 @@
                    TextWrapping="Wrap"
                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <TextBlock Text="从最近玩过选" FontSize="14" FontWeight="Medium" Margin="0,0,0,6" />
+        <ComboBox x:Name="RecentBox"
+                  Margin="0,0,0,14"
+                  DisplayMemberPath="DisplayText"
+                  SelectionChanged="OnRecentSelected"
+                  ToolTip="最近进过的服务器，选中后自动填下面的输入框" />
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

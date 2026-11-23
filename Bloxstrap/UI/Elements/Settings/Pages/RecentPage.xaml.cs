@@ -30,7 +30,18 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private async Task ReloadAsync()
         {
+            // 先把 Roblox 自己日志里的记录并进来，装 Luckstrap 之前玩的那几局也能看到。
+            // 解析几十份日志是纯 IO，扔后台线程，别卡着界面
+            await Task.Run(() => ServerHistoryStore.ImportFromRobloxLogs(DateTime.Now.AddDays(-30)));
+
             var history = ServerHistoryStore.Load();
+
+            // 托盘那个「最近玩过」用的是内存里这份，跟着一起换掉
+            if (ActivityWatcher.Current is { } watcher)
+            {
+                watcher.History.Clear();
+                watcher.History.AddRange(history);
+            }
 
             if (history.Count == 0)
             {
