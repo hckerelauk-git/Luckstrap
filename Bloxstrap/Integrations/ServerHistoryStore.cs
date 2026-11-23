@@ -23,6 +23,47 @@ namespace Bloxstrap.Integrations
 
         public static string FileLocation => Path.Combine(Paths.Base, "ServerHistory.json");
 
+        // 记录清空时间，日志补录的时候拿它当分界线
+        private static string ClearMarkerLocation => Path.Combine(Paths.Base, "ServerHistory.cleared");
+
+        private static DateTime ReadClearMarker()
+        {
+            try
+            {
+                if (File.Exists(ClearMarkerLocation)
+                    && DateTime.TryParse(File.ReadAllText(ClearMarkerLocation), null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime clearedAt))
+                    return clearedAt;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to read clear marker");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+
+            return DateTime.MinValue;
+        }
+
+        /// <summary>
+        /// 清空历史。除了删文件，还要留个时间戳 —— 不然下次启动从 Roblox 日志补录，
+        /// 刚清掉的记录又全回来了
+        /// </summary>
+        public static void Clear()
+        {
+            try
+            {
+                if (File.Exists(FileLocation))
+                    File.Delete(FileLocation);
+
+                Directory.CreateDirectory(Paths.Base);
+                File.WriteAllText(ClearMarkerLocation, DateTime.Now.ToString("O"));
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to clear server history");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
         private class Entry
         {
             public long UniverseId { get; set; }
@@ -130,6 +171,12 @@ namespace Bloxstrap.Integrations
             _logImported = true;
 
             var imported = RobloxLogHistory.Import(since);
+
+            // 用户点过「清空记录」的话，清空之前的那几局不要再从日志里翻出来
+            DateTime clearedAt = ReadClearMarker();
+
+            if (clearedAt != DateTime.MinValue)
+                imported = imported.Where(x => x.TimeJoined > clearedAt).ToList();
 
             if (imported.Count == 0)
                 return 0;

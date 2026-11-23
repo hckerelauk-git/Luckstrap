@@ -136,8 +136,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             try
             {
-                if (File.Exists(ServerHistoryStore.FileLocation))
-                    File.Delete(ServerHistoryStore.FileLocation);
+                ServerHistoryStore.Clear();
 
                 // 内存里那份也要清，不然下次退游戏保存时又写回来了
                 ActivityWatcher.Current?.History.Clear();
