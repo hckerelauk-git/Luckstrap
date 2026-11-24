@@ -8,7 +8,7 @@
 
 ----
 
-基于 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 修改
+基于 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 修改的多功能Roblox启动器
 
 ## 功能
 
