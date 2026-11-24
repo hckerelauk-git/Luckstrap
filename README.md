@@ -8,7 +8,7 @@
 
 ----
 
-基于 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 修改。启动流程、FastFlags、模组系统来自上游。
+基于 [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) 修改
 
 ## 功能
 
@@ -28,8 +28,6 @@
 从 [Releases](https://github.com/hckerelauk-git/Luckstrap/releases) 下载 `Luckstrap.exe` 运行。
 
 单文件，无需安装 .NET 运行时。
-
-未签名，Windows 会提示「未知发布者」。
 
 ## 从 Bloxstrap 迁移
 
