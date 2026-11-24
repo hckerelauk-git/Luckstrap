@@ -1048,7 +1048,7 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>這些是開啟多選啓動選單的通用快捷方式。稍後可以在設定中建立特定功能的捷徑。</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>配置如何輕鬆啓動 Luckstrap。</value>
+    <value>設定 Luckstrap 的捷徑。</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>一般</value>
@@ -1182,7 +1182,7 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>提取 Roblox 圖示到資料夾</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>允許您使用 Luckstrap 提供的 Roblox 圖示作為捷徑。 [看看如何。]({0})</value>
+    <value>在安裝目錄建立「已擷取的圖示」資料夾，存放 Roblox 圖示。[如何套用]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Luckstrap 無法寫入 Windows 註冊表 (regedit)。防毒軟體可能會干擾並導致問題。請檢查以確保沒有任何東西會限制 Luckstrap 的操作。</value>
@@ -1683,7 +1683,7 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>網頁版 Discord 狀態（實驗性）</value>
   </data>
   <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
-    <value>在 127.0.0.1:1337 執行 arRPC 橋，瀏覽器版 Discord 可顯示遊戲狀態。需要瀏覽器安裝並啟用 WebRichPresence 外掛；網頁版不顯示遊戲封面。</value>
+    <value>在 127.0.0.1:1337 執行 arRPC 橋。瀏覽器版 Discord 需要安裝 WebRichPresence 外掛。</value>
   </data>
   <data name="Hub_Tools_Logs" xml:space="preserve">
     <value>日誌</value>

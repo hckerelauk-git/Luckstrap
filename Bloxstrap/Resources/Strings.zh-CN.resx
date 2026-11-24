@@ -689,7 +689,7 @@
     <value>允许外部方式加入游戏</value>
   </data>
   <data name="Menu.Integrations.BrowserLaunch.Description" xml:space="preserve">
-    <value>开着的时候，网页上点 Play 先走 Luckstrap，FastFlags 和模组才会生效。关掉就交回官方启动器，这些东西不生效。</value>
+    <value>网页上点 Play 时由 Luckstrap 接管。关闭后交回官方启动器，FastFlags 与模组不生效。</value>
   </data>
   <data name="Menu.Integrations.BrowserLaunch.Title" xml:space="preserve">
     <value>接管浏览器启动链接</value>
@@ -1070,7 +1070,7 @@ Luckstrap 的安装路径是：
     <value>这些是调出 “多选启动菜单” 的通用快捷方式；稍后可以在设置中创建特定功能的快捷方式。</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>您可以在此处配置 Luckstrap 的快捷启动方式。</value>
+    <value>配置 Luckstrap 的快捷方式。</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>通用类</value>
@@ -1205,8 +1205,7 @@ Luckstrap 的安装路径是：
     <value>提取 Roblox 图标至 Luckstrap 安装目录</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>启用此选项后将会在 Luckstrap 安装根目录上创建一个名为 “已提取的图标” 的文件夹。
-（此选项允许您获取 Roblox 图标文件以便快捷应用于快捷方式）[如何应用？]({0})</value>
+    <value>在安装目录创建「已提取的图标」文件夹，存放 Roblox 图标。[如何应用]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Luckstrap 目前无法写入 Windows 注册表；可能是杀毒软件的干扰导致了问题。
@@ -1711,7 +1710,7 @@ Luckstrap 的安装路径是：
     <value>网页版 Discord 状态（实验性）</value>
   </data>
   <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
-    <value>在 127.0.0.1:1337 运行 arRPC 桥，浏览器版 Discord 可显示游戏状态。需要浏览器安装并启用 WebRichPresence 插件；网页版不显示游戏封面。</value>
+    <value>在 127.0.0.1:1337 运行 arRPC 桥。浏览器版 Discord 需要安装 WebRichPresence 插件。</value>
   </data>
   <data name="Hub_Tools_Logs" xml:space="preserve">
     <value>日志</value>
