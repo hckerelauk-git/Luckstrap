@@ -1791,4 +1791,16 @@ Revertendo para {1}.</value>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>Branch</value>
   </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Economia de energia</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Limita a taxa de quadros a 60, define a qualidade das texturas como baixa e desativa sombras e efeitos de pós-processamento.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Imagem limpa</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Desativa os efeitos de pós-processamento. Sombras e texturas de alta qualidade são mantidas.</value>
+  </data>
 </root>

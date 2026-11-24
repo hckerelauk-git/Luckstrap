@@ -258,10 +258,10 @@
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
     <value>Location: {0}
-Click for more information</value>
+Click for details</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>Connected to public server</value>
+    <value>Joined public server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Server information</value>
@@ -741,7 +741,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Show game activity</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>When in-game, you'll get a notification telling you which datacenter your server is in. The lookup goes through [ipinfo.io]({0}) and a couple of fallback services, and shows "Not available" if none of them can place it.</value>
+    <value>Shows the server location when you join a game.</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>Query server location</value>
@@ -1069,10 +1069,10 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <value>Create shortcuts for quick access to specific functions. These will all be placed on the Desktop.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Connected to private server</value>
+    <value>Joined private server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Connected to reserved server</value>
+    <value>Joined reserved server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
     <value>The emoji mod can not be applied at this time.</value>
@@ -1614,7 +1614,7 @@ Defaulting to {1}.</value>
     <value>Pick from recent</value>
   </data>
   <data name="Favorites_RecentHint" xml:space="preserve">
-    <value>Servers you joined recently. Picking one fills the box below.</value>
+    <value>Pick from recently played games</value>
   </data>
   <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
     <value>Place ID or https://www.roblox.com/games/123456789/name</value>
@@ -1623,7 +1623,7 @@ Defaulting to {1}.</value>
     <value>Add</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>No favourites. Paste a game link or Place ID above.</value>
+    <value>No favorites yet.</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>Launch</value>
@@ -1758,31 +1758,31 @@ Defaulting to {1}.</value>
     <value>Recently played</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>Servers you have joined, up to 50 entries, kept across restarts. Rejoin returns to the same server.</value>
+    <value>Keeps the last 50 servers. Survives restarts.</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
-    <value>Nothing yet. Play once and it shows up.</value>
+    <value>No servers yet.</value>
   </data>
   <data name="Recent_Rejoin" xml:space="preserve">
-    <value>Rejoin this server</value>
+    <value>Rejoin</value>
   </data>
   <data name="Recent_Clear" xml:space="preserve">
     <value>Clear history</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>Records come from the game log and hold only what reconnecting needs, including private server access codes. Clearing removes the records only.</value>
+    <value>Stored locally. Contains the server information needed to rejoin.</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>Server region</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>Pick a game and region to join a server there. See all servers lists every server instead.</value>
+    <value>Pick a game and a region, then join a server in that region.</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>Pick a game</value>
   </data>
   <data name="Region_PickHint" xml:space="preserve">
-    <value>Pick a game and the Place ID fills in</value>
+    <value>Fills the Place ID automatically</value>
   </data>
   <data name="Region_Placeholder" xml:space="preserve">
     <value>Place ID or game link</value>
@@ -1791,19 +1791,19 @@ Defaulting to {1}.</value>
     <value>Region</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
-    <value>Join a server there</value>
+    <value>Join selected region</value>
   </data>
   <data name="Region_All" xml:space="preserve">
-    <value>See all servers</value>
+    <value>All servers</value>
   </data>
   <data name="Region_Loading" xml:space="preserve">
-    <value>Loading regions...</value>
+    <value>Loading servers…</value>
   </data>
   <data name="Region_JoinBtn" xml:space="preserve">
     <value>Join</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>The server list comes from the official Roblox API. Filtering by region queries servers one by one, so it takes a moment. Servers with an unknown region are labelled Unknown and can still be joined. Requires a Roblox login.</value>
+    <value>Server list comes from the official Roblox API. Filtering by region queries each server. Servers that cannot be located are shown as unknown and can still be joined.</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>Old versions</value>
@@ -2483,5 +2483,17 @@ The current {1} FastFlags will be replaced with {2}, and this cannot be undone.
 {2}
 
 If the game needs one of them later, the client downloads it again.</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Power saver</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Caps the frame rate at 60, sets texture quality to low, disables shadows and post effects.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Clean visuals</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Disables post effects. Shadows and high texture quality are kept.</value>
   </data>
 </root>

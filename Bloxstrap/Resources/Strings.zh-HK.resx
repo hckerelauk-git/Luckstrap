@@ -257,11 +257,11 @@
     <value>位置</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>伺服器位置： {0}
-點擊查看更多</value>
+    <value>位於 {0}
+點擊查看詳情</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>已連接到公開伺服器</value>
+    <value>已加入公開伺服器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>伺服器資訊</value>
@@ -735,7 +735,7 @@
     <value>顯示遊戲活動</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>當你在遊戲裏，你可以透過 [ipinfo.io]({0}) 來查看你加入的伺服器所在的位置。</value>
+    <value>加入遊戲時顯示伺服器所在機房。</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>查詢伺服器位置</value>
@@ -1063,10 +1063,10 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>建立快捷方式以快速存取特定功能。這些都將放置在桌面上。</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>已連接到私人伺服器</value>
+    <value>已加入私人伺服器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>已連接到預留伺服器</value>
+    <value>已加入預留伺服器</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
     <value>目前無法套用表情符號模組。</value>
@@ -1605,10 +1605,10 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>收藏的遊戲顯示在這裡，點擊直接啟動。</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
-    <value>從最近玩過選</value>
+    <value>從最近玩過選擇</value>
   </data>
   <data name="Favorites_RecentHint" xml:space="preserve">
-    <value>最近進過的伺服器，選中後自動填下面的輸入框。</value>
+    <value>從最近玩過的遊戲中選擇</value>
   </data>
   <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
     <value>Place ID 或 https://www.roblox.com/games/123456789/xxx</value>
@@ -1617,7 +1617,7 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>新增</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>沒有收藏。在上方貼上遊戲連結或 Place ID。</value>
+    <value>尚無收藏。</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>啟動</value>
@@ -1752,31 +1752,31 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>最近玩過</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>進過的伺服器記錄，最多 50 條，重啟後保留。點「再進這個服」會重新加入同一台伺服器。</value>
+    <value>最多保留 50 筆記錄，重新啟動後仍保留。</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
-    <value>還沒有記錄。進一次遊戲，退出來就有了。</value>
+    <value>尚無記錄。</value>
   </data>
   <data name="Recent_Rejoin" xml:space="preserve">
-    <value>再進這個服</value>
+    <value>重新加入</value>
   </data>
   <data name="Recent_Clear" xml:space="preserve">
     <value>清空記錄</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>記錄來自遊戲日誌，只保存重連所需的資訊，含私服存取碼。清空只刪除記錄。</value>
+    <value>記錄保存在本機，包含重新加入所需的伺服器資訊。</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>區服選擇</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>選擇遊戲和地區，直接加入該地區的伺服器。也可在「看全部伺服器」中手動選擇。</value>
+    <value>選擇遊戲和地區，加入該地區的伺服器。</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>從收藏或最近玩過選</value>
   </data>
   <data name="Region_PickHint" xml:space="preserve">
-    <value>選一個遊戲，下面的 Place ID 會自動填上</value>
+    <value>選擇遊戲後會自動填入 Place ID</value>
   </data>
   <data name="Region_Placeholder" xml:space="preserve">
     <value>Place ID 或遊戲連結</value>
@@ -1785,19 +1785,19 @@ Luckstrap 已安裝在 "{1}"。</value>
     <value>地區</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
-    <value>進這個地區的服</value>
+    <value>加入所選地區</value>
   </data>
   <data name="Region_All" xml:space="preserve">
-    <value>看全部伺服器</value>
+    <value>全部伺服器</value>
   </data>
   <data name="Region_Loading" xml:space="preserve">
-    <value>正在載入地區列表…</value>
+    <value>正在載入伺服器列表…</value>
   </data>
   <data name="Region_JoinBtn" xml:space="preserve">
     <value>加入</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>伺服器列表來自 Roblox 官方介面。按地區篩選需逐台查詢，耗時較長。查不到地區的顯示「未知」，仍可加入。需要登入 Roblox。</value>
+    <value>伺服器列表來自 Roblox 官方介面。按地區篩選需要逐台查詢。未識別的伺服器顯示為未知，仍可加入。</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>舊版本清理</value>
@@ -1852,5 +1852,17 @@ Luckstrap 已安裝在 "{1}"。</value>
   </data>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>分支</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>省電模式</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>幀數上限 60，貼圖品質設為低，關閉陰影與後期效果。</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>純淨畫面</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>關閉後期效果，保留陰影與高精度貼圖。</value>
   </data>
 </root>

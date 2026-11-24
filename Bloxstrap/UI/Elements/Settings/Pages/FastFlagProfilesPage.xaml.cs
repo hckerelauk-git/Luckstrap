@@ -604,7 +604,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private void SeedBuiltinPresets()
         {
             // 目录已经存在就说明跑过了（或者用户自己清空了），不再塞新的，
-            // 但要把原封没动过的旧版内置预设换成现在这份
+            // 但要把原封没动过的旧版内置预设换成现在这份，并且补上这版新增的
             bool fresh = !Directory.Exists(Paths.Profiles);
 
             try
@@ -619,11 +619,37 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 else
                 {
                     UpgradeBuiltinPresets();
+                    AddMissingBuiltinPresets();
                 }
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine("FastFlagProfiles::Seed", ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 新版加了内置预设，老用户目录里没有。只按名字补，不覆盖任何已存在的文件
+        /// </summary>
+        private void AddMissingBuiltinPresets()
+        {
+            var existing = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (string file in Directory.GetFiles(Paths.Profiles, "*.json"))
+            {
+                FastFlagProfile? profile = ReadProfile(file);
+
+                if (profile is not null)
+                    existing.Add(profile.Name);
+            }
+
+            foreach (FastFlagProfile profile in BuiltinPresets())
+            {
+                if (existing.Contains(profile.Name))
+                    continue;
+
+                WriteProfile(profile, MakeFilePath(profile.Name));
+                App.Logger.WriteLine("FastFlagProfiles::Seed", $"Added builtin preset {profile.Name}");
             }
         }
 
@@ -751,6 +777,36 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     ["DFIntTextureQualityOverride"] = "1",
                     ["FIntTerrainArraySliceSize"] = "16",
                     ["FFlagDebugDisplayFPS"] = "True"
+                }
+            },
+
+            new FastFlagProfile
+            {
+                Name = Strings.FFProfiles_Preset_PowerSaver_Name,
+                Note = Strings.FFProfiles_Preset_PowerSaver_Note,
+                SavedAt = DateTime.Now,
+                Flags = new Dictionary<string, string>
+                {
+                    ["DFIntTaskSchedulerTargetFps"] = "60",
+                    ["FIntRenderShadowIntensity"] = "0",
+                    ["FFlagDisablePostFx"] = "True",
+                    ["DFFlagTextureQualityOverrideEnabled"] = "True",
+                    ["DFIntTextureQualityOverride"] = "0",
+                    ["FIntTerrainArraySliceSize"] = "4"
+                }
+            },
+
+            new FastFlagProfile
+            {
+                Name = Strings.FFProfiles_Preset_CleanVisuals_Name,
+                Note = Strings.FFProfiles_Preset_CleanVisuals_Note,
+                SavedAt = DateTime.Now,
+                Flags = new Dictionary<string, string>
+                {
+                    ["FFlagDisablePostFx"] = "True",
+                    ["FIntRenderShadowIntensity"] = "1",
+                    ["DFFlagTextureQualityOverrideEnabled"] = "True",
+                    ["DFIntTextureQualityOverride"] = "3"
                 }
             }
         };

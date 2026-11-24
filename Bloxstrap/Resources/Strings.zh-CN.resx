@@ -262,10 +262,10 @@
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
     <value>位于 {0}
-单击此窗口以了解更多详细信息</value>
+点击查看详情</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>已连接至 公共 服务器</value>
+    <value>已加入公共服务器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>服务器信息</value>
@@ -750,8 +750,7 @@
     <value>显示游戏活动</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>加入游戏时会弹一条通知，告诉你连到哪个机房了；全屏独占时不会显示。
-（位置信息来自 [ipinfo.io]({0}) 等 IP 归属地服务，都查不到时显示「暂不可用」）</value>
+    <value>加入游戏时显示服务器所在机房。</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>允许接收服务器具体信息通知</value>
@@ -1086,10 +1085,10 @@ Luckstrap 的安装路径是：
     <value>您可以在此处创建快速访问特定功能的快捷方式；它们将会放置在桌面上。</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>已连接至 私人 服务器</value>
+    <value>已加入私人服务器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>已连接至 预留 服务器</value>
+    <value>已加入预留服务器</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
     <value>目前无法应用 “表情符号” 模组。</value>
@@ -1634,10 +1633,10 @@ Luckstrap 的安装路径是：
     <value>收藏的游戏显示在这里，点击直接启动。</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
-    <value>从最近玩过选</value>
+    <value>从最近玩过选择</value>
   </data>
   <data name="Favorites_RecentHint" xml:space="preserve">
-    <value>最近进过的服务器，选中后自动填下面的输入框</value>
+    <value>从最近玩过的游戏中选择</value>
   </data>
   <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
     <value>Place ID 或 https://www.roblox.com/games/123456789/xxx</value>
@@ -1646,7 +1645,7 @@ Luckstrap 的安装路径是：
     <value>添加</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>没有收藏。在上方粘贴游戏链接或 Place ID。</value>
+    <value>暂无收藏。</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>启动</value>
@@ -1781,31 +1780,31 @@ Luckstrap 的安装路径是：
     <value>最近玩过</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>进过的服务器记录，最多 50 条，重启后保留。「再进这个服」会重新加入同一台服务器。</value>
+    <value>最多保留 50 条记录，重启后保留。</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
-    <value>还没有记录。进一次游戏，退出来就有了。</value>
+    <value>暂无记录。</value>
   </data>
   <data name="Recent_Rejoin" xml:space="preserve">
-    <value>再进这个服</value>
+    <value>重新加入</value>
   </data>
   <data name="Recent_Clear" xml:space="preserve">
     <value>清空记录</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>记录来自游戏日志，只保存重连所需的信息，含私服访问码。清空只删除记录。</value>
+    <value>记录保存在本地，包含重新加入所需的服务器信息。</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>区服选择</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>选择游戏和地区，直接加入该地区的服务器。也可在「看全部服务器」中手动选择。</value>
+    <value>选择游戏和地区，加入该地区的服务器。</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>从收藏或最近玩过选</value>
   </data>
   <data name="Region_PickHint" xml:space="preserve">
-    <value>选一个游戏，下面的 Place ID 会自动填上</value>
+    <value>选择游戏后会自动填入 Place ID</value>
   </data>
   <data name="Region_Placeholder" xml:space="preserve">
     <value>Place ID 或游戏链接</value>
@@ -1814,19 +1813,19 @@ Luckstrap 的安装路径是：
     <value>地区</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
-    <value>进这个地区的服</value>
+    <value>加入所选地区</value>
   </data>
   <data name="Region_All" xml:space="preserve">
-    <value>看全部服务器</value>
+    <value>全部服务器</value>
   </data>
   <data name="Region_Loading" xml:space="preserve">
-    <value>正在加载地区列表…</value>
+    <value>正在加载服务器列表…</value>
   </data>
   <data name="Region_JoinBtn" xml:space="preserve">
     <value>加入</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>服务器列表来自 Roblox 官方接口。按地区筛选需逐台查询，耗时较长。查不到地区的显示「未知」，仍可加入。需要登录 Roblox。</value>
+    <value>服务器列表来自 Roblox 官方接口。按地区筛选需要逐台查询。未识别的服务器显示为未知，仍可加入。</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>旧版本清理</value>
@@ -2506,5 +2505,17 @@ Luckstrap 的安装路径是：
 {2}
 
 若游戏需要该版本，客户端会重新下载。</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>省电模式</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>帧数上限 60，贴图质量设为低，关闭阴影与后期效果。</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>纯净画面</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>关闭后期效果，保留阴影与高精度贴图。</value>
   </data>
 </root>

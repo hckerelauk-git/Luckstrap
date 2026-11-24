@@ -12,6 +12,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         public string GameName { get; set; } = "";
         public string ThumbnailUrl { get; set; } = "";
         public string Subtitle { get; set; } = "";
+        public string Detail { get; set; } = "";
         public ICommand RejoinCommand { get; set; } = null!;
     }
 
@@ -86,6 +87,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     GameName = details?.Data?.Name ?? $"PlaceId {entry.PlaceId}",
                     ThumbnailUrl = details?.Thumbnail?.ImageUrl ?? String.Empty,
                     Subtitle = BuildSubtitle(entry),
+                    Detail = BuildDetail(entry),
                     RejoinCommand = entry.RejoinServerCommand
                 });
             }
@@ -93,21 +95,26 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             HistoryList.ItemsSource = items;
         }
 
+        /// <summary>卡片第二行：时间 + 服务器类型，一行放得下</summary>
         private static string BuildSubtitle(ActivityData entry)
         {
-            var parts = new List<string>();
-
-            parts.Add(entry.ServerType switch
+            string type = entry.ServerType switch
             {
                 ServerType.Private => Strings.Dlg_124,
                 ServerType.Reserved => Strings.Dlg_125,
                 _ => Strings.Dlg_126
-            });
+            };
+
+            return $"{entry.TimeJoined:MM-dd HH:mm} · {type}";
+        }
+
+        /// <summary>卡片第三行：服务器 ID 和这局玩了多久</summary>
+        private static string BuildDetail(ActivityData entry)
+        {
+            var parts = new List<string>();
 
             if (!String.IsNullOrEmpty(entry.JobId))
                 parts.Add(entry.JobId[..Math.Min(8, entry.JobId.Length)]);
-
-            parts.Add(entry.TimeJoined.ToString("MM-dd HH:mm"));
 
             if (entry.TimeLeft is DateTime left && left > entry.TimeJoined)
             {

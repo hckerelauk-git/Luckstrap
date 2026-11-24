@@ -33,10 +33,15 @@ namespace Bloxstrap.Integrations
         private readonly List<Connection> _connections = new();
         private readonly CancellationTokenSource _cts = new();
 
+        // 缓存成字段。Dispose 之后再摸 _cts.Token 会抛 ObjectDisposedException，
+        // 而广播是 fire-and-forget 的，那个异常最后会冒到全局异常处理器
+        private readonly CancellationToken _token;
+
         // 最后一条状态。浏览器可能比游戏晚连上来，连上先补一条，不然要等到下次游戏事件才有东西显示
         private string? _lastPayload;
 
         private bool _started;
+        private DateTime _lastStartAttempt = DateTime.MinValue;
 
         public bool IsRunning => _started;
 
@@ -47,7 +52,26 @@ namespace Bloxstrap.Integrations
 
         public ArRpcBridge()
         {
+            _token = _cts.Token;
             _listener = new TcpListener(IPAddress.Loopback, Port);
+
+            TryStart();
+        }
+
+        /// <summary>
+        /// 起监听。端口被占是常态（arRPC 本体、别的启动器都可能在 1337 上挂着），
+        /// 所以失败不抛异常；下次推状态时再试一次，对方退出之后就能接上
+        /// </summary>
+        private void TryStart()
+        {
+            if (_started || _cts.IsCancellationRequested)
+                return;
+
+            // 别每次推状态都试一遍，隔 30 秒再说
+            if (DateTime.UtcNow - _lastStartAttempt < TimeSpan.FromSeconds(30))
+                return;
+
+            _lastStartAttempt = DateTime.UtcNow;
 
             try
             {
@@ -55,9 +79,7 @@ namespace Bloxstrap.Integrations
             }
             catch (Exception ex)
             {
-                // 端口被占是常态：arRPC 本体、别的启动器都可能在 1337 上挂着。
-                // 这种情况直接不启用，不要弹窗，用户开着这个开关也不代表一定要有
-                App.Logger.WriteLine(LOG_IDENT, $"Failed to listen on 127.0.0.1:{Port}, bridge disabled");
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to listen on 127.0.0.1:{Port}, will retry later");
                 App.Logger.WriteException(LOG_IDENT, ex);
                 return;
             }
@@ -70,6 +92,9 @@ namespace Bloxstrap.Integrations
 
         public void Publish(DiscordRPC.RichPresence presence)
         {
+            if (!_started)
+                TryStart();
+
             if (!_started)
                 return;
 
@@ -193,13 +218,13 @@ namespace Bloxstrap.Integrations
 
         private async Task AcceptLoopAsync()
         {
-            while (!_cts.IsCancellationRequested)
+            while (!_token.IsCancellationRequested)
             {
                 TcpClient client;
 
                 try
                 {
-                    client = await _listener.AcceptTcpClientAsync(_cts.Token);
+                    client = await _listener.AcceptTcpClientAsync(_token);
                 }
                 catch (OperationCanceledException)
                 {
@@ -207,7 +232,7 @@ namespace Bloxstrap.Integrations
                 }
                 catch (Exception ex)
                 {
-                    if (_cts.IsCancellationRequested)
+                    if (_token.IsCancellationRequested)
                         break;
 
                     App.Logger.WriteLine(LOG_IDENT, "Accept failed");
@@ -221,7 +246,7 @@ namespace Bloxstrap.Integrations
 
         private async Task HandleClientAsync(TcpClient client)
         {
-            CancellationToken token = _cts.Token;
+            CancellationToken token = _token;
             Connection? connection = null;
 
             try
@@ -313,7 +338,7 @@ namespace Bloxstrap.Integrations
                 {
                     try
                     {
-                        await connection.SendAsync(payload, _cts.Token);
+                        await connection.SendAsync(payload, _token);
                     }
                     catch (Exception)
                     {
@@ -532,16 +557,26 @@ namespace Bloxstrap.Integrations
 
             public async Task SendFrameAsync(int opcode, byte[] payload, CancellationToken token)
             {
+                if (_disposed)
+                    throw new ObjectDisposedException(nameof(Connection));
+
                 byte[] frame = BuildFrame(opcode, payload);
 
                 await _writeLock.WaitAsync(token);
 
                 try
                 {
+                    if (_disposed)
+                        return;
+
                     await _stream.WriteAsync(frame, token);
                 }
                 finally
                 {
+                    // _writeLock 不跟着 Dispose 一起释放。
+                    // 以前这里 Dispose 会把信号量也 dispose 掉，另一个线程正卡在
+                    // WaitAsync/Release 上就直接抛 ObjectDisposedException，
+                    // 表现就是 arRPC 偶发一条异常日志
                     _writeLock.Release();
                 }
             }
@@ -555,8 +590,6 @@ namespace Bloxstrap.Integrations
 
                 try { _stream.Dispose(); } catch { }
                 try { _client.Dispose(); } catch { }
-
-                _writeLock.Dispose();
             }
         }
     }

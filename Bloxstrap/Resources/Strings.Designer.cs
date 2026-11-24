@@ -4158,6 +4158,42 @@ namespace Bloxstrap.Resources {
             }
         }        
         /// <summary>
+        ///   Looks up a localized string similar to Power saver.
+        /// </summary>
+        public static string FFProfiles_Preset_PowerSaver_Name {
+            get {
+                return ResourceManager.GetString("FFProfiles.Preset.PowerSaver.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caps the frame rate at 60, sets texture quality to low, disables shadows and post effects..
+        /// </summary>
+        public static string FFProfiles_Preset_PowerSaver_Note {
+            get {
+                return ResourceManager.GetString("FFProfiles.Preset.PowerSaver.Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean visuals.
+        /// </summary>
+        public static string FFProfiles_Preset_CleanVisuals_Name {
+            get {
+                return ResourceManager.GetString("FFProfiles.Preset.CleanVisuals.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disables post effects. Shadows and high texture quality are kept..
+        /// </summary>
+        public static string FFProfiles_Preset_CleanVisuals_Note {
+            get {
+                return ResourceManager.GetString("FFProfiles.Preset.CleanVisuals.Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profiles.
         /// </summary>
         public static string FFProfiles_List {

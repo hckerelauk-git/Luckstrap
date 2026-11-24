@@ -145,11 +145,9 @@ namespace Bloxstrap.Models.Entities
         }
 
         /// <summary>
-        /// 机房位置。三家同时打，谁先给出结果用谁的：
-        ///   ipinfo.io  —— 最准，能认出 Roblox 在东京/新加坡的机房。国内直连经常不通
-        ///   ipwho.is   —— 走 Cloudflare，一般能通，结果跟 ipinfo 对得上
-        ///   ip-api.com —— HTTP 的，国内最稳。但它把 Roblox 整段 IP 算成美国俄勒冈，
-        ///                 所以放最后兜底，前面两家都挂了才用它
+        /// 机房位置。ipwho.is 和 ipinfo.io 同时查，谁先给出结果用谁的。
+        /// 这两家挂了才用 ip-api.com 兜底 —— 它把 Roblox 整段 IP 都算成美国俄勒冈，
+        /// 抢在前面返回的话，东京的服务器会显示成波特兰。
         /// 同一个 IP 只查一次，结果（包括失败）都进 GlobalCache
         /// </summary>
         private static async Task<string?> LookupServerLocationAsync(string address)
@@ -158,11 +156,29 @@ namespace Bloxstrap.Models.Entities
 
             var providers = new Func<CancellationToken, Task<string?>>[]
             {
-                token => QueryLocationAsync($"https://ipinfo.io/{address}/json", "city", "region", "country", token),
                 token => QueryLocationAsync($"https://ipwho.is/{address}", "city", "region", "country", token),
-                token => QueryLocationAsync($"http://ip-api.com/json/{address}?lang=zh-CN", "city", "regionName", "country", token)
+                token => QueryLocationAsync($"https://ipinfo.io/{address}/json", "city", "region", "country", token)
             };
 
+            string? location = await FirstResultAsync(providers, cts);
+
+            if (!String.IsNullOrEmpty(location))
+                return location;
+
+            // 兜底。ip-api 的结果粒度差，但总比「未知」强
+            try
+            {
+                using var fallbackCts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+                return await QueryLocationAsync($"http://ip-api.com/json/{address}?lang=zh-CN", "city", "regionName", "country", fallbackCts.Token);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private static async Task<string?> FirstResultAsync(IEnumerable<Func<CancellationToken, Task<string?>>> providers, CancellationTokenSource cts)
+        {
             var running = providers.Select(provider => provider(cts.Token)).ToList();
 
             while (running.Count > 0)

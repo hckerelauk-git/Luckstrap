@@ -1789,4 +1789,16 @@ Revirtiendo al tema {1}.</value>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>Rama</value>
   </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Ahorro de energía</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Limita los FPS a 60, baja la calidad de las texturas y desactiva las sombras y los efectos de postprocesado.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Imagen limpia</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Desactiva los efectos de postprocesado. Las sombras y las texturas de alta calidad se mantienen.</value>
+  </data>
 </root>

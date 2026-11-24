@@ -1790,4 +1790,16 @@ Es wurde automatisch {1} ausgewählt.</value>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>Branch</value>
   </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Energiesparmodus</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Begrenzt die Bildrate auf 60, setzt die Texturqualität auf niedrig und deaktiviert Schatten und Post-Effekte.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Klare Grafik</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Deaktiviert Post-Effekte. Schatten und hohe Texturqualität bleiben erhalten.</value>
+  </data>
 </root>

@@ -1789,4 +1789,16 @@ Retour à la valeur par défaut {1}.</value>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>Branche</value>
   </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Économie d'énergie</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Limite la fréquence à 60, réduit la qualité des textures et désactive les ombres et les effets de post-traitement.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Image nette</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Désactive les effets de post-traitement. Les ombres et les textures haute définition sont conservées.</value>
+  </data>
 </root>

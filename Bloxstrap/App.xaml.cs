@@ -190,6 +190,8 @@ namespace Bloxstrap
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
+            Logger.Dispose();
+
             Environment.Exit(exitCodeNum);
         }
 
@@ -198,6 +200,8 @@ namespace Bloxstrap
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::SoftTerminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
+
+            Logger.Dispose();
 
             Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
         }
@@ -387,6 +391,9 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
+            // 记一下各阶段耗时。以后有人反馈「启动慢」，看日志就知道卡在哪一步
+            Stopwatch startupWatch = Stopwatch.StartNew();
+
             Locale.Initialize();
 
             base.OnStartup(e);
@@ -520,10 +527,14 @@ namespace Bloxstrap
                     Terminate();
                 }
 
+                Logger.WriteLine(LOG_IDENT, $"Framework ready in {startupWatch.ElapsedMilliseconds}ms");
+
                 Settings.Load();
                 State.Load();
                 RobloxState.Load();
                 FastFlags.Load();
+
+                Logger.WriteLine(LOG_IDENT, $"Settings loaded in {startupWatch.ElapsedMilliseconds}ms");
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
@@ -538,6 +549,8 @@ namespace Bloxstrap
 
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
+
+                Logger.WriteLine(LOG_IDENT, $"Startup complete in {startupWatch.ElapsedMilliseconds}ms, handing off to UI");
 
                 LaunchHandler.ProcessLaunchArgs();
             }

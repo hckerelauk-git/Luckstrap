@@ -82,7 +82,7 @@ namespace Bloxstrap.UI
             // 查不到也提示一句。以前这里直接 return，用户看到的就是「进服务器什么反应都没有」，
             // 分不清是功能没开还是查询失败
             string location = String.IsNullOrEmpty(serverLocation)
-                ? Strings.Common_NotAvailable
+                ? Strings.Server_RegionUnknown
                 : serverLocation;
 
             string title = _activityWatcher.Data.ServerType switch

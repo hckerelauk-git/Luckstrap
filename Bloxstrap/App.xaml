@@ -17,6 +17,56 @@
 
             <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
 
+            <!--
+              统一界面字体。不写死的话中文会走系统回退，标题和正文经常落到两种字重上，
+              看起来像字体错乱。西文用 Segoe UI Variable，中文按顺序退到雅黑
+            -->
+            <FontFamily x:Key="AppFontFamily">Segoe UI Variable Text, Microsoft YaHei UI, Microsoft YaHei, Segoe UI</FontFamily>
+
+            <!--
+              卡片去掉 1px 描边。Wpf.Ui 默认的 ControlElevationBorderBrush 在深色下
+              会在卡片底部画一条亮线，一屏好几张卡就是一堆横线
+            -->
+            <Style TargetType="{x:Type ui:CardControl}" BasedOn="{StaticResource DefaultUiCardControlStyle}">
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Border.CornerRadius" Value="8" />
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+            </Style>
+
+            <!-- 分节标题：比正文大一档，别用 20 那种大标题挤在卡片里 -->
+            <Style x:Key="SectionTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,0,0,8" />
+            </Style>
+
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="PageDescription" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Margin" Value="0,4,0,18" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+            </Style>
+
+            <Style x:Key="MutedText" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
+            </Style>
+
+            <!-- 网格卡片：图在上，名字和信息在下 -->
+            <Style x:Key="GameCard" TargetType="Border">
+                <Setter Property="Width" Value="196" />
+                <Setter Property="Margin" Value="0,0,12,12" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+            </Style>
+
             <Style TargetType="Hyperlink">
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">

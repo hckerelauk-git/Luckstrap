@@ -11,6 +11,7 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance dmodels:MainWindowViewModel, IsDesignTimeCreatable=True}"
              Title="{x:Static resources:Strings.Menu_Title}"
+             FontFamily="{StaticResource AppFontFamily}"
              MinWidth="1000"
              Width="1000"
              Height="580"

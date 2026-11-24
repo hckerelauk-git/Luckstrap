@@ -257,11 +257,11 @@
     <value>Местоположение</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Местоположение: {0}
-Нажмите для подробной информации</value>
+    <value>Расположение: {0}
+Нажмите для подробностей</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>Подключён к публичному серверу</value>
+    <value>Вход на публичный сервер</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Информация о сервере</value>
@@ -735,7 +735,7 @@
     <value>Показывать игровую активность</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>Во время игры вы сможете увидеть, где находится ваш сервер через [ipinfo.io]({0}).</value>
+    <value>Показывает расположение сервера при входе в игру.</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>Запрашивать местоположение сервера</value>
@@ -1063,10 +1063,10 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Создайте ярлыки для быстрого доступа к определенным функциям. Они будут размещены на рабочем столе.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Подключён к приватному серверу</value>
+    <value>Вход на приватный сервер</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Подключён к зарезервированному серверу</value>
+    <value>Вход на резервный сервер</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
     <value>Мод на эмодзи не может быть применен в данный момент.</value>
@@ -1603,10 +1603,10 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Избранные игры отображаются здесь; нажмите, чтобы запустить.</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
-    <value>Из недавних</value>
+    <value>Выбрать из недавних</value>
   </data>
   <data name="Favorites_RecentHint" xml:space="preserve">
-    <value>Серверы, где вы были недавно. При выборе подставятся в поле ниже.</value>
+    <value>Выбрать из недавних игр</value>
   </data>
   <data name="Common_PlaceIdPlaceholder" xml:space="preserve">
     <value>Place ID или https://www.roblox.com/games/123456789/xxx</value>
@@ -1615,7 +1615,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Добавить</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>Избранного нет. Вставьте ссылку на игру или Place ID выше.</value>
+    <value>Избранного пока нет.</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>Запустить</value>
@@ -1750,31 +1750,31 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Недавние</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>Записи посещённых серверов, до 50 штук, сохраняются между запусками. «Зайти снова» возвращает на тот же сервер.</value>
+    <value>Хранит последние 50 серверов. Сохраняется после перезапуска.</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
-    <value>Пока пусто. Зайдите в игру и выйдите — появится.</value>
+    <value>Записей пока нет.</value>
   </data>
   <data name="Recent_Rejoin" xml:space="preserve">
-    <value>Зайти снова</value>
+    <value>Переподключиться</value>
   </data>
   <data name="Recent_Clear" xml:space="preserve">
     <value>Очистить историю</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>Записи берутся из журнала игры и содержат только данные для переподключения, включая коды приватных серверов. Очистка удаляет только записи.</value>
+    <value>Хранится локально. Содержит данные сервера, нужные для переподключения.</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>Регион сервера</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>Выберите игру и регион, чтобы войти на сервер в этом регионе. Список всех серверов позволяет выбрать вручную.</value>
+    <value>Выберите игру и регион, затем войдите на сервер в этом регионе.</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>Выбрать игру</value>
   </data>
   <data name="Region_PickHint" xml:space="preserve">
-    <value>Выберите игру — Place ID подставится</value>
+    <value>Place ID заполнится автоматически</value>
   </data>
   <data name="Region_Placeholder" xml:space="preserve">
     <value>Place ID или ссылка на игру</value>
@@ -1783,19 +1783,19 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Регион</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
-    <value>Войти на сервер там</value>
+    <value>Войти в выбранный регион</value>
   </data>
   <data name="Region_All" xml:space="preserve">
     <value>Все серверы</value>
   </data>
   <data name="Region_Loading" xml:space="preserve">
-    <value>Загрузка регионов…</value>
+    <value>Загрузка серверов…</value>
   </data>
   <data name="Region_JoinBtn" xml:space="preserve">
     <value>Войти</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>Список серверов берётся из официального API Roblox. Фильтр по региону опрашивает серверы по одному, поэтому это занимает время. Серверы с неизвестным регионом помечаются как «Неизвестно», войти на них можно. Требуется вход в Roblox.</value>
+    <value>Список серверов берётся из официального API Roblox. Фильтр по региону опрашивает каждый сервер. Серверы без определённого региона помечаются как неизвестные, войти в них можно.</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>Старые версии</value>
@@ -1850,5 +1850,17 @@ Luckstrap был установлен по адресу "{1}".</value>
   </data>
   <data name="About_BuildBranch" xml:space="preserve">
     <value>Ветка</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Name" xml:space="preserve">
+    <value>Экономия энергии</value>
+  </data>
+  <data name="FFProfiles.Preset.PowerSaver.Note" xml:space="preserve">
+    <value>Ограничивает частоту кадров до 60, ставит низкое качество текстур, отключает тени и постобработку.</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Name" xml:space="preserve">
+    <value>Чистая картинка</value>
+  </data>
+  <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
+    <value>Отключает постобработку. Тени и высокое качество текстур сохраняются.</value>
   </data>
 </root>
