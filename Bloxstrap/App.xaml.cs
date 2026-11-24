@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿using System.Net;
+using System.Net.Security;
+using System.Net.Sockets;
+using System.Reflection;
 using System.Security.Authentication;
 using System.Security.Cryptography;
 using System.Windows;
@@ -123,6 +126,58 @@ namespace Bloxstrap
         )
         {
             Timeout = TimeSpan.FromSeconds(30),
+            DefaultRequestVersion = HttpVersion.Version11,
+            DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower
+        };
+
+        /// <summary>
+        /// 下载头像图片用。tr.rbxcdn.com 是 Akamai 的，DNS 里 IPv6 排在前面，
+        /// 而这边的 IPv6 路由不通，HttpClient 会按顺序先连 IPv6 一直等到超时。
+        /// 这条链路单独锁死 IPv4。
+        /// </summary>
+        public static readonly HttpClient ImageHttpClient = new(new SocketsHttpHandler
+        {
+            AutomaticDecompression = DecompressionMethods.All,
+            ConnectCallback = async (context, cancellationToken) =>
+            {
+                IPAddress[] resolved = await Dns.GetHostAddressesAsync(context.DnsEndPoint.Host).ConfigureAwait(false);
+                IPAddress[] addresses = resolved.Where(x => x.AddressFamily == AddressFamily.InterNetwork).ToArray();
+
+                if (addresses.Length == 0)
+                    throw new HttpRequestException($"没有 IPv4 地址：{context.DnsEndPoint.Host}");
+
+                Exception? last = null;
+
+                foreach (IPAddress address in addresses)
+                {
+                    var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+                    {
+                        NoDelay = true
+                    };
+
+                    try
+                    {
+                        await socket.ConnectAsync(
+                            new IPEndPoint(address, context.DnsEndPoint.Port), cancellationToken).ConfigureAwait(false);
+
+                        return new NetworkStream(socket, ownsSocket: true);
+                    }
+                    catch (Exception ex) when (ex is not OperationCanceledException)
+                    {
+                        socket.Dispose();
+                        last = ex;
+                    }
+                }
+
+                throw new HttpRequestException($"连接 {context.DnsEndPoint.Host} 失败", last);
+            },
+            SslOptions = new SslClientAuthenticationOptions
+            {
+                EnabledSslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13
+            }
+        })
+        {
+            Timeout = TimeSpan.FromSeconds(15),
             DefaultRequestVersion = HttpVersion.Version11,
             DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower
         };

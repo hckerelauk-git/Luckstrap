@@ -189,12 +189,23 @@ namespace Bloxstrap.UI.Elements.Settings
             {
                 string url = $"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={userId}&size=150x150&format=Png&isCircular=true";
 
-                var response = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>(url);
+                // 新号第一次取头像时接口会先返回 Pending，过一会儿才有图。给它一次重试
+                string? imageUrl = null;
 
-                string? imageUrl = response?.Data?.FirstOrDefault()?.ImageUrl;
+                for (int attempt = 0; attempt < 2 && String.IsNullOrEmpty(imageUrl); attempt++)
+                {
+                    if (attempt > 0)
+                        await Task.Delay(700);
+
+                    var response = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>(url);
+                    imageUrl = response?.Data?.FirstOrDefault()?.ImageUrl;
+                }
 
                 if (String.IsNullOrEmpty(imageUrl))
+                {
+                    App.Logger.WriteLine("MainWindow::LoadAvatar", $"接口没给图，userId={userId}");
                     return;
+                }
 
                 BitmapImage? image = await LoadAvatarAsync(imageUrl!);
 
@@ -220,13 +231,14 @@ namespace Bloxstrap.UI.Elements.Settings
 
         /// <summary>
         /// 头像走 HttpClient 自己下，不用 BitmapImage 的 UriSource。
-        /// 后者用的是 WebRequest，代理和 TLS 那套设置跟 App.HttpClient 不一致，容易下不来
+        /// 后者用的是 WebRequest，代理和 TLS 那套设置跟 App.HttpClient 不一致，容易下不来。
+        /// 图片在 rbxcdn 上，那条链路要强制 IPv4，所以用 App.ImageHttpClient
         /// </summary>
         private static async Task<BitmapImage?> LoadAvatarAsync(string url)
         {
             try
             {
-                byte[] bytes = await App.HttpClient.GetByteArrayAsync(url);
+                byte[] bytes = await App.ImageHttpClient.GetByteArrayAsync(url);
 
                 using var stream = new MemoryStream(bytes);
 

@@ -1141,7 +1141,7 @@ Every person here is ranked by their overall pledge.</value>
     <value>Your current game will not show on your Discord presence because an error occurred when loading the game information.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>Servers you've joined are listed here. Kept across restarts, up to 50 entries. Rejoin puts you back in the same server, as long as it's still up.</value>
+    <value>Servers you have joined, up to 50 entries, kept across restarts.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>The server location could not be queried. You may be joining games too quickly.</value>
@@ -1509,7 +1509,7 @@ Defaulting to {1}.</value>
     <value>Not signed in</value>
   </data>
   <data name="Account_SwitchHint" xml:space="preserve">
-    <value>Click to switch</value>
+    <value>Switch account</value>
   </data>
   <data name="Nav_Games" xml:space="preserve">
     <value>Games</value>
@@ -1527,7 +1527,7 @@ Defaulting to {1}.</value>
     <value>Tools</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>Sign in to the game first, then use Save current account. Select another account and press Switch to use it on the next launch. One account is signed in at a time.</value>
+    <value>Sign in to the game, then save the current account. A switch takes effect on the next launch. One account is signed in at a time.</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>Save current account</value>
@@ -1548,19 +1548,19 @@ Defaulting to {1}.</value>
     <value>Current</value>
   </data>
   <data name="Accounts_Empty" xml:space="preserve">
-    <value>No saved accounts yet</value>
+    <value>No saved accounts</value>
   </data>
   <data name="Accounts_Alias" xml:space="preserve">
     <value>Label</value>
   </data>
   <data name="Accounts_AliasPlaceholder" xml:space="preserve">
-    <value>Name this account</value>
+    <value>Enter a label</value>
   </data>
   <data name="Accounts_SaveAlias" xml:space="preserve">
     <value>Save label</value>
   </data>
   <data name="Accounts_AliasHelp" xml:space="preserve">
-    <value>The label is only for you and has nothing to do with the name shown in game. Fill it in yourself when the name cannot be fetched.</value>
+    <value>Local label only; the in-game name is unaffected.</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
     <value>Saves a full FastFlags set as a profile that can be switched at any time. Applying overwrites the current ClientAppSettings.json.</value>
@@ -1608,7 +1608,7 @@ Defaulting to {1}.</value>
     <value>Favorite games</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>Keep the games you play most here. One click launches them, no more digging through the website.</value>
+    <value>Favourite games are listed here; click one to launch it.</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>Pick from recent</value>
@@ -1623,7 +1623,7 @@ Defaulting to {1}.</value>
     <value>Add</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>No favorites yet. Paste a game link or Place ID above.</value>
+    <value>No favourites. Paste a game link or Place ID above.</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>Launch</value>
@@ -1695,7 +1695,7 @@ Defaulting to {1}.</value>
     <value>Logs</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>The launcher writes a log on every run. When something breaks, start here: pick a file on the left, read it on the right.</value>
+    <value>A log is written on every run. Pick a file on the left, read it on the right.</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>Search the log, e.g. error, fail, timeout</value>
@@ -1725,7 +1725,7 @@ Defaulting to {1}.</value>
     <value>A failed Client deployment check stops the game from launching. A failed Server location check only hides the datacenter.</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>Paste a Place ID, a game link or a roblox:// link to build a launch link, or jump straight into the game.</value>
+    <value>Paste a Place ID, game link or roblox:// link to build a launch link or start the game.</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>Servers you joined recently. Picking one fills in the game and private code below.</value>
@@ -1776,7 +1776,7 @@ Defaulting to {1}.</value>
     <value>Server region</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>Enter a game, pick a region, click once and you join a server there. If you would rather browse, click See all servers and pick from the list.</value>
+    <value>Pick a game and region to join a server there. See all servers lists every server instead.</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>Pick a game</value>
@@ -1788,7 +1788,7 @@ Defaulting to {1}.</value>
     <value>Place ID or game link</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>Which region</value>
+    <value>Region</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>Join a server there</value>
@@ -1809,7 +1809,7 @@ Defaulting to {1}.</value>
     <value>Old versions</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Every Roblox update leaves a package here. A few months can add up to several GB. The version in use is marked and cannot be deleted.</value>
+    <value>Every Roblox update leaves a package here. The version in use is marked and cannot be deleted.</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>Rescan</value>
@@ -1818,16 +1818,16 @@ Defaulting to {1}.</value>
     <value>Select all deletable</value>
   </data>
   <data name="Accounts_NoticeTitle" xml:space="preserve">
-    <value>These are login credentials</value>
+    <value>Credentials are stored locally</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>Each account stores a Roblox credential encrypted with Windows DPAPI, decryptable only on this machine under this Windows account. Do not share the Luckstrap folder.</value>
+    <value>Encrypted with Windows DPAPI and decryptable only on this machine under this account. Do not share the Luckstrap folder.</value>
   </data>
   <data name="Dlg_001" xml:space="preserve">
     <value>Not signed in</value>
   </data>
   <data name="Dlg_002" xml:space="preserve">
-    <value>Click to switch</value>
+    <value>Switch account</value>
   </data>
   <data name="Dlg_003" xml:space="preserve">
     <value>Can't read account</value>
@@ -1860,7 +1860,7 @@ Defaulting to {1}.</value>
     <value>Pick one first</value>
   </data>
   <data name="Dlg_013" xml:space="preserve">
-    <value>Click the account you want to switch to in the list on the left.</value>
+    <value>Select the account to switch to in the list on the left.</value>
   </data>
   <data name="Dlg_014" xml:space="preserve">
     <value>Roblox is still running</value>
@@ -1878,7 +1878,7 @@ Defaulting to {1}.</value>
     <value>Switched</value>
   </data>
   <data name="Dlg_019" xml:space="preserve">
-    <value>Click the account you want to overwrite in the list on the left.</value>
+    <value>Select the account to overwrite in the list on the left.</value>
   </data>
   <data name="Dlg_020" xml:space="preserve">
     <value>There is no usable login right now. Sign in to the game once first.</value>
@@ -1902,19 +1902,19 @@ Defaulting to {1}.</value>
     <value>Overwritten</value>
   </data>
   <data name="Dlg_027" xml:space="preserve">
-    <value>Click the account you want to rename in the list on the left.</value>
+    <value>Select the account to rename in the list on the left.</value>
   </data>
   <data name="Dlg_028" xml:space="preserve">
     <value>Name cannot be empty</value>
   </data>
   <data name="Dlg_029" xml:space="preserve">
-    <value>Enter a name before saving.</value>
+    <value>Enter a name first.</value>
   </data>
   <data name="Dlg_030" xml:space="preserve">
     <value>Renamed</value>
   </data>
   <data name="Dlg_031" xml:space="preserve">
-    <value>Click the account you want to delete in the list on the left.</value>
+    <value>Select the account to delete in the list on the left.</value>
   </data>
   <data name="Dlg_032" xml:space="preserve">
     <value>Delete entry</value>
@@ -1962,7 +1962,7 @@ Defaulting to {1}.</value>
     <value>Click a profile on the left first.</value>
   </data>
   <data name="Dlg_047" xml:space="preserve">
-    <value>Give the profile a name before saving.</value>
+    <value>Enter a profile name first.</value>
   </data>
   <data name="Dlg_048" xml:space="preserve">
     <value>Name already taken</value>
@@ -1980,7 +1980,7 @@ Defaulting to {1}.</value>
     <value>No row selected</value>
   </data>
   <data name="Dlg_053" xml:space="preserve">
-    <value>Click the row you want to remove in the table. Hold Ctrl to select several.</value>
+    <value>Select the rows to remove. Hold Ctrl to select several.</value>
   </data>
   <data name="Dlg_054" xml:space="preserve">
     <value>Choose a FastFlags file</value>
@@ -2181,7 +2181,7 @@ Defaulting to {1}.</value>
     <value>Copied</value>
   </data>
   <data name="Dlg_120" xml:space="preserve">
-    <value>Paste it to whoever is helping you.</value>
+    <value>Copied to the clipboard.</value>
   </data>
   <data name="Dlg_121" xml:space="preserve">
     <value>Could not copy</value>
@@ -2217,7 +2217,7 @@ Defaulting to {1}.</value>
     <value>The datacenter table could not be fetched. Pick a server manually under See all servers.</value>
   </data>
   <data name="Dlg_132" xml:space="preserve">
-    <value>Enter a Place ID, choose a region, then click Join a server there.</value>
+    <value>Enter a Place ID and choose a region.</value>
   </data>
   <data name="Dlg_133" xml:space="preserve">
     <value>The region list could not be loaded. See all servers still works.</value>
@@ -2307,7 +2307,7 @@ Defaulting to {1}.</value>
     <value>The current login is now {0}. If the game shows as signed out, the credentials have expired; sign in again and overwrite this entry.</value>
   </data>
   <data name="DlgF_Overwritten" xml:space="preserve">
-    <value>{0} now points at the account you just signed in with.</value>
+    <value>{0} now points at the current account.</value>
   </data>
   <data name="DlgF_Renamed" xml:space="preserve">
     <value>The label is now {0}.</value>
@@ -2364,7 +2364,7 @@ Defaulting to {1}.</value>
     <value>{0} failed</value>
   </data>
   <data name="DlgF_FailedDetail" xml:space="preserve">
-    <value>{0} passed, {1} failed. Check the rows marked ✗ below.</value>
+    <value>{0} passed, {1} failed. Failed rows are marked ✗.</value>
   </data>
   <data name="DlgF_ReportTitle" xml:space="preserve">
     <value>Luckstrap network test {0:yyyy-MM-dd HH:mm:ss}</value>
@@ -2391,7 +2391,7 @@ Defaulting to {1}.</value>
     <value>{0} servers found</value>
   </data>
   <data name="DlgF_RegionKnown" xml:space="preserve">
-    <value>{0} have a known region; pick one.</value>
+    <value>{0} servers have a known region.</value>
   </data>
   <data name="DlgF_LastModified" xml:space="preserve">
     <value>Modified {0:yyyy-MM-dd HH:mm}</value>
@@ -2443,7 +2443,7 @@ Defaulting to {1}.</value>
   </data>
   <data name="Account_Tooltip" xml:space="preserve">
     <value>{0} (@{1})
-Click to switch accounts</value>
+Click to switch account</value>
   </data>
   <data name="DlgF_SwitchConfirm" xml:space="preserve">
     <value>Switch to {0}?

@@ -1135,7 +1135,7 @@ Jede Person hier ist nach ihrem gesamten Beitrag eingestuft.</value>
     <value>Dein aktuelles Spiel wird in deinem Discord Status nicht angezeigt, da ein Fehler beim Laden der Spielinformationen aufgetreten ist.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>Der Spielverlauf wird nur für deine aktuelle Roblox-Sitzung aufgezeichnet. Spiele werden hier erscheinen, wenn du sie verlässt, oder in sie teleportierst. Nicht alle Server werden erneut Beitretbar sein.</value>
+    <value>Besuchte Server, bis zu 50 Einträge, bleiben nach einem Neustart erhalten.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>Der Serverstandort konnte nicht abgerufen werden. Eventuell trittst du Aktuell zu vielen Spielen bei.</value>
@@ -1602,7 +1602,7 @@ Es wurde automatisch {1} ausgewählt.</value>
     <value>Hinzufügen</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>Noch keine Favoriten. Füge oben einen Link oder eine Place-ID ein.</value>
+    <value>Keine Favoriten. Oben einen Spielelink oder eine Place ID einfügen.</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>Starten</value>
@@ -1728,7 +1728,7 @@ Es wurde automatisch {1} ausgewählt.</value>
     <value>Place-ID oder Spiellink</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>Welche Region</value>
+    <value>Region</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>Server dort betreten</value>

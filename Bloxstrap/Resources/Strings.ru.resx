@@ -1133,7 +1133,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Ваша текущая игра не будет отображаться в статусе активности Discord из-за возникшей ошибки при загрузке информации об игре.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>История игр будет сохраняться только в текущей сессии Roblox. Игры будут появляться здесь, когда вы выйдете или зайдёте в них. Не ко всем серверам можно будет перезайти.</value>
+    <value>Серверы, на которых вы были: до 50 записей, сохраняются между запусками.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>Не удалось запросить местоположение сервера. Возможно, вы слишком быстро присоединяетесь к играм.</value>
@@ -1501,7 +1501,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Вход не выполнен</value>
   </data>
   <data name="Account_SwitchHint" xml:space="preserve">
-    <value>Нажмите, чтобы сменить</value>
+    <value>Сменить аккаунт</value>
   </data>
   <data name="Nav_Games" xml:space="preserve">
     <value>Игры</value>
@@ -1519,7 +1519,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Инструменты</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>Войдите в игру, затем нажмите «Сохранить текущий аккаунт». Выберите другой аккаунт и нажмите «Переключить» — со следующего запуска игра откроется под ним. Одновременно активен только один аккаунт.</value>
+    <value>Войдите в игру и сохраните текущий аккаунт. Переключение применяется со следующего запуска. Одновременно активен только один аккаунт.</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>Сохранить текущий</value>
@@ -1540,19 +1540,19 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Текущий</value>
   </data>
   <data name="Accounts_Empty" xml:space="preserve">
-    <value>Сохранённых аккаунтов нет</value>
+    <value>Нет сохранённых аккаунтов</value>
   </data>
   <data name="Accounts_Alias" xml:space="preserve">
     <value>Название</value>
   </data>
   <data name="Accounts_AliasPlaceholder" xml:space="preserve">
-    <value>Название аккаунта</value>
+    <value>Введите название</value>
   </data>
   <data name="Accounts_SaveAlias" xml:space="preserve">
     <value>Сохранить название</value>
   </data>
   <data name="Accounts_AliasHelp" xml:space="preserve">
-    <value>Название видите только вы, к имени в игре оно отношения не имеет. Впишите своё, если имя не удалось получить.</value>
+    <value>Только локальная подпись, имя в игре не меняется.</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
     <value>Сохраняет весь набор FastFlags как профиль, который можно переключать в любой момент. «Применить профиль» перезаписывает текущий ClientAppSettings.json.</value>
@@ -1600,7 +1600,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Избранное</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>Сохраните здесь игры, в которые играете чаще всего: запуск в один клик, без поиска по сайту.</value>
+    <value>Избранные игры отображаются здесь; нажмите, чтобы запустить.</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>Из недавних</value>
@@ -1615,7 +1615,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Добавить</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>Пока пусто. Вставьте ссылку на игру или Place ID выше.</value>
+    <value>Избранного нет. Вставьте ссылку на игру или Place ID выше.</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>Запустить</value>
@@ -1687,7 +1687,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Логи</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>Лаунчер пишет лог при каждом запуске. Если что-то сломалось, начните отсюда: выберите файл слева, читайте справа.</value>
+    <value>Журнал создаётся при каждом запуске. Выберите файл слева, содержимое отображается справа.</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>Поиск по логу: error, fail, timeout</value>
@@ -1717,7 +1717,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Сбой проверки «Развёртывание клиента» не даст запустить игру. Сбой «Расположение сервера» влияет только на отображение дата-центра.</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>Вставьте Place ID, ссылку на игру или ссылку roblox://, чтобы получить ссылку запуска или сразу войти в игру.</value>
+    <value>Вставьте Place ID, ссылку на игру или ссылку roblox://, чтобы создать ссылку запуска или запустить игру.</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>Серверы, где вы были недавно. При выборе подставятся игра и код приватного сервера.</value>
@@ -1768,7 +1768,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Регион сервера</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>Введите игру, выберите регион и нажмите один раз — вы попадёте на сервер там. Если хотите выбрать вручную, нажмите «Все серверы».</value>
+    <value>Выберите игру и регион, чтобы войти на сервер в этом регионе. Список всех серверов позволяет выбрать вручную.</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>Выбрать игру</value>
@@ -1780,7 +1780,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Place ID или ссылка на игру</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>Какой регион</value>
+    <value>Регион</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>Войти на сервер там</value>
@@ -1801,7 +1801,7 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Старые версии</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Каждое обновление Roblox оставляет здесь пакет. За несколько месяцев набираются гигабайты. Используемая версия помечена и не удаляется.</value>
+    <value>Каждое обновление Roblox оставляет пакет версии. Используемая версия помечена и не может быть удалена.</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>Пересканировать</value>
@@ -1810,10 +1810,10 @@ Luckstrap был установлен по адресу "{1}".</value>
     <value>Выбрать все удаляемые</value>
   </data>
   <data name="Accounts_NoticeTitle" xml:space="preserve">
-    <value>Это учётные данные</value>
+    <value>Учётные данные хранятся локально</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>Каждый аккаунт хранит учётные данные Roblox, зашифрованные Windows DPAPI. Расшифровать их можно только на этом компьютере под этой учётной записью Windows. Не передавайте папку Luckstrap другим.</value>
+    <value>Шифруются Windows DPAPI и расшифровываются только на этом компьютере под этой учётной записью. Не передавайте папку Luckstrap другим.</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>Избранное · {0}</value>

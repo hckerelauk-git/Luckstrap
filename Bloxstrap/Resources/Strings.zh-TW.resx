@@ -1136,7 +1136,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>由於載入遊戲資訊時發生錯誤，您當前的遊戲將不會在您的 Discord 活動狀態上顯示。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>遊戲歷史僅在您當前的 Roblox 工作階段中記錄下來。當您離開遊戲或在遊戲中傳送時，您所遊玩的遊戲將出現在這裡。並非所有伺服器都可以重新加入。</value>
+    <value>進過的伺服器，最多 50 條，重啟後保留。</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>無法查詢伺服器位置。您可能加入遊戲的速度太快了。</value>
@@ -1505,7 +1505,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>未登入</value>
   </data>
   <data name="Account_SwitchHint" xml:space="preserve">
-    <value>點這裡換號</value>
+    <value>切換帳號</value>
   </data>
   <data name="Nav_Games" xml:space="preserve">
     <value>遊戲</value>
@@ -1523,7 +1523,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>工具</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>先在遊戲裡登入帳號，再點「存入目前帳號」。選中另一個帳號點「切換」，下次啟動遊戲即為該帳號。同一時間只登入一個帳號。</value>
+    <value>在遊戲內登入後存入目前帳號。切換後下次啟動生效。同一時間只登入一個帳號。</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>存入目前帳號</value>
@@ -1544,19 +1544,19 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>目前</value>
   </data>
   <data name="Accounts_Empty" xml:space="preserve">
-    <value>還沒有存帳號</value>
+    <value>沒有已儲存的帳號</value>
   </data>
   <data name="Accounts_Alias" xml:space="preserve">
     <value>備註名</value>
   </data>
   <data name="Accounts_AliasPlaceholder" xml:space="preserve">
-    <value>給這個號取個名字</value>
+    <value>輸入備註名</value>
   </data>
   <data name="Accounts_SaveAlias" xml:space="preserve">
     <value>儲存備註名</value>
   </data>
   <data name="Accounts_AliasHelp" xml:space="preserve">
-    <value>備註名只是給你自己看的，跟遊戲裡顯示的名字無關。查不到名字的時候可以自己填。</value>
+    <value>僅本機顯示，不影響遊戲內名稱。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
     <value>把整套 FastFlags 存成一份設定檔，可隨時切換。點「套用這套設定」會覆蓋目前的 ClientAppSettings.json。</value>
@@ -1604,7 +1604,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>收藏遊戲</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>把常玩的遊戲存這裡，之後點一下就能進，不用每次翻網頁。</value>
+    <value>收藏的遊戲顯示在這裡，點擊直接啟動。</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>從最近玩過選</value>
@@ -1619,7 +1619,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>新增</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>還沒有收藏。上面貼個遊戲連結或 Place ID 試試。</value>
+    <value>沒有收藏。在上方貼上遊戲連結或 Place ID。</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>啟動</value>
@@ -1691,7 +1691,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>日誌</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>啟動器每次執行都會留一份日誌，出問題先看這裡。左邊選檔案，右邊看內容。</value>
+    <value>每次執行產生一份日誌。左側選擇檔案，右側查看內容。</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>搜日誌內容，例如 error、fail、timeout</value>
@@ -1721,7 +1721,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>「用戶端部署」失敗會導致遊戲無法啟動。「伺服器位置」失敗只影響機房顯示，不影響啟動。</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>貼上 Place ID、遊戲連結或 roblox:// 連結，產生啟動連結或者直接進遊戲。</value>
+    <value>貼上 Place ID、遊戲連結或 roblox:// 連結，產生啟動連結或直接啟動遊戲。</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>最近進過的伺服器，選中後自動填下面的遊戲和私服代碼。</value>
@@ -1772,7 +1772,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>區服選擇</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>填遊戲，選一個想進的地區，點一下直接進那個地區的服。不想按地區挑就點「看全部伺服器」，自己從列表裡選。</value>
+    <value>選擇遊戲和地區，直接加入該地區的伺服器。也可在「看全部伺服器」中手動選擇。</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>從收藏或最近玩過選</value>
@@ -1784,7 +1784,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>Place ID 或遊戲連結</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>想進哪個地區的伺服器</value>
+    <value>地區</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>進這個地區的服</value>
@@ -1805,7 +1805,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>舊版本清理</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Roblox 每更新一次會在這裡留一份版本包，幾個月能堆好幾個 G。正在用的版本會標出來，刪不掉。</value>
+    <value>Roblox 每次更新會保留一份版本包。正在使用的版本會標出，無法刪除。</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>重新掃描</value>
@@ -1814,10 +1814,10 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>全選可刪的</value>
   </data>
   <data name="Accounts_NoticeTitle" xml:space="preserve">
-    <value>存的是登入憑據，自己心裡有數</value>
+    <value>登入憑證保存在本機</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>每個帳號存的是一份 Roblox 登入憑證，用 Windows DPAPI 加密，只能在本機本 Windows 帳戶下解開。不要把 Luckstrap 目錄發給別人。</value>
+    <value>以 Windows DPAPI 加密，僅本機本帳戶可解密。請勿分享 Luckstrap 目錄。</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>收藏 · {0}</value>

@@ -1147,7 +1147,7 @@ Robloxが[正規のランチャー]({1})で動作するか確認してくださ�
     <value>ゲーム情報の読み込みに失敗しました。現在プレイ中のゲームはDiscordのプロフィールに表示されません。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>ゲーム履歴はRobloxの起動から終了までにプレイしたゲームのみ記録されます。ゲームから退出したり、ゲーム内でのテレポートの後に表示されます。すべてのサーバーに再参加できるわけではありません。</value>
+    <value>参加したサーバー（最大50件、再起動後も保持）。</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>サーバー地域の取得に失敗しました。短時間でのゲームに参加しすぎの可能性があります。</value>
@@ -1516,7 +1516,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>未ログイン</value>
   </data>
   <data name="Account_SwitchHint" xml:space="preserve">
-    <value>クリックで切替</value>
+    <value>アカウントを切り替え</value>
   </data>
   <data name="Nav_Games" xml:space="preserve">
     <value>ゲーム</value>
@@ -1534,7 +1534,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>ツール</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>ゲームにログインしてから「現在のアカウントを保存」を押します。別のアカウントを選んで「切り替え」を押すと、次回の起動からそのアカウントになります。同時にログインできるのは1つだけです。</value>
+    <value>ゲームにログインしてから現在のアカウントを保存します。切り替えは次回の起動から反映されます。同時にログインできるのは1つだけです。</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>現在のアカウントを保存</value>
@@ -1561,13 +1561,13 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>メモ名</value>
   </data>
   <data name="Accounts_AliasPlaceholder" xml:space="preserve">
-    <value>このアカウントの名前</value>
+    <value>名前を入力</value>
   </data>
   <data name="Accounts_SaveAlias" xml:space="preserve">
     <value>メモ名を保存</value>
   </data>
   <data name="Accounts_AliasHelp" xml:space="preserve">
-    <value>メモ名は自分用のもので、ゲーム内の名前とは関係ありません。名前を取得できないときは自分で入れてください。</value>
+    <value>ローカル表示用の名前です。ゲーム内の名前には影響しません。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
     <value>FastFlags 一式をプロファイルとして保存し、いつでも切り替えられます。「この設定を適用」を押すと現在の ClientAppSettings.json が上書きされます。</value>
@@ -1615,7 +1615,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>お気に入り</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>よく遊ぶゲームをここに保存しておけば、ワンクリックで入れます。毎回サイトを探す必要はありません。</value>
+    <value>お気に入りのゲームがここに表示され、クリックで起動します。</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>最近から選ぶ</value>
@@ -1630,7 +1630,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>追加</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>まだお気に入りがありません。上にゲームのリンクか Place ID を貼ってください。</value>
+    <value>お気に入りはありません。上にゲームリンクまたは Place ID を貼り付けてください。</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>起動</value>
@@ -1702,7 +1702,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>ログ</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>ランチャーは起動のたびにログを残します。不具合のときはまずここを見てください。左でファイルを選び、右で内容を表示します。</value>
+    <value>実行ごとにログを出力します。左でファイルを選び、右で内容を表示します。</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>ログ内を検索（error、fail、timeout など）</value>
@@ -1732,7 +1732,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>「クライアントの展開」に失敗するとゲームを起動できません。「サーバーの場所」の失敗はデータセンター表示にのみ影響します。</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>Place ID、ゲームのリンク、roblox:// リンクを貼ると、起動リンクの生成や直接の起動ができます。</value>
+    <value>Place ID、ゲームリンク、roblox:// リンクを貼り付けて、起動リンクの生成またはゲームの起動を行います。</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>最近入ったサーバーです。選ぶと下のゲームとプライベートコードが入ります。</value>
@@ -1783,7 +1783,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>サーバー地域</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>ゲームを入れて地域を選び、1回押せばその地域のサーバーに入れます。地域で選びたくない場合は「全サーバーを見る」から一覧で選べます。</value>
+    <value>ゲームと地域を選ぶと、その地域のサーバーに参加します。「すべてのサーバー」から個別に選択することもできます。</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>ゲームを選ぶ</value>
@@ -1795,7 +1795,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>Place ID またはゲームのリンク</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>どの地域のサーバーか</value>
+    <value>地域</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>この地域のサーバーに入る</value>
@@ -1816,7 +1816,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>旧バージョン</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Roblox の更新ごとにパッケージが残ります。数か月で数 GB になることもあります。使用中のバージョンには印が付き、削除できません。</value>
+    <value>Roblox の更新ごとにバージョンパッケージが残ります。使用中のバージョンは表示され、削除できません。</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>再スキャン</value>
@@ -1825,10 +1825,10 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>削除可能なものを全選択</value>
   </data>
   <data name="Accounts_NoticeTitle" xml:space="preserve">
-    <value>保存されるのはログイン情報です</value>
+    <value>認証情報はローカルに保存されます</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>各アカウントは Roblox の認証情報を Windows DPAPI で暗号化して保存します。復号できるのはこの PC のこの Windows アカウントだけです。Luckstrap フォルダを他人に渡さないでください。</value>
+    <value>Windows DPAPI で暗号化され、この PC のこのアカウントでのみ復号できます。Luckstrap フォルダを共有しないでください。</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>お気に入り · {0}</value>

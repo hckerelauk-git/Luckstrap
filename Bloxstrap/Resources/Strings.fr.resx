@@ -1134,7 +1134,7 @@ Chaque personne ici est classée selon son engagement global.</value>
     <value>Votre jeu actuel ne s'affichera pas sur votre présence Discord car une erreur s'est produite lors du chargement des informations du jeu.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>L'historique des jeux n'est enregistré que pour votre session Roblox actuelle. Les jeux apparaîtront ici au fur et à mesure que vous les quitterez ou changerez d'univers. Tous les serveurs ne seront pas rejoignables.</value>
+    <value>Serveurs visités, jusqu'à 50 entrées, conservés après redémarrage.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>L'emplacement du serveur n'a pas pu être obtenu. Vous rejoignez peut-être des expériences trop rapidement.</value>
@@ -1727,7 +1727,7 @@ Retour à la valeur par défaut {1}.</value>
     <value>Place ID ou lien du jeu</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>Quelle région</value>
+    <value>Région</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>Rejoindre un serveur là-bas</value>

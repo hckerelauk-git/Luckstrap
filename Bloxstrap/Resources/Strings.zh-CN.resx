@@ -1159,7 +1159,7 @@ Luckstrap 的安装路径是：
     <value>由于加载游戏信息时发生错误；您当前的游戏状态将不会在您的 Discord 活动状态 上显示。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>进过的服务器会记在这里，重启也在，最多 50 条。点「再进这个服」会回到同一台服务器，前提是它还没关。</value>
+    <value>进过的服务器，最多 50 条，重启后保留。</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>可能由于您加入游戏的频次太频繁了；因此无法获取到您当前所处服务器的具体地点。</value>
@@ -1532,7 +1532,7 @@ Luckstrap 的安装路径是：
     <value>未登录</value>
   </data>
   <data name="Account_SwitchHint" xml:space="preserve">
-    <value>点这里换号</value>
+    <value>切换账号</value>
   </data>
   <data name="Nav_Games" xml:space="preserve">
     <value>游戏</value>
@@ -1550,7 +1550,7 @@ Luckstrap 的安装路径是：
     <value>工具</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>先在游戏里登录账号，再点「存入当前账号」。选中另一个账号点「切换」，下次启动游戏即为该账号。同一时间只登录一个账号。</value>
+    <value>在游戏内登录后存入当前账号。切换后下次启动生效。同一时间只登录一个账号。</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>存入当前账号</value>
@@ -1571,19 +1571,19 @@ Luckstrap 的安装路径是：
     <value>当前</value>
   </data>
   <data name="Accounts_Empty" xml:space="preserve">
-    <value>还没有存账号</value>
+    <value>没有已保存的账号</value>
   </data>
   <data name="Accounts_Alias" xml:space="preserve">
     <value>备注名</value>
   </data>
   <data name="Accounts_AliasPlaceholder" xml:space="preserve">
-    <value>给这个号起个名字</value>
+    <value>输入备注名</value>
   </data>
   <data name="Accounts_SaveAlias" xml:space="preserve">
     <value>保存备注名</value>
   </data>
   <data name="Accounts_AliasHelp" xml:space="preserve">
-    <value>备注名只是给你自己看的，跟游戏里显示的名字无关。查不到名字的时候可以自己填。</value>
+    <value>仅本地显示，不影响游戏内名称。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
     <value>把整套 FastFlags 存成一份方案，可随时切换。「应用」会覆盖当前的 ClientAppSettings.json。</value>
@@ -1631,7 +1631,7 @@ Luckstrap 的安装路径是：
     <value>收藏游戏</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>把常玩的游戏存这里，之后点一下就能进，不用每次翻网页。</value>
+    <value>收藏的游戏显示在这里，点击直接启动。</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>从最近玩过选</value>
@@ -1646,7 +1646,7 @@ Luckstrap 的安装路径是：
     <value>添加</value>
   </data>
   <data name="Favorites_Empty" xml:space="preserve">
-    <value>还没有收藏。上面粘个游戏链接或者 Place ID 试试。</value>
+    <value>没有收藏。在上方粘贴游戏链接或 Place ID。</value>
   </data>
   <data name="Common_Launch" xml:space="preserve">
     <value>启动</value>
@@ -1718,7 +1718,7 @@ Luckstrap 的安装路径是：
     <value>日志</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>启动器每次运行都会留一份日志，出问题先看这里。左边选文件，右边看内容。</value>
+    <value>每次运行生成一份日志。左侧选择文件，右侧查看内容。</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>搜日志内容，比如 error、fail、timeout</value>
@@ -1748,7 +1748,7 @@ Luckstrap 的安装路径是：
     <value>「客户端部署」失败会导致游戏无法启动。「服务器位置」失败只影响机房显示，不影响启动。</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或者直接进游戏。</value>
+    <value>粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或直接启动游戏。</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>最近进过的服务器，选中后自动填下面的游戏和私服代码</value>
@@ -1799,7 +1799,7 @@ Luckstrap 的安装路径是：
     <value>区服选择</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>填游戏，选一个想进的地区，点一下直接进那个地区的服。不想按地区挑就点「看全部服务器」，自己从列表里选。</value>
+    <value>选择游戏和地区，直接加入该地区的服务器。也可在「看全部服务器」中手动选择。</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>从收藏或最近玩过选</value>
@@ -1811,7 +1811,7 @@ Luckstrap 的安装路径是：
     <value>Place ID 或游戏链接</value>
   </data>
   <data name="Region_PickRegion" xml:space="preserve">
-    <value>想进哪个地区的服务器</value>
+    <value>地区</value>
   </data>
   <data name="Region_Join" xml:space="preserve">
     <value>进这个地区的服</value>
@@ -1832,7 +1832,7 @@ Luckstrap 的安装路径是：
     <value>旧版本清理</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Roblox 每更新一次会在这里留一份版本包，几个月能堆好几个 G。正在用的版本会标出来，删不掉。</value>
+    <value>Roblox 每次更新会保留一份版本包。正在使用的版本会标出，无法删除。</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>重新扫描</value>
@@ -1841,16 +1841,16 @@ Luckstrap 的安装路径是：
     <value>全选可删的</value>
   </data>
   <data name="Accounts_NoticeTitle" xml:space="preserve">
-    <value>存的是登录凭据，自己心里有数</value>
+    <value>登录凭据保存在本地</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>每个账号存的是一份 Roblox 登录凭据，用 Windows DPAPI 加密，只能在本机本 Windows 账户下解开。不要把 Luckstrap 目录发给别人。</value>
+    <value>用 Windows DPAPI 加密，仅本机本账户可解密。不要分享 Luckstrap 目录。</value>
   </data>
   <data name="Dlg_001" xml:space="preserve">
     <value>未登录</value>
   </data>
   <data name="Dlg_002" xml:space="preserve">
-    <value>点这里换号</value>
+    <value>切换账号</value>
   </data>
   <data name="Dlg_003" xml:space="preserve">
     <value>读不到账号</value>
@@ -1883,7 +1883,7 @@ Luckstrap 的安装路径是：
     <value>先选一个</value>
   </data>
   <data name="Dlg_013" xml:space="preserve">
-    <value>在左边列表里点一下要切过去的账号。</value>
+    <value>在左侧列表中选择要切换的账号。</value>
   </data>
   <data name="Dlg_014" xml:space="preserve">
     <value>Roblox 还开着</value>
@@ -1901,7 +1901,7 @@ Luckstrap 的安装路径是：
     <value>切换完成</value>
   </data>
   <data name="Dlg_019" xml:space="preserve">
-    <value>在左边列表里点一下要覆盖的账号。</value>
+    <value>在左侧列表中选择要覆盖的账号。</value>
   </data>
   <data name="Dlg_020" xml:space="preserve">
     <value>当前没有可用的登录态。先在游戏里登录一次。</value>
@@ -1925,19 +1925,19 @@ Luckstrap 的安装路径是：
     <value>覆盖完成</value>
   </data>
   <data name="Dlg_027" xml:space="preserve">
-    <value>在左边列表里点一下要改名的账号。</value>
+    <value>在左侧列表中选择要改名的账号。</value>
   </data>
   <data name="Dlg_028" xml:space="preserve">
     <value>名字不能空</value>
   </data>
   <data name="Dlg_029" xml:space="preserve">
-    <value>填个名字再保存。</value>
+    <value>请先输入名称。</value>
   </data>
   <data name="Dlg_030" xml:space="preserve">
     <value>改好了</value>
   </data>
   <data name="Dlg_031" xml:space="preserve">
-    <value>在左边列表里点一下要删的账号。</value>
+    <value>在左侧列表中选择要删除的账号。</value>
   </data>
   <data name="Dlg_032" xml:space="preserve">
     <value>删除存档</value>
@@ -1985,7 +1985,7 @@ Luckstrap 的安装路径是：
     <value>先在左边点一个方案。</value>
   </data>
   <data name="Dlg_047" xml:space="preserve">
-    <value>给方案起个名字再保存。</value>
+    <value>请先输入方案名称。</value>
   </data>
   <data name="Dlg_048" xml:space="preserve">
     <value>名字撞了</value>
@@ -2003,7 +2003,7 @@ Luckstrap 的安装路径是：
     <value>没选行</value>
   </data>
   <data name="Dlg_053" xml:space="preserve">
-    <value>在表格里点一下要删的那行（按住 Ctrl 可以多选）。</value>
+    <value>在表格中选择要删除的行，按住 Ctrl 可多选。</value>
   </data>
   <data name="Dlg_054" xml:space="preserve">
     <value>选一份 FastFlags 配置</value>
@@ -2204,7 +2204,7 @@ Luckstrap 的安装路径是：
     <value>已复制</value>
   </data>
   <data name="Dlg_120" xml:space="preserve">
-    <value>直接粘给别人看就行。</value>
+    <value>已复制到剪贴板。</value>
   </data>
   <data name="Dlg_121" xml:space="preserve">
     <value>复制失败</value>
@@ -2240,16 +2240,16 @@ Luckstrap 的安装路径是：
     <value>机房对照表获取失败。可在「看全部服务器」中手动选择。</value>
   </data>
   <data name="Dlg_132" xml:space="preserve">
-    <value>填 Place ID，选个地区，点「进这个地区的服」。</value>
+    <value>输入 Place ID 并选择地区。</value>
   </data>
   <data name="Dlg_133" xml:space="preserve">
     <value>地区列表没拉到。点「看全部服务器」还能用。</value>
   </data>
   <data name="Dlg_134" xml:space="preserve">
-    <value>先选个地区</value>
+    <value>请先选择地区</value>
   </data>
   <data name="Dlg_135" xml:space="preserve">
-    <value>上面那个下拉框里挑一个。</value>
+    <value>请在上方下拉框中选择。</value>
   </data>
   <data name="Dlg_136" xml:space="preserve">
     <value>正在找</value>
@@ -2330,7 +2330,7 @@ Luckstrap 的安装路径是：
     <value>当前登录态为「{0}」。若游戏显示未登录，说明凭据已过期，请重新登录后覆盖该存档。</value>
   </data>
   <data name="DlgF_Overwritten" xml:space="preserve">
-    <value>「{0}」现在对应的是你刚才登录的那个号。</value>
+    <value>「{0}」已更新为当前登录账号。</value>
   </data>
   <data name="DlgF_Renamed" xml:space="preserve">
     <value>备注名现在是「{0}」。</value>
@@ -2387,7 +2387,7 @@ Luckstrap 的安装路径是：
     <value>{0} 项失败</value>
   </data>
   <data name="DlgF_FailedDetail" xml:space="preserve">
-    <value>通了 {0} 项，挂了 {1} 项。看下面标 ✗ 的。</value>
+    <value>{0} 项通过，{1} 项失败，失败项标有 ✗。</value>
   </data>
   <data name="DlgF_ReportTitle" xml:space="preserve">
     <value>Luckstrap 网络诊断 {0:yyyy-MM-dd HH:mm:ss}</value>
@@ -2414,7 +2414,7 @@ Luckstrap 的安装路径是：
     <value>查到 {0} 台服务器</value>
   </data>
   <data name="DlgF_RegionKnown" xml:space="preserve">
-    <value>{0} 台拿到了地区，挑一台进。</value>
+    <value>{0} 台服务器已获取地区。</value>
   </data>
   <data name="DlgF_LastModified" xml:space="preserve">
     <value>最后修改 {0:yyyy-MM-dd HH:mm}</value>
@@ -2466,7 +2466,7 @@ Luckstrap 的安装路径是：
   </data>
   <data name="Account_Tooltip" xml:space="preserve">
     <value>{0} (@{1})
-点一下打开账号切换</value>
+点击切换账号</value>
   </data>
   <data name="DlgF_SwitchConfirm" xml:space="preserve">
     <value>切换到「{0}」？
