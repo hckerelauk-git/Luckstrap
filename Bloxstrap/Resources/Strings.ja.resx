@@ -1534,7 +1534,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>ツール</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>ゲーム内で普通にログインしてから「現在のアカウントを保存」を押します。切り替えるときは別のアカウントを選んで「切り替え」を押すと、次回の起動からそのアカウントになります。同時にログインできるのは1つだけで、手動でログアウトして入り直すのと同じです。</value>
+    <value>ゲームにログインしてから「現在のアカウントを保存」を押します。別のアカウントを選んで「切り替え」を押すと、次回の起動からそのアカウントになります。同時にログインできるのは1つだけです。</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>現在のアカウントを保存</value>
@@ -1570,7 +1570,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>メモ名は自分用のもので、ゲーム内の名前とは関係ありません。名前を取得できないときは自分で入れてください。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
-    <value>FastFlags 一式をプロファイルとして保存し、ゲームやPCを変えたときにワンクリックで戻せます。左が既存のプロファイル、右がパラメータです。編集して「変更を保存」を押し、「適用」を押したときに初めて ClientAppSettings.json が上書きされます。</value>
+    <value>FastFlags 一式をプロファイルとして保存し、いつでも切り替えられます。「この設定を適用」を押すと現在の ClientAppSettings.json が上書きされます。</value>
   </data>
   <data name="FFProfiles_New" xml:space="preserve">
     <value>空のプロファイル</value>
@@ -1684,7 +1684,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>説明</value>
   </data>
   <data name="Shortcut_NoteBody" xml:space="preserve">
-    <value>ショートカットの対象は Luckstrap 本体で、引数に placeId を渡します。そのためダブルクリックでもランチャー経由になり、FastFlags・MOD・Discord の状態が有効です。サーバーIDを入れるとそのサーバーへ、入れなければ公開サーバーへ入ります。</value>
+    <value>placeId を引数に持つショートカットです。ダブルクリックしてもランチャー経由で起動します。サーバー ID を入れるとそのサーバーへ、空なら公開サーバーへ参加します。</value>
   </data>
   <data name="Hub_Games_QuickLaunch" xml:space="preserve">
     <value>クイック起動</value>
@@ -1696,7 +1696,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>ブラウザ版 Discord の状態（実験的）</value>
   </data>
   <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
-    <value>127.0.0.1:1337 で arRPC 互換のブリッジを立て、ブラウザ版 Discord にもプレイ中のゲームを表示します。Vencord / Equicord の WebRichPresence プラグインが必要です。Web 版はテキストとボタンのみで、ゲームのカバー画像は外部画像のため表示できません。</value>
+    <value>127.0.0.1:1337 で arRPC ブリッジを動かし、ブラウザ版 Discord にゲーム状態を表示します。ブラウザに WebRichPresence の導入と有効化が必要です。ブラウザ版ではゲームのカバー画像は表示されません。</value>
   </data>
   <data name="Hub_Tools_Logs" xml:space="preserve">
     <value>ログ</value>
@@ -1729,7 +1729,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>結果の見方が分からない？</value>
   </data>
   <data name="Network_Explain" xml:space="preserve">
-    <value>「クライアント展開」が失敗するとゲームに入れません。バージョン番号の取得に必要だからです。すべてタイムアウトしたり SSL エラーが出る場合は、PC から Roblox への経路が遮断されています。プロキシを試してください。「サーバーの場所」の失敗はゲームに影響しません。これはサードパーティの IP データベースを引くだけで、Roblox とは関係ありません。</value>
+    <value>「クライアントの展開」に失敗するとゲームを起動できません。「サーバーの場所」の失敗はデータセンター表示にのみ影響します。</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
     <value>Place ID、ゲームのリンク、roblox:// リンクを貼ると、起動リンクの生成や直接の起動ができます。</value>
@@ -1759,13 +1759,13 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>ブラウザで開く</value>
   </data>
   <data name="QuickLaunch_Note" xml:space="preserve">
-    <value>「ゲームを起動」は Roblox 公式プロトコルでクライアントを立ち上げるので、サイトで Play を押すのと同じです。プライベートコードを空にすれば公開サーバーに入ります。リンクを渡せば、開いた人も同じサーバーに入れます。</value>
+    <value>「ゲームを起動」は Roblox 公式プロトコルでクライアントを起動します。プライベートコードを空にすると公開サーバーに入ります。リンクは共有できます。</value>
   </data>
   <data name="Recent_Title" xml:space="preserve">
     <value>最近プレイ</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>入ったサーバーをここに記録します（最大50件、再起動しても残ります）。Luckstrap を入れる前の記録は Roblox 自身のログから拾うので、ログが残っていれば復元できます。「再参加」で同じサーバーに戻れます（まだ開いている場合）。</value>
+    <value>参加したサーバーの記録です（最大50件、再起動後も保持）。「このサーバーに再参加」で同じサーバーに戻ります。</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
     <value>まだ記録がありません。一度ゲームに入って抜ければ出ます。</value>
@@ -1777,7 +1777,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>履歴を消去</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>記録はゲームのログから作られ、再接続に必要な情報だけを持ちます。チャットやプレイ内容は保存しません。プライベートサーバーのコードは再参加に必要なので一緒に保存します。消去してもゲーム本体には影響しません。</value>
+    <value>記録はゲームログから取得し、再接続に必要な情報（プライベートサーバーのコードを含む）のみを保存します。消去すると記録だけが削除されます。</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>サーバー地域</value>
@@ -1810,7 +1810,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>参加</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>サーバー一覧は Roblox 公式 API から100件ずつ取得します。地域は一覧に含まれないため、各サーバーに参加リクエストを送ってデータセンターIDを取得し、RoValra のデータセンター表と照合します。そのため少し時間がかかります。最初の一致で止まり、100件すべては調べません。地域不明のサーバーは「不明」と表示されますが参加できます。地域の判定にはローカルの Roblox ログインが必要です。</value>
+    <value>サーバー一覧は Roblox 公式 API から取得します。地域での絞り込みは1台ずつ問い合わせるため時間がかかります。地域が不明なサーバーは「不明」と表示され、参加は可能です。Roblox へのログインが必要です。</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>旧バージョン</value>
@@ -1828,7 +1828,7 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>保存されるのはログイン情報です</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>各アカウントに保存されるのは Roblox のログイン情報で、Windows の DPAPI で暗号化され、この PC のこの Windows ユーザーでしか復号できません。別の PC や別の Windows ユーザーでは使えません。Luckstrap フォルダーを他人に送ったり、信頼できない人にこの PC を貸したりしないでください。</value>
+    <value>各アカウントは Roblox の認証情報を Windows DPAPI で暗号化して保存します。復号できるのはこの PC のこの Windows アカウントだけです。Luckstrap フォルダを他人に渡さないでください。</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>お気に入り · {0}</value>

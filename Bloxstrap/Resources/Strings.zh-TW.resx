@@ -1523,7 +1523,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>工具</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>先在遊戲裡正常登入一個帳號，然後點「存入目前帳號」。要換號就選中另一個點「切換」，下次打開遊戲就是那個號了。同一時間只有一個帳號登入，跟手動登出再登入一樣，不涉及多開。</value>
+    <value>先在遊戲裡登入帳號，再點「存入目前帳號」。選中另一個帳號點「切換」，下次啟動遊戲即為該帳號。同一時間只登入一個帳號。</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>存入目前帳號</value>
@@ -1559,7 +1559,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>備註名只是給你自己看的，跟遊戲裡顯示的名字無關。查不到名字的時候可以自己填。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
-    <value>把整套 FastFlags 存成一份設定檔，換遊戲或換電腦的時候一鍵切回來。左邊是已有的設定檔，右邊改具體參數，改完點「儲存修改」。點「套用」才會真的覆蓋目前的 ClientAppSettings.json。</value>
+    <value>把整套 FastFlags 存成一份設定檔，可隨時切換。點「套用這套設定」會覆蓋目前的 ClientAppSettings.json。</value>
   </data>
   <data name="FFProfiles_New" xml:space="preserve">
     <value>新建空白設定檔</value>
@@ -1673,7 +1673,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>說明</value>
   </data>
   <data name="Shortcut_NoteBody" xml:space="preserve">
-    <value>捷徑的目標是 Luckstrap 本身，參數裡帶 placeId，所以雙擊之後還是會走啟動器那一套（FastFlags、模組、Discord 狀態都生效）。填了伺服器 ID 就進指定伺服器，不填就是該遊戲的公開服。</value>
+    <value>帶 placeId 參數的捷徑，雙擊仍經過啟動器。填寫伺服器 ID 進入指定伺服器，留空進入公開伺服器。</value>
   </data>
   <data name="Hub_Games_QuickLaunch" xml:space="preserve">
     <value>快速啟動</value>
@@ -1685,7 +1685,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>網頁版 Discord 狀態（實驗性）</value>
   </data>
   <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
-    <value>在 127.0.0.1:1337 起一個 arRPC 相容的橋，瀏覽器裡的 Discord 也能顯示在玩什麼。前提是瀏覽器裝了 Vencord / Equicord 的 WebRichPresence 外掛並開著；網頁版只顯示文字和按鈕，遊戲封面是外鏈圖片，那邊渲染不出來。</value>
+    <value>在 127.0.0.1:1337 執行 arRPC 橋，瀏覽器版 Discord 可顯示遊戲狀態。需要瀏覽器安裝並啟用 WebRichPresence 外掛；網頁版不顯示遊戲封面。</value>
   </data>
   <data name="Hub_Tools_Logs" xml:space="preserve">
     <value>日誌</value>
@@ -1718,7 +1718,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>看不懂結果？</value>
   </data>
   <data name="Network_Explain" xml:space="preserve">
-    <value>「客戶端部署」這一項掛了就一定進不去遊戲，因為啟動器要靠它拿版本號。全部逾時或報 SSL 錯誤，基本是本機到 Roblox 的鏈路被攔了，掛個代理再試。「伺服器位置」這一項掛了不影響進遊戲，它查的是第三方 IP 庫，跟 Roblox 本身沒關係。</value>
+    <value>「用戶端部署」失敗會導致遊戲無法啟動。「伺服器位置」失敗只影響機房顯示，不影響啟動。</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
     <value>貼上 Place ID、遊戲連結或 roblox:// 連結，產生啟動連結或者直接進遊戲。</value>
@@ -1748,13 +1748,13 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>用預設瀏覽器打開</value>
   </data>
   <data name="QuickLaunch_Note" xml:space="preserve">
-    <value>「啟動遊戲」會走 Roblox 官方協定拉起客戶端，跟你在網頁上點 Play 是一回事。私服代碼不填就是進公開伺服器。連結可以發給別人，對方點開也能進同一個伺服器。</value>
+    <value>「啟動遊戲」透過 Roblox 官方協定拉起客戶端。私服代碼留空則進入公開伺服器。連結可以直接分享。</value>
   </data>
   <data name="Recent_Title" xml:space="preserve">
     <value>最近玩過</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>進過的伺服器都記在這裡，最多留 50 條，重啟也在。裝 Luckstrap 之前的記錄是從 Roblox 自己的日誌裡翻出來的，只要日誌還在就能補上。點「再進這個服」會回到同一台伺服器，前提是它還沒關。</value>
+    <value>進過的伺服器記錄，最多 50 條，重啟後保留。點「再進這個服」會重新加入同一台伺服器。</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
     <value>還沒有記錄。進一次遊戲，退出來就有了。</value>
@@ -1766,7 +1766,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>清空記錄</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>記錄來自遊戲日誌，只存重連要用的東西，不存聊天記錄也不存你在裡面幹了什麼。私服的訪問碼會一起存下來，不然重連進不去。清空只刪這份記錄，不影響遊戲本身。</value>
+    <value>記錄來自遊戲日誌，只保存重連所需的資訊，含私服存取碼。清空只刪除記錄。</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>區服選擇</value>
@@ -1799,7 +1799,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>加入</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>伺服器列表來自 Roblox 官方介面，一次拉 100 台。地區不在列表裡，要逐個發加入請求換資料中心編號，再對照 RoValra 的機房表，所以按地區找服要等一會兒。找到一台就停，不會把 100 台全查完。查不到地區的會顯示「未知」，不影響加入。沒登入 Roblox 的話查不出地區，這個功能要讀本機登入態。</value>
+    <value>伺服器列表來自 Roblox 官方介面。按地區篩選需逐台查詢，耗時較長。查不到地區的顯示「未知」，仍可加入。需要登入 Roblox。</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>舊版本清理</value>
@@ -1817,7 +1817,7 @@ Luckstrap 安裝在 "{1}"。</value>
     <value>存的是登入憑據，自己心裡有數</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>每個帳號存的是一份 Roblox 的登入憑據，用 Windows 內建的 DPAPI 加密，只能在這台電腦的這個 Windows 帳戶下解開。換電腦、換 Windows 使用者都用不了。別把 Luckstrap 目錄發給別人，也別把這台電腦借給不信任的人。</value>
+    <value>每個帳號存的是一份 Roblox 登入憑證，用 Windows DPAPI 加密，只能在本機本 Windows 帳戶下解開。不要把 Luckstrap 目錄發給別人。</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>收藏 · {0}</value>

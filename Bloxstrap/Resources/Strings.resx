@@ -1527,7 +1527,7 @@ Defaulting to {1}.</value>
     <value>Tools</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>Sign in to the game as usual, then click Save current account. To switch, pick another account and click Switch; the next launch uses that one. Only one account is signed in at a time, the same as logging out and back in by hand.</value>
+    <value>Sign in to the game first, then use Save current account. Select another account and press Switch to use it on the next launch. One account is signed in at a time.</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>Save current account</value>
@@ -1563,7 +1563,7 @@ Defaulting to {1}.</value>
     <value>The label is only for you and has nothing to do with the name shown in game. Fill it in yourself when the name cannot be fetched.</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
-    <value>Save the whole FastFlags set as a profile and switch back with one click when you change games or machines. Existing profiles are on the left, the parameters on the right; edit them and click Save changes. Nothing is applied until you click Apply.</value>
+    <value>Saves a full FastFlags set as a profile that can be switched at any time. Applying overwrites the current ClientAppSettings.json.</value>
   </data>
   <data name="FFProfiles_New" xml:space="preserve">
     <value>New blank profile</value>
@@ -1677,7 +1677,7 @@ Defaulting to {1}.</value>
     <value>Notes</value>
   </data>
   <data name="Shortcut_NoteBody" xml:space="preserve">
-    <value>The shortcut points at Luckstrap itself with a placeId argument, so double-clicking still goes through the launcher: FastFlags, mods and Discord status all apply. With a server ID it joins that server; without one it joins the public server.</value>
+    <value>A placeId shortcut that still launches through Luckstrap. Fill in a server ID to join that server; leave it empty for the public server.</value>
   </data>
   <data name="Hub_Games_QuickLaunch" xml:space="preserve">
     <value>Quick launch</value>
@@ -1689,7 +1689,7 @@ Defaulting to {1}.</value>
     <value>Discord status in browser (experimental)</value>
   </data>
   <data name="Integrations_WebDiscord_Desc" xml:space="preserve">
-    <value>Runs an arRPC-compatible bridge on 127.0.0.1:1337 so Discord in the browser can show what you are playing. Requires the Vencord or Equicord WebRichPresence plugin, enabled. The web client only shows text and buttons; the game cover is a remote image it cannot render.</value>
+    <value>Runs an arRPC bridge on 127.0.0.1:1337 so Discord in the browser can show game status. Requires the WebRichPresence plugin. Game covers are not shown in the browser.</value>
   </data>
   <data name="Hub_Tools_Logs" xml:space="preserve">
     <value>Logs</value>
@@ -1722,7 +1722,7 @@ Defaulting to {1}.</value>
     <value>Not sure what this means?</value>
   </data>
   <data name="Network_Explain" xml:space="preserve">
-    <value>If Client deployment fails, the game will not start at all: the launcher needs it to get the version number. If everything times out or reports SSL errors, the path from your machine to Roblox is being blocked; try a proxy. A failure on Server location does not stop you playing: that one queries a third-party IP database, not Roblox.</value>
+    <value>A failed Client deployment check stops the game from launching. A failed Server location check only hides the datacenter.</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
     <value>Paste a Place ID, a game link or a roblox:// link to build a launch link, or jump straight into the game.</value>
@@ -1752,13 +1752,13 @@ Defaulting to {1}.</value>
     <value>Open in browser</value>
   </data>
   <data name="QuickLaunch_Note" xml:space="preserve">
-    <value>Launch game uses the official Roblox protocol, the same as clicking Play on the website. Leave the private code empty for a public server. The link can be shared; whoever opens it lands on the same server.</value>
+    <value>Launch game starts the client through the official Roblox protocol. Leave the private server code empty for the public server. Links can be shared.</value>
   </data>
   <data name="Recent_Title" xml:space="preserve">
     <value>Recently played</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>Every server you joined is listed here, up to 50, kept across restarts. Records from before you installed Luckstrap are pulled out of Roblox's own logs, so they come back as long as the logs are still there. Rejoin takes you to the same server, assuming it is still up.</value>
+    <value>Servers you have joined, up to 50 entries, kept across restarts. Rejoin returns to the same server.</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
     <value>Nothing yet. Play once and it shows up.</value>
@@ -1770,7 +1770,7 @@ Defaulting to {1}.</value>
     <value>Clear history</value>
   </data>
   <data name="Recent_Privacy" xml:space="preserve">
-    <value>Records come from the game log and hold only what is needed to reconnect: no chat, no record of what you did in game. Private server access codes are kept too, otherwise rejoining would fail. Clearing removes only this list, not the game.</value>
+    <value>Records come from the game log and hold only what reconnecting needs, including private server access codes. Clearing removes the records only.</value>
   </data>
   <data name="Region_Title" xml:space="preserve">
     <value>Server region</value>
@@ -1803,7 +1803,7 @@ Defaulting to {1}.</value>
     <value>Join</value>
   </data>
   <data name="Region_Note" xml:space="preserve">
-    <value>The server list comes from the official Roblox API, 100 servers at a time. Regions are not in that list, so each server gets a join request to reveal its datacenter ID, matched against RoValra's datacenter table. That takes a moment. It stops at the first match instead of checking all 100. Servers with an unknown region are labelled Unknown and can still be joined. Region lookup needs your local Roblox login.</value>
+    <value>The server list comes from the official Roblox API. Filtering by region queries servers one by one, so it takes a moment. Servers with an unknown region are labelled Unknown and can still be joined. Requires a Roblox login.</value>
   </data>
   <data name="Hub_Tools_Versions" xml:space="preserve">
     <value>Old versions</value>
@@ -1821,7 +1821,7 @@ Defaulting to {1}.</value>
     <value>These are login credentials</value>
   </data>
   <data name="Accounts_NoticeMessage" xml:space="preserve">
-    <value>Each saved account is a Roblox login credential, encrypted with Windows DPAPI and readable only under this Windows account on this PC. It will not work on another PC or another Windows user. Do not send the Luckstrap folder to anyone, and do not lend this PC to people you do not trust.</value>
+    <value>Each account stores a Roblox credential encrypted with Windows DPAPI, decryptable only on this machine under this Windows account. Do not share the Luckstrap folder.</value>
   </data>
   <data name="Dlg_001" xml:space="preserve">
     <value>Not signed in</value>
@@ -1845,13 +1845,13 @@ Defaulting to {1}.</value>
     <value>The account you are signed in with is already in the list.</value>
   </data>
   <data name="Dlg_008" xml:space="preserve">
-    <value>Asking Roblox which account this is...</value>
+    <value>Getting account info...</value>
   </data>
   <data name="Dlg_009" xml:space="preserve">
     <value>Saved, but the account could not be identified</value>
   </data>
   <data name="Dlg_010" xml:space="preserve">
-    <value>The cookie may have expired or the network is down. It is saved under a temporary name; you can rename it on the right.</value>
+    <value>Account info could not be fetched; the credential may have expired or the network is unavailable. Saved under a temporary name, which can be renamed.</value>
   </data>
   <data name="Dlg_011" xml:space="preserve">
     <value>Saved</value>
@@ -1866,10 +1866,10 @@ Defaulting to {1}.</value>
     <value>Roblox is still running</value>
   </data>
   <data name="Dlg_015" xml:space="preserve">
-    <value>Close Roblox completely first, including the tray icon, then switch. While it runs it will overwrite what we write.</value>
+    <value>Exit Roblox completely before switching accounts.</value>
   </data>
   <data name="Dlg_016" xml:space="preserve">
-    <value>The first time you switch, the current login is backed up to RobloxCookies.dat.luckstrap-bak.</value>
+    <value>The first switch backs up the current login to RobloxCookies.dat.luckstrap-bak.</value>
   </data>
   <data name="Dlg_017" xml:space="preserve">
     <value>Switch account</value>
@@ -1890,7 +1890,7 @@ Defaulting to {1}.</value>
     <value>The credentials saved for this account are identical to the current login.</value>
   </data>
   <data name="Dlg_023" xml:space="preserve">
-    <value>After overwriting, this entry becomes the account you are signed in with now, and the old one is gone.</value>
+    <value>Overwriting replaces this entry with the account you are signed in with; the previous credential is discarded.</value>
   </data>
   <data name="Dlg_024" xml:space="preserve">
     <value>Overwrite entry</value>
@@ -1947,10 +1947,10 @@ Defaulting to {1}.</value>
     <value>No FastFlags right now</value>
   </data>
   <data name="Dlg_042" xml:space="preserve">
-    <value>ClientAppSettings.json is empty. Set something up on the FastFlags page first.</value>
+    <value>ClientAppSettings.json is empty. Configure something on the FastFlags page first.</value>
   </data>
   <data name="Dlg_043" xml:space="preserve">
-    <value>Saved from the current ClientAppSettings.json</value>
+    <value>From the current ClientAppSettings.json</value>
   </data>
   <data name="Dlg_044" xml:space="preserve">
     <value>Saved</value>
@@ -1992,7 +1992,7 @@ Defaulting to {1}.</value>
     <value>Nothing to read</value>
   </data>
   <data name="Dlg_057" xml:space="preserve">
-    <value>No FastFlags in this file. It is either empty or not in the ClientAppSettings.json format.</value>
+    <value>No FastFlags found in this file. It may be empty or in an unsupported format.</value>
   </data>
   <data name="Dlg_058" xml:space="preserve">
     <value>Imported</value>
@@ -2013,7 +2013,7 @@ Defaulting to {1}.</value>
     <value>Exported</value>
   </data>
   <data name="Dlg_064" xml:space="preserve">
-    <value>Applying an empty profile would wipe every current FastFlag, so it is blocked.</value>
+    <value>An empty profile would clear every current FastFlag, so it was blocked.</value>
   </data>
   <data name="Dlg_065" xml:space="preserve">
     <value>Restart the game for this to take effect.</value>
@@ -2031,22 +2031,22 @@ Defaulting to {1}.</value>
     <value>Competitive low latency</value>
   </data>
   <data name="Dlg_070" xml:space="preserve">
-    <value>For integrated graphics and older machines: shadows and post-processing off, textures low. The frame cap is left alone; set it on the FastFlags page.</value>
+    <value>For integrated graphics and older machines: shadows and post-processing off, textures low. The frame cap is left unchanged.</value>
   </data>
   <data name="Dlg_071" xml:space="preserve">
     <value>Balanced</value>
   </data>
   <data name="Dlg_072" xml:space="preserve">
-    <value>Only caps the frame rate and leaves graphics to the game. Start here if unsure.</value>
+    <value>Caps the frame rate only; all other graphics settings stay unchanged.</value>
   </data>
   <data name="Dlg_073" xml:space="preserve">
     <value>High quality</value>
   </data>
   <data name="Dlg_074" xml:space="preserve">
-    <value>For screenshots on a dedicated GPU: full shadows, full textures, MSAA on. Expect lower FPS.</value>
+    <value>For screenshots on a dedicated GPU: shadows and textures at maximum, MSAA on.</value>
   </data>
   <data name="Dlg_075" xml:space="preserve">
-    <value>For fights: high FPS, low graphics, no shadows, FPS counter in the corner.</value>
+    <value>For matches: high frame rate, low graphics, shadows off, FPS counter in the corner.</value>
   </data>
   <data name="Dlg_076" xml:space="preserve">
     <value>Could not parse that</value>
@@ -2067,7 +2067,7 @@ Defaulting to {1}.</value>
     <value>Added, but game info could not be fetched</value>
   </data>
   <data name="Dlg_082" xml:space="preserve">
-    <value>A network problem or the place does not exist. Launching still works.</value>
+    <value>A network problem, or the place does not exist. Launching is unaffected.</value>
   </data>
   <data name="Dlg_083" xml:space="preserve">
     <value>Added to favorites</value>
@@ -2202,19 +2202,19 @@ Defaulting to {1}.</value>
     <value>Public</value>
   </data>
   <data name="Dlg_127" xml:space="preserve">
-    <value>Clearing removes these records; you would have to find the server yourself next time. Continue?</value>
+    <value>Clearing cannot be undone. Continue?</value>
   </data>
   <data name="Dlg_128" xml:space="preserve">
     <value>Clear recently played</value>
   </data>
   <data name="Dlg_129" xml:space="preserve">
-    <value>The region list could not be loaded. See all servers still works, and it shows regions too.</value>
+    <value>The region list could not be loaded. Regions are still available under See all servers.</value>
   </data>
   <data name="Dlg_130" xml:space="preserve">
     <value>Region list unavailable</value>
   </data>
   <data name="Dlg_131" xml:space="preserve">
-    <value>The datacenter table could not be fetched, most likely a network problem. Use See all servers to pick manually.</value>
+    <value>The datacenter table could not be fetched. Pick a server manually under See all servers.</value>
   </data>
   <data name="Dlg_132" xml:space="preserve">
     <value>Enter a Place ID, choose a region, then click Join a server there.</value>
@@ -2241,7 +2241,7 @@ Defaulting to {1}.</value>
     <value>No servers found</value>
   </data>
   <data name="Dlg_140" xml:space="preserve">
-    <value>This place may have no public servers, or the API is temporarily unavailable.</value>
+    <value>This place may have no public servers, or the API is unavailable.</value>
   </data>
   <data name="Dlg_141" xml:space="preserve">
     <value>No servers found.</value>
@@ -2250,7 +2250,7 @@ Defaulting to {1}.</value>
     <value>Unknown</value>
   </data>
   <data name="Dlg_143" xml:space="preserve">
-    <value>No regions came back, probably not signed in or the API is down. The servers can still be joined.</value>
+    <value>No region data was returned; you may be signed out or the API may be unavailable. Servers can still be joined.</value>
   </data>
   <data name="Dlg_144" xml:space="preserve">
     <value>Lookup failed</value>
@@ -2304,7 +2304,7 @@ Defaulting to {1}.</value>
     <value>Account {0}</value>
   </data>
   <data name="DlgF_Switched" xml:space="preserve">
-    <value>The current login is now {0}. Open the game and check; if it shows as signed out, these credentials have expired. Sign in again and use Overwrite selected with current.</value>
+    <value>The current login is now {0}. If the game shows as signed out, the credentials have expired; sign in again and overwrite this entry.</value>
   </data>
   <data name="DlgF_Overwritten" xml:space="preserve">
     <value>{0} now points at the account you just signed in with.</value>
@@ -2331,13 +2331,13 @@ Defaulting to {1}.</value>
     <value>{0}, {1} flags.</value>
   </data>
   <data name="DlgF_Imported" xml:space="preserve">
-    <value>{0}, {1} flags. Not applied yet; click Apply this profile once you are happy with it.</value>
+    <value>{0} imported, {1} flags. Not applied yet.</value>
   </data>
   <data name="DlgF_Exported" xml:space="preserve">
     <value>{0} flags written to {1}.</value>
   </data>
   <data name="DlgF_Applied" xml:space="preserve">
-    <value>{0} is active now, {1} flags. The next game launch uses it.</value>
+    <value>{0} applied, {1} flags. Takes effect on the next launch.</value>
   </data>
   <data name="DlgF_AlreadyFavorite" xml:space="preserve">
     <value>PlaceId {0} is already in the list.</value>
@@ -2382,7 +2382,7 @@ Defaulting to {1}.</value>
     <value>{0} · checked {1}/{2}</value>
   </data>
   <data name="DlgF_RegionEmpty" xml:space="preserve">
-    <value>There is no public {0} server for this game right now. Pick another region, or use See all servers.</value>
+    <value>This game has no public {0} server right now. Pick another region, or choose one under See all servers.</value>
   </data>
   <data name="DlgF_RegionNoServer" xml:space="preserve">
     <value>No joinable server in {0}.</value>
@@ -2403,7 +2403,7 @@ Defaulting to {1}.</value>
     <value>Removed {0} versions, freed {1}.</value>
   </data>
   <data name="DlgF_DeletePartial" xml:space="preserve">
-    <value>{0} succeeded, {1} failed (probably in use). See the log for details.</value>
+    <value>{0} deleted, {1} failed (probably in use). See the log for details.</value>
   </data>
   <data name="Pick_Favorite" xml:space="preserve">
     <value>Favorite · {0}</value>
@@ -2448,7 +2448,8 @@ Click to switch accounts</value>
   <data name="DlgF_SwitchConfirm" xml:space="preserve">
     <value>Switch to {0}?
 
-This replaces the current Roblox login; the next launch uses this account.
+The current login will be replaced; the next launch uses this account.
+
 {1}</value>
   </data>
   <data name="DlgF_OverwriteConfirm" xml:space="preserve">
@@ -2459,18 +2460,17 @@ This replaces the current Roblox login; the next launch uses this account.
   <data name="DlgF_DeleteConfirm" xml:space="preserve">
     <value>Remove {0} from the list?
 
-Only this saved entry is deleted. You stay signed in, and the account in the game is untouched.</value>
+Only the saved entry is deleted. Sign-in state and the in-game account are unaffected.</value>
   </data>
   <data name="DlgF_ProfileDeleteConfirm" xml:space="preserve">
     <value>Delete {0}?
 
-Only this saved profile is removed; the active ClientAppSettings.json is untouched.</value>
+Only this profile is removed. The active ClientAppSettings.json is untouched.</value>
   </data>
   <data name="DlgF_ApplyConfirm" xml:space="preserve">
-    <value>Apply {0} to this PC?
+    <value>Apply {0} to this computer?
 
-The current {1} FastFlags will be replaced by this profile's {2}.
-There is no undo; save the current set as a profile first if you want a way back.
+The current {1} FastFlags will be replaced with {2}, and this cannot be undone.
 
 {3}</value>
   </data>
@@ -2478,7 +2478,7 @@ There is no undo; save the current set as a profile first if you want a way back
     <value>(file is large; showing the last 4 MB only)</value>
   </data>
   <data name="DlgF_DeleteVersionsConfirm" xml:space="preserve">
-    <value>Delete these {0} version packages? That frees {1}.
+    <value>Delete these {0} version packages? This frees {1}.
 
 {2}
 
