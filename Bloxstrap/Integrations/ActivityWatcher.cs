@@ -73,6 +73,23 @@
         {
             const string LOG_IDENT = "ActivityWatcher::Start";
 
+            // async void 是事件处理器，异常没地方接，会直接打到 UI 线程把程序干掉。
+            // Roblox 轮转日志、提前退出、目录里还没有 Player 日志，都会让 StartCore 抛异常
+            try
+            {
+                await StartCore();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Stopped watching Roblox log");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
+        private async Task StartCore()
+        {
+            const string LOG_IDENT = "ActivityWatcher::Start";
+
             // okay, here's the process:
             //
             // - tail the latest log file from %localappdata%\roblox\logs
@@ -84,7 +101,7 @@
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
             
-            FileInfo logFileInfo;
+            FileInfo? logFileInfo;
 
             if (String.IsNullOrEmpty(LogLocation))
             {
@@ -101,11 +118,22 @@
 
                 while (true)
                 {
+                    if (IsDisposed)
+                        return;
+
+                    // 目录里可能一个 Player 日志都还没有，First() 会直接抛
                     logFileInfo = new DirectoryInfo(logDirectory)
                         .GetFiles()
                         .Where(x => x.Name.Contains("Player", StringComparison.OrdinalIgnoreCase) && x.CreationTime <= DateTime.Now)
                         .OrderByDescending(x => x.CreationTime)
-                        .First();
+                        .FirstOrDefault();
+
+                    if (logFileInfo is null)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "No Roblox log file yet, waiting...");
+                        await Task.Delay(1000);
+                        continue;
+                    }
 
                     if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                         break;
@@ -120,6 +148,9 @@
             {
                 logFileInfo = new FileInfo(LogLocation);
             }
+
+            if (logFileInfo is null)
+                return;
 
             OnLogOpen?.Invoke(this, EventArgs.Empty);
             

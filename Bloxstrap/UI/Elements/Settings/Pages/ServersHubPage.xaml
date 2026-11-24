@@ -9,7 +9,7 @@
       d:DesignHeight="700" d:DesignWidth="900"
       Title="ServersHubPage">
 
-    <TabControl Margin="0,0,14,14" Background="Transparent" BorderThickness="0">
+    <TabControl Margin="0,0,14,14" Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
         <TabControl.Resources>
             <Style TargetType="TabItem">
                 <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />

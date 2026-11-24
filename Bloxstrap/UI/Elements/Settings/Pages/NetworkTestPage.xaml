@@ -71,9 +71,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Separator Margin="0,16,0,14" />
-
-        <TextBlock Text="{x:Static resources:Strings.Network_ExplainTitle}" FontSize="14" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Network_ExplainTitle}" FontSize="14" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Margin="0,6,0,0"
                    FontSize="13"
                    TextWrapping="Wrap"

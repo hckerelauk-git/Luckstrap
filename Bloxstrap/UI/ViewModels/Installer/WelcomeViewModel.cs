@@ -18,15 +18,26 @@
         // called by codebehind on page load
         public async void DoChecks()
         {
-            var releaseInfo = await App.GetLatestRelease();
+            const string LOG_IDENT = "WelcomeViewModel::DoChecks";
 
-            if (releaseInfo is not null)
+            // 拉不到 release 就跳过版本提示，不能因此把安装向导卡住
+            try
             {
-                if (Utilities.CompareVersions(App.Version, releaseInfo.TagName) == VersionComparison.LessThan)
+                var releaseInfo = await App.GetLatestRelease();
+
+                if (releaseInfo is not null)
                 {
-                    VersionNotice = String.Format(Strings.Installer_Welcome_UpdateNotice, App.Version, releaseInfo.TagName.Replace("v", ""));
-                    OnPropertyChanged(nameof(VersionNotice));
+                    if (Utilities.CompareVersions(App.Version, releaseInfo.TagName) == VersionComparison.LessThan)
+                    {
+                        VersionNotice = String.Format(Strings.Installer_Welcome_UpdateNotice, App.Version, releaseInfo.TagName.Replace("v", ""));
+                        OnPropertyChanged(nameof(VersionNotice));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not check for updates");
+                App.Logger.WriteException(LOG_IDENT, ex);
             }
 
             CanContinue = true;
