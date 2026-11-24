@@ -11,4 +11,3 @@
 - 「重新加入」按钮替换原来的「再进这个服」
 - 修复 arRPC 网页状态桥偶发的 ObjectDisposedException
 - 修复新内置方案在老用户目录里不出现
-- GitHub Actions 增加 PR 构建、产物校验和并发取消，release 说明改读 RELEASE_NOTES.md
