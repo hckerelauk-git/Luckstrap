@@ -14,8 +14,8 @@
     <Product>Luckstrap</Product>
     <AssemblyTitle>Luckstrap</AssemblyTitle>
     <Company>Luckstrap</Company>
-    <Version>3.1.3</Version>
-    <FileVersion>3.1.3</FileVersion>
+    <Version>3.1.4</Version>
+    <FileVersion>3.1.4</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
@@ -30,10 +30,10 @@
     <PublishSingleFile>true</PublishSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <!--
-      不要开压缩。开了以后每个程序集加载时都要先解压，启动要多花 9 秒左右
-      （实测：压缩版 9~12 秒出窗口，不压缩 1 秒内）。体积换启动速度，值得。
+      开压缩。exe 从 166MB 降到 73MB，代价是每个程序集加载前都要解压，
+      热启动从 1.3~1.6 秒变成 2.3~3.7 秒。
     -->
-    <EnableCompressionInSingleFile>false</EnableCompressionInSingleFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
     
   <ItemGroup>
