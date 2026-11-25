@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
 namespace Bloxstrap.UI.Elements.Controls
@@ -77,6 +78,12 @@ namespace Bloxstrap.UI.Elements.Controls
 
         static bool HasInnerScrollable(DependencyObject? source, ScrollViewer outer)
         {
+            // 鼠标落在文字上时 OriginalSource 是 Run 这类 FrameworkContentElement，
+            // 不是 Visual，直接丢给 VisualTreeHelper 会抛 InvalidOperationException。
+            // 先沿逻辑树走到最近的 Visual，再往上爬
+            while (source is not null && source is not Visual && source is not Visual3D)
+                source = source is FrameworkContentElement element ? element.Parent : LogicalTreeHelper.GetParent(source);
+
             while (source is not null && !ReferenceEquals(source, outer))
             {
                 if (source is ScrollViewer inner && inner.ScrollableHeight > 0)
