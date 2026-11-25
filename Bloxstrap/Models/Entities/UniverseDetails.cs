@@ -10,7 +10,7 @@
         public GameDetailResponse Data { get; set; } = null!;
 
         /// <summary>
-        /// Returns data for a 128x128 icon
+        /// Returns data for a 420x420 icon
         /// </summary>
         public ThumbnailResponse Thumbnail { get; set; } = null!;
 
@@ -33,7 +33,9 @@
             if (!gameDetailResponse.Data.Any())
                 throw new InvalidHTTPResponseException("Roblox API for Game Details returned invalid data");
 
-            var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
+            // 420 而不是 128。封面在卡片里要铺 200 多像素宽，高 DPI 屏还要再乘 1.5，
+            // 128 的图拉上去就是糊的
+            var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=420x420&format=Png&isCircular=false");
 
             if (!universeThumbnailResponse.Data.Any())
                 throw new InvalidHTTPResponseException("Roblox API for Game Thumbnails returned invalid data");

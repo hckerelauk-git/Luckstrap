@@ -1,6 +1,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.Controls
@@ -34,19 +35,39 @@ namespace Bloxstrap.UI.Elements.Controls
             if (sender is not TabControl tab)
                 return;
 
-            // 模板里的内容宿主。切换时它会被换掉内容，这里让它从透明淡入
+            // 模板里的内容宿主。切换时它会被换掉内容，这里让它淡入并轻轻上移
             if (tab.Template?.FindName("PART_SelectedContentHost", tab) is not ContentPresenter host)
                 return;
+
+            // 140ms 太快，肉眼基本看不出来，这里拉到 220ms 并加 8px 位移
+            const int DurationMs = 220;
+
+            CubicEase ease = new() { EasingMode = EasingMode.EaseOut };
 
             DoubleAnimation fade = new()
             {
                 From = 0,
                 To = 1,
-                Duration = TimeSpan.FromMilliseconds(140),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                Duration = TimeSpan.FromMilliseconds(DurationMs),
+                EasingFunction = ease
             };
 
+            DoubleAnimation slide = new()
+            {
+                From = 8,
+                To = 0,
+                Duration = TimeSpan.FromMilliseconds(DurationMs),
+                EasingFunction = ease
+            };
+
+            if (host.RenderTransform is not TranslateTransform transform)
+            {
+                transform = new TranslateTransform();
+                host.RenderTransform = transform;
+            }
+
             host.BeginAnimation(UIElement.OpacityProperty, fade);
+            transform.BeginAnimation(TranslateTransform.YProperty, slide);
         }
     }
 }

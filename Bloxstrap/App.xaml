@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Bloxstrap"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:converters="clr-namespace:Bloxstrap.UI.Converters"
+             xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
              ShutdownMode="OnExplicitShutdown"
              DispatcherUnhandledException="GlobalExceptionHandler">
     <Application.Resources>
@@ -58,9 +59,12 @@
             </Style>
 
             <!-- 网格卡片：图在上，名字和信息在下 -->
+            <!-- 设置页的滚动区域，滚轮改成小步长平滑滚动 -->
+            <Style TargetType="{x:Type ui:DynamicScrollViewer}">
+                <Setter Property="controls:SmoothScroll.IsEnabled" Value="True" />
+            </Style>
+
             <Style x:Key="GameCard" TargetType="Border">
-                <Setter Property="Width" Value="196" />
-                <Setter Property="Margin" Value="0,0,12,12" />
                 <Setter Property="CornerRadius" Value="8" />
                 <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
                 <Setter Property="BorderThickness" Value="0" />
