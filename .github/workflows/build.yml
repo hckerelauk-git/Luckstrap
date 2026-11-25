@@ -3,7 +3,14 @@ name: Build
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+
+# 同一分支连着推两次，前一次直接取消，省得两个构建抢着往同一个 release 上传
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -42,10 +49,36 @@ jobs:
           -p:DebugType=None -p:DebugSymbols=false
           -o publish
 
+      # 单文件压缩开着是 73MB 上下，关掉是 166MB。
+      # 体积掉到 50MB 以下说明 publish 出了别的问题，别把坏包发出去
+      - name: Verify output
+        shell: pwsh
+        run: |
+          $exe = Get-Item publish/Luckstrap.exe -ErrorAction SilentlyContinue
+          if (-not $exe) { throw "publish 目录里没有 Luckstrap.exe" }
+
+          $mb = [math]::Round($exe.Length / 1MB, 1)
+          Write-Host "Luckstrap.exe = $mb MB"
+          if ($mb -lt 50 -or $mb -gt 120) {
+            throw "exe 体积异常：$mb MB，检查 EnableCompressionInSingleFile 是否被改动"
+          }
+
+          $extra = Get-ChildItem publish -File | Where-Object { $_.Name -ne 'Luckstrap.exe' }
+          if ($extra) {
+            Write-Host "publish 目录里还有："
+            $extra | ForEach-Object { Write-Host ("  {0}  {1:N0} 字节" -f $_.Name, $_.Length) }
+          }
+
+      - name: Zip
+        shell: pwsh
+        run: Compress-Archive -Path publish/Luckstrap.exe -DestinationPath Luckstrap-win-x64.zip
+
       - uses: actions/upload-artifact@v4
         with:
           name: Luckstrap-win-x64
-          path: publish/*
+          path: |
+            publish/Luckstrap.exe
+            Luckstrap-win-x64.zip
           if-no-files-found: error
 
       # 客户端检查更新打的是 releases/latest，所以仓库里必须真的有 release
@@ -58,16 +91,18 @@ jobs:
           $repo = "${{ github.repository }}"
           $tag = "v${{ steps.ver.outputs.version }}"
           $exe = (Resolve-Path publish/Luckstrap.exe).Path
+          $zip = (Resolve-Path Luckstrap-win-x64.zip).Path
 
           $null = gh release view $tag --repo $repo 2>&1
           if ($LASTEXITCODE -eq 0) {
-            Write-Host "Release $tag already exists, replacing the exe"
-            gh release upload $tag $exe --clobber --repo $repo
+            Write-Host "Release $tag 已存在，覆盖 exe 与 zip"
+            gh release upload $tag $exe $zip --clobber --repo $repo
+            gh release edit $tag --repo $repo --notes-file RELEASE_NOTES.md
           } else {
-            Write-Host "Creating release $tag"
-            gh release create $tag $exe `
+            Write-Host "创建 release $tag"
+            gh release create $tag $exe $zip `
               --repo $repo `
               --title "Luckstrap $tag" `
-              --notes "自动构建 ${{ github.sha }}" `
+              --notes-file RELEASE_NOTES.md `
               --latest
           }
