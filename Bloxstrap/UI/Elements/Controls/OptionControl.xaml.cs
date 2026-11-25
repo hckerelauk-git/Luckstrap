@@ -76,7 +76,51 @@ namespace Bloxstrap.UI.Elements.Controls
 
             // XAML 里写 Header="..." 时，CardControl.Header 里的元素可能还没连上字段，
             // 回调里拿到的是 null。这里在加载完成后再补一次，保证文字一定出来
-            Loaded += (_, _) => ApplyContent();
+            Loaded += (_, _) =>
+            {
+                ApplyContent();
+                RefreshGroup();
+            };
+        }
+
+        /// <summary>
+        /// 同一段纵向排列的项接成一张卡。并排两列的项（父级是 Grid）保持独立。
+        /// 每次都把整段重算一遍，谁先加载都不会算错。
+        /// </summary>
+        void RefreshGroup()
+        {
+            if (Parent is not StackPanel panel)
+                return;
+
+            int index = panel.Children.IndexOf(this);
+
+            if (index < 0)
+                return;
+
+            int start = index;
+
+            while (start > 0 && panel.Children[start - 1] is OptionControl)
+                start--;
+
+            int end = index;
+
+            while (end < panel.Children.Count - 1 && panel.Children[end + 1] is OptionControl)
+                end++;
+
+            for (int i = start; i <= end; i++)
+            {
+                if (panel.Children[i] is not OptionControl item)
+                    continue;
+
+                bool isFirst = i == start;
+                bool isLast = i == end;
+
+                item.RootGrid.Margin = new Thickness(0, isFirst ? 8 : 0, 0, 0);
+                item.CardBorder.CornerRadius = new CornerRadius(
+                    isFirst ? 8 : 0, isFirst ? 8 : 0,
+                    isLast ? 8 : 0, isLast ? 8 : 0);
+                item.Divider.Visibility = isLast ? Visibility.Collapsed : Visibility.Visible;
+            }
         }
 
         void ApplyContent()

@@ -15,10 +15,12 @@
       但 Header 是属性元素，里面的 x:Name 不会被 XAML 连接，文字全是空的；
       改成全塞进 Content 之后，又被模板固定在最右边那个 Auto 列，文字被压到右侧。
       这里直接画一个和 CardControl 外观一致的 Border，左右布局自己排。
-      圆角 8、背景 ControlFillColorDefaultBrush、悬停 ControlFillColorSecondaryBrush，
-      内边距 16,13,16,12，跟 App.xaml 里 CardControl 的样式保持一致。
+
+      同一段纵向排列的项会自动接成一张卡：首项上圆角、末项下圆角、中间项方角，
+      相邻两项之间画一条 1px 分隔线。并排两列的项不合并，各自保持独立卡片。
     -->
-    <Border Margin="0,8,0,0" CornerRadius="8" Padding="16,13,16,12">
+    <Grid x:Name="RootGrid" Margin="0,8,0,0">
+    <Border x:Name="CardBorder" CornerRadius="8" Padding="16,13,16,12">
         <Border.Style>
             <Style TargetType="Border">
                 <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
@@ -89,4 +91,8 @@
                               Content="{Binding InnerContent, ElementName=Control}" />
         </Grid>
     </Border>
+
+        <Border x:Name="Divider" Height="1" VerticalAlignment="Bottom" Margin="16,0,16,0"
+                Background="{DynamicResource DividerStrokeColorDefaultBrush}" Visibility="Collapsed" />
+    </Grid>
 </UserControl>
