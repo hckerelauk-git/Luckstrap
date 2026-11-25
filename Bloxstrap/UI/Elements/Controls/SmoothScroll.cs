@@ -12,7 +12,7 @@ namespace Bloxstrap.UI.Elements.Controls
 {
     /// <summary>
     /// 滚轮平滑滚动。WPF 默认一次滚三行，设置页的行高一百多像素，一下就跳几百像素，看着发飘。
-    /// 这里换成固定步长加 160ms 插值，滚动距离稳定，也不会一次翻过去半页。
+    /// 这里换成固定步长加 110ms 插值，滚动距离稳定，也不会一次翻过去半页。
     /// </summary>
     public static class SmoothScroll
     {
@@ -20,8 +20,8 @@ namespace Bloxstrap.UI.Elements.Controls
             DependencyProperty.RegisterAttached("IsEnabled", typeof(bool), typeof(SmoothScroll),
                 new PropertyMetadata(false, OnIsEnabledChanged));
 
-        const double Step = 72;
-        const int DurationMs = 160;
+        const double Step = 120;
+        const int DurationMs = 110;
 
         static readonly Dictionary<ScrollViewer, DispatcherTimer> _timers = new();
 
