@@ -10,15 +10,42 @@
              mc:Ignorable="d" 
              x:Name="Control"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ui:CardControl Margin="0,8,0,0" Content="{Binding InnerContent, ElementName=Control}">
-        <ui:CardControl.Header>
-            <StackPanel>
-                <Grid>
+    <!--
+      原来用 CardControl 承载，标题走 Header、开关走 Content。
+      但 Header 是属性元素，里面的 x:Name 不会被 XAML 连接，文字全是空的；
+      改成全塞进 Content 之后，又被模板固定在最右边那个 Auto 列，文字被压到右侧。
+      这里直接画一个和 CardControl 外观一致的 Border，左右布局自己排。
+      圆角 8、背景 ControlFillColorDefaultBrush、悬停 ControlFillColorSecondaryBrush，
+      内边距 16,13,16,12，跟 App.xaml 里 CardControl 的样式保持一致。
+    -->
+    <Border Margin="0,8,0,0" CornerRadius="8" Padding="16,13,16,12">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,14,0">
+                <Grid HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" FontSize="14" Text="{Binding Header, ElementName=Control}" />
+
+                    <TextBlock x:Name="HeaderText" Grid.Column="0" FontSize="14" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+
                     <TextBlock Grid.Column="1" Margin="4,0,0,0">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
@@ -53,18 +80,13 @@
                         </Hyperlink>
                     </TextBlock>
                 </Grid>
-                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-                    <local:MarkdownTextBlock.Style>
-                        <Style TargetType="local:MarkdownTextBlock">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Description, ElementName=Control}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </local:MarkdownTextBlock.Style>
-                </local:MarkdownTextBlock>
+
+                <local:MarkdownTextBlock x:Name="DescriptionText" Margin="0,2,0,0" FontSize="12" TextWrapping="Wrap"
+                                         Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="Collapsed" />
             </StackPanel>
-        </ui:CardControl.Header>
-    </ui:CardControl>
+
+            <ContentPresenter Grid.Column="1" VerticalAlignment="Center"
+                              Content="{Binding InnerContent, ElementName=Control}" />
+        </Grid>
+    </Border>
 </UserControl>

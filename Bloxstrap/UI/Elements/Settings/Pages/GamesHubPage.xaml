@@ -5,12 +5,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="900"
       Title="GamesHubPage">
 
     <!-- 快速启动、收藏、快捷方式合成一页，左边导航不用堆一排 -->
-    <TabControl Margin="0,0,14,14" Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
+    <TabControl Margin="0,0,14,14" Background="Transparent" BorderThickness="0" BorderBrush="Transparent"
+                controls:TabSwitchAnimation.IsEnabled="True">
         <TabControl.Resources>
             <Style TargetType="TabItem">
                 <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
