@@ -121,18 +121,18 @@
     <value>Luckstrap 目前无法自动更新至 {0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Luckstrap。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox 当前正在运行中，打开另一个 Roblox 进程后将会关闭它。
+    <value>Roblox 正在运行，再启动一个会关掉当前的。
 
-您确定要继续启动吗？</value>
+继续？</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox 的服务器目前可能已经熟透了；请参阅 {0} 来了解更多信息。</value>
+    <value>Roblox 服务器可能出故障了。详情见 {0}。</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>目前无法建立网络连接，这可能表明网络连接不畅或被防火墙阻止；如果连接正常，请确保您的杀毒软件没有阻止 Luckstrap 访问 Internet。</value>
+    <value>无法建立网络连接，可能是网络不通或被防火墙拦截。连接正常的话，检查杀毒软件是否阻止 Luckstrap 访问网络。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>你必须先安装 Luckstrap 后才能卸载。(难不成你想卸载安装包？)</value>
+    <value>先安装 Luckstrap 才能卸载。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>当前所使用的磁盘空间不足以下载和安装 Roblox；请释放一些磁盘空间后再重试。</value>
@@ -177,12 +177,12 @@
     <value>Luckstrap 已成功卸载</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox 当前正在运行中，但在卸载 Luckstrap 之前必须将其关闭。
+    <value>Roblox 正在运行，卸载前要先关掉。
 
-您想现在关闭 Roblox 吗？</value>
+现在关闭？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox 需要使用 “Windows Media Foundation” 组件才能启动；您似乎缺少它们，可能是因为您使用的是 N 版本的 Windows；请先安装它们后再尝试重新启动 Roblox。</value>
+    <value>缺少「Windows Media Foundation」组件，Roblox 无法启动。N 版 Windows 默认不带这个组件，装上后重试。</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
     <value>添加单项</value>
@@ -246,7 +246,7 @@
     <value>关闭 Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>您确定要关闭 Roblox 吗？这将强制结束其进程。</value>
+    <value>关闭 Roblox？进程会被强制结束。</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>复制邀请链接</value>
@@ -397,8 +397,8 @@
     <value>Luckstrap 现已更新至 v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>您启动的 Luckstrap 版本与您当前已安装的版本并不一致。
-您是否要更新当前已安装的版本？</value>
+    <value>当前运行的 Luckstrap 与已安装的版本不一致。
+是否更新已安装的版本？</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>贡献者</value>
@@ -407,7 +407,7 @@
     <value>代码贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Luckstrap 是在 Bloxstrap 的基础上改出来的。上面这些人是那个底子的作者，界面、启动流程、FastFlags 这些原始代码都是他们写的。</value>
+    <value>Luckstrap 基于 Bloxstrap。界面、启动流程、FastFlags 的原始代码由上面这些人编写。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>特色功能贡献者</value>
@@ -416,7 +416,7 @@
     <value>特别鸣谢</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>新一代 Roblox 启动器。</value>
+    <value>Roblox 启动器的社区分支。</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord 服务器</value>
@@ -450,43 +450,43 @@
     <value>所有文件</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>请注意；在您关闭所有 Roblox 程序之前，并非所有更改都会立即生效。</value>
+    <value>关闭所有 Roblox 程序之前，部分改动不会生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
     <value>Luckstrap 已经在运行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>您可以自由更改此启动器的 UI 风格。例如复古；又或者跟原版 Roblox 的风格完全一样！</value>
+    <value>选择启动器界面的样式。</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>启动器</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>您可以在此处配置其他各种可定制的选项。</value>
+    <value>调整启动器外观的细节。</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
     <value>自定义</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>图标大小必须为 16 至 128 像素的 .ico 文件；将图标类型设置为 “自定义” 后方可投入使用。</value>
+    <value>需要 16 至 128 像素的 .ico 文件。图标类型选为「自定义」后生效。</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
     <value>自定义图标</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>此文本将作为启动器的标题显示。</value>
+    <value>显示在启动器标题栏的文字。</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
     <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>您可以在此处更改 Luckstrap 的部分 UI。</value>
+    <value>调整 Luckstrap 的界面外观。</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>全局主题</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>为 Luckstrap 选择一个图标。</value>
+    <value>选择 Luckstrap 的图标。</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
     <value>图标</value>
@@ -495,7 +495,7 @@
     <value>预览</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>选择主题外观；深色主题不适用于 “经典/Vista” 选项。</value>
+    <value>选择主题。深色主题对「经典/Vista」不生效。</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
     <value>样式</value>
@@ -504,23 +504,23 @@
     <value>个性化</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>当您启动 Roblox 时，Luckstrap 将会自动检查其本身并进行更新。</value>
+    <value>启动 Roblox 时检查并安装 Luckstrap 更新。</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>自动更新 Luckstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>防止因意外启动另外一个 Roblox 进程从而导致您当前正在进行的进程被关闭。</value>
+    <value>再次启动 Roblox 前先确认，避免关掉正在运行的进程。</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>在启动另一个 Roblox 进程时提示确认信息</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>您可以在此处配置 Luckstrap 在启动时应执行的操作。</value>
+    <value>设置启动 Roblox 时的行为。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>启用此选项后 Roblox 将会在下次启动时进行全新安装。
-（此选项将会在首次安装时强制启用；若完成安装此选项则会自动禁用）</value>
+    <value>下次启动 Roblox 时重新安装。
+首次安装时强制开启，安装完成后自动关闭。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>强制重新安装 Roblox</value>
@@ -545,41 +545,41 @@
     <value>请谨慎使用。</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>您尝试导入的某些 Flags 已经设置了属于它自己的值；您想用导入时定义的值覆盖它们当前所处的值吗？
+    <value>导入的 Flags 里有 {0} 个与现有定义冲突：
+{1}
 
-有 {0} 个 Flags 定义相互冲突：
-{1}</value>
+用导入的值覆盖？</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>删除所选内容</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>您可以在此处管理属于您自己独一无二的 Fast Flags；双击任意一列来进行编辑。</value>
+    <value>管理自己添加的 Fast Flags。双击任意一列编辑。</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>导出 JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>您输入的内容「{0}」无效；其内容只能包含字母、数字和下划线。</value>
+    <value>「{0}」无效，只能包含字母、数字和下划线。</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>您输入的 JSON 似乎无效；请仔细检查后并重试。
+    <value>JSON 格式无效。
 
-关于更多信息：
+详情：
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>您输入的内容「{0}」无效；其内容必须以 “FFlag”、“DFInt” 等开头才能生效。</value>
+    <value>「{0}」无效，必须以 FFlag、DFInt 这类前缀开头。</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
     <value>已复制到剪贴板。</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>您似乎正在导入过多的配置；通常来说，您应该只导入自己完全了解的配置，切勿盲目粘贴他人的配置。如果执意继续，很可能会出现稳定性问题；并发生意想不到的变化。
+    <value>导入的配置条目过多。只导入自己清楚作用的，不要直接粘贴别人的配置。
 
-您确定要继续吗？</value>
+继续？</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
     <value>搜索</value>
@@ -597,20 +597,18 @@
     <value>我知道我在做什么</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>你知道您在做什么吗？</value>
+    <value>请先确认了解这些设置</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flags 是专业且有用的，它们通常仅供 Roblox 工程师来使用；而不是非专业人士。虽然它们很有用，但手动配置它们可能会导致严重的稳定性和功能问题。如果你不知道这是干什么用的，那就最好别用 Fast Flags。
+    <value>Fast Flags 原本是给 Roblox 工程师用的。手动配置可能导致崩溃或功能异常。
 
-因此，在你不知道相关知识之前，请不要导入其他人制作的 Fast Flags；例如提高游戏性能或类似功能的 Fast Flags 配置，它们会让你徒增烦恼。如果你正打算这么干的话，就此打住吧。
-
-（注：Fast Flags 是这样的，Roblox 只需要随时更新就可以了；而你要考虑的可就多了。）</value>
+不清楚作用就别用。不要导入来源不明的配置，尤其是号称提升性能的那些。</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>您可以在此处配置 Roblox 引擎的特定参数和功能。</value>
+    <value>调整 Roblox 引擎参数。</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>您可以在此处管理属于您自己独一无二的 Fast Flags；请谨慎使用它们。</value>
+    <value>管理自己添加的 Fast Flags。</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
@@ -624,26 +622,26 @@
     <value>首选 Esc 菜单版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox 会根据 Windows 的显示缩放比例来调整渲染质量；启用此选项将禁用此功能。</value>
+    <value>关闭 Roblox 按 Windows 缩放比例调整渲染质量的行为。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>不根据显示缩放比例改变其渲染质量</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>设置为 “0” (默认值) 以使用 Roblox 自带的帧率解锁器。</value>
+    <value>设为 0 使用 Roblox 自带的帧率解锁。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>帧率上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>使用 [键盘快捷键]({0}) 来切换；只有当您在加入 [Luckstrap 群组]({1}) 后才会生效。</value>
+    <value>用[快捷键]({0})切换。需要加入 [Luckstrap 群组]({1}) 才生效。</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>启用 隐藏/显示 GUI 的功能</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>选择的项目将会在所有游戏内应用。
-[请注意，此选项可能会导致一些出乎意料的光照问题！]({0})</value>
+    <value>对所有游戏生效。
+[可能导致光照异常]({0})。</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
     <value>首选光照技术</value>
@@ -661,29 +659,29 @@
     <value>图标文件</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Luckstrap 无法在此处安装；请选择在其他位置安装，或点击 “重置” 按钮来使用其默认安装路径。</value>
+    <value>无法安装到此位置。换一个位置，或点「重置」用默认路径。</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>您选择安装 Luckstrap 的文件夹已经存在且不为空文件夹；强烈建议将 Luckstrap 安装到其自己的独立文件夹中。
+    <value>该文件夹已存在且不为空。建议装到单独的文件夹。
 
-建议更改为以下位置：
+建议路径：
 「{0}」
 
-是否更改为建议的位置？
-选择 “否” 将忽略此警告并继续安装。</value>
+改用建议路径？
+选「否」将忽略提示继续安装。</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>您必须选择一个安装位置</value>
+    <value>必须选择安装位置</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Luckstrap 对您当前选择的安装路径没有写入权限；请选择其他可用的位置。</value>
+    <value>对所选路径没有写入权限，换一个位置。</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>游戏跟踪</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>启用此选项将会允许任何人通过您的 Discord 个人资料来加入您当前所在的游戏。</value>
+    <value>允许他人通过 Discord 资料加入你所在的游戏。</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>允许外部方式加入游戏</value>
@@ -695,7 +693,7 @@
     <value>接管浏览器启动链接</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>启用此选项将会在您的 Discord 个人资料上显示您当前正在使用的 Roblox 帐户。</value>
+    <value>在 Discord 资料上显示当前 Roblox 账号。</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
     <value>显示 Roblox 帐户</value>
@@ -707,13 +705,13 @@
     <value>当 Roblox 关闭时自动关闭其进程</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>在此处，您可以让其他程序与 Roblox 一起启动。</value>
+    <value>让其他程序随 Roblox 一起启动。</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
     <value>启动参数</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox 当前正在运行中！</value>
+    <value>Roblox 正在运行</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>新附属程序</value>
@@ -725,17 +723,17 @@
     <value>自定义附属程序</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>您可以在此处配置 Roblox 的附属功能。</value>
+    <value>设置随 Roblox 一起运行的功能。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>当你离开游戏时，Roblox 将会完全关闭；而不是让您退回到主界面。
-[将会损坏某些功能！]({0})</value>
+    <value>退出游戏时直接关闭 Roblox，不回到主界面。
+[会影响部分功能]({0})。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>禁止 Roblox 在离开游戏时退回到主界面</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>启用此选项将会允许 Luckstrap 检测您当前玩的 Roblox 游戏；某些功能可能需要这项功能打开。</value>
+    <value>让 Luckstrap 识别正在玩的游戏。部分功能依赖它。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>启用游戏跟踪</value>
@@ -744,7 +742,7 @@
     <value>此功能需要启用 “启用游戏跟踪” 选项；并且 Discord 桌面应用程序也需要安装到你的电脑上并运行。[了解更多]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>启用此选项将会使您正在游玩的 Roblox 游戏显示在您的 Discord 个人资料上。[不起作用？]({0})</value>
+    <value>在 Discord 资料上显示正在玩的游戏。[不起作用？]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>显示游戏活动</value>
@@ -759,7 +757,7 @@
     <value>附属功能</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>您可以在此处管理其模组的文件并将其应用到 Roblox 游戏客户端。</value>
+    <value>管理应用到 Roblox 的模组文件。</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
     <value>查阅关于如何管理和创建模组的指南。</value>
@@ -769,10 +767,10 @@
     <value>选择字体文件...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>字体大小可在 “FFlags” 选项卡中进行调整。</value>
+    <value>字号在 FFlags 页调整。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>您当前选择的文件似乎不是有效的字体文件。</value>
+    <value>所选文件不是有效的字体文件。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
     <value>移除已应用的字体</value>
@@ -781,37 +779,37 @@
     <value>使用自定义字体</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>您可以在此处自定义 Roblox 的模组。</value>
+    <value>打开存放模组的文件夹。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>打开模组文件夹</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>选择要应用到 Roblox 的表情符号类型。</value>
+    <value>选择 Roblox 使用的表情符号样式。</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
     <value>首选表情符号类型</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>在两种经典的 Roblox 指针样式之间进行选择。</value>
+    <value>在两种经典指针样式中选择。</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
     <value>鼠标指针</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>启用此选项将会恢复 2020 年之前 Roblox 应用程序中使用的旧版 虚拟形象 (Avatar) 编辑器背景。</value>
+    <value>恢复 2020 年前的虚拟形象编辑器背景。</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
     <value>使用旧的 虚拟形象 (Avatar) 编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>启用此选项后；Luckstrap 将会试图大致还原 2014 年之前使用的 Roblox 人物音效。</value>
+    <value>还原 2014 年前的人物音效。</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>模拟旧的 Roblox 人物音效</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>启用此选项将会把 Roblox 当前的死亡音效还原为旧版的死亡音效。“Oof!”</value>
+    <value>把死亡音效换回旧版的「Oof!」。</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
     <value>使用旧的 Roblox 死亡音效</value>
@@ -829,7 +827,7 @@
     <value>更改将会在下次启动 Roblox 时生效。</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>设置已保存！</value>
+    <value>设置已保存</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
     <value>Luckstrap 设置</value>
@@ -844,13 +842,13 @@
     <value>语言</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>您需要重启 Luckstrap 才能使更改生效。</value>
+    <value>重启 Luckstrap 后生效。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>允许使用 Roblox 官方不支持的语言</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>启用此选项后必须从 Roblox 网页端 启动游戏才能生效。</value>
+    <value>需要从 Roblox 网页端启动游戏才生效。</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + 最新 UI)</value>
@@ -865,7 +863,7 @@
     <value>允许 Luckstrap 管理 Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>禁用此选项将会阻止在此配置的任何内容应用于 Roblox。</value>
+    <value>关闭后这里的配置不会应用到 Roblox。</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>抗锯齿等级 (MSAA)</value>
@@ -877,7 +875,7 @@
     <value>禁用全屏标题栏</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>启用此选项将会使鼠标指针移至顶部时 Roblox 自带的标题栏不再会显示。</value>
+    <value>鼠标移到顶部时不显示 Roblox 标题栏。</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>材质质量</value>
@@ -901,7 +899,7 @@
     <value>字体大小</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>默认数值为 “1”；如果您使用自定义字体，请进行调整以获取最佳适配性。</value>
+    <value>默认 1。换自定义字体后按需要调整。</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
     <value>禁用地形材质</value>
@@ -921,11 +919,11 @@
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>您输入的内容「{0}」无效；其内容只能为布尔值。(“True” 或 “False”)</value>
+    <value>「{0}」无效，只能填 True 或 False。</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>您输入的内容「{0}」无效；其内容只能为数字才能生效。</value>
+    <value>「{0}」无效，只能填数字。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>由于 Luckstrap 无法写入位于「{0}」的文件夹，本次启动将不会生成日志文件</value>
@@ -940,7 +938,7 @@
     <value>系统默认</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>您输入的内容「{0}」无效；因为游戏过滤器的格式不正确。</value>
+    <value>「{0}」无效，游戏过滤器格式不对。</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Luckstrap 安装程序</value>
@@ -962,30 +960,29 @@
     <value>下一步</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>感谢您下载 Luckstrap。
+    <value>Luckstrap 的官方网站只有 {0} 和 {1}，请从这两个地址下载。
 
-! 获取 Luckstrap 的 唯一 官方网站 是 {0} 和 {1}；因此请确保启动器是从 官方渠道 获取的 !
-（注：一般只有使用真正意义上的 注入器 作弊才会导致封号 (Luckstrap 只是在 外部 修改 并未在游戏内修改任何内容)）
+Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般是用了注入类作弊工具。
 
-安装过程简单明了；安装完成后，您将可以对 Luckstrap 的任何设置进行配置。</value>
+安装完成后可以在设置里调整所有选项。</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>请点击 “下一步” 以继续。</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>您正在尝试安装 Luckstrap v{0}；目前最新版本是 Luckstrap v{1}。
-您想下载最新版本吗？</value>
+    <value>当前是 v{0}，最新版本是 v{1}。
+要下载最新版吗？</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>选择安装位置</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox 本体也将安装至此路径。
-如果您有分类整理电脑的习惯，请更改此项；否则，建议您保持原样。</value>
+    <value>Roblox 也会装到这个路径。
+不需要分类整理就保持默认。</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>发现数据残留；您的模组和设置将被恢复。</value>
+    <value>检测到旧数据，模组和设置会恢复。</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
     <value>快捷方式</value>
@@ -997,46 +994,43 @@
     <value>“开始”菜单图标</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Luckstrap 目前已成功安装到你的电脑上。
+    <value>Luckstrap 已安装。Roblox 会在第一次用 Luckstrap 启动时安装。
 
-但是 Roblox 尚未安装；这将会在您首次使用 Luckstrap 启动 Roblox 时发生。
-不过，在此之前；您可能会想先调整 Luckstrap 的设置。
+不要用官方的「Roblox Player」快捷方式启动，Luckstrap 不会跟着启动。
+从网页端点 Play 时如果没出现 Luckstrap，先用 Luckstrap 启动一次即可。
 
-此外，请避免 使用默认 Roblox 启动器 “Roblox Player” 快捷方式 来启动 Roblox；因为 Luckstrap 不会与 Roblox 一起启动。
-如果您尝试从 网页端 启动 Roblox 时并未显示 Luckstrap，只需用 Luckstrap 启动一次 Roblox 即可解决。
-
-您想要做什么？</value>
+接下来要做什么？</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
     <value>更改 Luckstrap 的设置</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>利用启动器提供的所有功能进行调整。</value>
+    <value>打开设置，按需调整。</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
     <value>安装并启动 Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>一切就绪后，您将会跳转到 Roblox 桌面客户端。</value>
+    <value>安装完成后进入 Roblox。</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>卸载 Luckstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>卸载后，Luckstrap 将会从系统中移除；并自动重新配置 Roblox 原版启动器。
+    <value>卸载会把 Luckstrap 从系统中移除，并恢复 Roblox 原版启动器。
 
-如果您卸载重装的原因是 Roblox 的问题，请先阅读 [此帮助页]({0})。
+如果是因为 Roblox 出问题才卸载重装，先看[这个帮助页]({0})。
 
-卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Luckstrap 时残留的文件。
+卸载不会清理全部残留文件，可能需要手动删除。
 
-Luckstrap 的安装路径是：
+安装路径：
 「{1}」</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的 Luckstrap 设置 和 Roblox 模组 (Mods)</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>它们将会保存在 Luckstrap 安装的位置；重新安装时则会自动恢复。</value>
+    <value>保存在 Luckstrap 安装目录，重新安装时自动恢复。</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>卸载</value>
@@ -1051,11 +1045,11 @@ Luckstrap 的安装路径是：
     <value>出现问题？</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>查阅 Wiki 以获取帮助。</value>
+    <value>查看 Wiki 获取帮助。</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>您目前尚未安装 “WebView2 Runtime”。没有它，某些 Roblox 功能将无法正常运行；例如 Roblox 桌面客户端。
-您想现在下载它吗？</value>
+    <value>没有安装「WebView2 Runtime」，Roblox 桌面客户端等部分功能无法运行。
+现在下载？</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>Luckstrap 目前无法在 桌面 和 “开始”菜单 创建快捷方式；请尝试稍后通过设置手动创建快捷方式。</value>
@@ -1076,13 +1070,13 @@ Luckstrap 的安装路径是：
     <value>通用类</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>这些是调出 “多选启动菜单” 的快捷方式。</value>
+    <value>打开多选启动菜单的快捷方式。</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
     <value>功能类</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>您可以在此处创建快速访问特定功能的快捷方式；它们将会放置在桌面上。</value>
+    <value>在桌面创建功能快捷方式。</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
     <value>已加入私人服务器</value>
@@ -1110,12 +1104,12 @@ Luckstrap 的安装路径是：
     <value>翻译贡献者</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>您有未保存的更改；您确定要在不保存的情况下关闭吗？</value>
+    <value>有未保存的更改，直接关闭？</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>您启动的 Luckstrap 版本早于您当前安装的版本。
-可能会出现问题，您的设置也可能被更改；建议重新安装。
-您确定要继续吗？</value>
+    <value>当前运行的 Luckstrap 早于已安装的版本。
+可能出现问题，设置也可能被改动，建议重新安装。
+确定要继续吗？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox 启动失败。</value>
@@ -1130,7 +1124,7 @@ Luckstrap 的安装路径是：
 如果不能，则这不是 Luckstrap 的问题；如果可以，那么请参阅帮助文章以获取详细信息。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>由于网络错误，数据无法加载。</value>
+    <value>网络错误，数据未能加载。</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
     <value>正在加载，请稍后...</value>
@@ -1139,29 +1133,28 @@ Luckstrap 的安装路径是：
     <value>赞助者</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>这些目前是通过 Ko-fi 来支持 Luckstrap 的赞助者；在此衷心感谢协助 Luckstrap 发展的赞助者们！
-（在此处的每一个人都按其总认捐额来排名）</value>
+    <value>通过 Ko-fi 支持 Luckstrap 的人，按累计金额排序。</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>由于无法加载您的设置；因此它们已被重置为默认值。</value>
+    <value>设置无法加载，已重置为默认值。</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>由于您配置的 Fast Flags 无法被加载；因此它们已被重置为默认值。</value>
+    <value>Fast Flags 配置无法加载，已重置为默认值。</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
     <value>最近玩过</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>再进这个服</value>
+    <value>重新加入</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>由于加载游戏信息时发生错误；您当前的游戏状态将不会在您的 Discord 活动状态 上显示。</value>
+    <value>加载游戏信息失败，Discord 活动状态不会更新。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
     <value>进过的服务器，最多 50 条，重启后保留。</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>可能由于您加入游戏的频次太频繁了；因此无法获取到您当前所处服务器的具体地点。</value>
+    <value>加入游戏的频率过高，取不到当前服务器的位置。</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
     <value>请稍后再试。</value>
@@ -1184,13 +1177,13 @@ Luckstrap 的安装路径是：
     <value>管理兼容性设置</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>您可以在此处配置应用程序参数；例如 “DPI 缩放行为”，以及 “[全屏优化]({0})”。</value>
+    <value>调整 DPI 缩放行为和[全屏优化]({0})。</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox 尚未安装；在尝试使用此选项之前，请至少使用 Luckstrap 启动一次 Roblox。</value>
+    <value>Roblox 尚未安装。先用 Luckstrap 启动一次 Roblox。</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>您确定要取消安装吗？</value>
+    <value>确定取消安装？</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
     <value>无法保存 {0}: {1}</value>
@@ -1219,13 +1212,13 @@ Luckstrap 的安装路径是：
     <value>单次捐赠者</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>您可以在此处配置 Luckstrap 本身行为相关的选项。</value>
+    <value>设置 Luckstrap 自身的行为。</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>允许发送分析数据</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>Luckstrap 承诺所有收集的数据都是匿名无害的。若要了解我们为什么而收集；请参阅我们的 [隐私政策]({0})。</value>
+    <value>收集的数据不含个人信息。详见 [隐私政策]({0})。</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>分析数据</value>
@@ -1241,16 +1234,12 @@ Luckstrap 的安装路径是：
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>“测试模式” 是一种可以更方便地反复测试 Luckstrap 特定设置对 Roblox 造成影响的功能。
-（例如微调 设置/FFlags 后可以更方便地调试具体参数对 Roblox 造成的影响）
+    <value>测试模式在关闭设置后自动启动 Roblox，关闭 Roblox 后重新打开设置，方便反复调试设置和 FFlags 的效果。
 
-启用后，它将会在每次关闭设置后自动启动 Roblox；而关闭 Roblox 则会重新打开设置。
-如此循环，直到您禁用为止。
-
-您想启用 “测试模式” 吗？</value>
+启用测试模式？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Luckstrap 的所有翻译都是由 [Crowdin]({0}) 来众包；在此处列出的每一个人都是慷慨地自愿贡献自己的时间和精力来帮助 本地化 Luckstrap 的人。因此向每一个人的贡献表示衷心的感谢！</value>
+    <value>通过 [Crowdin]({0}) 参与本地化的志愿者。</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>安装</value>
@@ -1287,7 +1276,7 @@ Luckstrap 的安装路径是：
     <value>导出诊断数据</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>此功能将会收集可上传至网络的信息，以便排查您当前遇到的问题。</value>
+    <value>打包日志和设置，用于排查问题。</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Luckstrap 设置</value>
@@ -1419,7 +1408,7 @@ Luckstrap 的安装路径是：
     <value>正在编辑「{0}」</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
-    <value>主题保存成功！</value>
+    <value>主题已保存</value>
   </data>
   <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
     <value>保存主题时发生错误。</value>
@@ -1499,13 +1488,13 @@ Luckstrap 的安装路径是：
     <value>后台更新</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>无需等待即可在后台更新 Roblox；不推荐在网速较慢的情况下使用。此功能需要至少 3GB 的可用存储空间。</value>
+    <value>在后台下载 Roblox 更新。需要至少 3GB 可用空间。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>在此放置 UI 元素</value>
   </data>
   <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
-    <value>您可在 {0} 找到自定义启动器示例</value>
+    <value>自定义启动器示例见 {0}</value>
   </data>
   <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
     <value>访问 {0} 探索更多自定义启动器示例</value>
@@ -1521,7 +1510,7 @@ Luckstrap 的安装路径是：
     <value>允许同时运行多个 Roblox 游戏客户端进程。</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>您的主题已保存！</value>
+    <value>主题已保存</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>无法预览主题：{0}</value>
