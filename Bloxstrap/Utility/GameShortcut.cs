@@ -24,7 +24,9 @@ namespace Bloxstrap.Utility
             foreach (char c in Path.GetInvalidFileNameChars())
                 name = name.Replace(c, '_');
 
-            return name.Trim();
+            name = name.Trim();
+
+            return String.IsNullOrEmpty(name) ? "shortcut" : name;
         }
 
         /// <summary>
@@ -60,7 +62,20 @@ namespace Bloxstrap.Utility
                 byte[] image = await App.ImageHttpClient.GetByteArrayAsync(url);
 
                 Directory.CreateDirectory(IconFolder);
-                IconWriter.WriteSquare(image, path);
+
+                // 先写临时文件再换过去，中途失败不会留下半截 .ico 被当成缓存
+                string temp = path + ".tmp";
+
+                try
+                {
+                    IconWriter.WriteSquare(image, temp);
+                    File.Move(temp, path, true);
+                }
+                finally
+                {
+                    if (File.Exists(temp))
+                        File.Delete(temp);
+                }
 
                 return File.Exists(path) ? path : null;
             }
