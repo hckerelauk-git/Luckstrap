@@ -129,7 +129,8 @@ namespace Bloxstrap.Integrations
 
                 game.Name = details.Data.Name;
                 game.CreatorName = details.Data.Creator.Name;
-                game.ThumbnailUrl = details.Thumbnail.ImageUrl;            }
+                game.ThumbnailUrl = details.Thumbnail.ImageUrl;
+            }
             catch (Exception ex)
             {
                 // 网络挂了不该让添加收藏失败，先把 placeId 存下来，名字之后再补

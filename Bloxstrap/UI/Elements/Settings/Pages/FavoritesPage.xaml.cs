@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models.Entities;
+using Bloxstrap.Utility;
 using Wpf.Ui.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
@@ -128,6 +129,43 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 App.Logger.WriteLine("FavoritesPage::OnLaunch", "Failed to launch");
                 App.Logger.WriteException("FavoritesPage::OnLaunch", ex);
                 ShowStatus(Strings.Dlg_086, ex.Message, InfoBarSeverity.Error);
+            }
+        }
+
+        private async void OnAddShortcut(object sender, RoutedEventArgs e)
+        {
+            if ((sender as FrameworkElement)?.Tag is not FavoriteGame game)
+                return;
+
+            if (sender is not Wpf.Ui.Controls.Button button || !button.IsEnabled)
+                return;
+
+            string name = String.IsNullOrWhiteSpace(game.Name) ? $"PlaceId {game.PlaceId}" : game.Name;
+
+            string link = String.IsNullOrEmpty(game.AccessCode)
+                ? $"roblox://experiences/start?placeId={game.PlaceId}"
+                : $"roblox://experiences/start?placeId={game.PlaceId}&accessCode={game.AccessCode}";
+
+            button.IsEnabled = false;
+            ShowStatus(Strings.Shortcut_Creating, name, InfoBarSeverity.Informational);
+
+            try
+            {
+                string? icon = await GameShortcut.GetIconAsync(game.PlaceId, game.ThumbnailUrl);
+
+                GameShortcut.Create(name, link, new[] { Paths.Desktop }, icon);
+
+                ShowStatus(Strings.Dlg_092, $"{GameShortcut.SanitizeName(name)}.lnk", InfoBarSeverity.Success);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("FavoritesPage::OnAddShortcut", "Failed to create shortcut");
+                App.Logger.WriteException("FavoritesPage::OnAddShortcut", ex);
+                ShowStatus(Strings.Dlg_091, ex.Message, InfoBarSeverity.Error);
+            }
+            finally
+            {
+                button.IsEnabled = true;
             }
         }
 

@@ -106,6 +106,16 @@
                                                Tag="{Binding}"
                                                Click="OnRemove" />
                                 </Grid>
+
+                                <ui:Button Margin="0,6,0,0"
+                                           Content="{x:Static resources:Strings.Shortcut_AddToShortcut}"
+                                           Icon="Add16"
+                                           Padding="8,4"
+                                           FontSize="12"
+                                           HorizontalAlignment="Stretch"
+                                           HorizontalContentAlignment="Center"
+                                           Tag="{Binding}"
+                                           Click="OnAddShortcut" />
                             </StackPanel>
                         </StackPanel>
                     </Border>

@@ -2496,4 +2496,10 @@ If the game needs one of them later, the client downloads it again.</value>
   <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
     <value>Disables post effects. Shadows and high texture quality are kept.</value>
   </data>
+  <data name="Shortcut_AddToShortcut" xml:space="preserve">
+    <value>Add to shortcut</value>
+  </data>
+  <data name="Shortcut_Creating" xml:space="preserve">
+    <value>Creating shortcut</value>
+  </data>
 </root>

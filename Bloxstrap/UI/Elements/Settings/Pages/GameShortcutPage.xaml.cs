@@ -15,10 +15,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class GameShortcutPage
     {
-        private const string ShortcutPrefix = "Luckstrap - ";
-
-        // 只用来兜底命名：用户没填名字的时候，从收藏里找这个游戏的名字
-        private readonly List<FavoriteGame> _favorites = FavoriteStore.Load();
+        private bool _creating = false;
 
         public GameShortcutPage()
         {
@@ -54,8 +51,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             JobIdBox.Text = game.JobId;
             AccessCodeBox.Text = game.AccessCode;
 
-            if (String.IsNullOrWhiteSpace(NameBox.Text))
-                NameBox.Text = game.Name;
+            // 换游戏就跟着换名字，不能只在输入框空着的时候才填
+            NameBox.Text = game.Name;
         }
 
         private string GetPlaceId()
@@ -93,91 +90,98 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (String.IsNullOrEmpty(name))
             {
-                var favorite = _favorites.FirstOrDefault(x => x.PlaceId.ToString() == placeId);
+                var favorite = FavoriteStore.Load().FirstOrDefault(x => x.PlaceId.ToString() == placeId);
                 name = favorite is not null && !String.IsNullOrEmpty(favorite.Name)
                     ? favorite.Name
                     : placeId;
             }
 
-            // 文件名里不能有这些字符，替换掉免得创建失败
-            foreach (char c in Path.GetInvalidFileNameChars())
-                name = name.Replace(c, '_');
-
-            return ShortcutPrefix + name;
+            return GameShortcut.SanitizeName(name);
         }
 
-        private List<string> GetShortcutPaths(string name)
+        private List<string> GetFolders()
         {
-            var paths = new List<string>();
+            var folders = new List<string>();
 
             if (DesktopCheck.IsChecked == true)
-                paths.Add(Path.Combine(Paths.Desktop, name + ".lnk"));
+                folders.Add(Paths.Desktop);
 
             if (StartMenuCheck.IsChecked == true)
-                paths.Add(Path.Combine(Paths.WindowsStartMenu, name + ".lnk"));
+                folders.Add(Paths.WindowsStartMenu);
 
-            return paths;
+            return folders;
         }
 
-        private bool TryCreateShortcuts(out string link, out string name)
+        private async Task<(bool Ok, string Link, string Name)> CreateShortcutsAsync()
         {
-            link = "";
-            name = "";
+            if (_creating)
+                return (false, "", "");
 
             string placeId = GetPlaceId();
 
             if (String.IsNullOrEmpty(placeId))
             {
                 ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
-                return false;
+                return (false, "", "");
             }
 
-            if (DesktopCheck.IsChecked != true && StartMenuCheck.IsChecked != true)
+            var folders = GetFolders();
+
+            if (folders.Count == 0)
             {
                 ShowStatus(Strings.Dlg_089, Strings.Dlg_090, InfoBarSeverity.Warning);
-                return false;
+                return (false, "", "");
             }
 
-            link = BuildLink(placeId);
-            name = GetShortcutName(placeId);
+            string link = BuildLink(placeId);
+            string name = GetShortcutName(placeId);
 
-            var paths = GetShortcutPaths(name);
+            _creating = true;
 
             try
             {
-                foreach (string path in paths)
-                {
-                    // 已经存在就先删，不然 Shortcut.Create 会直接跳过，改了服务器 ID 也不更新
-                    if (File.Exists(path))
-                        File.Delete(path);
+                ShowStatus(Strings.Shortcut_Creating, name, InfoBarSeverity.Informational);
 
-                    Shortcut.Create(Paths.Application, $"\"{link}\"", path);
-                }
+                long.TryParse(placeId, out long numericPlaceId);
 
-                App.Logger.WriteLine("GameShortcutPage::TryCreateShortcuts", $"Created {paths.Count} shortcut(s) for {link}");
-                return true;
+                // 拿不到图标就用启动器自己的，不能因为这个把创建流程卡住
+                string? icon = numericPlaceId > 0
+                    ? await GameShortcut.GetIconAsync(numericPlaceId)
+                    : null;
+
+                GameShortcut.Create(name, link, folders, icon);
+
+                return (true, link, name);
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine("GameShortcutPage::TryCreateShortcuts", "Failed to create shortcut");
-                App.Logger.WriteException("GameShortcutPage::TryCreateShortcuts", ex);
+                App.Logger.WriteLine("GameShortcutPage::CreateShortcutsAsync", "Failed to create shortcut");
+                App.Logger.WriteException("GameShortcutPage::CreateShortcutsAsync", ex);
 
                 ShowStatus(Strings.Dlg_091, ex.Message, InfoBarSeverity.Error);
-                return false;
+                return (false, link, name);
+            }
+            finally
+            {
+                _creating = false;
             }
         }
 
-        private void OnCreateOnly(object sender, RoutedEventArgs e)
+        private async void OnCreateOnly(object sender, RoutedEventArgs e)
         {
-            if (!TryCreateShortcuts(out string link, out string name))
+            var (ok, link, name) = await CreateShortcutsAsync();
+
+            if (!ok)
                 return;
 
             ShowStatus(Strings.Dlg_092, $"{name}.lnk\n{link}", InfoBarSeverity.Success);
         }
 
-        private void OnCreateAndLaunch(object sender, RoutedEventArgs e)
+        private async void OnCreateAndLaunch(object sender, RoutedEventArgs e)
         {
-            if (!TryCreateShortcuts(out string link, out string name))
+            var (ok, link, name) = await CreateShortcutsAsync();
+
+            if (!ok)
                 return;
 
             try
@@ -214,20 +218,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             string name = GetShortcutName(placeId);
             int deleted = 0;
 
-            foreach (string path in GetShortcutPaths(name))
+            try
             {
-                try
-                {
-                    if (!File.Exists(path))
-                        continue;
-
-                    File.Delete(path);
-                    deleted++;
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteException("GameShortcutPage::OnDelete", ex);
-                }
+                deleted = GameShortcut.Delete(name, new[] { Paths.Desktop, Paths.WindowsStartMenu }).Count;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("GameShortcutPage::OnDelete", ex);
             }
 
             if (deleted == 0)

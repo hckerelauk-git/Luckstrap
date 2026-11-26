@@ -4698,6 +4698,22 @@ namespace Bloxstrap.Resources {
             }
         }        
         /// <summary>
+        ///   Looks up a localized string similar to Add to shortcut.
+        /// </summary>
+        public static string Shortcut_AddToShortcut {
+            get {
+                return ResourceManager.GetString("Shortcut_AddToShortcut", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating shortcut.
+        /// </summary>
+        public static string Shortcut_Creating {
+            get {
+                return ResourceManager.GetString("Shortcut_Creating", resourceCulture);
+            }
+        }        
+        /// <summary>
         ///   Looks up a localized string similar to Create only.
         /// </summary>
         public static string Shortcut_CreateOnly {

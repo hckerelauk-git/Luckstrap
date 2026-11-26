@@ -407,7 +407,7 @@
     <value>代码贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Luckstrap 基于 Bloxstrap。界面、启动流程、FastFlags 的原始代码由上面这些人编写。</value>
+    <value>Luckstrap 基于 Bloxstrap。界面、启动流程、FastFlags 的原始代码由上面这些人编写</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>特色功能贡献者</value>
@@ -416,7 +416,7 @@
     <value>特别鸣谢</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>新一代 Roblox 启动器。</value>
+    <value>新一代 Roblox 启动器</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord 服务器</value>
@@ -456,37 +456,37 @@
     <value>Luckstrap 已经在运行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>选择启动器界面的样式。</value>
+    <value>选择启动器界面的样式</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>启动器</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>调整启动器外观的细节。</value>
+    <value>调整启动器外观的细节</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
     <value>自定义</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>需要 16 至 128 像素的 .ico 文件。图标类型选为「自定义」后生效。</value>
+    <value>需要 16 至 128 像素的 .ico 文件。图标类型选为「自定义」后生效</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
     <value>自定义图标</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>显示在启动器标题栏的文字。</value>
+    <value>显示在启动器标题栏的文字</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
     <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>调整 Luckstrap 的界面外观。</value>
+    <value>调整 Luckstrap 的界面外观</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>全局主题</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>选择 Luckstrap 的图标。</value>
+    <value>选择 Luckstrap 的图标</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
     <value>图标</value>
@@ -495,7 +495,7 @@
     <value>预览</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>选择主题。深色主题对「经典/Vista」不生效。</value>
+    <value>选择主题。深色主题对「经典/Vista」不生效</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
     <value>样式</value>
@@ -504,23 +504,23 @@
     <value>个性化</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>启动 Roblox 时检查并安装 Luckstrap 更新。</value>
+    <value>启动 Roblox 时检查并安装 Luckstrap 更新</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>自动更新 Luckstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>再次启动 Roblox 前先确认，避免关掉正在运行的进程。</value>
+    <value>再次启动 Roblox 前先确认，避免关掉正在运行的进程</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>在启动另一个 Roblox 进程时提示确认信息</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>设置启动 Roblox 时的行为。</value>
+    <value>设置启动 Roblox 时的行为</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>下次启动 Roblox 时重新安装。
-首次安装时强制开启，安装完成后自动关闭。</value>
+首次安装时强制开启，安装完成后自动关闭</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>强制重新安装 Roblox</value>
@@ -555,7 +555,7 @@
     <value>删除所选内容</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>管理自己添加的 Fast Flags。双击任意一列编辑。</value>
+    <value>管理自己添加的 Fast Flags。双击任意一列编辑</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>导出 JSON</value>
@@ -605,14 +605,14 @@
 不清楚作用就别用。不要导入来源不明的配置，尤其是号称提升性能的那些。</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>调整 Roblox 引擎参数。</value>
+    <value>调整 Roblox 引擎参数</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>管理自己添加的 Fast Flags。</value>
+    <value>管理自己添加的 Fast Flags</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>进一步了解 Fast Flags 的更多信息、这些预设值的作用以及如何使用它们。</value>
+    <value>进一步了解 Fast Flags 的更多信息、这些预设值的作用以及如何使用它们</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
@@ -622,26 +622,26 @@
     <value>首选 Esc 菜单版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>关闭 Roblox 按 Windows 缩放比例调整渲染质量的行为。</value>
+    <value>关闭 Roblox 按 Windows 缩放比例调整渲染质量的行为</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>不根据显示缩放比例改变其渲染质量</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>设为 0 使用 Roblox 自带的帧率解锁。</value>
+    <value>设为 0 使用 Roblox 自带的帧率解锁</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>帧率上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>用[快捷键]({0})切换。需要加入 [Luckstrap 群组]({1}) 才生效。</value>
+    <value>用[快捷键]({0})切换。需要加入 [Luckstrap 群组]({1}) 才生效</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>启用 隐藏/显示 GUI 的功能</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
     <value>对所有游戏生效。
-[可能导致光照异常]({0})。</value>
+[可能导致光照异常]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
     <value>首选光照技术</value>
@@ -681,19 +681,19 @@
     <value>游戏跟踪</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>允许他人通过 Discord 资料加入你所在的游戏。</value>
+    <value>允许他人通过 Discord 资料加入你所在的游戏</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>允许外部方式加入游戏</value>
   </data>
   <data name="Menu.Integrations.BrowserLaunch.Description" xml:space="preserve">
-    <value>网页上点 Play 时由 Luckstrap 接管。关闭后交回官方启动器，FastFlags 与模组不生效。</value>
+    <value>网页上点 Play 时由 Luckstrap 接管。关闭后交回官方启动器，FastFlags 与模组不生效</value>
   </data>
   <data name="Menu.Integrations.BrowserLaunch.Title" xml:space="preserve">
     <value>接管浏览器启动链接</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>在 Discord 资料上显示当前 Roblox 账号。</value>
+    <value>在 Discord 资料上显示当前 Roblox 账号</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
     <value>显示 Roblox 帐户</value>
@@ -705,7 +705,7 @@
     <value>当 Roblox 关闭时自动关闭其进程</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>让其他程序随 Roblox 一起启动。</value>
+    <value>让其他程序随 Roblox 一起启动</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
     <value>启动参数</value>
@@ -723,17 +723,17 @@
     <value>自定义附属程序</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>设置随 Roblox 一起运行的功能。</value>
+    <value>设置随 Roblox 一起运行的功能</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
     <value>退出游戏时直接关闭 Roblox，不回到主界面。
-[会影响部分功能]({0})。</value>
+[会影响部分功能]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>禁止 Roblox 在离开游戏时退回到主界面</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>让 Luckstrap 识别正在玩的游戏。部分功能依赖它。</value>
+    <value>让 Luckstrap 识别正在玩的游戏。部分功能依赖它</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>启用游戏跟踪</value>
@@ -748,7 +748,7 @@
     <value>显示游戏活动</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>加入游戏时显示服务器所在机房。</value>
+    <value>加入游戏时显示服务器所在机房</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>允许接收服务器具体信息通知</value>
@@ -757,17 +757,17 @@
     <value>附属功能</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>管理应用到 Roblox 的模组文件。</value>
+    <value>管理应用到 Roblox 的模组文件</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>查阅关于如何管理和创建模组的指南。</value>
+    <value>查阅关于如何管理和创建模组的指南</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>选择字体文件...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>字号在 FFlags 页调整。</value>
+    <value>字号在 FFlags 页调整</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>所选文件不是有效的字体文件。</value>
@@ -779,37 +779,37 @@
     <value>使用自定义字体</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>打开存放模组的文件夹。</value>
+    <value>打开存放模组的文件夹</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>打开模组文件夹</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>选择 Roblox 使用的表情符号样式。</value>
+    <value>选择 Roblox 使用的表情符号样式</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
     <value>首选表情符号类型</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>在两种经典指针样式中选择。</value>
+    <value>在两种经典指针样式中选择</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
     <value>鼠标指针</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>恢复 2020 年前的虚拟形象编辑器背景。</value>
+    <value>恢复 2020 年前的虚拟形象编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
     <value>使用旧的 虚拟形象 (Avatar) 编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>还原 2014 年前的人物音效。</value>
+    <value>还原 2014 年前的人物音效</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>模拟旧的 Roblox 人物音效</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>把死亡音效换回旧版的「Oof!」。</value>
+    <value>把死亡音效换回旧版的「Oof!」</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
     <value>使用旧的 Roblox 死亡音效</value>
@@ -842,13 +842,13 @@
     <value>语言</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>重启 Luckstrap 后生效。</value>
+    <value>重启 Luckstrap 后生效</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>允许使用 Roblox 官方不支持的语言</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>需要从 Roblox 网页端启动游戏才生效。</value>
+    <value>需要从 Roblox 网页端启动游戏才生效</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + 最新 UI)</value>
@@ -863,7 +863,7 @@
     <value>允许 Luckstrap 管理 Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>关闭后这里的配置不会应用到 Roblox。</value>
+    <value>关闭后这里的配置不会应用到 Roblox</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>抗锯齿等级 (MSAA)</value>
@@ -875,7 +875,7 @@
     <value>禁用全屏标题栏</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>鼠标移到顶部时不显示 Roblox 标题栏。</value>
+    <value>鼠标移到顶部时不显示 Roblox 标题栏</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>材质质量</value>
@@ -899,7 +899,7 @@
     <value>字体大小</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>默认 1。换自定义字体后按需要调整。</value>
+    <value>默认 1。换自定义字体后按需要调整</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
     <value>禁用地形材质</value>
@@ -1005,13 +1005,13 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>更改 Luckstrap 的设置</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>打开设置，按需调整。</value>
+    <value>打开设置，按需调整</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
     <value>安装并启动 Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>安装完成后进入 Roblox。</value>
+    <value>安装完成后进入 Roblox</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>卸载 Luckstrap</value>
@@ -1030,7 +1030,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>保留我的 Luckstrap 设置 和 Roblox 模组 (Mods)</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>保存在 Luckstrap 安装目录，重新安装时自动恢复。</value>
+    <value>保存在 Luckstrap 安装目录，重新安装时自动恢复</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>卸载</value>
@@ -1045,7 +1045,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>出现问题？</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>查看 Wiki 获取帮助。</value>
+    <value>查看 Wiki 获取帮助</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
     <value>没有安装「WebView2 Runtime」，Roblox 桌面客户端等部分功能无法运行。
@@ -1061,22 +1061,22 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>这些是调出 “多选启动菜单” 的通用快捷方式；稍后可以在设置中创建特定功能的快捷方式。</value>
+    <value>这些是调出 “多选启动菜单” 的通用快捷方式；稍后可以在设置中创建特定功能的快捷方式</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>配置 Luckstrap 的快捷方式。</value>
+    <value>配置 Luckstrap 的快捷方式</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>通用类</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>打开多选启动菜单的快捷方式。</value>
+    <value>打开多选启动菜单的快捷方式</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
     <value>功能类</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>在桌面创建功能快捷方式。</value>
+    <value>在桌面创建功能快捷方式</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
     <value>已加入私人服务器</value>
@@ -1133,7 +1133,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>赞助者</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>通过 Ko-fi 支持 Luckstrap 的人，按累计金额排序。</value>
+    <value>通过 Ko-fi 支持 Luckstrap 的人，按累计金额排序</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>设置无法加载，已重置为默认值。</value>
@@ -1151,7 +1151,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>加载游戏信息失败，Discord 活动状态不会更新。</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>进过的服务器，最多 50 条，重启后保留。</value>
+    <value>进过的服务器，最多 50 条，重启后保留</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>加入游戏的频率过高，取不到当前服务器的位置。</value>
@@ -1177,7 +1177,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>管理兼容性设置</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>调整 DPI 缩放行为和[全屏优化]({0})。</value>
+    <value>调整 DPI 缩放行为和[全屏优化]({0})</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
     <value>Roblox 尚未安装。先用 Luckstrap 启动一次 Roblox。</value>
@@ -1212,13 +1212,13 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>单次捐赠者</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>设置 Luckstrap 自身的行为。</value>
+    <value>设置 Luckstrap 自身的行为</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>允许发送分析数据</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>收集的数据不含个人信息。详见 [隐私政策]({0})。</value>
+    <value>收集的数据不含个人信息。详见 [隐私政策]({0})</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>分析数据</value>
@@ -1239,7 +1239,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
 启用测试模式？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>通过 [Crowdin]({0}) 参与本地化的志愿者。</value>
+    <value>通过 [Crowdin]({0}) 参与本地化的志愿者</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>安装</value>
@@ -1276,7 +1276,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>导出诊断数据</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>打包日志和设置，用于排查问题。</value>
+    <value>打包日志和设置，用于排查问题</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Luckstrap 设置</value>
@@ -1488,7 +1488,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>后台更新</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>在后台下载 Roblox 更新。需要至少 3GB 可用空间。</value>
+    <value>在后台下载 Roblox 更新。需要至少 3GB 可用空间</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>在此放置 UI 元素</value>
@@ -1507,7 +1507,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>允许游戏多开 (多开器)</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>允许同时运行多个 Roblox 游戏客户端进程。</value>
+    <value>允许同时运行多个 Roblox 游戏客户端进程</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>主题已保存</value>
@@ -1537,7 +1537,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>工具</value>
   </data>
   <data name="Accounts_Help" xml:space="preserve">
-    <value>在游戏内登录后存入当前账号。切换后下次启动生效。同一时间只登录一个账号。</value>
+    <value>在游戏内登录后存入当前账号。切换后下次启动生效。同一时间只登录一个账号</value>
   </data>
   <data name="Accounts_SaveCurrent" xml:space="preserve">
     <value>存入当前账号</value>
@@ -1573,7 +1573,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>仅本地显示，不影响游戏内名称。</value>
   </data>
   <data name="FFProfiles_Help" xml:space="preserve">
-    <value>把整套 FastFlags 存成一份方案，可随时切换。「应用」会覆盖当前的 ClientAppSettings.json。</value>
+    <value>把整套 FastFlags 存成一份方案，可随时切换。「应用」会覆盖当前的 ClientAppSettings.json</value>
   </data>
   <data name="FFProfiles_New" xml:space="preserve">
     <value>新建空白方案</value>
@@ -1618,7 +1618,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>收藏游戏</value>
   </data>
   <data name="Favorites_Help" xml:space="preserve">
-    <value>收藏的游戏显示在这里，点击直接启动。</value>
+    <value>收藏的游戏显示在这里，点击直接启动</value>
   </data>
   <data name="Common_PickFromRecent" xml:space="preserve">
     <value>从最近玩过选择</value>
@@ -1642,7 +1642,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>游戏快捷方式</value>
   </data>
   <data name="Shortcut_Help" xml:space="preserve">
-    <value>给某个游戏或者某个服务器做个快捷方式放桌面，双击直接进，不用先开启动器再点。</value>
+    <value>给游戏或服务器创建快捷方式，双击直接进入</value>
   </data>
   <data name="Shortcut_PickHint" xml:space="preserve">
     <value>从收藏或最近玩过里选，服务器 ID 和私服码会一起填上</value>
@@ -1678,7 +1678,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>创建并启动</value>
   </data>
   <data name="Shortcut_CreateOnly" xml:space="preserve">
-    <value>只创建</value>
+    <value>创建快捷方式</value>
   </data>
   <data name="Shortcut_Delete" xml:space="preserve">
     <value>删掉这个游戏的快捷方式</value>
@@ -1687,7 +1687,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>说明</value>
   </data>
   <data name="Shortcut_NoteBody" xml:space="preserve">
-    <value>带 placeId 参数的快捷方式，双击仍经过启动器。填写服务器 ID 进入指定服务器，留空进入公开服务器。</value>
+    <value>带 placeId 参数的快捷方式，双击仍经过启动器。填写服务器 ID 进入指定服务器，留空进入公开服务器</value>
   </data>
   <data name="Hub_Games_QuickLaunch" xml:space="preserve">
     <value>快速启动</value>
@@ -1705,7 +1705,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>日志</value>
   </data>
   <data name="Logs_Help" xml:space="preserve">
-    <value>每次运行生成一份日志。左侧选择文件，右侧查看内容。</value>
+    <value>每次运行生成一份日志。左侧选择文件，右侧查看内容</value>
   </data>
   <data name="Logs_SearchHint" xml:space="preserve">
     <value>搜日志内容，比如 error、fail、timeout</value>
@@ -1720,7 +1720,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>网络诊断</value>
   </data>
   <data name="Network_Help" xml:space="preserve">
-    <value>逐个测一遍客户端实际会用到的 Roblox 域名。进不去游戏的时候先跑这个，看是哪个环节断了。</value>
+    <value>逐个测试 Roblox 客户端会用到的域名。游戏进不去时先跑一次</value>
   </data>
   <data name="Network_Start" xml:space="preserve">
     <value>开始测试</value>
@@ -1729,13 +1729,13 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>复制结果</value>
   </data>
   <data name="Network_ExplainTitle" xml:space="preserve">
-    <value>看不懂结果？</value>
+    <value>结果说明</value>
   </data>
   <data name="Network_Explain" xml:space="preserve">
-    <value>「客户端部署」失败会导致游戏无法启动。「服务器位置」失败只影响机房显示，不影响启动。</value>
+    <value>「客户端部署」失败会导致游戏无法启动。「服务器位置」只影响机房显示</value>
   </data>
   <data name="QuickLaunch_Help" xml:space="preserve">
-    <value>粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或直接启动游戏。</value>
+    <value>粘贴 Place ID、游戏链接或 roblox:// 链接，生成启动链接或直接启动游戏</value>
   </data>
   <data name="QuickLaunch_FromRecentHint" xml:space="preserve">
     <value>最近进过的服务器，选中后自动填下面的游戏和私服代码</value>
@@ -1768,7 +1768,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>最近玩过</value>
   </data>
   <data name="Recent_Help" xml:space="preserve">
-    <value>最多保留 50 条记录，重启后保留。</value>
+    <value>最多保留 50 条记录，重启后保留</value>
   </data>
   <data name="Recent_Empty" xml:space="preserve">
     <value>暂无记录。</value>
@@ -1786,7 +1786,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>区服选择</value>
   </data>
   <data name="Region_Help" xml:space="preserve">
-    <value>选择游戏和地区，加入该地区的服务器。</value>
+    <value>选择游戏和地区，加入该地区的服务器</value>
   </data>
   <data name="Region_PickGame" xml:space="preserve">
     <value>从收藏或最近玩过选</value>
@@ -1819,7 +1819,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>旧版本清理</value>
   </data>
   <data name="Versions_Help" xml:space="preserve">
-    <value>Roblox 每次更新会保留一份版本包。正在使用的版本会标出，无法删除。</value>
+    <value>Roblox 每次更新会保留一份版本包。正在使用的版本会标出，无法删除</value>
   </data>
   <data name="Versions_Rescan" xml:space="preserve">
     <value>重新扫描</value>
@@ -2068,10 +2068,10 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>已经收藏过了</value>
   </data>
   <data name="Dlg_079" xml:space="preserve">
-    <value>正在获取游戏信息</value>
+    <value>正在获取信息并添加</value>
   </data>
   <data name="Dlg_080" xml:space="preserve">
-    <value>第一次添加要拉一次名字和图标，稍等。</value>
+    <value>第一次添加要拉一次名字和图标，稍等</value>
   </data>
   <data name="Dlg_081" xml:space="preserve">
     <value>加进去了，但没拿到游戏信息</value>
@@ -2191,7 +2191,7 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>已复制</value>
   </data>
   <data name="Dlg_120" xml:space="preserve">
-    <value>已复制到剪贴板。</value>
+    <value>已复制到剪贴板</value>
   </data>
   <data name="Dlg_121" xml:space="preserve">
     <value>复制失败</value>
@@ -2362,19 +2362,19 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>没找到包含「{0}」的行。</value>
   </data>
   <data name="DlgF_TestingCount" xml:space="preserve">
-    <value>一共 {0} 项，一项一项来。</value>
+    <value>共 {0} 项</value>
   </data>
   <data name="DlgF_Timeout" xml:space="preserve">
     <value>超时（&gt;{0} ms 没有响应）</value>
   </data>
   <data name="DlgF_AllPassed" xml:space="preserve">
-    <value>{0} 项都通了，网络没问题。</value>
+    <value>{0} 项全部通过</value>
   </data>
   <data name="DlgF_SomeFailed" xml:space="preserve">
     <value>{0} 项失败</value>
   </data>
   <data name="DlgF_FailedDetail" xml:space="preserve">
-    <value>{0} 项通过，{1} 项失败，失败项标有 ✗。</value>
+    <value>{0} 项通过，{1} 项失败</value>
   </data>
   <data name="DlgF_ReportTitle" xml:space="preserve">
     <value>Luckstrap 网络诊断 {0:yyyy-MM-dd HH:mm:ss}</value>
@@ -2505,5 +2505,11 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
   </data>
   <data name="FFProfiles.Preset.CleanVisuals.Note" xml:space="preserve">
     <value>关闭后期效果，保留阴影与高精度贴图。</value>
+  </data>
+  <data name="Shortcut_AddToShortcut" xml:space="preserve">
+    <value>添加至快捷方式</value>
+  </data>
+  <data name="Shortcut_Creating" xml:space="preserve">
+    <value>正在创建快捷方式</value>
   </data>
 </root>
