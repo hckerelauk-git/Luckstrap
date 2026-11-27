@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using Bloxstrap.AppData;
+using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
@@ -12,10 +13,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class StudioPage
     {
-        private bool _loading = false;
-
         public StudioPage()
         {
+            DataContext = new StudioViewModel();
             InitializeComponent();
 
             Loaded += (_, _) => RefreshState();
@@ -23,43 +23,23 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void RefreshState()
         {
-            // Loaded 每次切回这个 Tab 都会触发，重建界面期间不要再往设置里写
-            _loading = true;
+            bool installed = App.IsStudioVisible;
 
-            try
+            StateText.Text = installed ? Strings.Studio_Installed : Strings.Studio_Missing;
+
+            if (installed)
             {
-                bool installed = App.IsStudioVisible;
-
-                StateText.Text = installed ? Strings.Studio_Installed : Strings.Studio_Missing;
-
-                if (installed)
-                {
-                    PathText.Text = new RobloxStudioData().Directory;
-                    PathText.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    PathText.Text = "";
-                    PathText.Visibility = Visibility.Collapsed;
-                }
-
-                LaunchButton.IsEnabled = installed;
-                FolderButton.IsEnabled = installed;
-
-                CheckUpdatesSwitch.IsChecked = App.Settings.Prop.StudioCheckForUpdates;
+                PathText.Text = new RobloxStudioData().Directory;
+                PathText.Visibility = Visibility.Visible;
             }
-            finally
+            else
             {
-                _loading = false;
+                PathText.Text = "";
+                PathText.Visibility = Visibility.Collapsed;
             }
-        }
 
-        private void OnSettingChanged(object sender, RoutedEventArgs e)
-        {
-            if (_loading)
-                return;
-
-            App.Settings.Prop.StudioCheckForUpdates = CheckUpdatesSwitch.IsChecked == true;
+            LaunchButton.IsEnabled = installed;
+            FolderButton.IsEnabled = installed;
         }
 
         private void OnLaunch(object sender, RoutedEventArgs e)

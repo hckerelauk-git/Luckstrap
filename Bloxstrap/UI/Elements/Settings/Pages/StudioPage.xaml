@@ -6,7 +6,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
       mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance dmodels:StudioViewModel, IsDesignTimeCreatable=True}"
       d:DesignHeight="600" d:DesignWidth="800"
       Title="StudioPage"
       Scrollable="True">
@@ -54,7 +56,7 @@
 
         <controls:OptionControl Header="{x:Static resources:Strings.Studio_CheckUpdates}"
                                 Description="{x:Static resources:Strings.Studio_CheckUpdates_Description}">
-            <ui:ToggleSwitch x:Name="CheckUpdatesSwitch" Checked="OnSettingChanged" Unchecked="OnSettingChanged" />
+            <ui:ToggleSwitch IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>
