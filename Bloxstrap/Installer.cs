@@ -46,7 +46,10 @@ namespace Bloxstrap
 
                 try
                 {
-                    File.Copy(Paths.Process, Paths.Application, true);
+                    if (App.Variant == "lite-folder")
+                        CopyPayloadFolder(Paths.Process);
+                    else
+                        File.Copy(Paths.Process, Paths.Application, true);
                 }
                 catch (Exception ex)
                 {
@@ -106,6 +109,19 @@ namespace Bloxstrap
 
             if (!IsImplicitInstall)
                 App.SendStat("installAction", "install");
+        }
+
+        /// <summary>
+        /// lite-folder 是多文件发布，光复制 exe 装完起不来 —— 旁边的 dll 才是它的依赖
+        /// </summary>
+        private static void CopyPayloadFolder(string processPath)
+        {
+            string? sourceDir = Path.GetDirectoryName(processPath);
+
+            if (String.IsNullOrEmpty(sourceDir))
+                return;
+
+            Filesystem.CopyPayloadFolder(sourceDir, Paths.Base);
         }
 
         private bool ValidateLocation()

@@ -14,8 +14,8 @@
     <Product>Luckstrap</Product>
     <AssemblyTitle>Luckstrap</AssemblyTitle>
     <Company>Luckstrap</Company>
-    <Version>3.2.4</Version>
-    <FileVersion>3.2.4</FileVersion>
+    <Version>3.2.5</Version>
+    <FileVersion>3.2.5</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
@@ -34,6 +34,12 @@
       热启动从 1.3~1.6 秒变成 2.3~3.7 秒。
     -->
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+
+    <!--
+      发行形态，由工作流按 publish 参数传进来，写进程序集的 AssemblyMetadata。
+      自更新读这个值去下同名产物。本地直接 build 不带这个参数，按默认的压缩自包含算
+    -->
+    <LuckstrapVariant Condition="'$(LuckstrapVariant)' == ''">full-compressed</LuckstrapVariant>
   </PropertyGroup>
     
   <ItemGroup>
@@ -101,6 +107,7 @@
       <_Parameter3>$(CommitHash)</_Parameter3>
       <_Parameter4>$(CommitRef)</_Parameter4>
     </AssemblyAttribute>
+    <AssemblyMetadata Include="LuckstrapVariant" Value="$(LuckstrapVariant)" />
   </ItemGroup>
 
   <ItemGroup>

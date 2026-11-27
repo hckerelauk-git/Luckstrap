@@ -58,6 +58,7 @@ jobs:
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained true
+          -p:LuckstrapVariant=full
           -p:PublishSingleFile=true
           -p:EnableCompressionInSingleFile=false
           -p:CommitHash=${{ github.sha }}
@@ -69,6 +70,7 @@ jobs:
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained false
+          -p:LuckstrapVariant=lite
           -p:PublishSingleFile=true
           -p:EnableCompressionInSingleFile=false
           -p:CommitHash=${{ github.sha }}
@@ -80,6 +82,7 @@ jobs:
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained true
+          -p:LuckstrapVariant=full-compressed
           -p:PublishSingleFile=true
           -p:EnableCompressionInSingleFile=true
           -p:CommitHash=${{ github.sha }}
@@ -91,6 +94,7 @@ jobs:
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained false
+          -p:LuckstrapVariant=lite-folder
           -p:PublishSingleFile=false
           -p:CommitHash=${{ github.sha }}
           -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
@@ -142,6 +146,27 @@ jobs:
               }
             }
           }
+
+          # 变体标识必须真的写进程序集。没写进去的话自更新会静默退回默认的
+          # full-compressed，用户下错版本不会报错，但会被悄悄换掉发行形态。
+          # 压缩单文件里的程序集是打包过的，扫不出来，只查没压缩的那份和 lite-folder 的 dll
+          $liteText = [Text.Encoding]::UTF8.GetString([IO.File]::ReadAllBytes('publish/lite/Luckstrap.exe'))
+
+          if ($liteText -notmatch 'LuckstrapVariant') {
+            throw 'publish/lite/Luckstrap.exe 里没有 LuckstrapVariant 元数据'
+          }
+
+          $folderText = [Text.Encoding]::UTF8.GetString([IO.File]::ReadAllBytes('publish/lite-folder/Luckstrap.dll'))
+
+          if ($folderText -notmatch 'LuckstrapVariant') {
+            throw 'publish/lite-folder/Luckstrap.dll 里没有 LuckstrapVariant 元数据'
+          }
+
+          if ($folderText -notmatch 'lite-folder') {
+            throw 'lite-folder 的程序集里没有对应的变体值'
+          }
+
+          Write-Host '变体标识校验通过'
 
       # 交付形态：两个裸 exe + 两个压缩包
       #   Luckstrap-full.exe              不压缩，自包含，免装运行时

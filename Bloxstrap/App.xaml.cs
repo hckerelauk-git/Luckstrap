@@ -77,6 +77,34 @@ namespace Bloxstrap
         // 3.1 这种两位版本号不该显示成 3.1.0，Build 为 0 就不带第三位
         public static string Version = GetVersionString();
 
+        /// <summary>
+        /// 构建时写进程序集的发行形态：full / lite / full-compressed / lite-folder。
+        /// 自更新靠这个值决定下哪个产物，不然 lite 用户更新完会被换成 76MB 的自包含版
+        /// </summary>
+        public static string Variant = GetVariant();
+
+        /// <summary>
+        /// 自更新要下载的 release 产物名。
+        /// lite-folder 是多文件发布，没法靠复制单个 exe 更新，
+        /// 所以并到 lite 那份单文件上，更新完就变成单文件
+        /// </summary>
+        public static string UpdateAssetName => Variant switch
+        {
+            "full" => "Luckstrap-full.exe",
+            "lite" => "Luckstrap-lite.exe",
+            "lite-folder" => "Luckstrap-lite.exe",
+            _ => "Luckstrap.exe"
+        };
+
+        private static string GetVariant()
+        {
+            var attr = Assembly.GetExecutingAssembly()
+                .GetCustomAttributes<AssemblyMetadataAttribute>()
+                .FirstOrDefault(x => x.Key == "LuckstrapVariant");
+
+            return String.IsNullOrEmpty(attr?.Value) ? "full-compressed" : attr!.Value!;
+        }
+
         private static string GetVersionString()
         {
             System.Version? version = Assembly.GetExecutingAssembly().GetName().Version;
@@ -319,8 +347,8 @@ namespace Bloxstrap
                         {
                             new()
                             {
-                                Name = "Luckstrap.exe",
-                                BrowserDownloadUrl = $"https://github.com/{UpdateRepository}/releases/download/{tag}/Luckstrap.exe"
+                                Name = UpdateAssetName,
+                                BrowserDownloadUrl = $"https://github.com/{UpdateRepository}/releases/download/{tag}/{UpdateAssetName}"
                             }
                         }
                     };
@@ -554,12 +582,18 @@ namespace Bloxstrap
                 Paths.Initialize(installLocation);
 
                 Logger.WriteLine(LOG_IDENT, "Entering main logic");
+                Logger.WriteLine(LOG_IDENT, $"Variant: {Variant}, update asset: {UpdateAssetName}");
 
                 // ensure executable is in the install directory
                 if (Paths.Process != Paths.Application && !File.Exists(Paths.Application))
                 {
                     Logger.WriteLine(LOG_IDENT, "Copying to install directory");
-                    File.Copy(Paths.Process, Paths.Application);
+
+                    // 多文件发布不能只搬 exe，依赖的 dll 会留在原目录
+                    if (Variant == "lite-folder")
+                        Utility.Filesystem.CopyPayloadFolder(Path.GetDirectoryName(Paths.Process) ?? "", Paths.Base);
+                    else
+                        File.Copy(Paths.Process, Paths.Application);
                 }
 
                 Logger.Initialize(LaunchSettings.UninstallFlag.Active);

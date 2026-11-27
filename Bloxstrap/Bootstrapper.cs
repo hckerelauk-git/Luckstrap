@@ -793,7 +793,9 @@ namespace Bloxstrap
 
                             long size = new FileInfo(tempLocation).Length;
 
-                            if (size < 10 * 1024 * 1024)
+                            // 错误页撑死几百 KB。这里不能卡太高：
+                            // lite 那份更新包只有 12MB 左右，留太小的余量以后会被误判
+                            if (size < 3 * 1024 * 1024)
                                 throw new InvalidHTTPResponseException($"Downloaded file is only {size} bytes, likely an error page");
 
                             File.Move(tempLocation, downloadLocation, true);

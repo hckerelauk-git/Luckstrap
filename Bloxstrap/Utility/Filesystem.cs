@@ -41,5 +41,40 @@ namespace Bloxstrap.Utility
 
             App.Logger.WriteLine("Filesystem::AssertReadOnlyDirectory", $"The following directory was set as read-only: {directoryPath}");
         }
+
+        /// <summary>
+        /// 把多文件发布（框架依赖 + 压缩）的整份输出搬进目标目录。
+        /// 光复制 exe 是装不好的 —— 旁边那堆 dll 才是它的依赖
+        /// </summary>
+        internal static void CopyPayloadFolder(string sourceDir, string targetDir)
+        {
+            if (String.IsNullOrEmpty(sourceDir) || String.IsNullOrEmpty(targetDir))
+                return;
+
+            if (String.Equals(Path.GetFullPath(sourceDir), Path.GetFullPath(targetDir), StringComparison.OrdinalIgnoreCase))
+                return;
+
+            Directory.CreateDirectory(targetDir);
+
+            string[] patterns = { $"{App.ProjectName}*.exe", "*.dll", "*.json", "*.txt" };
+
+            foreach (string pattern in patterns)
+            {
+                foreach (string file in Directory.GetFiles(sourceDir, pattern))
+                {
+                    string target = Path.Combine(targetDir, Path.GetFileName(file));
+
+                    if (String.Equals(file, target, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    FileInfo targetInfo = new(target);
+
+                    if (targetInfo.Exists && targetInfo.IsReadOnly)
+                        targetInfo.IsReadOnly = false;
+
+                    File.Copy(file, target, true);
+                }
+            }
+        }
     }
 }
