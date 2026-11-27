@@ -41,13 +41,18 @@ jobs:
       - run: dotnet restore Bloxstrap.sln
 
       # ── 四个版本 ───────────────────────────────────────────────────────
-      # full            自包含，不压缩   免装运行时，启动最快，体积最大
-      # lite            框架依赖，不压缩  需要 .NET 10 桌面运行时
-      # full-compressed 自包含，压缩     默认版本，体积和启动折中
-      # lite-compressed 框架依赖，压缩   体积最小
+      # full            自包含，单文件，不压缩   免装运行时，启动最快，体积最大
+      # full-compressed 自包含，单文件，压缩     默认版本，体积和启动折中
+      # lite            框架依赖，单文件，不压缩  需要 .NET 10 桌面运行时
+      # lite-folder     框架依赖，多文件          需要运行时，解压后是文件夹
+      #
+      # 为什么没有「框架依赖 + 单文件 + 压缩」：.NET SDK 直接拒绝，
+      # 报 "Compression in a single file bundle is only supported when
+      # publishing a self-contained application"。框架依赖想减小体积，
+      # 只能退回多文件，让 zip 去压 —— 效果一样，解压后多几个 dll
       #
       # EnableCompressionInSingleFile 只在 PublishSingleFile=true 时生效，
-      # 所以四个版本都要显式带上这两个属性，不靠 csproj 里的默认值
+      # 所以单文件版本都要显式带上这两个属性，不靠 csproj 里的默认值
 
       - name: Publish full
         run: >
@@ -82,50 +87,59 @@ jobs:
           -p:DebugType=None -p:DebugSymbols=false
           -o publish/full-compressed
 
-      - name: Publish lite-compressed
+      - name: Publish lite-folder
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained false
-          -p:PublishSingleFile=true
-          -p:EnableCompressionInSingleFile=true
+          -p:PublishSingleFile=false
           -p:CommitHash=${{ github.sha }}
           -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
           -p:DebugType=None -p:DebugSymbols=false
-          -o publish/lite-compressed
+          -o publish/lite-folder
 
       # 每个版本体积区间不同。超出区间基本就是 publish 参数没生效：
       # 比如 lite 变成 160MB 说明 --self-contained false 被忽略，
-      # full 掉到 60MB 说明压缩开关没关掉
+      # full 掉到 60MB 说明压缩开关没关掉。
+      # 单文件版本量 exe，多文件版本量整个目录
       - name: Verify output
         shell: pwsh
         run: |
           $expect = [ordered]@{
-            'full'            = @(140, 220)
-            'lite'            = @(10, 60)
-            'full-compressed' = @(60, 110)
-            'lite-compressed' = @(4, 30)
+            'full'            = @{ Min = 140; Max = 220; Single = $true }
+            'lite'            = @{ Min = 10;  Max = 60;  Single = $true }
+            'full-compressed' = @{ Min = 60;  Max = 110; Single = $true }
+            'lite-folder'     = @{ Min = 15;  Max = 90;  Single = $false }
           }
 
           foreach ($name in $expect.Keys) {
+            $rule = $expect[$name]
             $dir = "publish/$name"
             $exe = Get-Item "$dir/Luckstrap.exe" -ErrorAction SilentlyContinue
 
             if (-not $exe) { throw "$dir 里没有 Luckstrap.exe" }
 
-            $mb = [math]::Round($exe.Length / 1MB, 1)
-            $min = $expect[$name][0]
-            $max = $expect[$name][1]
+            if ($rule.Single) {
+              $size = $exe.Length
+              $label = 'Luckstrap.exe'
+            } else {
+              $size = (Get-ChildItem $dir -Recurse -File | Measure-Object Length -Sum).Sum
+              $label = '整个目录'
+            }
 
-            Write-Host ("{0,-16} {1,7} MB  预期 {2}-{3} MB" -f $name, $mb, $min, $max)
+            $mb = [math]::Round($size / 1MB, 1)
 
-            if ($mb -lt $min -or $mb -gt $max) {
+            Write-Host ("{0,-16} {1,-14} {2,7} MB  预期 {3}-{4} MB" -f $name, $label, $mb, $rule.Min, $rule.Max)
+
+            if ($mb -lt $rule.Min -or $mb -gt $rule.Max) {
               throw "$dir 体积异常：$mb MB，检查 self-contained 和压缩参数是否生效"
             }
 
-            $extra = Get-ChildItem $dir -File | Where-Object { $_.Name -ne 'Luckstrap.exe' }
-            if ($extra) {
-              Write-Host "  $dir 里还有："
-              $extra | ForEach-Object { Write-Host ("    {0}  {1:N0} 字节" -f $_.Name, $_.Length) }
+            if ($rule.Single) {
+              $extra = Get-ChildItem $dir -File | Where-Object { $_.Name -ne 'Luckstrap.exe' }
+              if ($extra) {
+                Write-Host "  $dir 里还有："
+                $extra | ForEach-Object { Write-Host ("    {0}  {1:N0} 字节" -f $_.Name, $_.Length) }
+              }
             }
           }
 
@@ -133,11 +147,18 @@ jobs:
         shell: pwsh
         run: |
           $v = "${{ steps.ver.outputs.version }}"
-          $flavors = @('full', 'lite', 'full-compressed', 'lite-compressed')
+          $flavors = @('full', 'lite', 'full-compressed', 'lite-folder')
 
           foreach ($f in $flavors) {
             $out = "Luckstrap-v$v-win-x64-$f.zip"
-            Compress-Archive -Path "publish/$f/Luckstrap.exe" -DestinationPath $out -Force
+
+            # 多文件版本打整个目录，解压出来是 exe 加一堆 dll，双击 exe 就能用
+            if ($f -eq 'lite-folder') {
+              Compress-Archive -Path "publish/$f/*" -DestinationPath $out -Force
+            } else {
+              Compress-Archive -Path "publish/$f/Luckstrap.exe" -DestinationPath $out -Force
+            }
+
             Write-Host ("{0}  {1:N0} 字节" -f $out, (Get-Item $out).Length)
           }
 
