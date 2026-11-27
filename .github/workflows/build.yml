@@ -108,7 +108,7 @@ jobs:
             'full'            = @{ Min = 140; Max = 220; Single = $true }
             'lite'            = @{ Min = 10;  Max = 60;  Single = $true }
             'full-compressed' = @{ Min = 60;  Max = 110; Single = $true }
-            'lite-folder'     = @{ Min = 15;  Max = 90;  Single = $false }
+            'lite-folder'     = @{ Min = 8;   Max = 40;  Single = $false }
           }
 
           foreach ($name in $expect.Keys) {
