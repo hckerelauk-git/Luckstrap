@@ -143,29 +143,39 @@ jobs:
             }
           }
 
-      - name: Zip
+      # 交付形态：两个裸 exe + 两个压缩包
+      #   Luckstrap-full.exe              不压缩，自包含，免装运行时
+      #   Luckstrap-lite.exe              不压缩，框架依赖，需 .NET 10 桌面运行时
+      #   ...-full-compressed.zip         压缩，自包含
+      #   ...-lite-compressed.zip         压缩，框架依赖（多文件，由 zip 提供压缩）
+      - name: Package
         shell: pwsh
         run: |
           $v = "${{ steps.ver.outputs.version }}"
-          $flavors = @('full', 'lite', 'full-compressed', 'lite-folder')
 
-          foreach ($f in $flavors) {
-            $out = "Luckstrap-v$v-win-x64-$f.zip"
+          Copy-Item 'publish/full/Luckstrap.exe' 'Luckstrap-full.exe' -Force
+          Copy-Item 'publish/lite/Luckstrap.exe' 'Luckstrap-lite.exe' -Force
 
-            # 多文件版本打整个目录，解压出来是 exe 加一堆 dll，双击 exe 就能用
-            if ($f -eq 'lite-folder') {
-              Compress-Archive -Path "publish/$f/*" -DestinationPath $out -Force
-            } else {
-              Compress-Archive -Path "publish/$f/Luckstrap.exe" -DestinationPath $out -Force
-            }
+          $fullZip = "Luckstrap-v$v-win-x64-full-compressed.zip"
+          $liteZip = "Luckstrap-v$v-win-x64-lite-compressed.zip"
 
-            Write-Host ("{0}  {1:N0} 字节" -f $out, (Get-Item $out).Length)
+          Compress-Archive -Path 'publish/full-compressed/Luckstrap.exe' -DestinationPath $fullZip -Force
+
+          # 框架依赖版做不成压缩单文件（SDK 直接拒绝），退回多文件，
+          # 压缩交给 zip。解压出来是 exe 加一堆 dll，双击 exe 就能用
+          Compress-Archive -Path 'publish/lite-folder/*' -DestinationPath $liteZip -Force
+
+          Get-ChildItem 'Luckstrap-*' | ForEach-Object {
+            Write-Host ("{0}  {1:N0} 字节" -f $_.Name, $_.Length)
           }
 
       - uses: actions/upload-artifact@v7
         with:
           name: Luckstrap-win-x64
-          path: Luckstrap-v*-win-x64-*.zip
+          path: |
+            Luckstrap-full.exe
+            Luckstrap-lite.exe
+            Luckstrap-v*-win-x64-*.zip
           if-no-files-found: error
 
       # 客户端检查更新打的是 releases/latest，所以仓库里必须真的有 release
@@ -182,18 +192,22 @@ jobs:
           # 这个裸文件必须一直存在，否则老客户端检查更新会 404。
           # 内容用压缩+自包含那份：免装运行时，体积也还能接受
           $default = (Resolve-Path 'publish/full-compressed/Luckstrap.exe').Path
+          $bare = @(
+            (Resolve-Path 'Luckstrap-full.exe').Path
+            (Resolve-Path 'Luckstrap-lite.exe').Path
+          )
           $zips = Get-ChildItem 'Luckstrap-v*-win-x64-*.zip' | ForEach-Object { $_.FullName }
-          $files = @($default) + $zips
+          $files = @($default) + $bare + $zips
 
           $null = gh release view $tag --repo $repo 2>&1
           if ($LASTEXITCODE -eq 0) {
-            # 以前构建留下的旧名字产物不会被 --clobber 覆盖，会一直堆在 release 页上。
-            # 只清 Luckstrap 开头的 zip，别碰 exe 和别的东西
-            $expected = @('Luckstrap.exe') + ($zips | ForEach-Object { Split-Path $_ -Leaf })
+            # 以前构建留下的旧名字产物不会被 --clobber 覆盖，会一直堆在 release 页上
+            $expected = @('Luckstrap.exe', 'Luckstrap-full.exe', 'Luckstrap-lite.exe') +
+                        ($zips | ForEach-Object { Split-Path $_ -Leaf })
             $existing = gh release view $tag --repo $repo --json assets -q '.assets[].name' 2>$null
 
             foreach ($a in $existing) {
-              if ($a -like 'Luckstrap*.zip' -and $a -notin $expected) {
+              if ($a -like 'Luckstrap*' -and $a -notin $expected) {
                 Write-Host "删除过期产物 $a"
                 gh release delete-asset $tag $a --repo $repo --yes
               }

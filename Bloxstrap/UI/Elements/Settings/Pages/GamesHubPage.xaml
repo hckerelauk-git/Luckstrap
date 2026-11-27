@@ -53,5 +53,8 @@
         <TabItem Header="{x:Static resources:Strings.Hub_Games_Shortcuts}">
             <Frame Source="/UI/Elements/Settings/Pages/ShortcutsPage.xaml" NavigationUIVisibility="Hidden" Background="Transparent" />
         </TabItem>
+        <TabItem Header="{x:Static resources:Strings.Hub_Games_Studio}">
+            <Frame Source="/UI/Elements/Settings/Pages/StudioPage.xaml" NavigationUIVisibility="Hidden" Background="Transparent" />
+        </TabItem>
     </TabControl>
 </ui:UiPage>

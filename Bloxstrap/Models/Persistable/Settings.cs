@@ -52,5 +52,11 @@ namespace Bloxstrap.Models.Persistable
         /// 关掉就把协议还给 Roblox 官方 launcher，代价是 FastFlags 和模组不会生效
         /// </summary>
         public bool InterceptBrowserLaunches { get; set; } = true;
+
+        /// <summary>
+        /// 从 Luckstrap 启动工作室时是否先走一遍更新检查。
+        /// 关掉就直接拉起已安装的 RobloxStudioBeta.exe，跳过更新和模组注入
+        /// </summary>
+        public bool StudioCheckForUpdates { get; set; } = true;
     }
 }

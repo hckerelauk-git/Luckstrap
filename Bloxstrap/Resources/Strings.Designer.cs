@@ -6575,5 +6575,101 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("DlgF_DeleteVersionsConfirm", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to Studio.
+        /// </summary>
+        public static string Hub_Games_Studio {
+            get {
+                return ResourceManager.GetString("Hub_Games_Studio", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Start Roblox Studio from here..
+        /// </summary>
+        public static string Studio_Help {
+            get {
+                return ResourceManager.GetString("Studio_Help", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Launch Studio.
+        /// </summary>
+        public static string Studio_Launch {
+            get {
+                return ResourceManager.GetString("Studio_Launch", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Open folder.
+        /// </summary>
+        public static string Studio_OpenFolder {
+            get {
+                return ResourceManager.GetString("Studio_OpenFolder", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio is installed.
+        /// </summary>
+        public static string Studio_Installed {
+            get {
+                return ResourceManager.GetString("Studio_Installed", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio is not installed.
+        /// </summary>
+        public static string Studio_Missing {
+            get {
+                return ResourceManager.GetString("Studio_Missing", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        public static string Studio_Options {
+            get {
+                return ResourceManager.GetString("Studio_Options", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates before launch.
+        /// </summary>
+        public static string Studio_CheckUpdates {
+            get {
+                return ResourceManager.GetString("Studio_CheckUpdates", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off to start the installed version directly..
+        /// </summary>
+        public static string Studio_CheckUpdates_Description {
+            get {
+                return ResourceManager.GetString("Studio_CheckUpdates_Description", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Studio is starting.
+        /// </summary>
+        public static string Studio_Launched {
+            get {
+                return ResourceManager.GetString("Studio_Launched", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Could not start Studio.
+        /// </summary>
+        public static string Studio_LaunchFailed {
+            get {
+                return ResourceManager.GetString("Studio_LaunchFailed", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Could not open the folder.
+        /// </summary>
+        public static string Studio_FolderFailed {
+            get {
+                return ResourceManager.GetString("Studio_FolderFailed", resourceCulture);
+            }
+        }
     }
 }

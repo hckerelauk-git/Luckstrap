@@ -2512,4 +2512,40 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
   <data name="Shortcut_Creating" xml:space="preserve">
     <value>正在创建快捷方式</value>
   </data>
+  <data name="Hub_Games_Studio" xml:space="preserve">
+    <value>工作室</value>
+  </data>
+  <data name="Studio_Help" xml:space="preserve">
+    <value>在这里启动 Roblox Studio。下面的选项只影响从 Luckstrap 启动工作室时的行为。</value>
+  </data>
+  <data name="Studio_Launch" xml:space="preserve">
+    <value>启动工作室</value>
+  </data>
+  <data name="Studio_OpenFolder" xml:space="preserve">
+    <value>打开目录</value>
+  </data>
+  <data name="Studio_Installed" xml:space="preserve">
+    <value>已安装 Roblox Studio</value>
+  </data>
+  <data name="Studio_Missing" xml:space="preserve">
+    <value>未检测到 Roblox Studio</value>
+  </data>
+  <data name="Studio_Options" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="Studio_CheckUpdates" xml:space="preserve">
+    <value>启动前检查更新</value>
+  </data>
+  <data name="Studio_CheckUpdates_Description" xml:space="preserve">
+    <value>关闭后直接启动已安装的版本，跳过更新检查和模组注入。</value>
+  </data>
+  <data name="Studio_Launched" xml:space="preserve">
+    <value>正在启动工作室</value>
+  </data>
+  <data name="Studio_LaunchFailed" xml:space="preserve">
+    <value>启动工作室失败</value>
+  </data>
+  <data name="Studio_FolderFailed" xml:space="preserve">
+    <value>无法打开目录</value>
+  </data>
 </root>
