@@ -5,7 +5,25 @@ namespace Bloxstrap.UI.Utility
 {
     public static class WindowScaling
     {
-        public static double ScaleFactor => Screen.PrimaryScreen.Bounds.Width / SystemParameters.PrimaryScreenWidth;
+        // Screen.PrimaryScreen 在远程会话、切显示器的时候会是 null，
+        // 取不到就按 100% 算，别让缩放系数直接抛空引用
+        public static double ScaleFactor
+        {
+            get
+            {
+                var screen = Screen.PrimaryScreen;
+
+                if (screen is null)
+                    return 1.0;
+
+                double width = SystemParameters.PrimaryScreenWidth;
+
+                if (width <= 0)
+                    return 1.0;
+
+                return screen.Bounds.Width / width;
+            }
+        }
 
         public static int GetScaledNumber(int number)
         {

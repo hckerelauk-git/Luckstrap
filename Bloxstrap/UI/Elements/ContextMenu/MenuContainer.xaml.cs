@@ -104,7 +104,17 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.RichPresence?.SetVisibility(((MenuItem)sender).IsChecked);
 
-        private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject(_activityWatcher?.Data.GetInviteDeeplink());
+        // 没连上服务器时 _activityWatcher 是空的，? 之后整串就是 null，
+        // 直接丢给 Clipboard 会往里塞一个空对象
+        private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string? deeplink = _activityWatcher?.Data.GetInviteDeeplink();
+
+            if (String.IsNullOrEmpty(deeplink))
+                return;
+
+            Clipboard.SetDataObject(deeplink);
+        }
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 
