@@ -187,6 +187,18 @@ jobs:
 
           $null = gh release view $tag --repo $repo 2>&1
           if ($LASTEXITCODE -eq 0) {
+            # 以前构建留下的旧名字产物不会被 --clobber 覆盖，会一直堆在 release 页上。
+            # 只清 Luckstrap 开头的 zip，别碰 exe 和别的东西
+            $expected = @('Luckstrap.exe') + ($zips | ForEach-Object { Split-Path $_ -Leaf })
+            $existing = gh release view $tag --repo $repo --json assets -q '.assets[].name' 2>$null
+
+            foreach ($a in $existing) {
+              if ($a -like 'Luckstrap*.zip' -and $a -notin $expected) {
+                Write-Host "删除过期产物 $a"
+                gh release delete-asset $tag $a --repo $repo --yes
+              }
+            }
+
             Write-Host "Release $tag 已存在，覆盖全部产物"
             gh release upload $tag $files --clobber --repo $repo
             gh release edit $tag --repo $repo --notes-file RELEASE_NOTES.md
