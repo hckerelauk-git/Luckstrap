@@ -19,14 +19,14 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '10.0.x'
 
       # 版本号只在 csproj 里维护一份，这里读出来给 release 用
       - name: Read version
@@ -73,7 +73,7 @@ jobs:
         shell: pwsh
         run: Compress-Archive -Path publish/Luckstrap.exe -DestinationPath Luckstrap-win-x64.zip
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: Luckstrap-win-x64
           path: |
