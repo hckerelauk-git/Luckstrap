@@ -34,6 +34,23 @@ namespace Bloxstrap.Utility
         /// </summary>
         public static async Task<string?> GetIconAsync(long placeId, string? thumbnailUrl = null)
         {
+            // 查 universeId、拉详情、下图，三步各有自己的超时，串起来最坏能到一百多秒。
+            // 这里给个总上限，超时就直接用启动器图标，不能让按钮一直转
+            Task<string?> work = BuildIconAsync(placeId, thumbnailUrl);
+
+            Task finished = await Task.WhenAny(work, Task.Delay(TimeSpan.FromSeconds(20)));
+
+            if (finished != work)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Building icon for place {placeId} timed out");
+                return null;
+            }
+
+            return await work;
+        }
+
+        private static async Task<string?> BuildIconAsync(long placeId, string? thumbnailUrl)
+        {
             try
             {
                 string path = Path.Combine(IconFolder, $"{placeId}.ico");
@@ -42,6 +59,10 @@ namespace Bloxstrap.Utility
                     return path;
 
                 string? url = thumbnailUrl;
+
+                // 老收藏里存的是 128×128 的缩略图，做成图标会糊，遇到这种就当没传
+                if (!String.IsNullOrEmpty(url) && (url.Contains("/128/128/") || url.Contains("size=128x128")))
+                    url = null;
 
                 if (String.IsNullOrEmpty(url))
                 {
@@ -95,6 +116,13 @@ namespace Bloxstrap.Utility
             string fileName = SanitizeName(name) + ".lnk";
             var created = new List<string>();
 
+            // 用当前正在运行的 exe，不是安装目录拼出来的路径。
+            // 便携运行时 Paths.Application 可能指向一个不存在的文件，双击快捷方式会没反应
+            string target = Paths.Process;
+
+            if (String.IsNullOrEmpty(target) || !File.Exists(target))
+                target = Paths.Application;
+
             foreach (string folder in folders)
             {
                 string path = Path.Combine(folder, fileName);
@@ -103,7 +131,7 @@ namespace Bloxstrap.Utility
                     File.Delete(path);
 
                 ShellLink.Shortcut
-                    .CreateShortcut(Paths.Application, $"\"{link}\"", iconPath ?? Paths.Application, 0)
+                    .CreateShortcut(target, $"\"{link}\"", iconPath ?? target, 0)
                     .WriteToFile(path);
 
                 created.Add(path);

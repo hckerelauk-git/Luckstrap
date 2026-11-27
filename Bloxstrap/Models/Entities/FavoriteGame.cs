@@ -45,8 +45,8 @@ namespace Bloxstrap.Models.Entities
 
         [JsonIgnore]
         public string LaunchLink => String.IsNullOrEmpty(AccessCode)
-            ? $"roblox://placeId={PlaceId}"
-            : $"roblox://placeId={PlaceId}&gameInstanceId={AccessCode}";
+            ? $"roblox://experiences/start?placeId={PlaceId}"
+            : $"roblox://experiences/start?placeId={PlaceId}&accessCode={AccessCode}";
 
         [JsonIgnore]
         public string Subtitle => String.IsNullOrEmpty(CreatorName)

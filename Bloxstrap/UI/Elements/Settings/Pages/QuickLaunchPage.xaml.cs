@@ -14,14 +14,24 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     {
         private string _placeId = "";
         private string _jobId = "";
+        private string _accessCode = "";
 
         public QuickLaunchPage()
         {
             InitializeComponent();
 
+            // Loaded 是 async void 的 lambda，里面抛异常没人接，会直接打到 UI 线程把程序干掉
             Loaded += async (_, _) =>
             {
-                RecentBox.ItemsSource = await RecentServers.LoadAsync();
+                try
+                {
+                    RecentBox.ItemsSource = await RecentServers.LoadAsync();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("QuickLaunchPage", "Failed to load recent games");
+                    App.Logger.WriteException("QuickLaunchPage", ex);
+                }
             };
         }
 
@@ -32,8 +42,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             PlaceIdBox.Text = game.PlaceId.ToString();
 
+            // 私服优先填私服码，公开服填 jobId，不然选中一条记录只能进游戏、回不到那个服
             if (!String.IsNullOrEmpty(game.AccessCode))
                 JobIdBox.Text = game.AccessCode;
+            else if (!String.IsNullOrEmpty(game.JobId))
+                JobIdBox.Text = game.JobId;
         }
 
         private void OnInputChanged(object sender, TextChangedEventArgs e)
@@ -42,14 +55,28 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
 
             _placeId = Utilities.ExtractPlaceId(PlaceIdBox.Text);
-            _jobId = (JobIdBox.Text ?? "").Trim();
 
-            // 私服链接里带 jobId 的情况，把 ?privateServerLinkCode= 后面那串也认出来
-            if (_jobId.Contains("privateServerLinkCode="))
+            string input = (JobIdBox.Text ?? "").Trim();
+
+            _jobId = "";
+            _accessCode = "";
+
+            if (input.Contains("privateServerLinkCode="))
             {
-                int idx = _jobId.IndexOf("privateServerLinkCode=", StringComparison.OrdinalIgnoreCase);
-                _jobId = _jobId[(idx + "privateServerLinkCode=".Length)..];
-                _jobId = _jobId.Split('&')[0].Trim();
+                // 私服分享链接里的那串是私服码，只能走 accessCode。
+                // 以前一律当 jobId 拼成 gameInstanceId，私服根本进不去
+                int idx = input.IndexOf("privateServerLinkCode=", StringComparison.OrdinalIgnoreCase);
+                _accessCode = input[(idx + "privateServerLinkCode=".Length)..].Split('&')[0].Trim();
+            }
+            else if (Guid.TryParse(input, out _))
+            {
+                // jobId 是 36 位 UUID
+                _jobId = input;
+            }
+            else if (!String.IsNullOrEmpty(input))
+            {
+                // 既不是 UUID 也不是分享链接，按私服码处理
+                _accessCode = input;
             }
 
             string link = BuildLink();
@@ -70,10 +97,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (string.IsNullOrEmpty(_placeId))
                 return "";
 
-            if (string.IsNullOrEmpty(_jobId))
-                return $"roblox://placeId={_placeId}";
+            string link = $"roblox://experiences/start?placeId={_placeId}";
 
-            return $"roblox://placeId={_placeId}&gameInstanceId={_jobId}";
+            if (!String.IsNullOrEmpty(_accessCode))
+                link += $"&accessCode={_accessCode}";
+            else if (!String.IsNullOrEmpty(_jobId))
+                link += $"&gameInstanceId={_jobId}";
+
+            return link;
         }
 
         private void OnLaunch(object sender, RoutedEventArgs e)

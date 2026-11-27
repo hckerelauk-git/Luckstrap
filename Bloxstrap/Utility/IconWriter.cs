@@ -138,7 +138,22 @@ namespace Bloxstrap.Utility
             for (int y = size - 1; y >= 0; y--)
                 writer.Write(bgra, y * size * 4, size * 4);
 
-            writer.Write(new byte[maskSize]);
+            // AND 掩码按 alpha 生成，1 表示透明。
+            // 全零的掩码在只看掩码不看 alpha 的旧 shell 组件里会让透明区域变黑
+            var mask = new byte[maskSize];
+
+            for (int row = 0; row < size; row++)
+            {
+                int srcY = size - 1 - row;
+
+                for (int x = 0; x < size; x++)
+                {
+                    if (bgra[(srcY * size + x) * 4 + 3] < 128)
+                        mask[row * maskStride + (x / 8)] |= (byte)(0x80 >> (x % 8));
+                }
+            }
+
+            writer.Write(mask);
 
             return stream.ToArray();
         }

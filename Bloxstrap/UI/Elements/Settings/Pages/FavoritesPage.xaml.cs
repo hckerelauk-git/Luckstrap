@@ -21,9 +21,18 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             InitializeComponent();
             Refresh();
 
+            // Loaded 是 async void 的 lambda，里面抛异常没人接，会直接打到 UI 线程把程序干掉
             Loaded += async (_, _) =>
             {
-                RecentBox.ItemsSource = await RecentServers.LoadAsync();
+                try
+                {
+                    RecentBox.ItemsSource = await RecentServers.LoadAsync();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("FavoritesPage", "Failed to load recent games");
+                    App.Logger.WriteException("FavoritesPage", ex);
+                }
             };
         }
 
@@ -64,7 +73,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            long placeId = long.Parse(placeIdText);
+            // 超长数字会让 long.Parse 抛 OverflowException，这一行在 try 外面，抛了就是闪退
+            if (!long.TryParse(placeIdText, out long placeId) || placeId <= 0)
+            {
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
+                return;
+            }
 
             if (FavoriteStore.Contains(placeId))
             {

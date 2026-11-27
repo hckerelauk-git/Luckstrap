@@ -35,7 +35,14 @@ namespace Bloxstrap.UI.Elements.Controls
             if (sender is not TabControl tab)
                 return;
 
+            // SelectionChanged 是冒泡事件。页面里的 ComboBox 改选时也会冒到这里，
+            // 不判断来源的话，选个下拉项整页内容都会跟着淡入
+            if (!ReferenceEquals(e.OriginalSource, tab))
+                return;
+
             // 模板里的内容宿主。切换时它会被换掉内容，这里让它淡入并轻轻上移
+            tab.ApplyTemplate();
+
             if (tab.Template?.FindName("PART_SelectedContentHost", tab) is not ContentPresenter host)
                 return;
 

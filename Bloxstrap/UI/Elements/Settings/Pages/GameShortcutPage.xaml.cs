@@ -21,7 +21,19 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             InitializeComponent();
 
-            Loaded += async (_, _) => await LoadPicksAsync();
+            // Loaded 是 async void 的 lambda，里面抛异常没人接，会直接打到 UI 线程把程序干掉
+            Loaded += async (_, _) =>
+            {
+                try
+                {
+                    await LoadPicksAsync();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("GameShortcutPage", "Failed to load game picks");
+                    App.Logger.WriteException("GameShortcutPage", ex);
+                }
+            };
         }
 
         private async Task LoadPicksAsync()
@@ -42,8 +54,19 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void OnPickSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (PickBox.SelectedItem is not GamePickItem game || game.PlaceId == 0)
+            if (PickBox.SelectedItem is not GamePickItem game)
                 return;
+
+            // 选「手动输入」时把上一项带过来的值清掉，
+            // 不然会拿着上一个游戏的 jobId 和名字去建快捷方式
+            if (game.PlaceId == 0)
+            {
+                PlaceIdBox.Text = "";
+                JobIdBox.Text = "";
+                AccessCodeBox.Text = "";
+                NameBox.Text = "";
+                return;
+            }
 
             PlaceIdBox.Text = game.PlaceId.ToString();
 
@@ -71,7 +94,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (jobId.Contains("privateServerLinkCode="))
             {
                 int idx = jobId.IndexOf("privateServerLinkCode=", StringComparison.OrdinalIgnoreCase);
-                jobId = jobId[(idx + "privateServerLinkCode=".Length)..].Split('&')[0].Trim();
+
+                // 分享链接里的那串是私服码，只能走 accessCode。
+                // 以前当成 jobId 拼成 gameInstanceId，做出来的快捷方式进不去
+                accessCode = jobId[(idx + "privateServerLinkCode=".Length)..].Split('&')[0].Trim();
+                jobId = "";
             }
 
             string link = $"roblox://experiences/start?placeId={placeId}";

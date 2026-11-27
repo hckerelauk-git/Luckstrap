@@ -109,7 +109,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            long placeId = long.Parse(placeIdText);
+            // 粘贴一串超长数字会让 long.Parse 抛 OverflowException，直接在 UI 线程炸掉
+            if (!long.TryParse(placeIdText, out long placeId) || placeId <= 0)
+            {
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
+                return;
+            }
 
             SetBusy(true);
             HintText.Visibility = Visibility.Collapsed;
@@ -168,7 +173,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            long placeId = long.Parse(placeIdText);
+            if (!long.TryParse(placeIdText, out long placeId) || placeId <= 0)
+            {
+                ShowStatus(Strings.Dlg_076, Strings.Dlg_077, InfoBarSeverity.Warning);
+                return;
+            }
 
             SetBusy(true);
             ServerList.ItemsSource = null;

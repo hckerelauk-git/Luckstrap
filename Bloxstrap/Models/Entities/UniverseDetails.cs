@@ -55,6 +55,10 @@
                     continue;
                 }
 
+                // 同一个 universe 可能被不同页面各拉一次，缓存里只留一份
+                if (_cache.Any(x => x.Data?.Id == id))
+                    continue;
+
                 _cache.Add(new UniverseDetails
                 {
                     Data = data,

@@ -387,6 +387,44 @@ namespace Bloxstrap
             }
         }
 
+        /// <summary>
+        /// UI 线程上没接住的异常。记下来然后吃掉，别让用户看到窗口直接消失
+        /// </summary>
+        private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            const string LOG_IDENT = "App::DispatcherUnhandledException";
+
+            try
+            {
+                Logger.WriteLine(LOG_IDENT, "Unhandled exception on the UI thread");
+                Logger.WriteException(LOG_IDENT, e.Exception);
+            }
+            catch
+            {
+                // 记日志这一步再出错就没别的办法了，别在异常处理里再抛
+            }
+
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// 后台 Task 抛了没人 await 的异常。不影响主流程，记一笔就行
+        /// </summary>
+        private void OnUnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+        {
+            const string LOG_IDENT = "App::UnobservedTaskException";
+
+            try
+            {
+                Logger.WriteException(LOG_IDENT, e.Exception);
+            }
+            catch
+            {
+            }
+
+            e.SetObserved();
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
@@ -397,6 +435,11 @@ namespace Bloxstrap
             Locale.Initialize();
 
             base.OnStartup(e);
+
+            // 全局兜底。设置页里一堆 async void 事件处理器，任何一处漏接异常以前都是直接闪退，
+            // 用户只看到窗口消失，日志里什么都没有。这里接住、记日志，让程序继续跑
+            DispatcherUnhandledException += OnDispatcherUnhandledException;
+            TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
