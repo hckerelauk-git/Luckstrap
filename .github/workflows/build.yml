@@ -40,45 +40,111 @@ jobs:
 
       - run: dotnet restore Bloxstrap.sln
 
-      - name: Publish
+      # ── 四个版本 ───────────────────────────────────────────────────────
+      # full            自包含，不压缩   免装运行时，启动最快，体积最大
+      # lite            框架依赖，不压缩  需要 .NET 10 桌面运行时
+      # full-compressed 自包含，压缩     默认版本，体积和启动折中
+      # lite-compressed 框架依赖，压缩   体积最小
+      #
+      # EnableCompressionInSingleFile 只在 PublishSingleFile=true 时生效，
+      # 所以四个版本都要显式带上这两个属性，不靠 csproj 里的默认值
+
+      - name: Publish full
         run: >
           dotnet publish Bloxstrap/Bloxstrap.csproj
           -c Release -r win-x64 --self-contained true
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=false
           -p:CommitHash=${{ github.sha }}
           -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
           -p:DebugType=None -p:DebugSymbols=false
-          -o publish
+          -o publish/full
 
-      # 单文件压缩开着是 73MB 上下，关掉是 166MB。
-      # 体积掉到 50MB 以下说明 publish 出了别的问题，别把坏包发出去
+      - name: Publish lite
+        run: >
+          dotnet publish Bloxstrap/Bloxstrap.csproj
+          -c Release -r win-x64 --self-contained false
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=false
+          -p:CommitHash=${{ github.sha }}
+          -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
+          -p:DebugType=None -p:DebugSymbols=false
+          -o publish/lite
+
+      - name: Publish full-compressed
+        run: >
+          dotnet publish Bloxstrap/Bloxstrap.csproj
+          -c Release -r win-x64 --self-contained true
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=true
+          -p:CommitHash=${{ github.sha }}
+          -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
+          -p:DebugType=None -p:DebugSymbols=false
+          -o publish/full-compressed
+
+      - name: Publish lite-compressed
+        run: >
+          dotnet publish Bloxstrap/Bloxstrap.csproj
+          -c Release -r win-x64 --self-contained false
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=true
+          -p:CommitHash=${{ github.sha }}
+          -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }}
+          -p:DebugType=None -p:DebugSymbols=false
+          -o publish/lite-compressed
+
+      # 每个版本体积区间不同。超出区间基本就是 publish 参数没生效：
+      # 比如 lite 变成 160MB 说明 --self-contained false 被忽略，
+      # full 掉到 60MB 说明压缩开关没关掉
       - name: Verify output
         shell: pwsh
         run: |
-          $exe = Get-Item publish/Luckstrap.exe -ErrorAction SilentlyContinue
-          if (-not $exe) { throw "publish 目录里没有 Luckstrap.exe" }
-
-          $mb = [math]::Round($exe.Length / 1MB, 1)
-          Write-Host "Luckstrap.exe = $mb MB"
-          if ($mb -lt 50 -or $mb -gt 120) {
-            throw "exe 体积异常：$mb MB，检查 EnableCompressionInSingleFile 是否被改动"
+          $expect = [ordered]@{
+            'full'            = @(140, 220)
+            'lite'            = @(10, 60)
+            'full-compressed' = @(60, 110)
+            'lite-compressed' = @(4, 30)
           }
 
-          $extra = Get-ChildItem publish -File | Where-Object { $_.Name -ne 'Luckstrap.exe' }
-          if ($extra) {
-            Write-Host "publish 目录里还有："
-            $extra | ForEach-Object { Write-Host ("  {0}  {1:N0} 字节" -f $_.Name, $_.Length) }
+          foreach ($name in $expect.Keys) {
+            $dir = "publish/$name"
+            $exe = Get-Item "$dir/Luckstrap.exe" -ErrorAction SilentlyContinue
+
+            if (-not $exe) { throw "$dir 里没有 Luckstrap.exe" }
+
+            $mb = [math]::Round($exe.Length / 1MB, 1)
+            $min = $expect[$name][0]
+            $max = $expect[$name][1]
+
+            Write-Host ("{0,-16} {1,7} MB  预期 {2}-{3} MB" -f $name, $mb, $min, $max)
+
+            if ($mb -lt $min -or $mb -gt $max) {
+              throw "$dir 体积异常：$mb MB，检查 self-contained 和压缩参数是否生效"
+            }
+
+            $extra = Get-ChildItem $dir -File | Where-Object { $_.Name -ne 'Luckstrap.exe' }
+            if ($extra) {
+              Write-Host "  $dir 里还有："
+              $extra | ForEach-Object { Write-Host ("    {0}  {1:N0} 字节" -f $_.Name, $_.Length) }
+            }
           }
 
       - name: Zip
         shell: pwsh
-        run: Compress-Archive -Path publish/Luckstrap.exe -DestinationPath Luckstrap-win-x64.zip
+        run: |
+          $v = "${{ steps.ver.outputs.version }}"
+          $flavors = @('full', 'lite', 'full-compressed', 'lite-compressed')
+
+          foreach ($f in $flavors) {
+            $out = "Luckstrap-v$v-win-x64-$f.zip"
+            Compress-Archive -Path "publish/$f/Luckstrap.exe" -DestinationPath $out -Force
+            Write-Host ("{0}  {1:N0} 字节" -f $out, (Get-Item $out).Length)
+          }
 
       - uses: actions/upload-artifact@v7
         with:
           name: Luckstrap-win-x64
-          path: |
-            publish/Luckstrap.exe
-            Luckstrap-win-x64.zip
+          path: Luckstrap-v*-win-x64-*.zip
           if-no-files-found: error
 
       # 客户端检查更新打的是 releases/latest，所以仓库里必须真的有 release
@@ -90,17 +156,22 @@ jobs:
         run: |
           $repo = "${{ github.repository }}"
           $tag = "v${{ steps.ver.outputs.version }}"
-          $exe = (Resolve-Path publish/Luckstrap.exe).Path
-          $zip = (Resolve-Path Luckstrap-win-x64.zip).Path
+
+          # 自更新代码里硬编码了 releases/download/<tag>/Luckstrap.exe，
+          # 这个裸文件必须一直存在，否则老客户端检查更新会 404。
+          # 内容用压缩+自包含那份：免装运行时，体积也还能接受
+          $default = (Resolve-Path 'publish/full-compressed/Luckstrap.exe').Path
+          $zips = Get-ChildItem 'Luckstrap-v*-win-x64-*.zip' | ForEach-Object { $_.FullName }
+          $files = @($default) + $zips
 
           $null = gh release view $tag --repo $repo 2>&1
           if ($LASTEXITCODE -eq 0) {
-            Write-Host "Release $tag 已存在，覆盖 exe 与 zip"
-            gh release upload $tag $exe $zip --clobber --repo $repo
+            Write-Host "Release $tag 已存在，覆盖全部产物"
+            gh release upload $tag $files --clobber --repo $repo
             gh release edit $tag --repo $repo --notes-file RELEASE_NOTES.md
           } else {
             Write-Host "创建 release $tag"
-            gh release create $tag $exe $zip `
+            gh release create $tag $files `
               --repo $repo `
               --title "Luckstrap $tag" `
               --notes-file RELEASE_NOTES.md `
