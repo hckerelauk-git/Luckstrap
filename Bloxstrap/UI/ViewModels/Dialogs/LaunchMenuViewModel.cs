@@ -10,7 +10,17 @@ namespace Bloxstrap.UI.ViewModels.Installer
     {
         public string Version => string.Format(Strings.Menu_About_Version, App.Version);
 
-        public Visibility RobloxStudioOptionVisibility => App.IsStudioVisible ? Visibility.Visible : Visibility.Collapsed;
+        /// <summary>
+        /// 没装工作室时也要给入口。点了一样走 -studio 流程，
+        /// Bootstrapper 发现本地没有版本就会把工作室装到 Luckstrap 的 Versions 目录
+        /// </summary>
+        public string StudioOptionText => App.IsStudioVisible
+            ? Strings.LaunchMenu_LaunchRobloxStudio
+            : Strings.LaunchMenu_InstallRobloxStudio;
+
+        public string StudioOptionNote => Strings.LaunchMenu_InstallRobloxStudio_Description;
+
+        public Visibility StudioOptionNoteVisibility => App.IsStudioVisible ? Visibility.Collapsed : Visibility.Visible;
 
         public ICommand LaunchSettingsCommand => new RelayCommand(LaunchSettings);
 

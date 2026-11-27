@@ -6624,6 +6624,14 @@ namespace Bloxstrap.Resources {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio is not installed. It will be downloaded into the folder below..
+        /// </summary>
+        public static string Studio_Missing_Installable {
+            get {
+                return ResourceManager.GetString("Studio_Missing_Installable", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Options.
         /// </summary>
         public static string Studio_Options {
@@ -6669,6 +6677,30 @@ namespace Bloxstrap.Resources {
         public static string Studio_FolderFailed {
             get {
                 return ResourceManager.GetString("Studio_FolderFailed", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Install Studio.
+        /// </summary>
+        public static string Studio_Install {
+            get {
+                return ResourceManager.GetString("Studio_Install", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Install Roblox Studio.
+        /// </summary>
+        public static string LaunchMenu_InstallRobloxStudio {
+            get {
+                return ResourceManager.GetString("LaunchMenu_InstallRobloxStudio", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Downloads into the Luckstrap Versions folder..
+        /// </summary>
+        public static string LaunchMenu_InstallRobloxStudio_Description {
+            get {
+                return ResourceManager.GetString("LaunchMenu_InstallRobloxStudio_Description", resourceCulture);
             }
         }
     }

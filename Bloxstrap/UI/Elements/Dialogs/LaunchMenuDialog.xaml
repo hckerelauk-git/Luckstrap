@@ -63,9 +63,15 @@
                     </StackPanel>
                 </ui:CardAction>
 
-                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Visibility="{Binding RobloxStudioOptionVisibility, Mode=OneTime}" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
+                <!-- 没装工作室时不藏起来，改成「安装 Roblox Studio」，
+                     点了会走 -studio 流程把工作室装到 Luckstrap 的 Versions 目录 -->
+                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
                     <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
+                        <TextBlock FontSize="14" Text="{Binding StudioOptionText, Mode=OneTime}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" TextWrapping="Wrap" Padding="0,0,16,0"
+                                   Text="{Binding StudioOptionNote, Mode=OneTime}"
+                                   Visibility="{Binding StudioOptionNoteVisibility, Mode=OneTime}"
+                                   Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardAction>
 

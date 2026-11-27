@@ -2516,7 +2516,10 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
     <value>工作室</value>
   </data>
   <data name="Studio_Help" xml:space="preserve">
-    <value>在这里启动 Roblox Studio。下面的选项只影响从 Luckstrap 启动工作室时的行为。</value>
+    <value>在这里启动 Roblox Studio。没装过的话会下载到 Luckstrap 自己的目录。</value>
+  </data>
+  <data name="Studio_Missing_Installable" xml:space="preserve">
+    <value>未检测到 Roblox Studio，安装时会下载到下面这个目录。</value>
   </data>
   <data name="Studio_Launch" xml:space="preserve">
     <value>启动工作室</value>
@@ -2547,5 +2550,14 @@ Luckstrap 只在外部修改，不往游戏里注入任何内容。封号一般�
   </data>
   <data name="Studio_FolderFailed" xml:space="preserve">
     <value>无法打开目录</value>
+  </data>
+  <data name="Studio_Install" xml:space="preserve">
+    <value>安装工作室</value>
+  </data>
+  <data name="LaunchMenu_InstallRobloxStudio" xml:space="preserve">
+    <value>安装 Roblox Studio</value>
+  </data>
+  <data name="LaunchMenu_InstallRobloxStudio_Description" xml:space="preserve">
+    <value>下载到 Luckstrap 的 Versions 目录。</value>
   </data>
 </root>

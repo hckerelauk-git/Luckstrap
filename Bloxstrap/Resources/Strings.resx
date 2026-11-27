@@ -2506,7 +2506,10 @@ If the game needs one of them later, the client downloads it again.</value>
     <value>Studio</value>
   </data>
   <data name="Studio_Help" xml:space="preserve">
-    <value>Start Roblox Studio from here. The option below only affects launches made from Luckstrap.</value>
+    <value>Start Roblox Studio from here. If it is not installed yet, it gets downloaded into the Luckstrap folder.</value>
+  </data>
+  <data name="Studio_Missing_Installable" xml:space="preserve">
+    <value>Roblox Studio is not installed. It will be downloaded into the folder below.</value>
   </data>
   <data name="Studio_Launch" xml:space="preserve">
     <value>Launch Studio</value>
@@ -2537,5 +2540,14 @@ If the game needs one of them later, the client downloads it again.</value>
   </data>
   <data name="Studio_FolderFailed" xml:space="preserve">
     <value>Could not open the folder</value>
+  </data>
+  <data name="Studio_Install" xml:space="preserve">
+    <value>Install Studio</value>
+  </data>
+  <data name="LaunchMenu_InstallRobloxStudio" xml:space="preserve">
+    <value>Install Roblox Studio</value>
+  </data>
+  <data name="LaunchMenu_InstallRobloxStudio_Description" xml:space="preserve">
+    <value>Downloads into the Luckstrap Versions folder.</value>
   </data>
 </root>

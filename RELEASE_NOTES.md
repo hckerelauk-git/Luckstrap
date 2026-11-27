@@ -1,3 +1,4 @@
+- 启动菜单加了 Roblox Studio 入口，没装过时显示「安装 Roblox Studio」，装到 Luckstrap 的 Versions 目录
 - 新增工作室页，可以直接启动 Roblox Studio
 - 新增「启动前检查更新」开关，关闭后直接启动已安装的工作室
 

@@ -25,38 +25,36 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             bool installed = App.IsStudioVisible;
 
-            StateText.Text = installed ? Strings.Studio_Installed : Strings.Studio_Missing;
-
             if (installed)
             {
+                StateText.Text = Strings.Studio_Installed;
                 PathText.Text = new RobloxStudioData().Directory;
                 PathText.Visibility = Visibility.Visible;
+                LaunchButton.Content = Strings.Studio_Launch;
             }
             else
             {
-                PathText.Text = "";
-                PathText.Visibility = Visibility.Collapsed;
+                // 没装也能点：走 -studio 流程，Bootstrapper 会把工作室装到 Paths.Versions
+                StateText.Text = Strings.Studio_Missing_Installable;
+                PathText.Text = Paths.Versions;
+                PathText.Visibility = Visibility.Visible;
+                LaunchButton.Content = Strings.Studio_Install;
             }
 
-            LaunchButton.IsEnabled = installed;
+            LaunchButton.IsEnabled = true;
             FolderButton.IsEnabled = installed;
         }
 
         private void OnLaunch(object sender, RoutedEventArgs e)
         {
-            if (!App.IsStudioVisible)
-            {
-                ShowStatus(Strings.Studio_LaunchFailed, Strings.Studio_Missing, InfoBarSeverity.Warning);
-                return;
-            }
-
             try
             {
                 ProcessStartInfo psi;
 
-                if (App.Settings.Prop.StudioCheckForUpdates)
+                // 没装的时候必须走 Luckstrap，不然没有可执行文件可以拉起来
+                if (!App.IsStudioVisible || App.Settings.Prop.StudioCheckForUpdates)
                 {
-                    // 走完整流程：更新检查、FastFlags、模组都由 Luckstrap 处理。
+                    // 走完整流程：更新检查、安装、FastFlags、模组都由 Luckstrap 处理。
                     // 拉新进程而不是在设置窗口里直接启动，免得把设置窗口一起关掉
                     psi = new ProcessStartInfo
                     {
