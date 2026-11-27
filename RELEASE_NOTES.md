@@ -7,10 +7,10 @@
 
 | 文件 | 装运行时 | 大小 | 启动 |
 |---|---|---|---|
-| `Luckstrap-full.exe` | 不用 | 约 177MB | 1.3–1.6 秒 |
-| `Luckstrap-lite.exe` | .NET 10 桌面运行时 | 约 13MB | 1.5–2.0 秒 |
-| `Luckstrap-v*-win-x64-full-compressed.zip` | 不用 | 约 77MB | 2.3–3.0 秒 |
-| `Luckstrap-v*-win-x64-lite-compressed.zip` | .NET 10 桌面运行时 | 约 12MB | 1.2–1.5 秒 |
+| `Luckstrap-full.exe` | 不用 | 177MB | 1.3–1.6 秒 |
+| `Luckstrap-lite.exe` | .NET 10 桌面运行时 | 13MB | 1.5–2.0 秒 |
+| `Luckstrap-v*-win-x64-full-compressed.zip` | 不用 | 71MB | 2.3–3.0 秒 |
+| `Luckstrap-v*-win-x64-lite-compressed.zip` | .NET 10 桌面运行时 | 5MB | 1.2–1.5 秒 |
 
 两个 exe 都是单文件，下载下来直接双击。
 
