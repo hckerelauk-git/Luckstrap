@@ -15,7 +15,13 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     {
         public StudioPage()
         {
-            DataContext = new StudioViewModel();
+            var viewModel = new StudioViewModel();
+
+            // 选项行的按钮走命令绑定，结果从事件回过来，统一由页面弹 InfoBar
+            viewModel.StatusRequest += (_, status) =>
+                ShowStatus(status.Title, status.Message, status.Error ? InfoBarSeverity.Error : InfoBarSeverity.Success);
+
+            DataContext = viewModel;
             InitializeComponent();
 
             Loaded += (_, _) => RefreshState();

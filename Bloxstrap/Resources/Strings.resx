@@ -2550,4 +2550,31 @@ If the game needs one of them later, the client downloads it again.</value>
   <data name="LaunchMenu_InstallRobloxStudio_Description" xml:space="preserve">
     <value>Downloads into the Luckstrap Versions folder.</value>
   </data>
+  <data name="Studio_LocalFile" xml:space="preserve">
+    <value>Local files</value>
+  </data>
+  <data name="Studio_LocalFile_Header" xml:space="preserve">
+    <value>Local place file</value>
+  </data>
+  <data name="Studio_LocalFile_Description" xml:space="preserve">
+    <value>Pick a .rbxl or .rbxlx file to open in Studio, or create a desktop shortcut for it.</value>
+  </data>
+  <data name="Studio_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Studio_CreateShortcut" xml:space="preserve">
+    <value>Create shortcut</value>
+  </data>
+  <data name="Studio_PickFile" xml:space="preserve">
+    <value>Select a place file</value>
+  </data>
+  <data name="Studio_ShortcutCreated" xml:space="preserve">
+    <value>Shortcut created</value>
+  </data>
+  <data name="Studio_ShortcutExists" xml:space="preserve">
+    <value>Shortcut already exists</value>
+  </data>
+  <data name="Studio_ShortcutFailed" xml:space="preserve">
+    <value>Could not create the shortcut</value>
+  </data>
 </root>

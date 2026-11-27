@@ -1,3 +1,4 @@
+- 工作室页加了「本地文件」，可以选 .rbxl / .rbxlx 用工作室打开，或者建桌面快捷方式
 - 自更新按发行形态下载对应产物，lite 不会再被换成自包含版
 - lite-compressed 安装时连同依赖一起复制到安装目录
 - 启动菜单加了 Roblox Studio 入口，没装过时显示「安装 Roblox Studio」，装到 Luckstrap 的 Versions 目录

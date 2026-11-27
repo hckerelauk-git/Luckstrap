@@ -58,5 +58,20 @@
                                 Description="{x:Static resources:Strings.Studio_CheckUpdates_Description}">
             <ui:ToggleSwitch IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Studio_LocalFile}" Style="{StaticResource SectionTitle}" Margin="0,20,0,0" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Studio_LocalFile_Header}"
+                                Description="{x:Static resources:Strings.Studio_LocalFile_Description}">
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Content="{x:Static resources:Strings.Studio_Open}"
+                           Icon="Play24"
+                           Command="{Binding OpenLocalFileCommand}" />
+                <ui:Button Content="{x:Static resources:Strings.Studio_CreateShortcut}"
+                           Icon="DesktopEdit24"
+                           Margin="8,0,0,0"
+                           Command="{Binding CreateLocalShortcutCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

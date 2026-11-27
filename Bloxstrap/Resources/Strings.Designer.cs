@@ -6703,5 +6703,77 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("LaunchMenu_InstallRobloxStudio_Description", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to Local files.
+        /// </summary>
+        public static string Studio_LocalFile {
+            get {
+                return ResourceManager.GetString("Studio_LocalFile", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Local place file.
+        /// </summary>
+        public static string Studio_LocalFile_Header {
+            get {
+                return ResourceManager.GetString("Studio_LocalFile_Header", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a .rbxl or .rbxlx file.
+        /// </summary>
+        public static string Studio_LocalFile_Description {
+            get {
+                return ResourceManager.GetString("Studio_LocalFile_Description", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Studio_Open {
+            get {
+                return ResourceManager.GetString("Studio_Open", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Create shortcut.
+        /// </summary>
+        public static string Studio_CreateShortcut {
+            get {
+                return ResourceManager.GetString("Studio_CreateShortcut", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Select a place file.
+        /// </summary>
+        public static string Studio_PickFile {
+            get {
+                return ResourceManager.GetString("Studio_PickFile", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Shortcut created.
+        /// </summary>
+        public static string Studio_ShortcutCreated {
+            get {
+                return ResourceManager.GetString("Studio_ShortcutCreated", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Shortcut already exists.
+        /// </summary>
+        public static string Studio_ShortcutExists {
+            get {
+                return ResourceManager.GetString("Studio_ShortcutExists", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Could not create the shortcut.
+        /// </summary>
+        public static string Studio_ShortcutFailed {
+            get {
+                return ResourceManager.GetString("Studio_ShortcutFailed", resourceCulture);
+            }
+        }
     }
 }
