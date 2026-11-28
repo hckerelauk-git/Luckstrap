@@ -1,7 +1,4 @@
-- Help links next to settings options now point at Luckstrap's own wiki
-- Removed the "hide GUIs" option, it requires joining a Roblox group
-- The download button in the installer now opens Luckstrap's releases
-- Help links on the About page and in the uninstall info point at the wiki home
+- Web Discord status now shows the game thumbnail and the account avatar
 
 **Which file**
 
@@ -20,10 +17,7 @@ Unpacking a zip gives you `Luckstrap.exe`. The `full-compressed` build unpacks i
 
 ---
 
-- 设置里选项右边的帮助链接改为指向 Luckstrap 自己的 wiki
-- 去掉「隐藏界面」选项，它需要加入 Roblox 群组才生效
-- 安装界面的下载按钮改为打开 Luckstrap 的 releases
-- 关于页和卸载信息的帮助链接指向 wiki 首页
+- 网页版 Discord 状态显示游戏封面和账号头像
 
 **下载哪个**
 

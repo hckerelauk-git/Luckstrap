@@ -151,9 +151,11 @@ namespace Bloxstrap.Integrations
                     writer.WriteEndObject();
                 }
 
-                // 不发 assets。游戏封面是 Roblox 的图片直链，浏览器插件会把它当成
-                // 「本应用已上传的资源键」去 Discord 查，查不到还每次更新都白打一轮请求，
-                // 失败的话整条消息都可能被吞掉。网页上就纯文字，图的事交给 Discord 后台的应用图标
+                // 游戏封面和头像都是 Roblox 的图片直链。Discord 客户端认 http(s) 开头的
+                // 图片地址，fetchAssetIds 里有专门的分支走 external-assets 换成
+                // mp:external/... 的代理路径，所以这里直接发原地址就行。
+                // 不是 URL 的（比如应用后台上传的资源键）跳过，查不到还会拖慢整条消息
+                WriteAssets(writer, presence.Assets);
                 WriteButtons(writer, presence.Buttons);
 
                 writer.WriteEndObject();
@@ -165,6 +167,48 @@ namespace Bloxstrap.Integrations
             }
 
             return Encoding.UTF8.GetString(stream.ToArray());
+        }
+
+        private static void WriteAssets(Utf8JsonWriter writer, DiscordRPC.Assets? assets)
+        {
+            if (assets is null)
+                return;
+
+            bool hasLarge = IsHttpUrl(assets.LargeImageKey);
+            bool hasSmall = IsHttpUrl(assets.SmallImageKey);
+
+            if (!hasLarge && !hasSmall)
+                return;
+
+            writer.WritePropertyName("assets");
+            writer.WriteStartObject();
+
+            if (hasLarge)
+            {
+                writer.WriteString("large_image", assets.LargeImageKey);
+
+                if (!String.IsNullOrEmpty(assets.LargeImageText))
+                    writer.WriteString("large_text", assets.LargeImageText);
+            }
+
+            if (hasSmall)
+            {
+                writer.WriteString("small_image", assets.SmallImageKey);
+
+                if (!String.IsNullOrEmpty(assets.SmallImageText))
+                    writer.WriteString("small_text", assets.SmallImageText);
+            }
+
+            writer.WriteEndObject();
+        }
+
+        private static bool IsHttpUrl(string? value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return false;
+
+            return value.StartsWith("https://", StringComparison.OrdinalIgnoreCase)
+                || value.StartsWith("http://", StringComparison.OrdinalIgnoreCase);
         }
 
         private static void WriteButtons(Utf8JsonWriter writer, DiscordRPC.Button[]? buttons)
