@@ -34,7 +34,7 @@ namespace Bloxstrap
         public const string UpdateRepository = ProjectRepository;
 
         public const string ProjectDownloadLink = "https://github.com/hckerelauk-git/Luckstrap/releases";
-        public const string ProjectHelpLink = "https://github.com/hckerelauk-git/Luckstrap#readme";
+        public const string ProjectHelpLink = "https://github.com/hckerelauk-git/Luckstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/hckerelauk-git/Luckstrap/issues/new";
 
         /// <summary>

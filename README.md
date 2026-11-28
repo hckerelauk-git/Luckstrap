@@ -33,6 +33,18 @@
 
 覆盖安装即可。配置目录为 `%LOCALAPPDATA%\Luckstrap`，与 Bloxstrap 分开。
 
+## 文档
+
+设置里每个选项右边的 `?` 都指向对应的说明页。
+
+- [FastFlags 预设](https://github.com/hckerelauk-git/Luckstrap/wiki/FastFlags)
+- [游戏跟踪与 Discord 状态](https://github.com/hckerelauk-git/Luckstrap/wiki/Activity-Tracking)
+- [模组](https://github.com/hckerelauk-git/Luckstrap/wiki/Mods)
+- [快捷方式图标](https://github.com/hckerelauk-git/Luckstrap/wiki/Shortcut-Icons)
+- [游戏语言](https://github.com/hckerelauk-git/Luckstrap/wiki/Localisation)
+- [下载 Roblox 失败](https://github.com/hckerelauk-git/Luckstrap/wiki/Unable-to-download-Roblox)
+- [Roblox 崩溃或无法启动](https://github.com/hckerelauk-git/Luckstrap/wiki/Roblox-crashes-or-does-not-launch)
+
 ## 常见问题
 
 **会被封号吗**
@@ -57,7 +69,7 @@
 
 ## 编译
 
-需要 .NET 6 SDK。
+需要 .NET 10 SDK。
 
 ```
 dotnet publish Bloxstrap/Bloxstrap.csproj -c Release -r win-x64 --self-contained true -o publish
