@@ -3159,24 +3159,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toggled with [keyboard shortcuts]({0}). Only works if you&apos;re in the [Bloxstrap group]({1})..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_HideGuis_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.HideGuis.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable ability to hide GUIs.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_HideGuis_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.HideGuis.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0}).
         /// </summary>
         public static string Menu_FastFlags_Presets_LightingTechnology_Description {

@@ -118,16 +118,9 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/hckerelauk-git/Luckstrap/wiki/FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}" 
-            HelpLink="https://github.com/hckerelauk-git/Luckstrap/wiki/FastFlags#gui-hiding">
-            <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
             x:Name="FontPaddingOption"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/hckerelauk-git/Luckstrap/wiki/FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}">
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Description}">
             <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FontSize, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
         </controls:OptionControl>
 

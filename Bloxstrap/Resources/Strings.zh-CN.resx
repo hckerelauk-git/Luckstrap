@@ -633,12 +633,6 @@
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>帧率上限</value>
   </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>用[快捷键]({0})切换。需要加入 [Luckstrap 群组]({1}) 才生效</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>启用 隐藏/显示 GUI 的功能</value>
-  </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
     <value>对所有游戏生效。
 [可能导致光照异常]({0})</value>

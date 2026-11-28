@@ -34,7 +34,6 @@ namespace Bloxstrap
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
             { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
 
-            { "UI.Hide", "DFIntCanHideGuiGroupId" },
             { "UI.FontSize", "FIntFontSizePadding" },
 
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
