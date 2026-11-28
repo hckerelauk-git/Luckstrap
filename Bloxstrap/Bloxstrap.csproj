@@ -14,8 +14,8 @@
     <Product>Luckstrap</Product>
     <AssemblyTitle>Luckstrap</AssemblyTitle>
     <Company>Luckstrap</Company>
-    <Version>3.2.6</Version>
-    <FileVersion>3.2.6</FileVersion>
+    <Version>3.2.7</Version>
+    <FileVersion>3.2.7</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
