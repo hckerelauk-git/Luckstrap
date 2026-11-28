@@ -303,7 +303,7 @@ namespace Bloxstrap
                         Frontend.ShowBalloonTip(Strings.Bootstrapper_ModificationsFailed_Title, Strings.Bootstrapper_ModificationsFailed_Message, ToolTipIcon.Warning);
                 }
 
-                StartRoblox();
+                await StartRobloxAsync();
             }
 
             await mutex.ReleaseAsync();
@@ -348,7 +348,7 @@ namespace Bloxstrap
             if (String.IsNullOrEmpty(Deployment.Channel))
                 Deployment.Channel = Deployment.DefaultChannel;
 
-            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
+            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.Channel}");
 
             if (!Deployment.IsDefaultChannel)
                 App.SendStat("robloxChannel", Deployment.Channel);
@@ -474,7 +474,7 @@ namespace Bloxstrap
             }
         }
 
-        private void StartRoblox()
+        private async Task StartRobloxAsync()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
@@ -522,20 +522,29 @@ namespace Bloxstrap
             if (!Directory.Exists(rbxLogDir))
                 Directory.CreateDirectory(rbxLogDir);
 
-            var logWatcher = new FileSystemWatcher()
+            using var logWatcher = new FileSystemWatcher()
             {
                 Path = rbxLogDir,
                 Filter = "*.log",
                 EnableRaisingEvents = true
             };
 
-            var logCreatedEvent = new AutoResetEvent(false);
+            // 以前用 AutoResetEvent.WaitOne 阻塞等，现在改成等 Task。
+            // 顺带把句柄的生命周期交给 using，别每次启动漏一个 watcher
+            var logCreated = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
 
             logWatcher.Created += (_, e) =>
             {
-                logWatcher.EnableRaisingEvents = false;
-                logFileName = e.FullPath;
-                logCreatedEvent.Set();
+                try
+                {
+                    logWatcher.EnableRaisingEvents = false;
+                    logFileName = e.FullPath;
+                    logCreated.TrySetResult();
+                }
+                catch (ObjectDisposedException)
+                {
+                    // 方法已经返回、watcher 被释放了，这条晚到的事件直接忽略
+                }
             };
 
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
@@ -558,7 +567,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {_appPid}), waiting for log file");
 
-            logCreatedEvent.WaitOne(TimeSpan.FromSeconds(15));
+            await Task.WhenAny(logCreated.Task, Task.Delay(TimeSpan.FromSeconds(15)));
 
             if (String.IsNullOrEmpty(logFileName))
             {
@@ -571,7 +580,8 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Got log file as {logFileName}");
             }
 
-            _mutex?.ReleaseAsync();
+            if (_mutex is not null)
+                await _mutex.ReleaseAsync();
 
             if (IsStudioLaunch)
                 return;
@@ -630,7 +640,7 @@ namespace Bloxstrap
             }
 
             // allow for window to show, since the log is created pretty far beforehand
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
         }
 
         private bool ShouldRunAsAdmin()
@@ -835,9 +845,18 @@ namespace Bloxstrap
 
                 App.Settings.Save();
 
-                new InterProcessLock("AutoUpdater");
-                
-                Process.Start(startInfo);
+                // 这把锁必须显式释放。以前这里只写了 new 不接返回值，
+                // 对象一直挂在那儿，新进程起来要抢同一把锁，等 5 秒拿不到就直接放弃更新
+                using (var updateLock = new InterProcessLock("AutoUpdater", TimeSpan.FromSeconds(5)))
+                {
+                    if (!updateLock.IsAcquired)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Another instance is already updating, aborting");
+                        return false;
+                    }
+
+                    Process.Start(startInfo);
+                }
 
                 return true;
             }
@@ -859,25 +878,35 @@ namespace Bloxstrap
         #endregion
 
         #region Roblox Install
+        /// <summary>
+        /// 删掉版本目录里的客户端 exe，用来判断这个目录还能不能整个删。
+        /// 返回 false 表示 exe 正被占用（客户端在跑），这个目录先留着
+        /// </summary>
         private static bool TryDeleteRobloxInDirectory(string dir)
         {
-            string clientPath = Path.Combine(dir, "RobloxPlayerBeta.exe");
-            if (!File.Exists(dir))
+            // 这里以前写的是 File.Exists(dir)，拿目录去问 File.Exists 恒为 false，
+            // 于是函数永远返回 true，运行中的客户端保护等于没有
+            string[] executables = { "RobloxPlayerBeta.exe", "RobloxStudioBeta.exe" };
+
+            foreach (string name in executables)
             {
-                clientPath = Path.Combine(dir, "RobloxStudioBeta.exe");
-                if (!File.Exists(dir))
-                    return true; // ok???
+                string clientPath = Path.Combine(dir, name);
+
+                if (!File.Exists(clientPath))
+                    continue;
+
+                try
+                {
+                    File.Delete(clientPath);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
 
-            try
-            {
-                File.Delete(clientPath);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            // 一个 exe 都没有，说明这目录本来就是残的，可以删
+            return true;
         }
 
         public static void CleanupVersionsFolder()
@@ -1117,7 +1146,16 @@ namespace Bloxstrap
 
                         App.Logger.WriteLine(LOG_IDENT, "Finished installing runtime");
 
-                        Directory.Delete(baseDirectory, true);
+                        try
+                        {
+                            Directory.Delete(baseDirectory, true);
+                        }
+                        catch (Exception ex)
+                        {
+                            // 装完清不掉只是留了点垃圾，不能因此把已经完成的安装判成失败
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to remove the WebView2 installer folder");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
             }
@@ -1277,7 +1315,23 @@ namespace Bloxstrap
                 Directory.Delete(modFontFamiliesFolder, true);
             }
 
-            foreach (string file in Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories))
+            string[] modificationFiles;
+
+            try
+            {
+                modificationFiles = Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                // 某个子目录没权限的时候，以前这里会把整次启动打断。
+                // 模组没应用上是小事，游戏起不来是大事
+                App.Logger.WriteLine(LOG_IDENT, "Failed to enumerate the modifications folder");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                modificationFiles = Array.Empty<string>();
+            }
+
+            foreach (string file in modificationFiles)
             {
                 if (_cancelTokenSource.IsCancellationRequested)
                     return true;

@@ -10,7 +10,7 @@ namespace Bloxstrap.Models.SettingTasks
                 return null;
 
             using var fileStream = File.OpenRead(Paths.CustomFont);
-            return MD5Hash.Stringify(App.MD5Provider.ComputeHash(fileStream));
+            return MD5Hash.FromStream(fileStream);
         }
 
         public FontModPresetTask() : base("ModPreset", "TextFont")

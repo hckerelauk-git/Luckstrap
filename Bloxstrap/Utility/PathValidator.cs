@@ -76,7 +76,18 @@ namespace Bloxstrap.Utility
 
         public static ValidationResult IsPathValid(string path)
         {
-            string? pathRoot = Path.GetPathRoot(path);
+            string? pathRoot;
+
+            try
+            {
+                pathRoot = Path.GetPathRoot(path);
+            }
+            catch (ArgumentException)
+            {
+                // 非法字符多到 Path 自己都不认了，直接按非法字符处理
+                return ValidationResult.IllegalCharacter;
+            }
+
             string pathNoRoot = pathRoot != null ? path[pathRoot.Length..] : path;
 
             string[] pathParts = pathNoRoot.Split(_directorySeperatorDelimiters);
@@ -86,7 +97,8 @@ namespace Bloxstrap.Utility
                 if (part.IndexOfAny(_invalidPathChars) != -1)
                     return ValidationResult.IllegalCharacter;
 
-                if (_reservedNames.Contains(part))
+                // Windows 的保留名不区分大小写，con 和 CON 一样不能用
+                if (_reservedNames.Contains(part.ToUpperInvariant()))
                     return ValidationResult.ReservedDirectoryName;
             }
 

@@ -125,8 +125,6 @@ namespace Bloxstrap
 
         public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
-        public static readonly MD5 MD5Provider = MD5.Create();
-
         public static readonly Logger Logger = new();
 
         public static readonly Dictionary<string, BaseTask> PendingSettingTasks = new();
@@ -232,27 +230,6 @@ namespace Bloxstrap
             Logger.Dispose();
 
             Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
-        }
-
-        void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            e.Handled = true;
-
-            Logger.WriteLine("App::GlobalExceptionHandler", "An exception occurred");
-
-            // 网络类的异常不该把整个程序退掉。以前 ipinfo.io 连不上都会弹框退出，
-            // 表现就是「一进游戏就报 SSL 错误」。这类问题记日志，让程序继续跑
-            if (e.Exception is HttpRequestException
-                or TaskCanceledException
-                or OperationCanceledException
-                or System.Net.Sockets.SocketException)
-            {
-                Logger.WriteLine("App::GlobalExceptionHandler", "Network failure, logging and continuing");
-                Logger.WriteException("App::GlobalExceptionHandler", e.Exception);
-                return;
-            }
-
-            FinalizeExceptionHandling(e.Exception);
         }
 
         public static void FinalizeExceptionHandling(AggregateException ex)

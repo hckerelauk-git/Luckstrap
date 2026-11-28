@@ -76,7 +76,28 @@ namespace Bloxstrap.Utility
             Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
 
             // 原文件是紧凑的单行 json，这里也写成紧凑的，尽量少改它的样子
-            File.WriteAllText(FilePath, node.ToJsonString());
+            string contents = node.ToJsonString();
+
+            // 先写临时文件再换。这个文件是 Roblox 的登录态，
+            // 写到一半被打断就等于把人家账号踢下线，还得重新登
+            string temp = FilePath + ".tmp";
+
+            File.WriteAllText(temp, contents);
+
+            try
+            {
+                if (File.Exists(FilePath))
+                    File.Replace(temp, FilePath, null, true);
+                else
+                    File.Move(temp, FilePath);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                // 被 Roblox 占着的时候替换会失败，退回直接覆盖
+                App.Logger.WriteLine("RobloxCookies::WriteBlob", $"原子替换失败，改为直接覆盖：{ex.Message}");
+
+                File.Move(temp, FilePath, true);
+            }
         }
 
         /// <summary>解开 base64 取出 .ROBLOSECURITY 的值。解不开或者没找到都返回 null。</summary>

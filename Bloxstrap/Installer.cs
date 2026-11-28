@@ -326,7 +326,19 @@ namespace Bloxstrap
                 });
             }
 
-            bool deleteFolder = Directory.GetFiles(Paths.Base).Length <= 3;
+            bool deleteFolder = false;
+
+            try
+            {
+                // 用户手删过安装目录的时候，这里以前会抛 DirectoryNotFoundException，
+                // 整个卸载流程就断在半路
+                deleteFolder = Directory.GetFiles(Paths.Base).Length <= 3;
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not inspect the install folder");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
 
             if (deleteFolder)
                 cleanupSequence.Add(() => Directory.Delete(Paths.Base, true));
@@ -420,6 +432,8 @@ namespace Bloxstrap
 
             Filesystem.AssertReadOnly(Paths.Application);
 
+            // 这把锁要盖住整个拷贝过程。以前 using 块在 File.Copy 之前就结束了，
+            // 真正写文件的时候两个实例可以同时进来，写出半截 exe 就再也起不来
             using (var ipl = new InterProcessLock("AutoUpdater", TimeSpan.FromSeconds(5)))
             {
                 if (!ipl.IsAcquired)
@@ -427,31 +441,31 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not obtain singleton mutex)");
                     return;
                 }
-            }
 
-            // prior to 2.8.0, auto-updating was handled with this... bruteforce method
-            // now it's handled with the system mutex you see above, but we need to keep this logic for <2.8.0 versions
-            for (int i = 1; i <= 10; i++)
-            {
-                try
+                // prior to 2.8.0, auto-updating was handled with this... bruteforce method
+                // now it's handled with the system mutex you see above, but we need to keep this logic for <2.8.0 versions
+                for (int i = 1; i <= 10; i++)
                 {
-                    File.Copy(Paths.Process, Paths.Application, true);
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    if (i == 1)
+                    try
                     {
-                        App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
+                        File.Copy(Paths.Process, Paths.Application, true);
+                        break;
                     }
-                    else if (i == 10)
+                    catch (Exception ex)
                     {
-                        App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 10 tries/5 seconds)");
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                        return;
-                    }
+                        if (i == 1)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
+                        }
+                        else if (i == 10)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 10 tries/5 seconds)");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                            return;
+                        }
 
-                    Thread.Sleep(500);
+                        Thread.Sleep(500);
+                    }
                 }
             }
 

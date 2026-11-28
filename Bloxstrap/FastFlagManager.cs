@@ -166,7 +166,8 @@ namespace Bloxstrap
             {
                 if (Prop.ContainsKey(key))
                 {
-                    if (key == Prop[key].ToString())
+                    // 这里以前比的是 key 和值，永远不相等，早退从来没生效过
+                    if (Prop[key]?.ToString() == value.ToString())
                         return;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Changing of '{key}' from '{Prop[key]}' to '{value}' is pending");
@@ -250,14 +251,17 @@ namespace Bloxstrap
         {
             base.Load(alertFailure);
 
-            // clone the dictionary
+            // 只在缺键（或值为空）的时候补默认值。
+            // 以前是每次加载都无条件 SetPreset，用户手动改过的值会被直接覆盖掉
+            if (String.IsNullOrEmpty(GetValue(PresetFlags["Network.Log"])))
+                SetValue(PresetFlags["Network.Log"], "7");
+
+            if (String.IsNullOrEmpty(GetValue(PresetFlags["Rendering.ManualFullscreen"])))
+                SetValue(PresetFlags["Rendering.ManualFullscreen"], "False");
+
+            // 补完默认值再克隆。顺序反了的话 Changed 一启动就是 true，
+            // 每次关设置窗口都会问一遍要不要保存
             OriginalProp = new(Prop);
-
-            if (GetPreset("Network.Log") != "7")
-                SetPreset("Network.Log", "7");
-
-            if (GetPreset("Rendering.ManualFullscreen") != "False")
-                SetPreset("Rendering.ManualFullscreen", "False");
         }
     }
 }

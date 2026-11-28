@@ -11,14 +11,56 @@ namespace Bloxstrap.Utility
     {
         internal static long GetFreeDiskSpace(string path)
         {
-            foreach (var drive in DriveInfo.GetDrives())
+            if (String.IsNullOrEmpty(path))
+                return -1;
+
+            string fullPath;
+
+            try
             {
-                // https://github.com/bloxstraplabs/bloxstrap/issues/1648#issuecomment-2192571030
-                if (path.ToUpperInvariant().StartsWith(drive.Name))
-                    return drive.AvailableFreeSpace;
+                fullPath = Path.GetFullPath(path);
+            }
+            catch (Exception)
+            {
+                fullPath = path;
             }
 
-            return -1;
+            long freeSpace = -1;
+            int matchedLength = 0;
+
+            try
+            {
+                foreach (var drive in DriveInfo.GetDrives())
+                {
+                    try
+                    {
+                        // 取最长匹配，避免把 C:\ 当成 C:\Users\... 的归属盘
+                        if (!fullPath.StartsWith(drive.Name, StringComparison.OrdinalIgnoreCase))
+                            continue;
+
+                        if (drive.Name.Length <= matchedLength)
+                            continue;
+
+                        // 空的读卡器、断开的网络盘在这里会抛 IOException。
+                        // 以前没有兜底，机器上插个读卡器就能让启动直接失败
+                        freeSpace = drive.AvailableFreeSpace;
+                        matchedLength = drive.Name.Length;
+                    }
+                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+                    {
+                        App.Logger.WriteLine("Filesystem::GetFreeDiskSpace", $"Could not read free space of {drive.Name}: {ex.Message}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("Filesystem::GetFreeDiskSpace", "Could not enumerate drives");
+                App.Logger.WriteException("Filesystem::GetFreeDiskSpace", ex);
+
+                return -1;
+            }
+
+            return freeSpace;
         }
 
         internal static void AssertReadOnly(string filePath)
@@ -56,16 +98,45 @@ namespace Bloxstrap.Utility
 
             Directory.CreateDirectory(targetDir);
 
-            string[] patterns = { $"{App.ProjectName}*.exe", "*.dll", "*.json", "*.txt" };
+            string[] files;
 
-            foreach (string pattern in patterns)
+            try
             {
-                foreach (string file in Directory.GetFiles(sourceDir, pattern))
-                {
-                    string target = Path.Combine(targetDir, Path.GetFileName(file));
+                // 递归取全部文件。以前只扫顶层，产物里只要出现子目录
+                // （runtimes、satellite 程序集之类）就会漏拷，装完起不来
+                files = Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                App.Logger.WriteLine("Filesystem::CopyPayloadFolder", $"Failed to enumerate {sourceDir}");
+                App.Logger.WriteException("Filesystem::CopyPayloadFolder", ex);
 
-                    if (String.Equals(file, target, StringComparison.OrdinalIgnoreCase))
-                        continue;
+                return;
+            }
+
+            foreach (string file in files)
+            {
+                string fileName = Path.GetFileName(file);
+
+                bool isPayload =
+                    fileName.EndsWith(".dll", StringComparison.OrdinalIgnoreCase)
+                    || fileName.EndsWith(".json", StringComparison.OrdinalIgnoreCase)
+                    || fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase)
+                    || (fileName.StartsWith(App.ProjectName, StringComparison.OrdinalIgnoreCase)
+                        && fileName.EndsWith(".exe", StringComparison.OrdinalIgnoreCase));
+
+                if (!isPayload)
+                    continue;
+
+                // 保留相对路径，子目录里的依赖才能落到同一个位置
+                string target = Path.Combine(targetDir, Path.GetRelativePath(sourceDir, file));
+
+                if (String.Equals(file, target, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                try
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(target)!);
 
                     FileInfo targetInfo = new(target);
 
@@ -73,6 +144,11 @@ namespace Bloxstrap.Utility
                         targetInfo.IsReadOnly = false;
 
                     File.Copy(file, target, true);
+                }
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+                {
+                    App.Logger.WriteLine("Filesystem::CopyPayloadFolder", $"Failed to copy {file} to {target}");
+                    App.Logger.WriteException("Filesystem::CopyPayloadFolder", ex);
                 }
             }
         }

@@ -97,10 +97,10 @@ namespace Bloxstrap.RobloxInterfaces
             }
         }
 
-        public T? Get<T>(string name)
-        {
-            return GetAsync<T>(name).Result;
-        }
+        // 同步版本（GetAsync(...).Result）已经删掉了。
+        // 它会在 UI 线程上死锁：Fetch 里的 await 没有 ConfigureAwait(false)，
+        // 续体会排队等 UI 线程，而 UI 线程正卡在 .Result 上等这个续体。
+        // 要读就用 GetAsync。
 
         // _cache[applicationName][channelName]
         private static Dictionary<string, Dictionary<string, ApplicationSettings>> _cache = new();
