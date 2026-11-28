@@ -393,7 +393,8 @@ namespace Bloxstrap
         }
 
         /// <summary>
-        /// UI 线程上没接住的异常。记下来然后吃掉，别让用户看到窗口直接消失
+        /// UI 线程上没接住的异常。记下来然后吃掉，别让用户看到窗口直接消失。
+        /// App.xaml 里的 DispatcherUnhandledException 指向这个方法
         /// </summary>
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
@@ -441,9 +442,8 @@ namespace Bloxstrap
 
             base.OnStartup(e);
 
-            // 全局兜底。设置页里一堆 async void 事件处理器，任何一处漏接异常以前都是直接闪退，
-            // 用户只看到窗口消失，日志里什么都没有。这里接住、记日志，让程序继续跑
-            DispatcherUnhandledException += OnDispatcherUnhandledException;
+            // 全局兜底。UI 线程那一份挂在 App.xaml 的 DispatcherUnhandledException 上，
+            // 这里只补后台 Task 的这一路
             TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");

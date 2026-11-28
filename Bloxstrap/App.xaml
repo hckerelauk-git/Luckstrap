@@ -6,7 +6,7 @@
              xmlns:converters="clr-namespace:Bloxstrap.UI.Converters"
              xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
              ShutdownMode="OnExplicitShutdown"
-             DispatcherUnhandledException="GlobalExceptionHandler">
+             DispatcherUnhandledException="OnDispatcherUnhandledException">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
